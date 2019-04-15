@@ -1,0 +1,9 @@
+{% macro popover_uri(label, title, uri=None, heading_type=None) %}
+    {% if heading_type %}
+        <{{ heading_type }} class="card-title"><a tabindex="0" class="" role="button" data-toggle="popover" data-trigger="focus" title="{{ title }}" data-content="<a href='{{ uri }}'>{{ uri }}</a>">{{ label }}</a></{{ heading_type }}>
+    {% elif not uri %}
+        <a tabindex="0" class="" role="button" data-toggle="popover" data-trigger="focus" title="{{ title }}" data-content="<em>Not available</em></a>">{{ h.uri_label(label) }}</a>
+    {% else %}
+        <a tabindex="0" class="" role="button" data-toggle="popover" data-trigger="focus" title="{{ title }}" data-content="<a href='{{ uri }}'>{{ uri }}</a>">{{ h.uri_label(label) }}</a>
+    {% endif %}
+{% endmacro %}

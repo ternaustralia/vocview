@@ -1,0 +1,16 @@
+{% macro render_broaders(broaders) %}
+    {% if broaders %}
+
+        {{ popover_uri('Broaders', 'URI', 'http://www.w3.org/2004/02/skos/core#broader', 'h5') }}
+
+        <ul>
+            {% for broader in broaders%}
+
+                    <li><a href="/object?uri={{ broader[0] }}">{{ broader[1] }}</a></li>
+
+            {% endfor %}
+        </ul>
+
+    {% endif %}
+
+{% endmacro %}

@@ -1,0 +1,6 @@
+flask
+pyyaml
+rdflib
+munch
+owlrl
+markdown

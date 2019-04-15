@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>SKOS Viewer</h1>
+
+    <p>Number of triples: {{ length }}</p>
+
+    <h2>Concept Schemes</h2>
+    <ul>
+        {% for cc in concept_schemes %}
+            <li>
+                <a href="/object?uri={{ cc.uri }}">{{ cc.label }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

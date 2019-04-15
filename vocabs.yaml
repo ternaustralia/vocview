@@ -1,0 +1,20 @@
+download:
+  corveg:
+    source: https://demo.ands.org.au/vocabs-registry/api/resource/downloads/764/ands-nc_corveg_v-1.ttl
+    format: turtle
+  address_types:
+    source: https://vocabs.ands.org.au/registry/api/resource/downloads/671/psma_address-types_1-0.ttl
+    format: turtle
+  alteration_type:
+    source: https://vocabs.ands.org.au/registry/api/resource/downloads/175/ga_alteration-type_v0-1.ttl
+    format: turtle
+local:
+  skos:
+    source: skos.rdf
+    format: xml
+  cover_methods:
+    source: cover-methods.ttl
+    format: turtle
+  disturbance_assessment:
+    source: disturbance-assessment.ttl
+    format: turtle

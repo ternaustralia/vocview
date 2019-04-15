@@ -1,0 +1,11 @@
+{% macro render_alt_labels(alt_labels) %}
+    {% if alt_labels %}
+        {{ popover_uri('Also known as', 'URI', 'http://www.w3.org/2004/02/skos/core#altLabel') }}
+
+        {% if alt_labels %}
+            {% for lab in alt_labels %}
+                <em>{{ lab }}{% if loop.index != alt_labels|length %},{% endif %}</em>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+{% endmacro %}

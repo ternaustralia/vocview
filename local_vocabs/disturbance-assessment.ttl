@@ -1,0 +1,95 @@
+# baseURI: http://linked.data.gov.au/cv/corveg/corveg-methods
+# imports: http://www.w3.org/2004/02/skos/core
+# imports: http://www.w3.org/ns/sosa/
+
+@prefix corveg: <http://linked.data.gov.au/dataset/corveg/> .
+@prefix cv-corveg: <http://linked.data.gov.au/cv/corveg/> .
+@prefix data: <http://www.tern.org.au/ns/data/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogroup: <http://linked.data.gov.au/cv/ogroup/> .
+@prefix op: <http://www.tern.org.au/cv/op/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plot: <http://www.tern.org.au/ns/plot/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix site-corveg: <http://linked.data.gov.au/dataset/corveg/site/> .
+@prefix site-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-strata/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn-ext: <http://www.w3.org/ns/ssn/ext/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cv-corveg:corveg-methods
+a owl:Ontology ;
+owl:imports <http://www.w3.org/2004/02/skos/core> ;
+owl:imports sosa: ;
+.
+cv-corveg:disturbance-assessment-methods
+a skos:ConceptScheme ;
+skos:prefLabel "Disturbance Assessment Methods" ;
+rdfs:comment "Description of disturbance assessment methods used in CORVEG Methodology." ;
+.
+cv-corveg:methods-disturbance-assessment
+a skos:Concept ;
+a sosa:Procedure ;
+skos:inScheme cv-corveg:disturbance-assessment-methods ;
+skos:topConceptOf cv-corveg:disturbance-assessment-methods ;
+dct:source "Methodology for Survey and Mapping of Regional Ecosystems and Vegetation Communities in Queensland Version 5.0" ;
+dcterms:bibliographicCitation "Neldner, V.J., Wilson, B.A., Dillewaard, H.A., Ryan, T.S., Butler, D.W., McDonald, W.J.F, Addicott,E.P. and Appelman, C.N. (2019) Methodology for survey and mapping of regional ecosystems and vegetation communities in Queensland. Version 5.0. Updated March 2019. Queensland Herbarium, Queensland Department of Environment and Science, Brisbane." ;
+rdfs:isDefinedBy <https://publications.qld.gov.au/dataset/d8244c14-d879-4a11-878c-2b6d4f01a932/resource/6dee78ab-c12c-4692-9842-b7257c2511e4> ;
+skos:definition """The disturbance data are designed to record whether the site may be unrepresentative because they have been subject to abnormal disturbance. Therefore, generally sites will only be located in a disturbed area where no undisturbed sites could be located. Disturbance abundance estimates are made for the proportion of the disturbance occurring within the 10 m to 50 m quadrat into the classes listed in Table 14. These fields are left blank where disturbances are absent.
+
+###### Storm damage
+- This is identifiable by the presence of broken branches in the crowns. Estimate the proportion of
+crown cover damaged on the site and the age of the damage using Table 14.
+
+###### Logging
+- Record the number of stumps in the site.
+
+###### Ringbarking, poisoning, thinning
+- Record the number of stems in the site.
+
+###### Grazing
+- Grazing by domestic stock, feral animals and native animals evident in damage to the ground layer
+plants and/or presence of animal faeces or tracks is recorded as:
+    - not apparent
+    - present
+    - severe (enough to make major impact on ground cover abundance or composition).
+
+###### Extensive clearing
+A record of if the site has been previously cleared/thinned and regrown. Recorded as:
+
+- not apparent
+- present (i.e. most of the vegetation is regrowth from a previous clearing/thinning event).
+
+###### Animal diggings
+These are recorded as:
+
+- not apparent
+- present.
+
+###### Roadworks
+Record old snig tracks and other tracks; record proportion and age of the site affected using Table 14.
+
+###### Salinity
+Record the proportion of the site affected by severe anthropogenic-caused salinity.
+
+###### Fire
+Record the proportion of the site burnt, age (from above) and tallest vegetation impacted by fire from table 15.
+
+###### Weeds
+The percentage cover of exotic species at the site is estimated. In the case of secondary sites this
+figure is derived by adding the cover of weed species from the comprehensive species list (the cover values are added ignoring any overlap between strata).
+
+###### Erosion
+An estimate of the area as a proportion (Table 14) and type and severity of accelerated erosion (Table 16: as compared to natural erosion as discussed by McDonald, Isbell and Speight 2009) is recorded.""" ;
+skos:prefLabel "Disturbance Assessment Method" ;
+skos:closeMatch <http://vocabs.lter-europe.net/EnvThes/20110> ;
+skos:closeMatch <http://vocabs.lter-europe.net/EnvThes/20225> ;
+skos:closeMatch <http://vocabs.lter-europe.net/EnvThes/20125> ;
+.

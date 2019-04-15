@@ -1,0 +1,11 @@
+{% macro render_definition(definition) %}
+
+    {% if definition %}
+        {{ popover_uri('Definition', 'URI', 'http://www.w3.org/2004/02/skos/core#definition', 'h5') }}
+
+        <p class="card-text">
+            {{ definition|safe }}
+        </p>
+    {% endif %}
+
+{% endmacro %}

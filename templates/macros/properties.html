@@ -1,0 +1,12 @@
+{% macro render_properties(properties) %}
+    {% if properties %}
+        {% for property in properties %}
+            {% if property[0][1] %}
+                {{ popover_uri(h.uri_label(property[0][1]), 'URI', property[0][0], 'h5') }}
+            {% else %}
+                {{ popover_uri(h.uri_label(property[0][0]), 'URI', property[0][0], 'h5') }}
+            {% endif %}
+            {{ property[1] }}
+        {% endfor %}
+    {% endif %}
+{% endmacro %}

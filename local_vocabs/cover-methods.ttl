@@ -1,0 +1,80 @@
+@prefix apc: <http://linked.data.gov.au/dataset/apc/> .
+@prefix apni: <http://linked.data.gov.au/dataset/apni/> .
+@prefix biod: <http://linked.data.gov.au/cv/biodiversity/> .
+@prefix corveg: <http://linked.data.gov.au/dataset/corveg/> .
+@prefix corveg-def: <http://linked.data.gov.au/def/corveg/> .
+@prefix cv-corveg: <http://linked.data.gov.au/cv/corveg/> .
+@prefix data: <http://www.tern.org.au/ns/data/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix disturbance: <http://linked.data.gov.au/dataset/corveg/disturbance/> .
+@prefix dwct: <http://rs.tdwg.org/dwc/terms/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix location-corveg: <http://linked.data.gov.au/dataset/corveg/location/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogroup: <http://linked.data.gov.au/cv/ogroup/> .
+@prefix op: <http://www.tern.org.au/cv/op/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plot: <http://www.tern.org.au/ns/plot/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix site-corveg: <http://linked.data.gov.au/dataset/corveg/site/> .
+@prefix site-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-strata/> .
+@prefix site-tax-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-tax-strata/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn-ext: <http://www.w3.org/ns/ssn/ext/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cv-corveg:cover-methods a skos:ConceptScheme ;
+    skos:prefLabel "Cover methods" ;
+    rdfs:comment "Vocabulary of cover method terms used in CORVEG." ;
+    skos:altLabel "Cov. methods", "Cov. meth.", "C. M.", "COVER METHODS" ;
+    dcterms:created "2019-04-10"^^xsd:dateTime ;
+.
+
+cv-corveg:cover-method-i a skos:Concept,
+        sosa:Procedure ;
+    skos:definition "Line intercept" ;
+    skos:hiddenLabel "3" ;
+    skos:notation "I" ;
+    skos:prefLabel "Line intercept" ;
+    skos:inScheme cv-corveg:cover-methods ;
+    dcterms:bibliographicCitation "Neldner, V.J., Wilson, B.A., Dillewaard, H.A., Ryan, T.S. and Butler, D.W. (2017) Methodology for Survey and Mapping of Regional Ecosystems and Vegetation Communities in Queensland. Version 4.0. Updated May 2017. Queensland Herbarium, Queensland Department of Science, Information Technology and Innovation, Brisbane. 124 pp." ;
+    skos:topConceptOf cv-corveg:cover-methods ;
+.
+
+cv-corveg:cover-method-l a skos:Concept,
+        sosa:Procedure ;
+    skos:definition "Photographic (e.g. fish-eye lens)" ;
+    skos:hiddenLabel "1" ;
+    skos:notation "L" ;
+    skos:prefLabel "Photographic" ;
+    skos:inScheme cv-corveg:cover-methods ;
+    dcterms:bibliographicCitation "Neldner, V.J., Wilson, B.A., Dillewaard, H.A., Ryan, T.S. and Butler, D.W. (2017) Methodology for Survey and Mapping of Regional Ecosystems and Vegetation Communities in Queensland. Version 4.0. Updated May 2017. Queensland Herbarium, Queensland Department of Science, Information Technology and Innovation, Brisbane. 124 pp." ;
+    skos:topConceptOf cv-corveg:cover-methods ;
+.
+
+cv-corveg:cover-methods-unrecorded a skos:Concept,
+        sosa:Procedure ;
+    skos:definition "Unrecorded." ;
+    skos:hiddenLabel "999" ;
+    skos:notation "null" ;
+    skos:prefLabel "Unrecorded" ;
+    skos:inScheme cv-corveg:cover-methods ;
+    dcterms:bibliographicCitation "Neldner, V.J., Wilson, B.A., Dillewaard, H.A., Ryan, T.S. and Butler, D.W. (2017) Methodology for Survey and Mapping of Regional Ecosystems and Vegetation Communities in Queensland. Version 4.0. Updated May 2017. Queensland Herbarium, Queensland Department of Science, Information Technology and Innovation, Brisbane. 124 pp." ;
+    skos:topConceptOf cv-corveg:cover-methods ;
+.
+
+cv-corveg:cover-method-v a skos:Concept,
+        sosa:Procedure ;
+    skos:definition "Visual estimate of cover in subordinate layers" ;
+    skos:hiddenLabel "2" ;
+    skos:notation "V" ;
+    skos:prefLabel "Visual estimate" ;
+    skos:inScheme cv-corveg:cover-methods ;
+    dcterms:bibliographicCitation "Neldner, V.J., Wilson, B.A., Dillewaard, H.A., Ryan, T.S. and Butler, D.W. (2017) Methodology for Survey and Mapping of Regional Ecosystems and Vegetation Communities in Queensland. Version 4.0. Updated May 2017. Queensland Herbarium, Queensland Department of Science, Information Technology and Innovation, Brisbane. 124 pp." ;
+    skos:topConceptOf cv-corveg:cover-methods ;
+.

@@ -1,0 +1,19 @@
+{% macro date_created(created) %}
+    <span class="card-title">{{ popover_uri('Date created:', 'URI', 'http://purl.org/dc/terms/created') }}
+        {% if created %}
+            {{ created }}
+        {% else %}
+            <em>not supplied</em>
+        {% endif %}
+    </span>
+{% endmacro %}
+
+{% macro date_modified(modified) %}
+    <span class="card-title">{{ popover_uri('Date modified:', 'URI', 'http://purl.org/dc/terms/modified') }}
+        {% if modified %}
+            {{ modified }}
+        {% else %}
+            <em>not supplied</em>
+        {% endif %}
+    </span>
+{% endmacro %}

@@ -1,0 +1,9 @@
+{% macro render_change_note(change_note) %}
+    {% if change_note %}
+        {{ popover_uri('Change note', 'URI', 'http://www.w3.org/2004/02/skos/core#changeNote', 'h5') }}
+
+        <p class="card-text">
+            {{ change_note }}
+        </p>
+    {% endif %}
+{% endmacro %}

@@ -1,0 +1,7 @@
+{% if cc.change_note %}
+    {{ popover_uri('Change note', 'URI', 'http://www.w3.org/2004/02/skos/core#changeNote', 'h6') }}
+
+    <p class="card-text">
+        {{ cc.change_note }}
+    </p>
+{% endif %}

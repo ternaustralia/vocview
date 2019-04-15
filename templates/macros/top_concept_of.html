@@ -1,0 +1,16 @@
+{% macro render_top_concept_of(tcos) %}
+    {% if tcos %}
+
+        {{ popover_uri('Top concept of', 'URI', 'http://www.w3.org/2004/02/skos/core#topConceptOf', 'h5') }}
+
+        <ul>
+            {% for tco in tcos%}
+
+                    <li><a href="/object?uri={{ tco[0] }}">{{ tco[1] }}</a></li>
+
+            {% endfor %}
+        </ul>
+
+    {% endif %}
+
+{% endmacro %}

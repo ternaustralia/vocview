@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% from "macros/popover.html" import popover_uri with context %}
+{% from "macros/date-metadata.html" import date_created, date_modified with context %}
+{% from "macros/header.html" import render_header with context %}
+{% from "macros/description.html" import render_description with context %}
+{% from "macros/change-note.html" import render_change_note with context %}
+{% from "macros/label.html" import render_label with context %}
+{% from "macros/definition.html" import render_definition with context %}
+{% from "macros/top_concept_of.html" import render_top_concept_of with context %}
+{% from "macros/broaders.html" import render_broaders with context %}
+{% from "macros/narrowers.html" import render_narrowers with context %}
+{% from "macros/alt_labels.html" import render_alt_labels with context %}
+{% from "macros/properties.html" import render_properties with context %}
+
+{% block content %}
+
+
+    <div class="card">
+
+        {{ render_header(c.class_types, skos_class) }}
+
+        <div class="card-body">
+
+            {{ render_label(c.uri, c.label) }}
+
+            {{ render_alt_labels(c.alt_labels) }}
+
+            <p>
+                {{ date_created(c.created) }}<br>
+
+                {{ date_modified(c.modified) }}
+            </p>
+
+
+            {{ render_description(c.description) }}
+
+            {{ render_definition(c.definition) }}
+
+            {{ render_top_concept_of(c.top_concept_of) }}
+
+            {{ render_broaders(c.broaders) }}
+
+            {{ render_narrowers(c.narrowers) }}
+
+            {% if c.top_concepts %}
+                {{ popover_uri('Top concepts', 'URI', 'http://www.w3.org/2004/02/skos/core#hasTopConcept', 'h5') }}
+                <ul>
+                    {% for tc in c.top_concepts %}
+                        <li><a href="/object?uri={{ tc[0] }}">{{ tc[1] }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            {{ render_change_note(c.change_note) }}
+
+            {{ render_properties(c.properties) }}
+
+        </div>
+    </div>
+
+{% endblock %}

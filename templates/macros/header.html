@@ -1,0 +1,7 @@
+{% macro render_header(class_types, skos_type) %}
+    <div class="card-header">{{ skos_type }} |
+        {% for type in class_types %}
+            {{ popover_uri(type, 'URI', type) }}|
+        {% endfor %}
+    </div>
+{% endmacro %}
