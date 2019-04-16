@@ -33,6 +33,7 @@ cv-corveg:cover-methods a skos:ConceptScheme ;
     rdfs:comment "Vocabulary of cover method terms used in CORVEG." ;
     skos:altLabel "Cov. methods", "Cov. meth.", "C. M.", "COVER METHODS" ;
     dcterms:created "2019-04-10"^^xsd:dateTime ;
+    dcterms:creator "e.chuc@uq.edu.au" ;
 .
 
 cv-corveg:cover-method-i a skos:Concept,

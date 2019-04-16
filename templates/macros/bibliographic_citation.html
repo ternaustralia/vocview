@@ -2,6 +2,6 @@
     {% if bib_cit %}
         {{ popover_uri('Bibliographic citation', 'URI',	'http://purl.org/dc/terms/bibliographicCitation', 'h5') }}
 
-        <p>{{ bib_cit }}</p>
+        {{ render(bib_cit) }}
     {% endif %}
 {% endmacro %}

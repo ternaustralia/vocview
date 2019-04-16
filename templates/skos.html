@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+{% from "macros/render.html" import render with context %}
 {% from "macros/popover.html" import popover_uri with context %}
 {% from "macros/date-metadata.html" import date_created, date_modified with context %}
 {% from "macros/header.html" import render_header with context %}
@@ -15,6 +16,7 @@
 {% from "macros/in_scheme.html" import render_in_scheme with context %}
 {% from "macros/bibliographic_citation.html" import render_bib_citation with context %}
 {% from "macros/concept_hierarchy.html" import render_concept_hierarchy with context %}
+{% from "macros/rdfs_is_defined_by.html" import render_is_defined_by with context %}
 
 {% block content %}
 
@@ -40,6 +42,8 @@
             {{ render_description(c.description) }}
 
             {{ render_definition(c.definition) }}
+
+            {{ render_is_defined_by(c.is_defined_by) }}
 
             {{ render_top_concept_of(c.top_concept_of) }}
 
