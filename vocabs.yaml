@@ -10,8 +10,8 @@ download:
     format: turtle
 local:
   skos:
-    source: skos.rdf
-    format: xml
+    source: skos.ttl
+    format: turtle
   cover_methods:
     source: cover-methods.ttl
     format: turtle
