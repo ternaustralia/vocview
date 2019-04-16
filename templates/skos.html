@@ -17,6 +17,7 @@
 {% from "macros/bibliographic_citation.html" import render_bib_citation with context %}
 {% from "macros/concept_hierarchy.html" import render_concept_hierarchy with context %}
 {% from "macros/rdfs_is_defined_by.html" import render_is_defined_by with context %}
+{% from "macros/close_match.html" import render_close_match with context %}
 
 {% block content %}
 
@@ -51,14 +52,16 @@
 
             {{ render_narrowers(c.narrowers) }}
 
-            {% if c.top_concepts %}
-                {{ popover_uri('Top concepts', 'URI', 'http://www.w3.org/2004/02/skos/core#hasTopConcept', 'h5') }}
-                <ul>
-                    {% for tc in c.top_concepts %}
-                        <li><a href="/object?uri={{ tc[0] }}">{{ tc[1] }}</a></li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
+        {{ render_close_match(c.close_match) }}
+
+        {% if c.top_concepts %}
+            {{ popover_uri('Top concepts', 'URI', 'http://www.w3.org/2004/02/skos/core#hasTopConcept', 'h5') }}
+            <ul>
+                {% for tc in c.top_concepts %}
+                    <li><a href="/object?uri={{ tc[0] }}">{{ tc[1] }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
 
             {{ render_concept_hierarchy(c.concept_hierarchy) }}
 

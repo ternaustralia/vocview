@@ -155,7 +155,7 @@ def get_properties(uri):
         RDFS.isDefinedBy,
 
           # Concept
-          SKOS.narrower, SKOS.broader, SKOS.topConceptOf, SKOS.inScheme,
+          SKOS.narrower, SKOS.broader, SKOS.topConceptOf, SKOS.inScheme, SKOS.closeMatch, SKOS.exactMatch,
 
         # Concept Scheme
         SKOS.hasTopConcept
@@ -200,6 +200,13 @@ def get_concept_hierarchy(uri):
 def get_is_defined_by(uri):
     for is_def in Config.g.objects(URIRef(uri), RDFS.isDefinedBy):
         return is_def
+
+
+def get_close_match(uri):
+    close_match = []
+    for cm in Config.g.objects(URIRef(uri), SKOS.closeMatch):
+        close_match.append(cm)
+    return close_match
 
 
 def get_bibliographic_citation(uri):
