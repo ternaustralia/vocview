@@ -45,7 +45,13 @@
                  <nav id="qg-breadcrumb" role="navigation" aria-label="breadcrumb navigation" aria-labelledby="breadcrumb-heading" class="collapse">
                     <h2 id="breadcrumb-heading" class="qg-visually-hidden">You are here:</h2>
                     <ol class="list-inline">
-                    <div><a href="/">CORVEG Vocabulary Home</a></div>
+                    <div><a href="
+                        {% if config.SUB_URL %}
+                            {{ config.SUB_URL }}
+                        {% else %}
+                            /
+                        {% endif %}
+                    ">CORVEG Vocabulary Home</a></div>
                     </ol>
                 </nav>
 
