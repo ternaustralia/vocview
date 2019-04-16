@@ -7,7 +7,11 @@
         <!--<link rel="stylesheet" href="static/css/bootstrap.min.css">-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="static/qg-main.css">
-        <link href="//fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" rel="stylesheet" type="text/css" />
+        <!--[if (lt IE 9)|(gt IE 10) ]><link href="//fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" rel="stylesheet" type="text/css" /><![endif]-->
+        <!--[if !IE]><!--><link href="//fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic" rel="stylesheet" type="text/css" /><!--<![endif]-->
+        <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->
+
+
         <title>{{ title }}</title>
     </head>
 
@@ -18,7 +22,7 @@
                     <img src="https://www.qld.gov.au/_qgdesigns/css/qg-main.css/qg-coa.svg" alt="Queensland Government" class="hidden-xs hidden-sm">
                     <img src="https://www.qld.gov.au/__data/assets/file/0006/321/qg-coa-stacked.svg" alt="" class="hidden-md hidden-lg">
                 </a>
-                </div><ul class="qg-utilities list-inline col-xs-6 col-md-5">
+                </div><ul class="qg-utilities list-inline col-xs-6 col-md-8">
 
                     <li>
                         <a accesskey="4" href="https://www.qld.gov.au/contact-us"><span class="fa fa-phone fa-2x hidden-md hidden-lg" aria-hidden="true"></span><span class="hidden-xs hidden-sm">Contact us</span></a>
@@ -30,20 +34,7 @@
                     <li class="hidden-md hidden-lg">
                         <button title="menu" id="qg-show-menu" data-toggle="collapse" data-target="#qg-site-nav, #qg-breadcrumb"><span class="fa fa-bars fa-2x" aria-hidden="true"></span></button>
                     </li>
-                </ul><form action="https://find.search.qld.gov.au/s/search.html" id="qg-search-form" role="search" class="collapse col-xs-12 col-md-3" novalidate="true">
-                  <div class="input-group">
-                    <label for="qg-search-query" class="qg-visually-hidden">Search Queensland Government</label>
-                    <input accesskey="5" type="text" name="query" id="qg-search-query" class="form-control" placeholder="Search website" tabindex="0" aria-required="true" aria-expanded="false" role="combobox" autocomplete="off" aria-autocomplete="both">
-                    <span class="input-group-btn">
-                      <button type="submit" id="feature-search-submit" class="btn btn-primary" title="Search site"><span class="fa fa-search" aria-hidden="true"></span><span class="qg-visually-hidden">search</span></button>
-                    </span>
-                  </div>
-                  <!--parameters to display results on search page-->
-                  <input type="hidden" name="num_ranks" value="10">
-                  <input type="hidden" name="tiers" value="off">
-                  <input type="hidden" name="collection" value="qld-gov">
-                  <input type="hidden" name="profile" value="qld">
-                </form>
+                </ul>
                 <nav id="qg-site-nav" role="navigation" aria-label="Main navigation" class="collapse">
                     <ul>
                         <li><a href="https://www.qld.gov.au/queenslanders">For Queenslanders</a></li>
