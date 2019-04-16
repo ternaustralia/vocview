@@ -1,0 +1,78 @@
+@prefix apc: <http://linked.data.gov.au/dataset/apc/> .
+@prefix apni: <http://linked.data.gov.au/dataset/apni/> .
+@prefix biod: <http://linked.data.gov.au/def/biodiversity/> .
+@prefix corveg: <http://linked.data.gov.au/dataset/corveg/> .
+@prefix corveg-def: <http://linked.data.gov.au/def/corveg/> .
+@prefix cv-corveg: <http://linked.data.gov.au/def/corveg-cv/> .
+@prefix data: <http://linked.data.gov.au/def/tern-plot-data/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dist-corveg: <http://linked.data.gov.au/dataset/corveg/disturbance/> .
+@prefix dwct: <http://rs.tdwg.org/dwc/terms/> .
+@prefix epsg-crs: <http://www.opengis.net/def/crs/epsg/0/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix geol-corveg: <http://linked.data.gov.au/dataset/corveg/geology/> .
+@prefix location-corveg: <http://linked.data.gov.au/dataset/corveg/location/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogroup-corveg: <http://linked.data.gov.au/def/corveg-ogroup/> .
+@prefix op-corveg: <http://linked.data.gov.au/def/corveg-op/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plot: <http://linked.data.gov.au/def/tern-plot/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rfstruct-corveg: <http://linked.data.gov.au/dataset/corveg/rf-structure/> .
+@prefix site-corveg: <http://linked.data.gov.au/dataset/corveg/site/> .
+@prefix site-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-strata/> .
+@prefix site-tax-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-tax-strata/> .
+@prefix situation-corveg: <http://linked.data.gov.au/dataset/corveg/situation/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix soil-corveg: <http://linked.data.gov.au/dataset/corveg/soil/> .
+@prefix soil-text-corveg: <http://registry.it.csiro.au/sandbox/soil-data-ie/def/voc/texture/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn-ext: <http://www.w3.org/ns/ssn/ext/> .
+@prefix struct-corveg: <http://linked.data.gov.au/dataset/corveg/structure/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix v-comm-corveg: <http://linked.data.gov.au/dataset/corveg/vege-community/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cv-corveg:soil-reliability a owl:Ontology ;
+    owl:imports <http://www.w3.org/2004/02/skos/core>,
+        sosa: .
+
+cv-corveg:soil-reliability-h a skos:Concept ;
+    skos:definition "High reliability." ;
+    skos:hiddenLabel "1" ;
+    skos:inScheme cv-corveg:soil-reliabilitys ;
+    skos:notation "H" ;
+    skos:prefLabel "High" .
+
+cv-corveg:soil-reliability-l a skos:Concept ;
+    skos:definition "Low reliability." ;
+    skos:hiddenLabel "3" ;
+    skos:inScheme cv-corveg:soil-reliabilitys ;
+    skos:notation "L" ;
+    skos:prefLabel "Low" .
+
+cv-corveg:soil-reliability-m a skos:Concept ;
+    skos:definition "Medium reliability." ;
+    skos:hiddenLabel "2" ;
+    skos:inScheme cv-corveg:soil-reliabilitys ;
+    skos:notation "M" ;
+    skos:prefLabel "Medium" .
+
+cv-corveg:soil-reliability-unrecorded a skos:Concept ;
+    skos:definition "Unrecorded." ;
+    skos:hiddenLabel "999" ;
+    skos:inScheme cv-corveg:soil-reliabilitys ;
+    skos:notation "null" ;
+    skos:prefLabel "Unrecorded" .
+
+cv-corveg:soil-reliabilitys a skos:ConceptScheme ;
+    skos:hasTopConcept cv-corveg:soil-reliability-h,
+        cv-corveg:soil-reliability-l,
+        cv-corveg:soil-reliability-m,
+        cv-corveg:soil-reliability-unrecorded ;
+    skos:prefLabel "Soil reliability concepts" .
+

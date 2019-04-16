@@ -1,0 +1,235 @@
+@prefix apc: <http://linked.data.gov.au/dataset/apc/> .
+@prefix apni: <http://linked.data.gov.au/dataset/apni/> .
+@prefix biod: <http://linked.data.gov.au/def/biodiversity/> .
+@prefix corveg: <http://linked.data.gov.au/dataset/corveg/> .
+@prefix corveg-def: <http://linked.data.gov.au/def/corveg/> .
+@prefix cv-corveg: <http://linked.data.gov.au/def/corveg-cv/> .
+@prefix data: <http://linked.data.gov.au/def/tern-plot-data/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dist-corveg: <http://linked.data.gov.au/dataset/corveg/disturbance/> .
+@prefix dwct: <http://rs.tdwg.org/dwc/terms/> .
+@prefix epsg-crs: <http://www.opengis.net/def/crs/epsg/0/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix geol-corveg: <http://linked.data.gov.au/dataset/corveg/geology/> .
+@prefix location-corveg: <http://linked.data.gov.au/dataset/corveg/location/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogroup-corveg: <http://linked.data.gov.au/def/corveg-ogroup/> .
+@prefix op-corveg: <http://linked.data.gov.au/def/corveg-op/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plot: <http://linked.data.gov.au/def/tern-plot/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rfstruct-corveg: <http://linked.data.gov.au/dataset/corveg/rf-structure/> .
+@prefix site-corveg: <http://linked.data.gov.au/dataset/corveg/site/> .
+@prefix site-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-strata/> .
+@prefix site-tax-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-tax-strata/> .
+@prefix situation-corveg: <http://linked.data.gov.au/dataset/corveg/situation/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix soil-corveg: <http://linked.data.gov.au/dataset/corveg/soil/> .
+@prefix soil-text-corveg: <http://registry.it.csiro.au/sandbox/soil-data-ie/def/voc/texture/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn-ext: <http://www.w3.org/ns/ssn/ext/> .
+@prefix struct-corveg: <http://linked.data.gov.au/dataset/corveg/structure/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix v-comm-corveg: <http://linked.data.gov.au/dataset/corveg/vege-community/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cv-corveg:landform-type a owl:Ontology ;
+    owl:imports <http://www.w3.org/2004/02/skos/core>,
+        sosa: .
+
+<http://linked.data.gov.au/def/corveg-cv/landform-type-*> a skos:Concept,
+        sosa:Result ;
+    skos:definition "downs, open downs, rolling downs, ashy downs, pebbly downs." ;
+    skos:hiddenLabel "2" ;
+    skos:inScheme cv-corveg:landform-types ;
+    skos:notation "*" ;
+    skos:prefLabel "Downs" .
+
+cv-corveg:landform-type-a a skos:Concept,
+        sosa:Result ;
+    skos:definition "plain, not otherwise specified, flat gentle slopes, undulating terrain." ;
+    skos:hiddenLabel "1" ;
+    skos:inScheme cv-corveg:landform-types ;
+    skos:notation "A" ;
+    skos:prefLabel "Unspecified plain" .
+
+cv-corveg:landform-type-b a skos:Concept,
+        sosa:Result ;
+    skos:definition "alluvial plain or flat, alluvium, flood plain." ;
+    skos:hiddenLabel "3" ;
+    skos:inScheme cv-corveg:landform-types ;
+    skos:notation "B" ;
+    skos:prefLabel "Alluvial plain" .
+
+cv-corveg:landform-type-c a skos:Concept,
+        sosa:Result ;
+    skos:definition "Lakes, banks of lake, river, stream, levees (permanent water)." ;
+    skos:hiddenLabel "6" ;
+    skos:inScheme cv-corveg:landform-types ;
+    skos:notation "C" ;
+    skos:prefLabel "Streams" .
+
+cv-corveg:landform-type-d a skos:Concept,
+        sosa:Result ;
+    skos:definition "gully, drainage line, ravine gorge, outwash (intermittently wet)." ;
+    skos:hiddenLabel "7" ;
+    skos:inScheme cv-corveg:landform-types ;
+    skos:notation "D" ;
+    skos:prefLabel "Gully" .
+
+cv-corveg:landform-type-e a skos:Concept,
+        sosa:Result ;
+    skos:definition "bed of channel, tributaries of inland streams (intermittently flooded)." ;
+    skos:hiddenLabel "8" ;
+    skos:inScheme cv-corveg:landform-types ;
+    skos:notation "E" ;
+    skos:prefLabel "Channels" .
+
+cv-corveg:landform-type-f a skos:Concept,
+        sosa:Result ;
+    skos:definition "slope or hill not specified." ;
+    skos:hiddenLabel "9" ;
+    skos:inScheme cv-corveg:landform-types ;
+    skos:notation "F" ;
+    skos:prefLabel "Slope" .
+
+cv-corveg:landform-type-k a skos:Concept,
+        sosa:Result ;
+    skos:definition "crest of mountain or ridge." ;
+    skos:hiddenLabel "12" ;
+    skos:inScheme cv-corveg:landform-types ;
+    skos:notation "K" ;
+    skos:prefLabel "Ridgetop" .
+
+cv-corveg:landform-type-l a skos:Concept,
+        sosa:Result ;
+    skos:definition "cliff (steep rocky faces), rocky ledge or outcrop, scarp, crevice." ;
+    skos:hiddenLabel "10" ;
+    skos:inScheme cv-corveg:landform-types ;
+    skos:notation "L" ;
+    skos:prefLabel "Rock face" .
+
+cv-corveg:landform-type-n a skos:Concept,
+        sosa:Result ;
+    skos:definition "coastal rocky headland." ;
+    skos:hiddenLabel "11" ;
+    skos:inScheme cv-corveg:landform-types ;
+    skos:notation "N" ;
+    skos:prefLabel "Headland" .
+
+cv-corveg:landform-type-q a skos:Concept,
+        sosa:Result ;
+    skos:definition "mesa, tableland, plateau, jump-up." ;
+    skos:hiddenLabel "13" ;
+    skos:inScheme cv-corveg:landform-types ;
+    skos:notation "Q" ;
+    skos:prefLabel "Plateau" .
+
+cv-corveg:landform-type-r a skos:Concept,
+        sosa:Result ;
+    skos:definition "unspecified coastal dune." ;
+    skos:hiddenLabel "15" ;
+    skos:inScheme cv-corveg:landform-types ;
+    skos:notation "R" ;
+    skos:prefLabel "Unspecified coastal dune" .
+
+cv-corveg:landform-type-s a skos:Concept,
+        sosa:Result ;
+    skos:definition "fossil coastal dune, high dune." ;
+    skos:hiddenLabel "14" ;
+    skos:inScheme cv-corveg:landform-types ;
+    skos:notation "S" ;
+    skos:prefLabel "High coastal dune" .
+
+cv-corveg:landform-type-t a skos:Concept,
+        sosa:Result ;
+    skos:definition "inland dune or sandhill." ;
+    skos:hiddenLabel "16" ;
+    skos:inScheme cv-corveg:landform-types ;
+    skos:notation "T" ;
+    skos:prefLabel "Inland dune" .
+
+cv-corveg:landform-type-u a skos:Concept,
+        sosa:Result ;
+    skos:definition "inland clay pan, salt flat or pan (inland)." ;
+    skos:hiddenLabel "4" ;
+    skos:inScheme cv-corveg:landform-types ;
+    skos:notation "U" ;
+    skos:prefLabel "Inland claypan" .
+
+cv-corveg:landform-type-unrecorded a skos:Concept,
+        sosa:Result ;
+    skos:definition "Unrecorded." ;
+    skos:hiddenLabel "999" ;
+    skos:inScheme cv-corveg:landform-types ;
+    skos:notation "null" ;
+    skos:prefLabel "Unrecorded" .
+
+cv-corveg:landform-type-v a skos:Concept,
+        sosa:Result ;
+    skos:definition "Tidal flat, salt flat (coastal)." ;
+    skos:hiddenLabel "5" ;
+    skos:inScheme cv-corveg:landform-types ;
+    skos:notation "V" ;
+    skos:prefLabel "Coastal flat" .
+
+cv-corveg:landform-type-w a skos:Concept,
+        sosa:Result ;
+    skos:definition "freshwater swamp, marsh, soak, spring, seepage area." ;
+    skos:hiddenLabel "18" ;
+    skos:inScheme cv-corveg:landform-types ;
+    skos:notation "W" ;
+    skos:prefLabel "Freshwater swamp" .
+
+cv-corveg:landform-type-x a skos:Concept,
+        sosa:Result ;
+    skos:definition "freshwater lake or lagoon." ;
+    skos:hiddenLabel "17" ;
+    skos:inScheme cv-corveg:landform-types ;
+    skos:notation "X" ;
+    skos:prefLabel "Freshwater lake" .
+
+cv-corveg:landform-type-y a skos:Concept,
+        sosa:Result ;
+    skos:definition "saltwater swamp, saltwater, sea." ;
+    skos:hiddenLabel "20" ;
+    skos:inScheme cv-corveg:landform-types ;
+    skos:notation "Y" ;
+    skos:prefLabel "Saltwater swamp" .
+
+cv-corveg:landform-type-z a skos:Concept,
+        sosa:Result ;
+    skos:definition "gilgai, melon hole, sinkhole." ;
+    skos:hiddenLabel "19" ;
+    skos:inScheme cv-corveg:landform-types ;
+    skos:notation "Z" ;
+    skos:prefLabel "Gilgai" .
+
+cv-corveg:landform-types a skos:ConceptScheme ;
+    skos:hasTopConcept <http://linked.data.gov.au/def/corveg-cv/landform-type-*>,
+        cv-corveg:landform-type-a,
+        cv-corveg:landform-type-b,
+        cv-corveg:landform-type-c,
+        cv-corveg:landform-type-d,
+        cv-corveg:landform-type-e,
+        cv-corveg:landform-type-f,
+        cv-corveg:landform-type-k,
+        cv-corveg:landform-type-l,
+        cv-corveg:landform-type-n,
+        cv-corveg:landform-type-q,
+        cv-corveg:landform-type-r,
+        cv-corveg:landform-type-s,
+        cv-corveg:landform-type-t,
+        cv-corveg:landform-type-u,
+        cv-corveg:landform-type-unrecorded,
+        cv-corveg:landform-type-v,
+        cv-corveg:landform-type-w,
+        cv-corveg:landform-type-x,
+        cv-corveg:landform-type-y,
+        cv-corveg:landform-type-z ;
+    skos:prefLabel "Landform type concepts" .
+

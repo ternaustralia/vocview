@@ -1,0 +1,163 @@
+@prefix apc: <http://linked.data.gov.au/dataset/apc/> .
+@prefix apni: <http://linked.data.gov.au/dataset/apni/> .
+@prefix biod: <http://linked.data.gov.au/def/biodiversity/> .
+@prefix corveg: <http://linked.data.gov.au/dataset/corveg/> .
+@prefix corveg-def: <http://linked.data.gov.au/def/corveg/> .
+@prefix cv-corveg: <http://linked.data.gov.au/def/corveg-cv/> .
+@prefix data: <http://linked.data.gov.au/def/tern-plot-data/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dist-corveg: <http://linked.data.gov.au/dataset/corveg/disturbance/> .
+@prefix dwct: <http://rs.tdwg.org/dwc/terms/> .
+@prefix epsg-crs: <http://www.opengis.net/def/crs/epsg/0/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix geol-corveg: <http://linked.data.gov.au/dataset/corveg/geology/> .
+@prefix location-corveg: <http://linked.data.gov.au/dataset/corveg/location/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogroup-corveg: <http://linked.data.gov.au/def/corveg-ogroup/> .
+@prefix op-corveg: <http://linked.data.gov.au/def/corveg-op/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plot: <http://linked.data.gov.au/def/tern-plot/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rfstruct-corveg: <http://linked.data.gov.au/dataset/corveg/rf-structure/> .
+@prefix site-corveg: <http://linked.data.gov.au/dataset/corveg/site/> .
+@prefix site-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-strata/> .
+@prefix site-tax-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-tax-strata/> .
+@prefix situation-corveg: <http://linked.data.gov.au/dataset/corveg/situation/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix soil-corveg: <http://linked.data.gov.au/dataset/corveg/soil/> .
+@prefix soil-text-corveg: <http://registry.it.csiro.au/sandbox/soil-data-ie/def/voc/texture/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn-ext: <http://www.w3.org/ns/ssn/ext/> .
+@prefix struct-corveg: <http://linked.data.gov.au/dataset/corveg/structure/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix v-comm-corveg: <http://linked.data.gov.au/dataset/corveg/vege-community/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cv-corveg:disturbance-type a owl:Ontology ;
+    owl:imports <http://www.w3.org/2004/02/skos/core>,
+        sosa: .
+
+cv-corveg:disturbance-type-erosion a skos:Concept,
+        sosa:Result ;
+    skos:definition "Area type and severity of erosion." ;
+    skos:hiddenLabel "13" ;
+    skos:inScheme cv-corveg:disturbance-types ;
+    skos:notation "Erosion" ;
+    skos:prefLabel "Erosion" .
+
+cv-corveg:disturbance-type-extensive_clearing a skos:Concept,
+        sosa:Result ;
+    skos:definition "Most of the vegetation is regrowth from a previous clearing/thinning event." ;
+    skos:hiddenLabel "7" ;
+    skos:inScheme cv-corveg:disturbance-types ;
+    skos:notation "Extensive Clearing" ;
+    skos:prefLabel "Extensive Clearing" .
+
+cv-corveg:disturbance-type-feral_digging a skos:Concept,
+        sosa:Result ;
+    skos:definition "Presence of feral diggings." ;
+    skos:hiddenLabel "10" ;
+    skos:inScheme cv-corveg:disturbance-types ;
+    skos:notation "Feral Digging" ;
+    skos:prefLabel "Feral Digging" .
+
+cv-corveg:disturbance-type-fire a skos:Concept,
+        sosa:Result ;
+    skos:definition "Proportion of the site burnt, age of fire and tallest vegetation impacted." ;
+    skos:hiddenLabel "3" ;
+    skos:inScheme cv-corveg:disturbance-types ;
+    skos:notation "Fire" ;
+    skos:prefLabel "Fire" .
+
+cv-corveg:disturbance-type-flood a skos:Concept,
+        sosa:Result ;
+    skos:definition "Floods." ;
+    skos:hiddenLabel "11" ;
+    skos:inScheme cv-corveg:disturbance-types ;
+    skos:notation "Flood" ;
+    skos:prefLabel "Flood" .
+
+cv-corveg:disturbance-type-grazing a skos:Concept,
+        sosa:Result ;
+    skos:definition "Grazing by domestic stock, feral animals and native animals evident in damage to the ground layer plants and/or presence of animal faeces or tracks." ;
+    skos:hiddenLabel "9" ;
+    skos:inScheme cv-corveg:disturbance-types ;
+    skos:notation "Grazing" ;
+    skos:prefLabel "Grazing" .
+
+cv-corveg:disturbance-type-logging a skos:Concept,
+        sosa:Result ;
+    skos:definition "Number of logging stumps in the site." ;
+    skos:hiddenLabel "5" ;
+    skos:inScheme cv-corveg:disturbance-types ;
+    skos:notation "Logging" ;
+    skos:prefLabel "Logging" .
+
+cv-corveg:disturbance-type-non_remnant a skos:Concept,
+        sosa:Result ;
+    skos:definition "Not remnant vegetation." ;
+    skos:hiddenLabel "12" ;
+    skos:inScheme cv-corveg:disturbance-types ;
+    skos:notation "Non Remnant" ;
+    skos:prefLabel "Non Remnant" .
+
+cv-corveg:disturbance-type-ringbarking-thinning a skos:Concept,
+        sosa:Result ;
+    skos:definition "Number of stems in the site ringbarked, poisoned or thinned." ;
+    skos:hiddenLabel "6" ;
+    skos:inScheme cv-corveg:disturbance-types ;
+    skos:notation "Ringbarking/thinning" ;
+    skos:prefLabel "Ringbarking/thinning" .
+
+cv-corveg:disturbance-type-roadworks a skos:Concept,
+        sosa:Result ;
+    skos:definition "Proportion of the site damaged by tracks and roads and the age of the damage." ;
+    skos:hiddenLabel "2" ;
+    skos:inScheme cv-corveg:disturbance-types ;
+    skos:notation "Roadworks" ;
+    skos:prefLabel "Roadworks" .
+
+cv-corveg:disturbance-type-salinity a skos:Concept,
+        sosa:Result ;
+    skos:definition "Proportion of the site affected by severe anthropogenic salinity." ;
+    skos:hiddenLabel "4" ;
+    skos:inScheme cv-corveg:disturbance-types ;
+    skos:notation "Salinity" ;
+    skos:prefLabel "Salinity" .
+
+cv-corveg:disturbance-type-storm a skos:Concept,
+        sosa:Result ;
+    skos:definition "Proportion of crown cover damaged by storms on the site and the age of the damage." ;
+    skos:hiddenLabel "1" ;
+    skos:inScheme cv-corveg:disturbance-types ;
+    skos:notation "Storm" ;
+    skos:prefLabel "Storm Damage" .
+
+cv-corveg:disturbance-type-weeds a skos:Concept,
+        sosa:Result ;
+    skos:definition "Percentage cover of exotic species." ;
+    skos:hiddenLabel "8" ;
+    skos:inScheme cv-corveg:disturbance-types ;
+    skos:notation "Weeds" ;
+    skos:prefLabel "Weeds" .
+
+cv-corveg:disturbance-types a skos:ConceptScheme ;
+    skos:hasTopConcept cv-corveg:disturbance-type-erosion,
+        cv-corveg:disturbance-type-extensive_clearing,
+        cv-corveg:disturbance-type-feral_digging,
+        cv-corveg:disturbance-type-fire,
+        cv-corveg:disturbance-type-flood,
+        cv-corveg:disturbance-type-grazing,
+        cv-corveg:disturbance-type-logging,
+        cv-corveg:disturbance-type-non_remnant,
+        cv-corveg:disturbance-type-ringbarking-thinning,
+        cv-corveg:disturbance-type-roadworks,
+        cv-corveg:disturbance-type-salinity,
+        cv-corveg:disturbance-type-storm,
+        cv-corveg:disturbance-type-weeds ;
+    skos:prefLabel "Disturbance type concepts" .
+

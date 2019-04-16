@@ -1,0 +1,136 @@
+@prefix apc: <http://linked.data.gov.au/dataset/apc/> .
+@prefix apni: <http://linked.data.gov.au/dataset/apni/> .
+@prefix biod: <http://linked.data.gov.au/def/biodiversity/> .
+@prefix corveg: <http://linked.data.gov.au/dataset/corveg/> .
+@prefix corveg-def: <http://linked.data.gov.au/def/corveg/> .
+@prefix cv-corveg: <http://linked.data.gov.au/def/corveg-cv/> .
+@prefix data: <http://linked.data.gov.au/def/tern-plot-data/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dist-corveg: <http://linked.data.gov.au/dataset/corveg/disturbance/> .
+@prefix dwct: <http://rs.tdwg.org/dwc/terms/> .
+@prefix epsg-crs: <http://www.opengis.net/def/crs/epsg/0/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix geol-corveg: <http://linked.data.gov.au/dataset/corveg/geology/> .
+@prefix location-corveg: <http://linked.data.gov.au/dataset/corveg/location/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogroup-corveg: <http://linked.data.gov.au/def/corveg-ogroup/> .
+@prefix op-corveg: <http://linked.data.gov.au/def/corveg-op/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plot: <http://linked.data.gov.au/def/tern-plot/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rfstruct-corveg: <http://linked.data.gov.au/dataset/corveg/rf-structure/> .
+@prefix site-corveg: <http://linked.data.gov.au/dataset/corveg/site/> .
+@prefix site-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-strata/> .
+@prefix site-tax-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-tax-strata/> .
+@prefix situation-corveg: <http://linked.data.gov.au/dataset/corveg/situation/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix soil-corveg: <http://linked.data.gov.au/dataset/corveg/soil/> .
+@prefix soil-text-corveg: <http://registry.it.csiro.au/sandbox/soil-data-ie/def/voc/texture/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn-ext: <http://www.w3.org/ns/ssn/ext/> .
+@prefix struct-corveg: <http://linked.data.gov.au/dataset/corveg/structure/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix v-comm-corveg: <http://linked.data.gov.au/dataset/corveg/vege-community/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cv-corveg:rainforest-leafsize a owl:Ontology ;
+    owl:imports <http://www.w3.org/2004/02/skos/core>,
+        sosa: .
+
+cv-corveg:rainforest-leafsize-1 a skos:Concept,
+        sosa:Result ;
+    skos:definition "leaf area >182 cm2; leaf length >250 mm." ;
+    skos:hiddenLabel "1" ;
+    skos:inScheme cv-corveg:rainforest-leafsizes ;
+    skos:notation "1" ;
+    skos:prefLabel "macrophyll" .
+
+cv-corveg:rainforest-leafsize-2 a skos:Concept,
+        sosa:Result ;
+    skos:definition "leaf size a mixture of macrophyll and mesophyll." ;
+    skos:hiddenLabel "2" ;
+    skos:inScheme cv-corveg:rainforest-leafsizes ;
+    skos:notation "2" ;
+    skos:prefLabel "macrophyll-mesophyll" .
+
+cv-corveg:rainforest-leafsize-3 a skos:Concept,
+        sosa:Result ;
+    skos:definition "leaf area 45-182 cm2; leaf length 125-250 mm." ;
+    skos:hiddenLabel "3" ;
+    skos:inScheme cv-corveg:rainforest-leafsizes ;
+    skos:notation "3" ;
+    skos:prefLabel "mesophyll" .
+
+cv-corveg:rainforest-leafsize-4 a skos:Concept,
+        sosa:Result ;
+    skos:definition "leaf size a mixture of mesophyll and notophyll." ;
+    skos:hiddenLabel "4" ;
+    skos:inScheme cv-corveg:rainforest-leafsizes ;
+    skos:notation "4" ;
+    skos:prefLabel "mesophyll-notophyll" .
+
+cv-corveg:rainforest-leafsize-5 a skos:Concept,
+        sosa:Result ;
+    skos:definition "leaf area 20-45 cm2; leaf length 75-125 mm." ;
+    skos:hiddenLabel "5" ;
+    skos:inScheme cv-corveg:rainforest-leafsizes ;
+    skos:notation "5" ;
+    skos:prefLabel "notophyll" .
+
+cv-corveg:rainforest-leafsize-6 a skos:Concept,
+        sosa:Result ;
+    skos:definition "leaf size a mixture of notophyll and microphyll." ;
+    skos:hiddenLabel "6" ;
+    skos:inScheme cv-corveg:rainforest-leafsizes ;
+    skos:notation "6" ;
+    skos:prefLabel "notophyll-microphyll" .
+
+cv-corveg:rainforest-leafsize-7 a skos:Concept,
+        sosa:Result ;
+    skos:definition "leaf area 2.25-20 cm2; leaf length 25-75 mm." ;
+    skos:hiddenLabel "7" ;
+    skos:inScheme cv-corveg:rainforest-leafsizes ;
+    skos:notation "7" ;
+    skos:prefLabel "microphyll" .
+
+cv-corveg:rainforest-leafsize-8 a skos:Concept,
+        sosa:Result ;
+    skos:definition "leaf size a mixture of microphyll and nanophyll." ;
+    skos:hiddenLabel "8" ;
+    skos:inScheme cv-corveg:rainforest-leafsizes ;
+    skos:notation "8" ;
+    skos:prefLabel "microphyll-nanophyll" .
+
+cv-corveg:rainforest-leafsize-9 a skos:Concept,
+        sosa:Result ;
+    skos:definition "leaf area 0.25-2.25 cm2; leaf length <25 mm." ;
+    skos:hiddenLabel "9" ;
+    skos:inScheme cv-corveg:rainforest-leafsizes ;
+    skos:notation "9" ;
+    skos:prefLabel "nanophyll" .
+
+cv-corveg:rainforest-leafsize-unrecorded a skos:Concept,
+        sosa:Result ;
+    skos:definition "Unrecorded." ;
+    skos:hiddenLabel "999" ;
+    skos:inScheme cv-corveg:rainforest-leafsizes ;
+    skos:notation "null" ;
+    skos:prefLabel "Unrecorded" .
+
+cv-corveg:rainforest-leafsizes a skos:ConceptScheme ;
+    skos:hasTopConcept cv-corveg:rainforest-leafsize-1,
+        cv-corveg:rainforest-leafsize-2,
+        cv-corveg:rainforest-leafsize-3,
+        cv-corveg:rainforest-leafsize-4,
+        cv-corveg:rainforest-leafsize-5,
+        cv-corveg:rainforest-leafsize-6,
+        cv-corveg:rainforest-leafsize-7,
+        cv-corveg:rainforest-leafsize-8,
+        cv-corveg:rainforest-leafsize-9,
+        cv-corveg:rainforest-leafsize-unrecorded ;
+    skos:prefLabel "Rain forest leaf size concepts" .
+

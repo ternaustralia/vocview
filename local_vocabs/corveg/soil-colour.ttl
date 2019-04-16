@@ -1,0 +1,154 @@
+@prefix apc: <http://linked.data.gov.au/dataset/apc/> .
+@prefix apni: <http://linked.data.gov.au/dataset/apni/> .
+@prefix biod: <http://linked.data.gov.au/def/biodiversity/> .
+@prefix corveg: <http://linked.data.gov.au/dataset/corveg/> .
+@prefix corveg-def: <http://linked.data.gov.au/def/corveg/> .
+@prefix cv-corveg: <http://linked.data.gov.au/def/corveg-cv/> .
+@prefix data: <http://linked.data.gov.au/def/tern-plot-data/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dist-corveg: <http://linked.data.gov.au/dataset/corveg/disturbance/> .
+@prefix dwct: <http://rs.tdwg.org/dwc/terms/> .
+@prefix epsg-crs: <http://www.opengis.net/def/crs/epsg/0/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix geol-corveg: <http://linked.data.gov.au/dataset/corveg/geology/> .
+@prefix location-corveg: <http://linked.data.gov.au/dataset/corveg/location/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogroup-corveg: <http://linked.data.gov.au/def/corveg-ogroup/> .
+@prefix op-corveg: <http://linked.data.gov.au/def/corveg-op/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plot: <http://linked.data.gov.au/def/tern-plot/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rfstruct-corveg: <http://linked.data.gov.au/dataset/corveg/rf-structure/> .
+@prefix site-corveg: <http://linked.data.gov.au/dataset/corveg/site/> .
+@prefix site-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-strata/> .
+@prefix site-tax-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-tax-strata/> .
+@prefix situation-corveg: <http://linked.data.gov.au/dataset/corveg/situation/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix soil-corveg: <http://linked.data.gov.au/dataset/corveg/soil/> .
+@prefix soil-text-corveg: <http://registry.it.csiro.au/sandbox/soil-data-ie/def/voc/texture/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn-ext: <http://www.w3.org/ns/ssn/ext/> .
+@prefix struct-corveg: <http://linked.data.gov.au/dataset/corveg/structure/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix v-comm-corveg: <http://linked.data.gov.au/dataset/corveg/vege-community/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cv-corveg:soil-colour a owl:Ontology ;
+    owl:imports <http://www.w3.org/2004/02/skos/core>,
+        sosa: .
+
+cv-corveg:soil-colour-a a skos:Concept,
+        sosa:Result ;
+    skos:definition "whitish" ;
+    skos:hiddenLabel "1" ;
+    skos:inScheme cv-corveg:soil-colours ;
+    skos:notation "A" ;
+    skos:prefLabel "whitish" .
+
+cv-corveg:soil-colour-b a skos:Concept,
+        sosa:Result ;
+    skos:definition "greyish" ;
+    skos:hiddenLabel "2" ;
+    skos:inScheme cv-corveg:soil-colours ;
+    skos:notation "B" ;
+    skos:prefLabel "greyish" .
+
+cv-corveg:soil-colour-c a skos:Concept,
+        sosa:Result ;
+    skos:definition "mottled" ;
+    skos:hiddenLabel "3" ;
+    skos:inScheme cv-corveg:soil-colours ;
+    skos:notation "C" ;
+    skos:prefLabel "mottled" .
+
+cv-corveg:soil-colour-d a skos:Concept,
+        sosa:Result ;
+    skos:definition "yellow" ;
+    skos:hiddenLabel "4" ;
+    skos:inScheme cv-corveg:soil-colours ;
+    skos:notation "D" ;
+    skos:prefLabel "yellow" .
+
+cv-corveg:soil-colour-e a skos:Concept,
+        sosa:Result ;
+    skos:definition "orange" ;
+    skos:hiddenLabel "5" ;
+    skos:inScheme cv-corveg:soil-colours ;
+    skos:notation "E" ;
+    skos:prefLabel "orange" .
+
+cv-corveg:soil-colour-f a skos:Concept,
+        sosa:Result ;
+    skos:definition "brown" ;
+    skos:hiddenLabel "6" ;
+    skos:inScheme cv-corveg:soil-colours ;
+    skos:notation "F" ;
+    skos:prefLabel "brown" .
+
+cv-corveg:soil-colour-g a skos:Concept,
+        sosa:Result ;
+    skos:definition "red" ;
+    skos:hiddenLabel "7" ;
+    skos:inScheme cv-corveg:soil-colours ;
+    skos:notation "G" ;
+    skos:prefLabel "red" .
+
+cv-corveg:soil-colour-h a skos:Concept,
+        sosa:Result ;
+    skos:definition "black" ;
+    skos:hiddenLabel "8" ;
+    skos:inScheme cv-corveg:soil-colours ;
+    skos:notation "H" ;
+    skos:prefLabel "black" .
+
+cv-corveg:soil-colour-i a skos:Concept,
+        sosa:Result ;
+    skos:definition "dark" ;
+    skos:hiddenLabel "9" ;
+    skos:inScheme cv-corveg:soil-colours ;
+    skos:notation "I" ;
+    skos:prefLabel "dark" .
+
+cv-corveg:soil-colour-j a skos:Concept,
+        sosa:Result ;
+    skos:definition "grey" ;
+    skos:hiddenLabel "10" ;
+    skos:inScheme cv-corveg:soil-colours ;
+    skos:notation "J" ;
+    skos:prefLabel "grey" .
+
+cv-corveg:soil-colour-k a skos:Concept,
+        sosa:Result ;
+    skos:definition "pale" ;
+    skos:hiddenLabel "11" ;
+    skos:inScheme cv-corveg:soil-colours ;
+    skos:notation "K" ;
+    skos:prefLabel "pale" .
+
+cv-corveg:soil-colour-unrecorded a skos:Concept,
+        sosa:Result ;
+    skos:definition "Unrecorded." ;
+    skos:hiddenLabel "999" ;
+    skos:inScheme cv-corveg:soil-colours ;
+    skos:notation "null" ;
+    skos:prefLabel "Unrecorded" .
+
+cv-corveg:soil-colours a skos:ConceptScheme ;
+    skos:hasTopConcept cv-corveg:soil-colour-a,
+        cv-corveg:soil-colour-b,
+        cv-corveg:soil-colour-c,
+        cv-corveg:soil-colour-d,
+        cv-corveg:soil-colour-e,
+        cv-corveg:soil-colour-f,
+        cv-corveg:soil-colour-g,
+        cv-corveg:soil-colour-h,
+        cv-corveg:soil-colour-i,
+        cv-corveg:soil-colour-j,
+        cv-corveg:soil-colour-k,
+        cv-corveg:soil-colour-unrecorded ;
+    skos:prefLabel "Soil colour concepts" .
+

@@ -1,0 +1,109 @@
+@prefix apc: <http://linked.data.gov.au/dataset/apc/> .
+@prefix apni: <http://linked.data.gov.au/dataset/apni/> .
+@prefix biod: <http://linked.data.gov.au/def/biodiversity/> .
+@prefix corveg: <http://linked.data.gov.au/dataset/corveg/> .
+@prefix corveg-def: <http://linked.data.gov.au/def/corveg/> .
+@prefix cv-corveg: <http://linked.data.gov.au/def/corveg-cv/> .
+@prefix data: <http://linked.data.gov.au/def/tern-plot-data/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dist-corveg: <http://linked.data.gov.au/dataset/corveg/disturbance/> .
+@prefix dwct: <http://rs.tdwg.org/dwc/terms/> .
+@prefix epsg-crs: <http://www.opengis.net/def/crs/epsg/0/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix geol-corveg: <http://linked.data.gov.au/dataset/corveg/geology/> .
+@prefix location-corveg: <http://linked.data.gov.au/dataset/corveg/location/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogroup-corveg: <http://linked.data.gov.au/def/corveg-ogroup/> .
+@prefix op-corveg: <http://linked.data.gov.au/def/corveg-op/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plot: <http://linked.data.gov.au/def/tern-plot/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rfstruct-corveg: <http://linked.data.gov.au/dataset/corveg/rf-structure/> .
+@prefix site-corveg: <http://linked.data.gov.au/dataset/corveg/site/> .
+@prefix site-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-strata/> .
+@prefix site-tax-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-tax-strata/> .
+@prefix situation-corveg: <http://linked.data.gov.au/dataset/corveg/situation/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix soil-corveg: <http://linked.data.gov.au/dataset/corveg/soil/> .
+@prefix soil-text-corveg: <http://registry.it.csiro.au/sandbox/soil-data-ie/def/voc/texture/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn-ext: <http://www.w3.org/ns/ssn/ext/> .
+@prefix struct-corveg: <http://linked.data.gov.au/dataset/corveg/structure/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix v-comm-corveg: <http://linked.data.gov.au/dataset/corveg/vege-community/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cv-corveg:rainforest-igf a owl:Ontology ;
+    owl:imports <http://www.w3.org/2004/02/skos/core>,
+        sosa: .
+
+cv-corveg:rainforest-igf-1 a skos:Concept,
+        sosa:Result ;
+    skos:definition "forest where mosses or lichens on tree trunks, branches etc., are far more dominant than vascular epiphytes ." ;
+    skos:hiddenLabel "1" ;
+    skos:inScheme cv-corveg:rainforest-igfs ;
+    skos:notation "1" ;
+    skos:prefLabel "moss" .
+
+cv-corveg:rainforest-igf-2 a skos:Concept,
+        sosa:Result ;
+    skos:definition "where tree ferns form a dense (75% crown cover) and discrete stratum in the understorey." ;
+    skos:hiddenLabel "2" ;
+    skos:inScheme cv-corveg:rainforest-igfs ;
+    skos:notation "2" ;
+    skos:prefLabel "fern" .
+
+cv-corveg:rainforest-igf-3 a skos:Concept,
+        sosa:Result ;
+    skos:definition "a closed stratum (75% crown cover) of palmate-leaved palms e.g. Licuala, Livistona  below the upper stratum." ;
+    skos:hiddenLabel "3" ;
+    skos:inScheme cv-corveg:rainforest-igfs ;
+    skos:notation "3" ;
+    skos:prefLabel "fan palm" .
+
+cv-corveg:rainforest-igf-4 a skos:Concept,
+        sosa:Result ;
+    skos:definition "a closed stratum (75% crown cover) of pinnate-leaved palms (excluding climbing palms) e.g. Archontophoenix, Ptychosperma  below the upper stratum." ;
+    skos:hiddenLabel "4" ;
+    skos:inScheme cv-corveg:rainforest-igfs ;
+    skos:notation "4" ;
+    skos:prefLabel "feather palm" .
+
+cv-corveg:rainforest-igf-5 a skos:Concept,
+        sosa:Result ;
+    skos:definition "where vines (including climbing palms) cover/smother at least 60% of exposed canopy surface." ;
+    skos:hiddenLabel "5" ;
+    skos:inScheme cv-corveg:rainforest-igfs ;
+    skos:notation "5" ;
+    skos:prefLabel "vine" .
+
+cv-corveg:rainforest-igf-6 a skos:Concept,
+        sosa:Result ;
+    skos:definition "no dominant indicator growth form i.e. none of the previous five growth forms applies." ;
+    skos:hiddenLabel "6" ;
+    skos:inScheme cv-corveg:rainforest-igfs ;
+    skos:notation "6" ;
+    skos:prefLabel "none" .
+
+cv-corveg:rainforest-igf-unrecorded a skos:Concept,
+        sosa:Result ;
+    skos:definition "Unrecorded." ;
+    skos:hiddenLabel "999" ;
+    skos:inScheme cv-corveg:rainforest-igfs ;
+    skos:notation "null" ;
+    skos:prefLabel "Unrecorded" .
+
+cv-corveg:rainforest-igfs a skos:ConceptScheme ;
+    skos:hasTopConcept cv-corveg:rainforest-igf-1,
+        cv-corveg:rainforest-igf-2,
+        cv-corveg:rainforest-igf-3,
+        cv-corveg:rainforest-igf-4,
+        cv-corveg:rainforest-igf-5,
+        cv-corveg:rainforest-igf-6,
+        cv-corveg:rainforest-igf-unrecorded ;
+    skos:prefLabel "Rainforest ?? concepts" .
+

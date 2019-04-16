@@ -1,0 +1,262 @@
+@prefix apc: <http://linked.data.gov.au/dataset/apc/> .
+@prefix apni: <http://linked.data.gov.au/dataset/apni/> .
+@prefix biod: <http://linked.data.gov.au/def/biodiversity/> .
+@prefix corveg: <http://linked.data.gov.au/dataset/corveg/> .
+@prefix corveg-def: <http://linked.data.gov.au/def/corveg/> .
+@prefix cv-corveg: <http://linked.data.gov.au/def/corveg-cv/> .
+@prefix data: <http://linked.data.gov.au/def/tern-plot-data/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dist-corveg: <http://linked.data.gov.au/dataset/corveg/disturbance/> .
+@prefix dwct: <http://rs.tdwg.org/dwc/terms/> .
+@prefix epsg-crs: <http://www.opengis.net/def/crs/epsg/0/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix geol-corveg: <http://linked.data.gov.au/dataset/corveg/geology/> .
+@prefix location-corveg: <http://linked.data.gov.au/dataset/corveg/location/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogroup-corveg: <http://linked.data.gov.au/def/corveg-ogroup/> .
+@prefix op-corveg: <http://linked.data.gov.au/def/corveg-op/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plot: <http://linked.data.gov.au/def/tern-plot/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rfstruct-corveg: <http://linked.data.gov.au/dataset/corveg/rf-structure/> .
+@prefix site-corveg: <http://linked.data.gov.au/dataset/corveg/site/> .
+@prefix site-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-strata/> .
+@prefix site-tax-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-tax-strata/> .
+@prefix situation-corveg: <http://linked.data.gov.au/dataset/corveg/situation/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix soil-corveg: <http://linked.data.gov.au/dataset/corveg/soil/> .
+@prefix soil-text-corveg: <http://registry.it.csiro.au/sandbox/soil-data-ie/def/voc/texture/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn-ext: <http://www.w3.org/ns/ssn/ext/> .
+@prefix struct-corveg: <http://linked.data.gov.au/dataset/corveg/structure/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix v-comm-corveg: <http://linked.data.gov.au/dataset/corveg/vege-community/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cv-corveg:soil-type a owl:Ontology ;
+    owl:imports <http://www.w3.org/2004/02/skos/core>,
+        sosa: .
+
+cv-corveg:soil-type-a a skos:Concept,
+        sosa:Result ;
+    skos:definition "Sands." ;
+    skos:hiddenLabel "1" ;
+    skos:inScheme cv-corveg:soil-types ;
+    skos:notation "A" ;
+    skos:prefLabel "Sands" .
+
+cv-corveg:soil-type-b a skos:Concept,
+        sosa:Result ;
+    skos:definition "Calcareous sands, siliceous sands, earthy sands." ;
+    skos:hiddenLabel "2" ;
+    skos:inScheme cv-corveg:soil-types ;
+    skos:notation "B" ;
+    skos:prefLabel "Calcareous sands" .
+
+cv-corveg:soil-type-c a skos:Concept,
+        sosa:Result ;
+    skos:definition "Sands with clay subsoil (texture contrast or duplex soil with sandy surface)." ;
+    skos:hiddenLabel "3" ;
+    skos:inScheme cv-corveg:soil-types ;
+    skos:notation "C" ;
+    skos:prefLabel "Sandy duplex" .
+
+cv-corveg:soil-type-d a skos:Concept,
+        sosa:Result ;
+    skos:definition "Loamy sand, sandy loam, silty loam, loam, sandy soil,  clayey sand, light sandy clay loam." ;
+    skos:hiddenLabel "4" ;
+    skos:inScheme cv-corveg:soil-types ;
+    skos:notation "D" ;
+    skos:prefLabel "Loamy sand" .
+
+cv-corveg:soil-type-e a skos:Concept,
+        sosa:Result ;
+    skos:definition "Marine soils, solonchaks, saline (marine) soils." ;
+    skos:hiddenLabel "5" ;
+    skos:inScheme cv-corveg:soil-types ;
+    skos:notation "E" ;
+    skos:prefLabel "Marine" .
+
+cv-corveg:soil-type-f a skos:Concept,
+        sosa:Result ;
+    skos:definition "Loamy sand with clay subsoil (texture contrast or duplex soil with loamy surface)." ;
+    skos:hiddenLabel "6" ;
+    skos:inScheme cv-corveg:soil-types ;
+    skos:notation "F" ;
+    skos:prefLabel "Loamy duplex sand" .
+
+cv-corveg:soil-type-g a skos:Concept,
+        sosa:Result ;
+    skos:definition "Silt, alluvial soils." ;
+    skos:hiddenLabel "7" ;
+    skos:inScheme cv-corveg:soil-types ;
+    skos:notation "G" ;
+    skos:prefLabel "Alluvial silt" .
+
+cv-corveg:soil-type-h a skos:Concept,
+        sosa:Result ;
+    skos:definition "Clay loams, sandy clay loams, silty clay loam." ;
+    skos:hiddenLabel "8" ;
+    skos:inScheme cv-corveg:soil-types ;
+    skos:notation "H" ;
+    skos:prefLabel "Clay loam" .
+
+cv-corveg:soil-type-i a skos:Concept,
+        sosa:Result ;
+    skos:definition "Grey, brown and red calcareous soils, desert loams, red and brown hardpan soils." ;
+    skos:hiddenLabel "9" ;
+    skos:inScheme cv-corveg:soil-types ;
+    skos:notation "I" ;
+    skos:prefLabel "Desert loams" .
+
+cv-corveg:soil-type-j a skos:Concept,
+        sosa:Result ;
+    skos:definition "H with clay subsoil (texture contrast or duplex soil with clay  loam surface)." ;
+    skos:hiddenLabel "10" ;
+    skos:inScheme cv-corveg:soil-types ;
+    skos:notation "J" ;
+    skos:prefLabel "Hardpan with clay sub" .
+
+cv-corveg:soil-type-k a skos:Concept,
+        sosa:Result ;
+    skos:definition "Clay unspecified." ;
+    skos:hiddenLabel "11" ;
+    skos:inScheme cv-corveg:soil-types ;
+    skos:notation "K" ;
+    skos:prefLabel "Clay" .
+
+cv-corveg:soil-type-m a skos:Concept,
+        sosa:Result ;
+    skos:definition "Duplex, texture-contrast soil (texture not specified)." ;
+    skos:hiddenLabel "12" ;
+    skos:inScheme cv-corveg:soil-types ;
+    skos:notation "M" ;
+    skos:prefLabel "Duplex" .
+
+cv-corveg:soil-type-n a skos:Concept,
+        sosa:Result ;
+    skos:definition "Sandy clay, fine sandy clay, silty clay, light clay." ;
+    skos:hiddenLabel "13" ;
+    skos:inScheme cv-corveg:soil-types ;
+    skos:notation "N" ;
+    skos:prefLabel "Sandy clay" .
+
+cv-corveg:soil-type-p a skos:Concept,
+        sosa:Result ;
+    skos:definition "Gradational soil (texture not specified)." ;
+    skos:hiddenLabel "14" ;
+    skos:inScheme cv-corveg:soil-types ;
+    skos:notation "P" ;
+    skos:prefLabel "Gradational" .
+
+cv-corveg:soil-type-q a skos:Concept,
+        sosa:Result ;
+    skos:definition "Heavy clay, black soil, black earth, heavy soil, grey and brown soils of heavy texture, light medium clay, medium clay, rendzinas, chernozems, prairie soils, wiesenboden." ;
+    skos:hiddenLabel "15" ;
+    skos:inScheme cv-corveg:soil-types ;
+    skos:notation "Q" ;
+    skos:prefLabel "Heavy clay" .
+
+cv-corveg:soil-type-s a skos:Concept,
+        sosa:Result ;
+    skos:definition "Solodic soils, solonetz, solonetz and solodic soils, soloths, solonized brown soils." ;
+    skos:hiddenLabel "16" ;
+    skos:inScheme cv-corveg:soil-types ;
+    skos:notation "S" ;
+    skos:prefLabel "Solodic" .
+
+cv-corveg:soil-type-t a skos:Concept,
+        sosa:Result ;
+    skos:definition "Lithosols, skeletal soils, growing in rock, rocky soil." ;
+    skos:hiddenLabel "17" ;
+    skos:inScheme cv-corveg:soil-types ;
+    skos:notation "T" ;
+    skos:prefLabel "Lithosol" .
+
+cv-corveg:soil-type-u a skos:Concept,
+        sosa:Result ;
+    skos:definition "Uniform soil (texture not specified)." ;
+    skos:hiddenLabel "18" ;
+    skos:inScheme cv-corveg:soil-types ;
+    skos:notation "U" ;
+    skos:prefLabel "Uniform" .
+
+cv-corveg:soil-type-unrecorded a skos:Concept,
+        sosa:Result ;
+    skos:definition "Unrecorded." ;
+    skos:hiddenLabel "999" ;
+    skos:inScheme cv-corveg:soil-types ;
+    skos:notation "null" ;
+    skos:prefLabel "Unrecorded" .
+
+cv-corveg:soil-type-v a skos:Concept,
+        sosa:Result ;
+    skos:definition "Peat, organic soils, humic greys." ;
+    skos:hiddenLabel "19" ;
+    skos:inScheme cv-corveg:soil-types ;
+    skos:notation "V" ;
+    skos:prefLabel "Organic" .
+
+cv-corveg:soil-type-w a skos:Concept,
+        sosa:Result ;
+    skos:definition "Podsolic soils, podsol." ;
+    skos:hiddenLabel "20" ;
+    skos:inScheme cv-corveg:soil-types ;
+    skos:notation "W" ;
+    skos:prefLabel "Podsol" .
+
+cv-corveg:soil-type-x a skos:Concept,
+        sosa:Result ;
+    skos:definition "Lateritic soil formation, lateritic podsolic soils." ;
+    skos:hiddenLabel "21" ;
+    skos:inScheme cv-corveg:soil-types ;
+    skos:notation "X" ;
+    skos:prefLabel "Laterite" .
+
+cv-corveg:soil-type-y a skos:Concept,
+        sosa:Result ;
+    skos:definition "Red loams (krasnozems) and associated soils, volcanic soils, yellow earths, terra rossa soils, euchrozems, xanthozems." ;
+    skos:hiddenLabel "22" ;
+    skos:inScheme cv-corveg:soil-types ;
+    skos:notation "Y" ;
+    skos:prefLabel "Krasnozem" .
+
+cv-corveg:soil-type-z a skos:Concept,
+        sosa:Result ;
+    skos:definition "Red earths, red brown earths, chocolate soils, non-calcic brown soils, brown earths." ;
+    skos:hiddenLabel "23" ;
+    skos:inScheme cv-corveg:soil-types ;
+    skos:notation "Z" ;
+    skos:prefLabel "Red earth" .
+
+cv-corveg:soil-types a skos:ConceptScheme ;
+    skos:hasTopConcept cv-corveg:soil-type-a,
+        cv-corveg:soil-type-b,
+        cv-corveg:soil-type-c,
+        cv-corveg:soil-type-d,
+        cv-corveg:soil-type-e,
+        cv-corveg:soil-type-f,
+        cv-corveg:soil-type-g,
+        cv-corveg:soil-type-h,
+        cv-corveg:soil-type-i,
+        cv-corveg:soil-type-j,
+        cv-corveg:soil-type-k,
+        cv-corveg:soil-type-m,
+        cv-corveg:soil-type-n,
+        cv-corveg:soil-type-p,
+        cv-corveg:soil-type-q,
+        cv-corveg:soil-type-s,
+        cv-corveg:soil-type-t,
+        cv-corveg:soil-type-u,
+        cv-corveg:soil-type-unrecorded,
+        cv-corveg:soil-type-v,
+        cv-corveg:soil-type-w,
+        cv-corveg:soil-type-x,
+        cv-corveg:soil-type-y,
+        cv-corveg:soil-type-z ;
+    skos:prefLabel "Soil type concepts" .
+

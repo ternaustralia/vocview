@@ -1,0 +1,253 @@
+@prefix apc: <http://linked.data.gov.au/dataset/apc/> .
+@prefix apni: <http://linked.data.gov.au/dataset/apni/> .
+@prefix biod: <http://linked.data.gov.au/def/biodiversity/> .
+@prefix corveg: <http://linked.data.gov.au/dataset/corveg/> .
+@prefix corveg-def: <http://linked.data.gov.au/def/corveg/> .
+@prefix cv-corveg: <http://linked.data.gov.au/def/corveg-cv/> .
+@prefix data: <http://linked.data.gov.au/def/tern-plot-data/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dist-corveg: <http://linked.data.gov.au/dataset/corveg/disturbance/> .
+@prefix dwct: <http://rs.tdwg.org/dwc/terms/> .
+@prefix epsg-crs: <http://www.opengis.net/def/crs/epsg/0/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix geol-corveg: <http://linked.data.gov.au/dataset/corveg/geology/> .
+@prefix location-corveg: <http://linked.data.gov.au/dataset/corveg/location/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogroup-corveg: <http://linked.data.gov.au/def/corveg-ogroup/> .
+@prefix op-corveg: <http://linked.data.gov.au/def/corveg-op/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plot: <http://linked.data.gov.au/def/tern-plot/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rfstruct-corveg: <http://linked.data.gov.au/dataset/corveg/rf-structure/> .
+@prefix site-corveg: <http://linked.data.gov.au/dataset/corveg/site/> .
+@prefix site-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-strata/> .
+@prefix site-tax-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-tax-strata/> .
+@prefix situation-corveg: <http://linked.data.gov.au/dataset/corveg/situation/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix soil-corveg: <http://linked.data.gov.au/dataset/corveg/soil/> .
+@prefix soil-text-corveg: <http://registry.it.csiro.au/sandbox/soil-data-ie/def/voc/texture/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn-ext: <http://www.w3.org/ns/ssn/ext/> .
+@prefix struct-corveg: <http://linked.data.gov.au/dataset/corveg/structure/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix v-comm-corveg: <http://linked.data.gov.au/dataset/corveg/vege-community/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cv-corveg:erosion-pattern a owl:Ontology ;
+    owl:imports <http://www.w3.org/2004/02/skos/core>,
+        sosa: .
+
+cv-corveg:erosion-pattern-b a skos:Concept,
+        sosa:Result ;
+    skos:definition "a combination of the lowest relief classes and the steepest modal terrain slopes." ;
+    skos:hiddenLabel "14" ;
+    skos:inScheme cv-corveg:erosion-patterns ;
+    skos:notation "B" ;
+    skos:prefLabel "Badlands" .
+
+cv-corveg:erosion-pattern-gp a skos:Concept,
+        sosa:Result ;
+    skos:definition "modal terrain slope 1-2 degrees and relief < 9 metres." ;
+    skos:hiddenLabel "20" ;
+    skos:inScheme cv-corveg:erosion-patterns ;
+    skos:notation "GP" ;
+    skos:prefLabel "Gently undulating plain" .
+
+cv-corveg:erosion-pattern-gr a skos:Concept,
+        sosa:Result ;
+    skos:definition "modal terrain slope 1-2 degrees and relief 9-30 metres." ;
+    skos:hiddenLabel "15" ;
+    skos:inScheme cv-corveg:erosion-patterns ;
+    skos:notation "GR" ;
+    skos:prefLabel "Gently undulating rises" .
+
+cv-corveg:erosion-pattern-lp a skos:Concept,
+        sosa:Result ;
+    skos:definition "modal terrain slope 0 degrees and relief < 9 metres." ;
+    skos:hiddenLabel "19" ;
+    skos:inScheme cv-corveg:erosion-patterns ;
+    skos:notation "LP" ;
+    skos:prefLabel "Level plain" .
+
+cv-corveg:erosion-pattern-ph a skos:Concept,
+        sosa:Result ;
+    skos:definition "modal terrain slope >45 degrees and relief 90-300 metres." ;
+    skos:hiddenLabel "9" ;
+    skos:inScheme cv-corveg:erosion-patterns ;
+    skos:notation "PH" ;
+    skos:prefLabel "Precipitious hills" .
+
+cv-corveg:erosion-pattern-pm a skos:Concept,
+        sosa:Result ;
+    skos:definition "modal terrain slope >45 degrees and relief > 300 metres." ;
+    skos:hiddenLabel "4" ;
+    skos:inScheme cv-corveg:erosion-patterns ;
+    skos:notation "PM" ;
+    skos:prefLabel "Precipitous mountains" .
+
+cv-corveg:erosion-pattern-rh a skos:Concept,
+        sosa:Result ;
+    skos:definition "modal terrain slope 7-18 degrees and relief 90-300 metres." ;
+    skos:hiddenLabel "6" ;
+    skos:inScheme cv-corveg:erosion-patterns ;
+    skos:notation "RH" ;
+    skos:prefLabel "Rolling hills" .
+
+cv-corveg:erosion-pattern-rl a skos:Concept,
+        sosa:Result ;
+    skos:definition "modal terrain slope 7-18 degrees and relief 30-90 metres." ;
+    skos:hiddenLabel "11" ;
+    skos:inScheme cv-corveg:erosion-patterns ;
+    skos:notation "RL" ;
+    skos:prefLabel "Rolling low hills" .
+
+cv-corveg:erosion-pattern-rm a skos:Concept,
+        sosa:Result ;
+    skos:definition "modal terrain slope 7-18 degrees and relief > 300 metres." ;
+    skos:hiddenLabel "1" ;
+    skos:inScheme cv-corveg:erosion-patterns ;
+    skos:notation "RM" ;
+    skos:prefLabel "Rolling mountains" .
+
+cv-corveg:erosion-pattern-rp a skos:Concept,
+        sosa:Result ;
+    skos:definition "modal terrain slope 7-18 degrees and relief < 9 metres." ;
+    skos:hiddenLabel "22" ;
+    skos:inScheme cv-corveg:erosion-patterns ;
+    skos:notation "RP" ;
+    skos:prefLabel "Rolling plain" .
+
+cv-corveg:erosion-pattern-rr a skos:Concept,
+        sosa:Result ;
+    skos:definition "modal terrain slope 7-18 degrees and relief 9-30 metres." ;
+    skos:hiddenLabel "17" ;
+    skos:inScheme cv-corveg:erosion-patterns ;
+    skos:notation "RR" ;
+    skos:prefLabel "Rolling rises" .
+
+cv-corveg:erosion-pattern-sh a skos:Concept,
+        sosa:Result ;
+    skos:definition "modal terrain slope 19-29 degrees and relief 90-300 metres." ;
+    skos:hiddenLabel "7" ;
+    skos:inScheme cv-corveg:erosion-patterns ;
+    skos:notation "SH" ;
+    skos:prefLabel "Steep hills" .
+
+cv-corveg:erosion-pattern-sl a skos:Concept,
+        sosa:Result ;
+    skos:definition "modal terrain slope 19-29 degrees and relief 30-90 metres." ;
+    skos:hiddenLabel "12" ;
+    skos:inScheme cv-corveg:erosion-patterns ;
+    skos:notation "SL" ;
+    skos:prefLabel "Steep low hills" .
+
+cv-corveg:erosion-pattern-sm a skos:Concept,
+        sosa:Result ;
+    skos:definition "modal terrain slope 19-29 degrees and relief > 300 metres." ;
+    skos:hiddenLabel "2" ;
+    skos:inScheme cv-corveg:erosion-patterns ;
+    skos:notation "SM" ;
+    skos:prefLabel "Steep mountains" .
+
+cv-corveg:erosion-pattern-sr a skos:Concept,
+        sosa:Result ;
+    skos:definition "modal terrain slope 19-29 degrees and relief 9-30 metres." ;
+    skos:hiddenLabel "18" ;
+    skos:inScheme cv-corveg:erosion-patterns ;
+    skos:notation "SR" ;
+    skos:prefLabel "Steep rises" .
+
+cv-corveg:erosion-pattern-uh a skos:Concept,
+        sosa:Result ;
+    skos:definition "modal terrain slope 3-6 degrees and relief 90-300 metres." ;
+    skos:hiddenLabel "5" ;
+    skos:inScheme cv-corveg:erosion-patterns ;
+    skos:notation "UH" ;
+    skos:prefLabel "Undulating hills" .
+
+cv-corveg:erosion-pattern-ul a skos:Concept,
+        sosa:Result ;
+    skos:definition "modal terrain slope 3-6 degrees and relief 30-90 metres." ;
+    skos:hiddenLabel "10" ;
+    skos:inScheme cv-corveg:erosion-patterns ;
+    skos:notation "UL" ;
+    skos:prefLabel "Undulating low hills" .
+
+cv-corveg:erosion-pattern-unrecorded a skos:Concept,
+        sosa:Result ;
+    skos:definition "Unrecorded." ;
+    skos:hiddenLabel "999" ;
+    skos:inScheme cv-corveg:erosion-patterns ;
+    skos:notation "null" ;
+    skos:prefLabel "Unrecorded" .
+
+cv-corveg:erosion-pattern-up a skos:Concept,
+        sosa:Result ;
+    skos:definition "modal terrain slope 3-6 degrees and relief < 9 metres." ;
+    skos:hiddenLabel "21" ;
+    skos:inScheme cv-corveg:erosion-patterns ;
+    skos:notation "UP" ;
+    skos:prefLabel "Undulating plain" .
+
+cv-corveg:erosion-pattern-ur a skos:Concept,
+        sosa:Result ;
+    skos:definition "modal terrain slope 3-6 degrees and relief 9-30 metres." ;
+    skos:hiddenLabel "16" ;
+    skos:inScheme cv-corveg:erosion-patterns ;
+    skos:notation "UR" ;
+    skos:prefLabel "Undulating rises" .
+
+cv-corveg:erosion-pattern-vh a skos:Concept,
+        sosa:Result ;
+    skos:definition "modal terrain slope 30-45 degrees and relief 90-300 metres." ;
+    skos:hiddenLabel "8" ;
+    skos:inScheme cv-corveg:erosion-patterns ;
+    skos:notation "VH" ;
+    skos:prefLabel "Very steep hills" .
+
+cv-corveg:erosion-pattern-vl a skos:Concept,
+        sosa:Result ;
+    skos:definition "modal terrain slope 30-45 degrees and relief 30-90 metres." ;
+    skos:hiddenLabel "13" ;
+    skos:inScheme cv-corveg:erosion-patterns ;
+    skos:notation "VL" ;
+    skos:prefLabel "Very steep low hills" .
+
+cv-corveg:erosion-pattern-vm a skos:Concept,
+        sosa:Result ;
+    skos:definition "modal terrain slope 30-45 degrees and relief > 300 metres." ;
+    skos:hiddenLabel "3" ;
+    skos:inScheme cv-corveg:erosion-patterns ;
+    skos:notation "VM" ;
+    skos:prefLabel "Very steep mountains" .
+
+cv-corveg:erosion-patterns a skos:ConceptScheme ;
+    skos:hasTopConcept cv-corveg:erosion-pattern-b,
+        cv-corveg:erosion-pattern-gp,
+        cv-corveg:erosion-pattern-gr,
+        cv-corveg:erosion-pattern-lp,
+        cv-corveg:erosion-pattern-ph,
+        cv-corveg:erosion-pattern-pm,
+        cv-corveg:erosion-pattern-rh,
+        cv-corveg:erosion-pattern-rl,
+        cv-corveg:erosion-pattern-rm,
+        cv-corveg:erosion-pattern-rp,
+        cv-corveg:erosion-pattern-rr,
+        cv-corveg:erosion-pattern-sh,
+        cv-corveg:erosion-pattern-sl,
+        cv-corveg:erosion-pattern-sm,
+        cv-corveg:erosion-pattern-sr,
+        cv-corveg:erosion-pattern-uh,
+        cv-corveg:erosion-pattern-ul,
+        cv-corveg:erosion-pattern-unrecorded,
+        cv-corveg:erosion-pattern-up,
+        cv-corveg:erosion-pattern-ur,
+        cv-corveg:erosion-pattern-vh,
+        cv-corveg:erosion-pattern-vl,
+        cv-corveg:erosion-pattern-vm ;
+    skos:prefLabel "Erosion pattern concepts" .
+

@@ -1,0 +1,212 @@
+@prefix apc: <http://linked.data.gov.au/dataset/apc/> .
+@prefix apni: <http://linked.data.gov.au/dataset/apni/> .
+@prefix biod: <http://linked.data.gov.au/def/biodiversity/> .
+@prefix corveg: <http://linked.data.gov.au/dataset/corveg/> .
+@prefix corveg-def: <http://linked.data.gov.au/def/corveg/> .
+@prefix cv-corveg: <http://linked.data.gov.au/def/corveg-cv/> .
+@prefix data: <http://linked.data.gov.au/def/tern-plot-data/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dist-corveg: <http://linked.data.gov.au/dataset/corveg/disturbance/> .
+@prefix dwct: <http://rs.tdwg.org/dwc/terms/> .
+@prefix epsg-crs: <http://www.opengis.net/def/crs/epsg/0/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix geol-corveg: <http://linked.data.gov.au/dataset/corveg/geology/> .
+@prefix location-corveg: <http://linked.data.gov.au/dataset/corveg/location/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogroup-corveg: <http://linked.data.gov.au/def/corveg-ogroup/> .
+@prefix op-corveg: <http://linked.data.gov.au/def/corveg-op/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plot: <http://linked.data.gov.au/def/tern-plot/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rfstruct-corveg: <http://linked.data.gov.au/dataset/corveg/rf-structure/> .
+@prefix site-corveg: <http://linked.data.gov.au/dataset/corveg/site/> .
+@prefix site-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-strata/> .
+@prefix site-tax-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-tax-strata/> .
+@prefix situation-corveg: <http://linked.data.gov.au/dataset/corveg/situation/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix soil-corveg: <http://linked.data.gov.au/dataset/corveg/soil/> .
+@prefix soil-text-corveg: <http://registry.it.csiro.au/sandbox/soil-data-ie/def/voc/texture/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn-ext: <http://www.w3.org/ns/ssn/ext/> .
+@prefix struct-corveg: <http://linked.data.gov.au/dataset/corveg/structure/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix v-comm-corveg: <http://linked.data.gov.au/dataset/corveg/vege-community/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+biod:rank-classis a skos:Concept ;
+    skos:altLabel "cl." ;
+    skos:notation 30 ;
+    skos:prefLabel "Classis" .
+
+biod:rank-division a skos:Concept ;
+    skos:altLabel "div." ;
+    skos:notation 20 ;
+    skos:prefLabel "Division" .
+
+biod:rank-familia a skos:Concept ;
+    skos:altLabel "fam." ;
+    skos:notation 80 ;
+    skos:prefLabel "Familia" .
+
+biod:rank-forma a skos:Concept ;
+    dwct:specificEpithet "clypearia" ;
+    skos:altLabel "f." ;
+    skos:notation 230 ;
+    skos:prefLabel "Forma" .
+
+biod:rank-genus a skos:Concept ;
+    skos:altLabel "gen." ;
+    skos:notation 120 ;
+    skos:prefLabel "Genus" .
+
+biod:rank-infragenus a skos:Concept ;
+    skos:altLabel "infragenus" ;
+    skos:notation 500 ;
+    skos:prefLabel "infragenus" .
+
+biod:rank-infraspecies a skos:Concept ;
+    dwct:specificEpithet "calcitrapa" ;
+    skos:altLabel "infrasp." ;
+    skos:notation 500 ;
+    skos:prefLabel "infraspecies" .
+
+biod:rank-morphological-var a skos:Concept ;
+    dwct:specificEpithet "tasmanica" ;
+    skos:altLabel "morph." ;
+    skos:notation 260 ;
+    skos:prefLabel "morphological var." .
+
+biod:rank-n-a a skos:Concept ;
+    skos:altLabel "n/a" ;
+    skos:notation 500 ;
+    skos:prefLabel "n/a" .
+
+biod:rank-nothovarietas a skos:Concept ;
+    dwct:specificEpithet "bontei" ;
+    skos:altLabel "nothovar." ;
+    skos:notation 210 ;
+    skos:prefLabel "Nothovarietas" .
+
+biod:rank-ordo a skos:Concept ;
+    skos:altLabel "ordo" ;
+    skos:notation 60 ;
+    skos:prefLabel "Ordo" .
+
+biod:rank-regio a skos:Concept ;
+    skos:altLabel "regio" ;
+    skos:notation 8 ;
+    skos:prefLabel "Regio" .
+
+biod:rank-regnum a skos:Concept ;
+    skos:altLabel "reg." ;
+    skos:notation 10 ;
+    skos:prefLabel "Regnum" .
+
+biod:rank-sectio a skos:Concept ;
+    skos:altLabel "sect." ;
+    skos:notation 140 ;
+    skos:prefLabel "Sectio" .
+
+biod:rank-series a skos:Concept ;
+    skos:altLabel "ser." ;
+    skos:notation 160 ;
+    skos:prefLabel "Series" .
+
+biod:rank-species a skos:Concept ;
+    dwct:specificEpithet "aspera" ;
+    skos:altLabel "sp." ;
+    skos:notation 190 ;
+    skos:prefLabel "Species" .
+
+biod:rank-subclassis a skos:Concept ;
+    skos:altLabel "subcl." ;
+    skos:notation 40 ;
+    skos:prefLabel "Subclassis" .
+
+biod:rank-subfamilia a skos:Concept ;
+    skos:altLabel "subfam." ;
+    skos:notation 90 ;
+    skos:prefLabel "Subfamilia" .
+
+biod:rank-subforma a skos:Concept ;
+    dwct:specificEpithet "baccifera" ;
+    skos:altLabel "subf." ;
+    skos:notation 240 ;
+    skos:prefLabel "Subforma" .
+
+biod:rank-subgenus a skos:Concept ;
+    skos:altLabel "subg." ;
+    skos:notation 130 ;
+    skos:prefLabel "Subgenus" .
+
+biod:rank-subordo a skos:Concept ;
+    skos:altLabel "subordo" ;
+    skos:notation 70 ;
+    skos:prefLabel "Subordo" .
+
+biod:rank-subsectio a skos:Concept ;
+    skos:altLabel "subsect." ;
+    skos:notation 150 ;
+    skos:prefLabel "Subsectio" .
+
+biod:rank-subseries a skos:Concept ;
+    skos:altLabel "subser." ;
+    skos:notation 170 ;
+    skos:prefLabel "Subseries" .
+
+biod:rank-subspecies a skos:Concept ;
+    dwct:specificEpithet "manihot" ;
+    skos:altLabel "subsp." ;
+    skos:notation 200 ;
+    skos:prefLabel "Subspecies" .
+
+biod:rank-subtribus a skos:Concept ;
+    skos:altLabel "subtrib." ;
+    skos:notation 110 ;
+    skos:prefLabel "Subtribus" .
+
+biod:rank-subvarietas a skos:Concept ;
+    dwct:specificEpithet "longifolia" ;
+    skos:altLabel "subvar." ;
+    skos:notation 220 ;
+    skos:prefLabel "Subvarietas" .
+
+biod:rank-superordo a skos:Concept ;
+    skos:altLabel "superordo" ;
+    skos:notation 50 ;
+    skos:prefLabel "Superordo" .
+
+biod:rank-superspecies a skos:Concept ;
+    skos:altLabel "supersp." ;
+    skos:notation 180 ;
+    skos:prefLabel "Superspecies" .
+
+biod:rank-tribus a skos:Concept ;
+    skos:altLabel "trib." ;
+    skos:notation 100 ;
+    skos:prefLabel "Tribus" .
+
+biod:rank-unranked a skos:Concept ;
+    dwct:specificEpithet "matrella" ;
+    skos:altLabel "unranked" ;
+    skos:notation 500 ;
+    skos:prefLabel "unranked" .
+
+biod:rank-varietas a skos:Concept ;
+    dwct:specificEpithet "rupestris" ;
+    skos:altLabel "var." ;
+    skos:notation 210 ;
+    skos:prefLabel "Varietas" .
+
+biod:taxon-rank a owl:Ontology ;
+    owl:imports skos: .
+
+biod:taxon-ranks a skos:Collection ;
+    dct:description "A collection of taxonomic rank terms in the Australian Plant Name Index (APNI)." ;
+    dct:isPartOf apni: ;
+    skos:prefLabel "Taxon Rank Concepts" .
+

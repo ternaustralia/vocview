@@ -1,0 +1,163 @@
+@prefix apc: <http://linked.data.gov.au/dataset/apc/> .
+@prefix apni: <http://linked.data.gov.au/dataset/apni/> .
+@prefix biod: <http://linked.data.gov.au/def/biodiversity/> .
+@prefix corveg: <http://linked.data.gov.au/dataset/corveg/> .
+@prefix corveg-def: <http://linked.data.gov.au/def/corveg/> .
+@prefix cv-corveg: <http://linked.data.gov.au/def/corveg-cv/> .
+@prefix data: <http://linked.data.gov.au/def/tern-plot-data/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dist-corveg: <http://linked.data.gov.au/dataset/corveg/disturbance/> .
+@prefix dwct: <http://rs.tdwg.org/dwc/terms/> .
+@prefix epsg-crs: <http://www.opengis.net/def/crs/epsg/0/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix geol-corveg: <http://linked.data.gov.au/dataset/corveg/geology/> .
+@prefix location-corveg: <http://linked.data.gov.au/dataset/corveg/location/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogroup-corveg: <http://linked.data.gov.au/def/corveg-ogroup/> .
+@prefix op-corveg: <http://linked.data.gov.au/def/corveg-op/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plot: <http://linked.data.gov.au/def/tern-plot/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rfstruct-corveg: <http://linked.data.gov.au/dataset/corveg/rf-structure/> .
+@prefix site-corveg: <http://linked.data.gov.au/dataset/corveg/site/> .
+@prefix site-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-strata/> .
+@prefix site-tax-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-tax-strata/> .
+@prefix situation-corveg: <http://linked.data.gov.au/dataset/corveg/situation/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix soil-corveg: <http://linked.data.gov.au/dataset/corveg/soil/> .
+@prefix soil-text-corveg: <http://registry.it.csiro.au/sandbox/soil-data-ie/def/voc/texture/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn-ext: <http://www.w3.org/ns/ssn/ext/> .
+@prefix struct-corveg: <http://linked.data.gov.au/dataset/corveg/structure/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix v-comm-corveg: <http://linked.data.gov.au/dataset/corveg/vege-community/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cv-corveg:site-sample-type-a a rdfs:Class,
+        skos:Concept ;
+    skos:definition "Square." ;
+    skos:hiddenLabel "1" ;
+    skos:inScheme cv-corveg:site-sample-types ;
+    skos:notation "A" ;
+    skos:prefLabel "Square" .
+
+cv-corveg:site-sample-type-b a rdfs:Class,
+        skos:Concept ;
+    skos:definition "Circular." ;
+    skos:hiddenLabel "2" ;
+    skos:inScheme cv-corveg:site-sample-types ;
+    skos:notation "B" ;
+    skos:prefLabel "Circular" .
+
+cv-corveg:site-sample-type-c a rdfs:Class,
+        skos:Concept ;
+    skos:definition "Rectangular." ;
+    skos:hiddenLabel "3" ;
+    skos:inScheme cv-corveg:site-sample-types ;
+    skos:notation "C" ;
+    skos:prefLabel "Rectangular" .
+
+cv-corveg:site-sample-type-d a rdfs:Class,
+        skos:Concept ;
+    skos:definition "Belt transect." ;
+    skos:hiddenLabel "4" ;
+    skos:inScheme cv-corveg:site-sample-types ;
+    skos:notation "D" ;
+    skos:prefLabel "Belt Transect" .
+
+cv-corveg:site-sample-type-e a rdfs:Class,
+        skos:Concept ;
+    skos:definition "Irregular." ;
+    skos:hiddenLabel "5" ;
+    skos:inScheme cv-corveg:site-sample-types ;
+    skos:notation "E" ;
+    skos:prefLabel "Irregular" .
+
+cv-corveg:site-sample-type-g a rdfs:Class,
+        skos:Concept ;
+    skos:definition "Bitterlich." ;
+    skos:hiddenLabel "7" ;
+    skos:inScheme cv-corveg:site-sample-types ;
+    skos:notation "G" ;
+    skos:prefLabel "Bitterlich" .
+
+cv-corveg:site-sample-type-h a rdfs:Class,
+        skos:Concept ;
+    skos:definition "Point-centred quarter." ;
+    skos:hiddenLabel "8" ;
+    skos:inScheme cv-corveg:site-sample-types ;
+    skos:notation "H" ;
+    skos:prefLabel "Point-Centred Quarter" .
+
+cv-corveg:site-sample-type-i a rdfs:Class,
+        skos:Concept ;
+    skos:definition "Nearest neighbour." ;
+    skos:hiddenLabel "9" ;
+    skos:inScheme cv-corveg:site-sample-types ;
+    skos:notation "I" ;
+    skos:prefLabel "Nearest Neighbour" .
+
+cv-corveg:site-sample-type-j a rdfs:Class,
+        skos:Concept ;
+    skos:definition "Hybrid." ;
+    skos:hiddenLabel "10" ;
+    skos:inScheme cv-corveg:site-sample-types ;
+    skos:notation "J" ;
+    skos:prefLabel "Hybrid" .
+
+cv-corveg:site-sample-type-k a rdfs:Class,
+        skos:Concept ;
+    skos:definition "Releve-Braun-Blanquet." ;
+    skos:hiddenLabel "11" ;
+    skos:inScheme cv-corveg:site-sample-types ;
+    skos:notation "K" ;
+    skos:prefLabel "Releve-Braun-Blanquet" .
+
+cv-corveg:site-sample-type-l a rdfs:Class,
+        skos:Concept ;
+    skos:definition "Random/Plotless/Other." ;
+    skos:hiddenLabel "12" ;
+    skos:inScheme cv-corveg:site-sample-types ;
+    skos:notation "L" ;
+    skos:prefLabel "Random/Plotless/Other" .
+
+cv-corveg:site-sample-type-n a rdfs:Class,
+        skos:Concept ;
+    skos:definition "Nested." ;
+    skos:hiddenLabel "6" ;
+    skos:inScheme cv-corveg:site-sample-types ;
+    skos:notation "N" ;
+    skos:prefLabel "Nested" .
+
+cv-corveg:site-sample-type-unrecorded a rdfs:Class,
+        skos:Concept ;
+    skos:definition "Unrecorded." ;
+    skos:hiddenLabel "999" ;
+    skos:inScheme cv-corveg:site-sample-types ;
+    skos:notation "null" ;
+    skos:prefLabel "Unrecorded" .
+
+cv-corveg:site-sample-type a owl:Ontology ;
+    owl:imports <http://www.w3.org/2004/02/skos/core>,
+        sosa: .
+
+cv-corveg:site-sample-types a skos:ConceptScheme ;
+    skos:hasTopConcept cv-corveg:site-sample-type-a,
+        cv-corveg:site-sample-type-b,
+        cv-corveg:site-sample-type-c,
+        cv-corveg:site-sample-type-d,
+        cv-corveg:site-sample-type-e,
+        cv-corveg:site-sample-type-g,
+        cv-corveg:site-sample-type-h,
+        cv-corveg:site-sample-type-i,
+        cv-corveg:site-sample-type-j,
+        cv-corveg:site-sample-type-k,
+        cv-corveg:site-sample-type-l,
+        cv-corveg:site-sample-type-n,
+        cv-corveg:site-sample-type-unrecorded ;
+    skos:prefLabel "Site sample type concepts" .
+

@@ -1,0 +1,694 @@
+@prefix apc: <http://linked.data.gov.au/dataset/apc/> .
+@prefix apni: <http://linked.data.gov.au/dataset/apni/> .
+@prefix biod: <http://linked.data.gov.au/def/biodiversity/> .
+@prefix corveg: <http://linked.data.gov.au/dataset/corveg/> .
+@prefix corveg-def: <http://linked.data.gov.au/def/corveg/> .
+@prefix cv-corveg: <http://linked.data.gov.au/def/corveg-cv/> .
+@prefix data: <http://linked.data.gov.au/def/tern-plot-data/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dist-corveg: <http://linked.data.gov.au/dataset/corveg/disturbance/> .
+@prefix dwct: <http://rs.tdwg.org/dwc/terms/> .
+@prefix epsg-crs: <http://www.opengis.net/def/crs/epsg/0/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix geol-corveg: <http://linked.data.gov.au/dataset/corveg/geology/> .
+@prefix location-corveg: <http://linked.data.gov.au/dataset/corveg/location/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogroup-corveg: <http://linked.data.gov.au/def/corveg-ogroup/> .
+@prefix op-corveg: <http://linked.data.gov.au/def/corveg-op/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plot: <http://linked.data.gov.au/def/tern-plot/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rfstruct-corveg: <http://linked.data.gov.au/dataset/corveg/rf-structure/> .
+@prefix site-corveg: <http://linked.data.gov.au/dataset/corveg/site/> .
+@prefix site-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-strata/> .
+@prefix site-tax-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-tax-strata/> .
+@prefix situation-corveg: <http://linked.data.gov.au/dataset/corveg/situation/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix soil-corveg: <http://linked.data.gov.au/dataset/corveg/soil/> .
+@prefix soil-text-corveg: <http://registry.it.csiro.au/sandbox/soil-data-ie/def/voc/texture/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn-ext: <http://www.w3.org/ns/ssn/ext/> .
+@prefix struct-corveg: <http://linked.data.gov.au/dataset/corveg/structure/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix v-comm-corveg: <http://linked.data.gov.au/dataset/corveg/vege-community/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cv-corveg:landform-element a owl:Ontology ;
+    owl:imports <http://www.w3.org/2004/02/skos/core>,
+        sosa: .
+
+cv-corveg:landform-element-alc a skos:Concept,
+        sosa:Result ;
+    skos:definition "Moderately inclined to very steep, short open depression with concave cross-section, eroded by collapse, landslides, creep or surface wash." ;
+    skos:hiddenLabel "1" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "ALC" ;
+    skos:prefLabel "Alcove" .
+
+cv-corveg:landform-element-ban a skos:Concept,
+        sosa:Result ;
+    skos:definition "Very short, very wide slope moderately inclined to precipitous, forming the marginal upper parts of a stream channel and resulting from erosion or aggradation by channelled stream flow." ;
+    skos:hiddenLabel "3" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "BAN" ;
+    skos:prefLabel "Bank (stream bank)" .
+
+cv-corveg:landform-element-bar a skos:Concept,
+        sosa:Result ;
+    skos:definition "Elongated, gently to moderately inclined low ridge built up by channelled stream flow; part of a streambed." ;
+    skos:hiddenLabel "4" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "BAR" ;
+    skos:prefLabel "Bar (stream bar)" .
+
+cv-corveg:landform-element-bea a skos:Concept,
+        sosa:Result ;
+    skos:definition "Short, low, very wide slope, gently or moderately inclined, built up or eroded by waves, forming the shore of a lake or sea." ;
+    skos:hiddenLabel "5" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "BEA" ;
+    skos:prefLabel "Beach" .
+
+cv-corveg:landform-element-ben a skos:Concept,
+        sosa:Result ;
+    skos:definition "Short, gently or very gently inclined minimal mid slope element eroded or aggraded by any agent." ;
+    skos:hiddenLabel "7" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "BEN" ;
+    skos:prefLabel "Bench" .
+
+cv-corveg:landform-element-ber a skos:Concept,
+        sosa:Result ;
+    skos:definition "Short, gently inclined to level minimal mid slope in an embankment or cut face, eroded or aggraded by human activityFlat built up by waves above a beach.." ;
+    skos:hiddenLabel "8" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "BER" ;
+    skos:prefLabel "Berm" .
+
+cv-corveg:landform-element-bkp a skos:Concept,
+        sosa:Result ;
+    skos:definition "Large flat resulting from aggradation by over-bank stream flow at some distance from the stream channel and in some cases biological (peat) accumulation; often characterised by a high watertable and the presence of swamps or lakes; part of a covered plain landform pattern." ;
+    skos:hiddenLabel "2" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "BKP" ;
+    skos:prefLabel "Back plain" .
+
+cv-corveg:landform-element-bou a skos:Concept,
+        sosa:Result ;
+    skos:definition "Usually small, open or closed depression excavated by the wind." ;
+    skos:hiddenLabel "9" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "BOU" ;
+    skos:prefLabel "Blow-out" .
+
+cv-corveg:landform-element-bri a skos:Concept,
+        sosa:Result ;
+    skos:definition "Very long, nearly straight low ridge built up by waves and usually modified by wind. A beach ridge is often a relict feature remote from the beach.." ;
+    skos:hiddenLabel "6" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "BRI" ;
+    skos:prefLabel "Beach ridge" .
+
+cv-corveg:landform-element-brk a skos:Concept,
+        sosa:Result ;
+    skos:definition "Steep maximal mid-slope or upper slope, generally comprising both a very short scarp (free face) that is often bare rockland, and a stony scape-foot slope (debris slope); often standing above a pediment." ;
+    skos:hiddenLabel "10" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "BRK" ;
+    skos:prefLabel "Breakaway" .
+
+cv-corveg:landform-element-cbe a skos:Concept,
+        sosa:Result ;
+    skos:definition "Flat at the margin of a stream channel aggraded and in part eroded by over-bank and channelled stream flow; an incipient flood plain. Channel benches have been referred to as low-terraces but the term terrace should be restricted to landform patterns above the influence of active stream flow.." ;
+    skos:hiddenLabel "11" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "CBE" ;
+    skos:prefLabel "Channel bench" .
+
+cv-corveg:landform-element-cfs a skos:Concept,
+        sosa:Result ;
+    skos:definition "Slope situated below a cliff, with its contours generally parallel to the line of the cliff, eroded by sheet wash or water-aided mass movement and aggraded locally by collapsed material from above." ;
+    skos:hiddenLabel "14" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "CFS" ;
+    skos:prefLabel "Cliff foot slope" .
+
+cv-corveg:landform-element-cir a skos:Concept,
+        sosa:Result ;
+    skos:definition "Precipitous to gently inclined, typically closed depression of concave contour and profile excavated by ice. The closed part of the depression may be shallow, the larger part being an open depression like an alcove.." ;
+    skos:hiddenLabel "12" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "CIR" ;
+    skos:prefLabel "Cirque" .
+
+cv-corveg:landform-element-cli a skos:Concept,
+        sosa:Result ;
+    skos:definition "Very wide cliffed (greater than 72 degrees) maximal slope usually eroded by gravitational fall as a result of erosion of the base by various agencies, sometimes built up marine organisms (cf. scarp) ." ;
+    skos:hiddenLabel "13" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "CLI" ;
+    skos:prefLabel "Cliff" .
+
+cv-corveg:landform-element-con a skos:Concept,
+        sosa:Result ;
+    skos:definition "Hillock with a circular symmetry built up by volcanism. The crest may form a ring around a crater.." ;
+    skos:hiddenLabel "15" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "CON" ;
+    skos:prefLabel "Cone (volcanic)" .
+
+cv-corveg:landform-element-cos a skos:Concept,
+        sosa:Result ;
+    skos:definition "Flat eroded by human activity." ;
+    skos:hiddenLabel "18" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "COS" ;
+    skos:prefLabel "Cut over surface" .
+
+cv-corveg:landform-element-cra a skos:Concept,
+        sosa:Result ;
+    skos:definition "Steep to precipitous closed depression excavated by explosions due to volcanism, human action, or impact of an extraterrestrial object." ;
+    skos:hiddenLabel "16" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "CRA" ;
+    skos:prefLabel "Crater" .
+
+cv-corveg:landform-element-cut a skos:Concept,
+        sosa:Result ;
+    skos:definition "Slope eroded by human activity." ;
+    skos:hiddenLabel "17" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "CUT" ;
+    skos:prefLabel "Cut face" .
+
+cv-corveg:landform-element-dam a skos:Concept,
+        sosa:Result ;
+    skos:definition "Ridge built up by human activity so as to close a depression." ;
+    skos:hiddenLabel "19" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "DAM" ;
+    skos:prefLabel "Dam" .
+
+cv-corveg:landform-element-dde a skos:Concept,
+        sosa:Result ;
+    skos:definition "Level to gently inclined, long, narrow, shallow open depression, with smooth concave cross-section rising to moderately inclined side slopes, eroded or aggraded by sheet wash." ;
+    skos:hiddenLabel "21" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "DDE" ;
+    skos:prefLabel "Drainage depression" .
+
+cv-corveg:landform-element-dol a skos:Concept,
+        sosa:Result ;
+    skos:definition "Steep-sided closed depression eroded by solution directed towards an underground drainage way, or by collapse consequent on such solution. A typical element of a karst landform pattern." ;
+    skos:hiddenLabel "20" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "DOL" ;
+    skos:prefLabel "Doline" .
+
+cv-corveg:landform-element-duc a skos:Concept,
+        sosa:Result ;
+    skos:definition "Crest built up or eroded by the wind (see also dune) ." ;
+    skos:hiddenLabel "23" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "DUC" ;
+    skos:prefLabel "Dune crest" .
+
+cv-corveg:landform-element-dun a skos:Concept,
+        sosa:Result ;
+    skos:definition "Moderately inclined to very steep ridge or hillock built up by the wind. This element may comprise dune crest and dune slope.." ;
+    skos:hiddenLabel "22" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "DUN" ;
+    skos:prefLabel "Dune" .
+
+cv-corveg:landform-element-dus a skos:Concept,
+        sosa:Result ;
+    skos:definition "Slope built up or eroded by the wind (see also dune)." ;
+    skos:hiddenLabel "24" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "DUS" ;
+    skos:prefLabel "Dune slope" .
+
+cv-corveg:landform-element-emb a skos:Concept,
+        sosa:Result ;
+    skos:definition "Ridge or slope built by human activity." ;
+    skos:hiddenLabel "25" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "EMB" ;
+    skos:prefLabel "Embankment" .
+
+cv-corveg:landform-element-est a skos:Concept,
+        sosa:Result ;
+    skos:definition "Stream channel close to its junction with a sea or lake, where the action of channelled stream flow is modified by tides and waves. The width typically increases downstream. ." ;
+    skos:hiddenLabel "26" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "EST" ;
+    skos:prefLabel "Estuary" .
+
+cv-corveg:landform-element-fan a skos:Concept,
+        sosa:Result ;
+    skos:definition "Large gently inclined to level element with radical slope lines inclined away from a point, resulting from aggradation, or occasionally from erosion, by channelled, often braided, stream flow, or possibly by sheet flow." ;
+    skos:hiddenLabel "27" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "FAN" ;
+    skos:prefLabel "Fan" .
+
+cv-corveg:landform-element-fil a skos:Concept,
+        sosa:Result ;
+    skos:definition "Flat aggraded by human activity ." ;
+    skos:hiddenLabel "28" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "FIL" ;
+    skos:prefLabel "Fill-top" .
+
+cv-corveg:landform-element-fld a skos:Concept,
+        sosa:Result ;
+    skos:definition "Flat inclined radially away from a point on the margin or at the end of a stream channel, aggraded by over-stream flow, or by channelled stream flow associated with channels developed within the over-bank flow; part of a covered plain landform pattern ." ;
+    skos:hiddenLabel "29" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "FLD" ;
+    skos:prefLabel "Flood-out" .
+
+cv-corveg:landform-element-foo a skos:Concept,
+        sosa:Result ;
+    skos:definition "Moderately to very gently inclined waning lower slope resulting from aggradation or erosion by sheet flow, earth flow or creep (cf. pediment)." ;
+    skos:hiddenLabel "30" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "FOO" ;
+    skos:prefLabel "Foot slope" .
+
+cv-corveg:landform-element-for a skos:Concept,
+        sosa:Result ;
+    skos:definition "Very long, nearly straight, moderately inclined to very steep ridge built up by the wind from material from an adjacent beach." ;
+    skos:hiddenLabel "31" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "FOR" ;
+    skos:prefLabel "Fore dune" .
+
+cv-corveg:landform-element-gul a skos:Concept,
+        sosa:Result ;
+    skos:definition "Open depression with short, precipitous walls and moderately inclined to very gently inclined floor or small stream channel, eroded by channelled stream flow and consequent collapse and water-aided mass movement." ;
+    skos:hiddenLabel "32" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "GUL" ;
+    skos:prefLabel "Gully" .
+
+cv-corveg:landform-element-hcr a skos:Concept,
+        sosa:Result ;
+    skos:definition "Very gently inclined to steep crest, smoothly convex, eroded mainly by creep and sheet wash. A typical element of mountains, hills, low hills and rises." ;
+    skos:hiddenLabel "33" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "HCR" ;
+    skos:prefLabel "Hillcrest" .
+
+cv-corveg:landform-element-hsl a skos:Concept,
+        sosa:Result ;
+    skos:definition "Gently inclined to precipitous slope, commonly simple and maximal, eroded by sheet wash, creep or water-aided mass movement. A typical element of mountain, hills, low hills and rises." ;
+    skos:hiddenLabel "34" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "HSL" ;
+    skos:prefLabel "Hill slope" .
+
+cv-corveg:landform-element-itf a skos:Concept,
+        sosa:Result ;
+    skos:definition "See tidal flat." ;
+    skos:hiddenLabel "35" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "ITF" ;
+    skos:prefLabel "Intertidal flat" .
+
+cv-corveg:landform-element-lag a skos:Concept,
+        sosa:Result ;
+    skos:definition "Closed depression filled with water that is typically salt or brackish, bounded at least in part by forms aggraded or built up by waves or reef-building organisms." ;
+    skos:hiddenLabel "36" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "LAG" ;
+    skos:prefLabel "Lagoon" .
+
+cv-corveg:landform-element-lak a skos:Concept,
+        sosa:Result ;
+    skos:definition "Large water-filled closed depression ." ;
+    skos:hiddenLabel "37" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "LAK" ;
+    skos:prefLabel "Lake" .
+
+cv-corveg:landform-element-lds a skos:Concept,
+        sosa:Result ;
+    skos:definition "Moderately inclined to very steep slope, eroded in the upper part and aggraded in the lower part by water-aided mass movement, characterised by irregular hummocks." ;
+    skos:hiddenLabel "38" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "LDS" ;
+    skos:prefLabel "Landslide" .
+
+cv-corveg:landform-element-lev a skos:Concept,
+        sosa:Result ;
+    skos:definition "Very long, very low, nearly level sinuous ridge immediately adjacent to a stream channel, built up by over-bank flow. Levees are built, usually in pairs bounding the two sides of a stream channel, at the level reached by frequent floods. This element is part of a covered plain landform pattern. For artificial levee, use embankment; see also prior stream.." ;
+    skos:hiddenLabel "39" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "LEV" ;
+    skos:prefLabel "Levee" .
+
+cv-corveg:landform-element-lun a skos:Concept,
+        sosa:Result ;
+    skos:definition "Elongated, gently curved, low ridge built up by wind on the margin of a playa, typically with a moderate, wave-modified slope towards the playa and a gentle outer slope." ;
+    skos:hiddenLabel "40" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "LUN" ;
+    skos:prefLabel "Lunette" .
+
+cv-corveg:landform-element-maa a skos:Concept,
+        sosa:Result ;
+    skos:definition "Level-floored , commonly water-filled closed depression with a nearly circular steep rim, excavated by volcanism." ;
+    skos:hiddenLabel "41" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "MAA" ;
+    skos:prefLabel "Maar" .
+
+cv-corveg:landform-element-mou a skos:Concept,
+        sosa:Result ;
+    skos:definition "Hillock built up by human activity." ;
+    skos:hiddenLabel "42" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "MOU" ;
+    skos:prefLabel "Mound" .
+
+cv-corveg:landform-element-oxb a skos:Concept,
+        sosa:Result ;
+    skos:definition "Long, curved commonly water-filled closed depression eroded by channelled stream flow but closed as a result of aggradation by channelled or over-bank stream flow during the formation of meander plain landform pattern. The floor of an oxbow may be more or less aggraded by over-bank stream flow, wind, and biological (peat) accumulation.." ;
+    skos:hiddenLabel "43" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "OXB" ;
+    skos:prefLabel "Oxbow" .
+
+cv-corveg:landform-element-ped a skos:Concept,
+        sosa:Result ;
+    skos:definition "Large gently inclined to level (less than 1%) waning lower slope, with slope lines inclined in single direction, or somewhat convergent or divergent, eroded, sometimes slightly aggraded by sheet flow (cf. foot slope). It is underlain by bedrock.." ;
+    skos:hiddenLabel "44" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "PED" ;
+    skos:prefLabel "Pediment" .
+
+cv-corveg:landform-element-pit a skos:Concept,
+        sosa:Result ;
+    skos:definition "Closed depression excavated by human activity." ;
+    skos:hiddenLabel "45" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "PIT" ;
+    skos:prefLabel "Pit" .
+
+cv-corveg:landform-element-pla a skos:Concept,
+        sosa:Result ;
+    skos:definition "Large very gently inclined or level element, of unspecified geomorphological agent or mode of activity ." ;
+    skos:hiddenLabel "46" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "PLA" ;
+    skos:prefLabel "Plain" .
+
+cv-corveg:landform-element-ply a skos:Concept,
+        sosa:Result ;
+    skos:definition "Large, shallow level-floored closed depression, intermittently water-filled, but mainly dry due to evaporation, bounded as a rule by flats aggraded by sheet flow and channelled stream flow." ;
+    skos:hiddenLabel "47" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "PLY" ;
+    skos:prefLabel "Playa" .
+
+cv-corveg:landform-element-pst a skos:Concept,
+        sosa:Result ;
+    skos:definition "Long, generally sinuous low ridge built up from materials originally deposited by stream flow along the line of a former stream channel. The landform element may include a depression marking the old streambed, and relict levees.." ;
+    skos:hiddenLabel "48" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "PST" ;
+    skos:prefLabel "Prior stream" .
+
+cv-corveg:landform-element-ref a skos:Concept,
+        sosa:Result ;
+    skos:definition "Flat built up to sea level by marine organisms." ;
+    skos:hiddenLabel "49" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "REF" ;
+    skos:prefLabel "Reef flat" .
+
+cv-corveg:landform-element-rfl a skos:Concept,
+        sosa:Result ;
+    skos:definition "Flat of bare consolidated rock, usually eroded by sheet wash." ;
+    skos:hiddenLabel "50" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "RFL" ;
+    skos:prefLabel "Rock flat" .
+
+cv-corveg:landform-element-rpl a skos:Concept,
+        sosa:Result ;
+    skos:definition "Flat of consolidated rock, eroded by waves." ;
+    skos:hiddenLabel "51" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "RPL" ;
+    skos:prefLabel "Rock platform" .
+
+cv-corveg:landform-element-sca a skos:Concept,
+        sosa:Result ;
+    skos:definition "Very wide steep to precipitous maximal slope eroded by gravity, water-aided mass movement or sheet flow (cf. cliff)." ;
+    skos:hiddenLabel "53" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "SCA" ;
+    skos:prefLabel "Scarp" .
+
+cv-corveg:landform-element-scd a skos:Concept,
+        sosa:Result ;
+    skos:definition "Flat, bare of vegetation, from which soil has been eroded or excavated by surface wash or wind ." ;
+    skos:hiddenLabel "52" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "SCD" ;
+    skos:prefLabel "Scald" .
+
+cv-corveg:landform-element-scr a skos:Concept,
+        sosa:Result ;
+    skos:definition "Long, curved very low ridge built up by channelled stream flow and left relict by channel migration. Part of a meander plain landform pattern." ;
+    skos:hiddenLabel "55" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "SCR" ;
+    skos:prefLabel "Scroll" .
+
+cv-corveg:landform-element-sfs a skos:Concept,
+        sosa:Result ;
+    skos:definition "Waning or minimal slope situated below a scarp, with its contours generally parallel to the line of the scarp." ;
+    skos:hiddenLabel "54" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "SFS" ;
+    skos:prefLabel "Scarp-foot slope" .
+
+cv-corveg:landform-element-srp a skos:Concept,
+        sosa:Result ;
+    skos:definition "Large flat resulting from aggradation by channelled stream flow as a stream migrates from side to side, the dominant element of a meander plain landform pattern. This landform element may include occurrences of scroll, swale, and oxbow.." ;
+    skos:hiddenLabel "56" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "SRP" ;
+    skos:prefLabel "Scroll plain" .
+
+cv-corveg:landform-element-stb a skos:Concept,
+        sosa:Result ;
+    skos:definition "Linear, generally sinuous open depression forming the bottom of a stream channel eroded and locally excavated, aggraded or built by channelled stream flow. Parts that are built up include bars.." ;
+    skos:hiddenLabel "57" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "STB" ;
+    skos:prefLabel "Stream bed" .
+
+cv-corveg:landform-element-stc a skos:Concept,
+        sosa:Result ;
+    skos:definition "Linear, generally sinuous open depression in parts eroded, excavated built up by channelled stream flow. This element comprises streambed and banks. ." ;
+    skos:hiddenLabel "58" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "STC" ;
+    skos:prefLabel "Stream channel" .
+
+cv-corveg:landform-element-stf a skos:Concept,
+        sosa:Result ;
+    skos:definition "See tidal flat." ;
+    skos:hiddenLabel "60" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "STF" ;
+    skos:prefLabel "Supratidal" .
+
+cv-corveg:landform-element-sus a skos:Concept,
+        sosa:Result ;
+    skos:definition "Very wide level to gently inclined crest with abrupt margins, commonly eroded by water-aided mass movement or sheet wash." ;
+    skos:hiddenLabel "59" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "SUS" ;
+    skos:prefLabel "Summit" .
+
+cv-corveg:landform-element-swl a skos:Concept,
+        sosa:Result ;
+    skos:definition "Linear, level-floored open depression excavated by wind, or left relict between ridges built up by wind or waves, or built up to a lesser height than themLong, curved open or closed depression left relict between scrolls, built up by channelled stream flow ." ;
+    skos:hiddenLabel "61" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "SWL" ;
+    skos:prefLabel "Swale" .
+
+cv-corveg:landform-element-swp a skos:Concept,
+        sosa:Result ;
+    skos:definition "Almost level closed or almost closed depression with a seasonal or permanent watertable at or above the surface, commonly aggraded by over-bank stream flow, and sometimes biological (peat) accumulation." ;
+    skos:hiddenLabel "62" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "SWP" ;
+    skos:prefLabel "Swamp" .
+
+cv-corveg:landform-element-tal a skos:Concept,
+        sosa:Result ;
+    skos:definition "Moderately inclined or steep waning lower slope, consisting of rock fragments aggraded by gravity." ;
+    skos:hiddenLabel "63" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "TAL" ;
+    skos:prefLabel "Talus" .
+
+cv-corveg:landform-element-tdc a skos:Concept,
+        sosa:Result ;
+    skos:definition "Intermittently water-filled open depression in parts eroded, excavated, built up and aggraded by channelled tide-water flow; type of stream channel (q.v.) characterised by a rapid increase in width downstream." ;
+    skos:hiddenLabel "66" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "TDC" ;
+    skos:prefLabel "Tidal creek" .
+
+cv-corveg:landform-element-tdf a skos:Concept,
+        sosa:Result ;
+    skos:definition "Large flat subject to inundation by water that is usually salt or brackish aggraded by tides. An intertidal flat (ITF) is frequently inundated; a supratidal flat (STF) is seldom inundated.." ;
+    skos:hiddenLabel "67" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "TDF" ;
+    skos:prefLabel "Tidal flat" .
+
+cv-corveg:landform-element-tef a skos:Concept,
+        sosa:Result ;
+    skos:definition "Small flat aggraded or eroded by channelled or over-bank stream flow, standing above a scarp and no longer frequently inundated; a former valley flat, or part of a former flood plain." ;
+    skos:hiddenLabel "64" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "TEF" ;
+    skos:prefLabel "Terrace flat" .
+
+cv-corveg:landform-element-tep a skos:Concept,
+        sosa:Result ;
+    skos:definition "Large or very large flat aggraded by channelled or over-bank stream flow, standing above a scarp and no longer frequently inundated; part of a former flood plain." ;
+    skos:hiddenLabel "65" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "TEP" ;
+    skos:prefLabel "Terrace plain" .
+
+cv-corveg:landform-element-tor a skos:Concept,
+        sosa:Result ;
+    skos:definition "Steep to precipitous hillock, typically convex, with a surface mainly of bare rock, either coherent or comprising sub-angular to rounded large boulders (exhumed core-stones, also themselves called tors) separated by open fissures; eroded by sheet wash or water-aided mass movement." ;
+    skos:hiddenLabel "68" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "TOR" ;
+    skos:prefLabel "Tor" .
+
+cv-corveg:landform-element-tre a skos:Concept,
+        sosa:Result ;
+    skos:definition "Open depression excavated by human activity ." ;
+    skos:hiddenLabel "69" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "TRE" ;
+    skos:prefLabel "Trench" .
+
+cv-corveg:landform-element-tum a skos:Concept,
+        sosa:Result ;
+    skos:definition "Hillock heaved up by volcanism (or elsewhere, built up by human activity at a burial site)." ;
+    skos:hiddenLabel "70" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "TUM" ;
+    skos:prefLabel "Tumulus" .
+
+cv-corveg:landform-element-unrecorded a skos:Concept,
+        sosa:Result ;
+    skos:definition "Unrecorded." ;
+    skos:hiddenLabel "999" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "null" ;
+    skos:prefLabel "Unrecorded" .
+
+cv-corveg:landform-element-vlf a skos:Concept,
+        sosa:Result ;
+    skos:definition "Small, gently inclined to level flat, aggraded or sometimes eroded by channelled or over-bank stream flow, typically enclosed by hill slopes; a miniature alluvial plain landform pattern." ;
+    skos:hiddenLabel "71" ;
+    skos:inScheme cv-corveg:landform-elements ;
+    skos:notation "VLF" ;
+    skos:prefLabel "Valley flat" .
+
+cv-corveg:landform-elements a skos:ConceptScheme ;
+    skos:hasTopConcept cv-corveg:landform-element-alc,
+        cv-corveg:landform-element-ban,
+        cv-corveg:landform-element-bar,
+        cv-corveg:landform-element-bea,
+        cv-corveg:landform-element-ben,
+        cv-corveg:landform-element-ber,
+        cv-corveg:landform-element-bkp,
+        cv-corveg:landform-element-bou,
+        cv-corveg:landform-element-bri,
+        cv-corveg:landform-element-brk,
+        cv-corveg:landform-element-cbe,
+        cv-corveg:landform-element-cfs,
+        cv-corveg:landform-element-cir,
+        cv-corveg:landform-element-cli,
+        cv-corveg:landform-element-con,
+        cv-corveg:landform-element-cos,
+        cv-corveg:landform-element-cra,
+        cv-corveg:landform-element-cut,
+        cv-corveg:landform-element-dam,
+        cv-corveg:landform-element-dde,
+        cv-corveg:landform-element-dol,
+        cv-corveg:landform-element-duc,
+        cv-corveg:landform-element-dun,
+        cv-corveg:landform-element-dus,
+        cv-corveg:landform-element-emb,
+        cv-corveg:landform-element-est,
+        cv-corveg:landform-element-fan,
+        cv-corveg:landform-element-fil,
+        cv-corveg:landform-element-fld,
+        cv-corveg:landform-element-foo,
+        cv-corveg:landform-element-for,
+        cv-corveg:landform-element-gul,
+        cv-corveg:landform-element-hcr,
+        cv-corveg:landform-element-hsl,
+        cv-corveg:landform-element-itf,
+        cv-corveg:landform-element-lag,
+        cv-corveg:landform-element-lak,
+        cv-corveg:landform-element-lds,
+        cv-corveg:landform-element-lev,
+        cv-corveg:landform-element-lun,
+        cv-corveg:landform-element-maa,
+        cv-corveg:landform-element-mou,
+        cv-corveg:landform-element-oxb,
+        cv-corveg:landform-element-ped,
+        cv-corveg:landform-element-pit,
+        cv-corveg:landform-element-pla,
+        cv-corveg:landform-element-ply,
+        cv-corveg:landform-element-pst,
+        cv-corveg:landform-element-ref,
+        cv-corveg:landform-element-rfl,
+        cv-corveg:landform-element-rpl,
+        cv-corveg:landform-element-sca,
+        cv-corveg:landform-element-scd,
+        cv-corveg:landform-element-scr,
+        cv-corveg:landform-element-sfs,
+        cv-corveg:landform-element-srp,
+        cv-corveg:landform-element-stb,
+        cv-corveg:landform-element-stc,
+        cv-corveg:landform-element-stf,
+        cv-corveg:landform-element-sus,
+        cv-corveg:landform-element-swl,
+        cv-corveg:landform-element-swp,
+        cv-corveg:landform-element-tal,
+        cv-corveg:landform-element-tdc,
+        cv-corveg:landform-element-tdf,
+        cv-corveg:landform-element-tef,
+        cv-corveg:landform-element-tep,
+        cv-corveg:landform-element-tor,
+        cv-corveg:landform-element-tre,
+        cv-corveg:landform-element-tum,
+        cv-corveg:landform-element-unrecorded,
+        cv-corveg:landform-element-vlf ;
+    skos:prefLabel "Landform element concepts" .
+

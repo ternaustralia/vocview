@@ -1,0 +1,289 @@
+@prefix apc: <http://linked.data.gov.au/dataset/apc/> .
+@prefix apni: <http://linked.data.gov.au/dataset/apni/> .
+@prefix biod: <http://linked.data.gov.au/def/biodiversity/> .
+@prefix corveg: <http://linked.data.gov.au/dataset/corveg/> .
+@prefix corveg-def: <http://linked.data.gov.au/def/corveg/> .
+@prefix cv-corveg: <http://linked.data.gov.au/def/corveg-cv/> .
+@prefix data: <http://linked.data.gov.au/def/tern-plot-data/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dist-corveg: <http://linked.data.gov.au/dataset/corveg/disturbance/> .
+@prefix dwct: <http://rs.tdwg.org/dwc/terms/> .
+@prefix epsg-crs: <http://www.opengis.net/def/crs/epsg/0/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix geol-corveg: <http://linked.data.gov.au/dataset/corveg/geology/> .
+@prefix location-corveg: <http://linked.data.gov.au/dataset/corveg/location/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogroup-corveg: <http://linked.data.gov.au/def/corveg-ogroup/> .
+@prefix op-corveg: <http://linked.data.gov.au/def/corveg-op/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plot: <http://linked.data.gov.au/def/tern-plot/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rfstruct-corveg: <http://linked.data.gov.au/dataset/corveg/rf-structure/> .
+@prefix site-corveg: <http://linked.data.gov.au/dataset/corveg/site/> .
+@prefix site-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-strata/> .
+@prefix site-tax-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-tax-strata/> .
+@prefix situation-corveg: <http://linked.data.gov.au/dataset/corveg/situation/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix soil-corveg: <http://linked.data.gov.au/dataset/corveg/soil/> .
+@prefix soil-text-corveg: <http://registry.it.csiro.au/sandbox/soil-data-ie/def/voc/texture/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn-ext: <http://www.w3.org/ns/ssn/ext/> .
+@prefix struct-corveg: <http://linked.data.gov.au/dataset/corveg/structure/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix v-comm-corveg: <http://linked.data.gov.au/dataset/corveg/vege-community/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cv-corveg:geology-type a owl:Ontology ;
+    owl:imports <http://www.w3.org/2004/02/skos/core>,
+        sosa: .
+
+cv-corveg:geology-type-a a skos:Concept,
+        sosa:Result ;
+    skos:definition "unconsolidated material; sand." ;
+    skos:hiddenLabel "1" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "A" ;
+    skos:prefLabel "sand" .
+
+cv-corveg:geology-type-b a skos:Concept,
+        sosa:Result ;
+    skos:definition "unconsolidated material; silt, clay." ;
+    skos:hiddenLabel "2" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "B" ;
+    skos:prefLabel "silt, clay" .
+
+cv-corveg:geology-type-c a skos:Concept,
+        sosa:Result ;
+    skos:definition "consolidated weathering features; laterite, lateritic rock or unspecified." ;
+    skos:hiddenLabel "3" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "C" ;
+    skos:prefLabel "laterite" .
+
+cv-corveg:geology-type-d a skos:Concept,
+        sosa:Result ;
+    skos:definition "consolidated weathering features; siliceous e.g. silcrete." ;
+    skos:hiddenLabel "4" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "D" ;
+    skos:prefLabel "silcrete" .
+
+cv-corveg:geology-type-e a skos:Concept,
+        sosa:Result ;
+    skos:definition "consolidated weathering features; iron/aluminium e.g. ironstone, bauxite." ;
+    skos:hiddenLabel "5" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "E" ;
+    skos:prefLabel "ironstone" .
+
+cv-corveg:geology-type-f a skos:Concept,
+        sosa:Result ;
+    skos:definition "consolidated sedimentary rocks; sandstone, incl. quartzose sandstone." ;
+    skos:hiddenLabel "6" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "F" ;
+    skos:prefLabel "sandstone" .
+
+cv-corveg:geology-type-g a skos:Concept,
+        sosa:Result ;
+    skos:definition "consolidated sedimentary rocks; fine grained e.g. siltstone, mudstone, shale." ;
+    skos:hiddenLabel "7" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "G" ;
+    skos:prefLabel "siltstone" .
+
+cv-corveg:geology-type-h a skos:Concept,
+        sosa:Result ;
+    skos:definition "consolidated sedimentary rocks; mixed sedimentary rocks e.g. felspathic sandstone." ;
+    skos:hiddenLabel "8" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "H" ;
+    skos:prefLabel "basic sandstone" .
+
+cv-corveg:geology-type-i a skos:Concept,
+        sosa:Result ;
+    skos:definition "consolidated sedimentary rocks; calacareous rocks e.g. limestone, chalk, marble." ;
+    skos:hiddenLabel "9" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "I" ;
+    skos:prefLabel "limestone" .
+
+cv-corveg:geology-type-j a skos:Concept,
+        sosa:Result ;
+    skos:definition "consolidated sedimentary rocks; carbonaceous rocks e.g. peat, beach rock." ;
+    skos:hiddenLabel "10" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "J" ;
+    skos:prefLabel "peat" .
+
+cv-corveg:geology-type-k a skos:Concept,
+        sosa:Result ;
+    skos:definition "metamorphosed rocks; from sandstone e.g. quartz schist, quartzite." ;
+    skos:hiddenLabel "11" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "K" ;
+    skos:prefLabel "quartz schist" .
+
+cv-corveg:geology-type-l a skos:Concept,
+        sosa:Result ;
+    skos:definition "metamorphosed rocks; from fine sedimentary rocks e.g. phyllite, slate, schist, chert." ;
+    skos:hiddenLabel "12" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "L" ;
+    skos:prefLabel "phyllite" .
+
+cv-corveg:geology-type-m a skos:Concept,
+        sosa:Result ;
+    skos:definition "metamorphosed rocks; from mixed sedimentary rocks e.g. gneiss." ;
+    skos:hiddenLabel "13" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "M" ;
+    skos:prefLabel "gneiss" .
+
+cv-corveg:geology-type-n a skos:Concept,
+        sosa:Result ;
+    skos:definition "metamorphosed rocks; from volcanic rocks e.g. greenstone." ;
+    skos:hiddenLabel "14" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "N" ;
+    skos:prefLabel "greenstone" .
+
+cv-corveg:geology-type-o a skos:Concept,
+        sosa:Result ;
+    skos:definition "metamorphosed rocks; undifferentiated e.g. traprock, metasediments." ;
+    skos:hiddenLabel "15" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "O" ;
+    skos:prefLabel "traprock, metasediments" .
+
+cv-corveg:geology-type-p a skos:Concept,
+        sosa:Result ;
+    skos:definition "igneous rocks; acid volcanics e.g. rhyolite, dacite." ;
+    skos:hiddenLabel "16" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "P" ;
+    skos:prefLabel "rhyolite" .
+
+cv-corveg:geology-type-q a skos:Concept,
+        sosa:Result ;
+    skos:definition "igneous rocks; sub-acidic e.g. trachyte." ;
+    skos:hiddenLabel "17" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "Q" ;
+    skos:prefLabel "trachyte" .
+
+cv-corveg:geology-type-r a skos:Concept,
+        sosa:Result ;
+    skos:definition "igneous rocks; sub-basic e.g. andesite." ;
+    skos:hiddenLabel "18" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "R" ;
+    skos:prefLabel "andesite" .
+
+cv-corveg:geology-type-s a skos:Concept,
+        sosa:Result ;
+    skos:definition "igneous rocks; basic volcanic e.g. basalt." ;
+    skos:hiddenLabel "19" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "S" ;
+    skos:prefLabel "basalt" .
+
+cv-corveg:geology-type-t a skos:Concept,
+        sosa:Result ;
+    skos:definition "igneous rocks; undifferentiated volcanic rocks." ;
+    skos:hiddenLabel "20" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "T" ;
+    skos:prefLabel "undifferentiated volcanic" .
+
+cv-corveg:geology-type-u a skos:Concept,
+        sosa:Result ;
+    skos:definition "igneous rocks; acid intrusive rocks e.g. granite, granodiorite, granophyre." ;
+    skos:hiddenLabel "21" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "U" ;
+    skos:prefLabel "granite" .
+
+cv-corveg:geology-type-unrecorded a skos:Concept,
+        sosa:Result ;
+    skos:definition "Unrecorded." ;
+    skos:hiddenLabel "999" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "null" ;
+    skos:prefLabel "Unrecorded" .
+
+cv-corveg:geology-type-v a skos:Concept,
+        sosa:Result ;
+    skos:definition "igneous rocks; sub-acidic intrusive rocks e.g. syenite." ;
+    skos:hiddenLabel "22" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "V" ;
+    skos:prefLabel "syenite" .
+
+cv-corveg:geology-type-w a skos:Concept,
+        sosa:Result ;
+    skos:definition "igneous rocks; sub-basic intrusive rocks e.g. diorite, tonalite." ;
+    skos:hiddenLabel "23" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "W" ;
+    skos:prefLabel "diorite" .
+
+cv-corveg:geology-type-x a skos:Concept,
+        sosa:Result ;
+    skos:definition "igneous rocks; basic intrusive rocks e.g. dolerite, gabbro." ;
+    skos:hiddenLabel "24" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "X" ;
+    skos:prefLabel "dolerite" .
+
+cv-corveg:geology-type-y a skos:Concept,
+        sosa:Result ;
+    skos:definition "igneous rocks; ultra-basic intrusive rocks e.g. serpentinite, pyroxinite, peridotite." ;
+    skos:hiddenLabel "25" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "Y" ;
+    skos:prefLabel "serpentinite" .
+
+cv-corveg:geology-type-z a skos:Concept,
+        sosa:Result ;
+    skos:definition "igneous rocks; undifferentiated intrusive rocks." ;
+    skos:hiddenLabel "26" ;
+    skos:inScheme cv-corveg:geology-types ;
+    skos:notation "Z" ;
+    skos:prefLabel "undifferentiated intrusive" .
+
+cv-corveg:geology-types a skos:ConceptScheme ;
+    skos:hasTopConcept cv-corveg:geology-type-a,
+        cv-corveg:geology-type-b,
+        cv-corveg:geology-type-c,
+        cv-corveg:geology-type-d,
+        cv-corveg:geology-type-e,
+        cv-corveg:geology-type-f,
+        cv-corveg:geology-type-g,
+        cv-corveg:geology-type-h,
+        cv-corveg:geology-type-i,
+        cv-corveg:geology-type-j,
+        cv-corveg:geology-type-k,
+        cv-corveg:geology-type-l,
+        cv-corveg:geology-type-m,
+        cv-corveg:geology-type-n,
+        cv-corveg:geology-type-o,
+        cv-corveg:geology-type-p,
+        cv-corveg:geology-type-q,
+        cv-corveg:geology-type-r,
+        cv-corveg:geology-type-s,
+        cv-corveg:geology-type-t,
+        cv-corveg:geology-type-u,
+        cv-corveg:geology-type-unrecorded,
+        cv-corveg:geology-type-v,
+        cv-corveg:geology-type-w,
+        cv-corveg:geology-type-x,
+        cv-corveg:geology-type-y,
+        cv-corveg:geology-type-z ;
+    skos:prefLabel "Geology type concepts" .
+

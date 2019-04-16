@@ -1,0 +1,415 @@
+@prefix apc: <http://linked.data.gov.au/dataset/apc/> .
+@prefix apni: <http://linked.data.gov.au/dataset/apni/> .
+@prefix biod: <http://linked.data.gov.au/def/biodiversity/> .
+@prefix corveg: <http://linked.data.gov.au/dataset/corveg/> .
+@prefix corveg-def: <http://linked.data.gov.au/def/corveg/> .
+@prefix cv-corveg: <http://linked.data.gov.au/def/corveg-cv/> .
+@prefix data: <http://linked.data.gov.au/def/tern-plot-data/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dist-corveg: <http://linked.data.gov.au/dataset/corveg/disturbance/> .
+@prefix dwct: <http://rs.tdwg.org/dwc/terms/> .
+@prefix epsg-crs: <http://www.opengis.net/def/crs/epsg/0/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix geol-corveg: <http://linked.data.gov.au/dataset/corveg/geology/> .
+@prefix location-corveg: <http://linked.data.gov.au/dataset/corveg/location/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ogroup-corveg: <http://linked.data.gov.au/def/corveg-ogroup/> .
+@prefix op-corveg: <http://linked.data.gov.au/def/corveg-op/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix plot: <http://linked.data.gov.au/def/tern-plot/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rfstruct-corveg: <http://linked.data.gov.au/dataset/corveg/rf-structure/> .
+@prefix site-corveg: <http://linked.data.gov.au/dataset/corveg/site/> .
+@prefix site-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-strata/> .
+@prefix site-tax-strata-corveg: <http://linked.data.gov.au/dataset/corveg/site-tax-strata/> .
+@prefix situation-corveg: <http://linked.data.gov.au/dataset/corveg/situation/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix soil-corveg: <http://linked.data.gov.au/dataset/corveg/soil/> .
+@prefix soil-text-corveg: <http://registry.it.csiro.au/sandbox/soil-data-ie/def/voc/texture/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix ssn-ext: <http://www.w3.org/ns/ssn/ext/> .
+@prefix struct-corveg: <http://linked.data.gov.au/dataset/corveg/structure/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix v-comm-corveg: <http://linked.data.gov.au/dataset/corveg/vege-community/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cv-corveg:landform-pattern a owl:Ontology ;
+    owl:imports <http://www.w3.org/2004/02/skos/core>,
+        sosa: .
+
+cv-corveg:landform-pattern-alf a skos:Concept,
+        sosa:Result ;
+    skos:definition "Level (less than 1% slope) to very gently inclined complex landform pattern of extremely low relief. The rapidly migrating alluvial stream channels are shallow to moderately deep, locally numerous, but elsewhere widely spaced. The channels form a central trifugal to divergent, integrated, reticulated to distributary pattern. The landform pattern includes areas that are bar plains, being aggraded or eroded by frequently active channelled stream flow, and other areas comprising terraces or stagnant alluvial plains with slopes that are greater than usual, formed by channelled stream flow but now relict. Incision in the up-slope area may give rise to an erosional stream bed between scarps. Typical elements: stream bed, bar, plain. Common element: scarp. Compare with sheet flood fan, pediment." ;
+    skos:hiddenLabel "1" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "ALF" ;
+    skos:prefLabel "Alluvial fan" .
+
+cv-corveg:landform-pattern-alp a skos:Concept,
+        sosa:Result ;
+    skos:definition "Level landform pattern with extremely low relief. The shallow to deep alluvial stream channels are sparse to widely spaced, forming a unidirectional integrated network. There may be frequently active erosion and aggradation by channelled and overbank stream flow, or the landforms may be relict from these processes. Typical elements: stream channel (stream bed and bank), plain (dominant). Common elements: bar, scroll, levee, back plain, swamp. Occasional elements: oxbow, flood-out, lake. Included types of landform pattern: flood plain, bar plain, meander plain, covered plain, anastomotic plain, delta, stagnant alluvial plain, terrace, terraced land." ;
+    skos:hiddenLabel "2" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "ALP" ;
+    skos:prefLabel "Alluvial plain" .
+
+cv-corveg:landform-pattern-ana a skos:Concept,
+        sosa:Result ;
+    skos:definition "Flood plain with slowly migrating deep alluvial channels, usually moderately spaced, forming divergent to unidirectional integrated reticulated network. There is frequently active aggradation by over-bank and channelled stream flow. Typical elements: stream channel (stream bed and bank), levee, back <BACK?> plain (dominant). Common element: swamp. Compare with other types under alluvial plain, flood plain." ;
+    skos:hiddenLabel "3" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "ANA" ;
+    skos:prefLabel "Anastomotic plain" .
+
+cv-corveg:landform-pattern-bad a skos:Concept,
+        sosa:Result ;
+    skos:definition "Landform pattern of low and extremely low relief (less than 90 m) and steep to precipitous slopes, typically with numerous fixed erosional stream channels which form a non-directional integrated tributary network. There is continuously active erosion by collapse, landslide, sheet flow, creep and channelled stream flow. Typical elements: ridge (dominant), stream bed or gully. Occasional elements: summit surface, hillcrest, hill slope, talus. Compare with mountains, hills, low hills, rises, plain." ;
+    skos:hiddenLabel "4" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "BAD" ;
+    skos:prefLabel "Badlands" .
+
+cv-corveg:landform-pattern-bar a skos:Concept,
+        sosa:Result ;
+    skos:definition "Flood plain with numerous rapidly migrating shallow alluvial channels forming a unidirectional integrated reticulated network. There is frequently active aggradation and erosion by channelled stream flow. Typical elements: stream bed, bar (dominant). Compare with other types under alluvial plain, flood plain." ;
+    skos:hiddenLabel "5" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "BAR" ;
+    skos:prefLabel "Bar plain" .
+
+cv-corveg:landform-pattern-bea a skos:Concept,
+        sosa:Result ;
+    skos:definition "Level to gently undulating landform pattern of extremely low relief on which channels are absent or very rare; it consists of relict parallel beach ridges. Typical elements: beach ridge (co-dominant) and swale (co-dominant). Common elements: beach, fore dune, tidal creek. Compare with chenier plain." ;
+    skos:hiddenLabel "6" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "BEA" ;
+    skos:prefLabel "Beach ridge" .
+
+cv-corveg:landform-pattern-cal a skos:Concept,
+        sosa:Result ;
+    skos:definition "Rare landform pattern typically of very high relief and steep to precipitous slope. It is without stream channels or has fixed erosional channels forming a centripetal integrated tributary pattern. The landform has subsided or was excavated as a result of volcanism. Typical elements: scarp, hill slope, lake. Occasional elements: cone, hillcrest, stream channel." ;
+    skos:hiddenLabel "7" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "CAL" ;
+    skos:prefLabel "Caldera" .
+
+cv-corveg:landform-pattern-che a skos:Concept,
+        sosa:Result ;
+    skos:definition "Level to gently undulating landform pattern of extremely low relief on which stream channels are very rare. The pattern consists of relict, parallel liner ridges built up by waves, separated by, and built over flats (mud flats) aggraded by tides of over-bank stream flow. Typical elements: beach ridge (co-dominant), flat (co-dominant). Common elements: tidal flat, swamp, beach, fore dune, tidal creek. Compare with beach ridge plain." ;
+    skos:hiddenLabel "8" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "CHE" ;
+    skos:prefLabel "Chenier plain" .
+
+cv-corveg:landform-pattern-cor a skos:Concept,
+        sosa:Result ;
+    skos:definition "Continuously active or relict landform pattern built up to sea level of the present day or a former time by corals and other organisms. It is mainly level, with moderately inclined to precipitous slopes below the sea level. Stream channels are generally absent, but there may occasionally fixed deep erosional tidal stream channels forming a disintegrated non-tributary pattern. Typical elements: reef flat, lagoon, cliff (submarine). Common elements: beach, beach ridge." ;
+    skos:hiddenLabel "9" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "COR" ;
+    skos:prefLabel "Coral reef" .
+
+cv-corveg:landform-pattern-cov a skos:Concept,
+        sosa:Result ;
+    skos:definition "Flood plain with slowly migrating deep alluvial channels, usually widely spaced and forming a unidirectional integrated non-tributary network. There is frequently active aggradation by over-bank stream flow. Typical elements: stream channel (stream bed and bank), levee, back plain dominant. Common element: swamp. Compare with other types under alluvial plain, flood plain." ;
+    skos:hiddenLabel "10" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "COV" ;
+    skos:prefLabel "Covered plain" .
+
+cv-corveg:landform-pattern-del a skos:Concept,
+        sosa:Result ;
+    skos:definition "Flood plain projecting into a sea or lake, with slowly migrating deep alluvial channels, usually moderately spaced, typically forming a divergent integrated distributary network. This landform is aggraded by frequently active over-bank and channelled stream flow that is modified by tides. Typical elements: stream channel (stream bed and bank), levee, back plain (co-dominant), swamp (co-dominant), lagoon (co-dominant). Common elements: beach ridge, swale, beach, estuary, tidal creek. Compare with other types under alluvial plain, flood plain, chenier plain." ;
+    skos:hiddenLabel "11" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "DEL" ;
+    skos:prefLabel "Delta" .
+
+cv-corveg:landform-pattern-dun a skos:Concept,
+        sosa:Result ;
+    skos:definition "Level to rolling landform pattern of very low or extremely low relief without stream channels, built up or locally excavated, eroded or aggraded by wind. Typical elements: dune or dune crest, dune slope, swale, blow-out. Included types of landform pattern: longitudinal dune field, parabolic dune field." ;
+    skos:hiddenLabel "12" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "DUN" ;
+    skos:prefLabel "Dune field" .
+
+cv-corveg:landform-pattern-esc a skos:Concept,
+        sosa:Result ;
+    skos:definition "Steep to precipitous landform pattern forming a linearly extensive, straight or sinuous inclined surface, which separates terrains at different altitudes, that above the escarpment commonly being a plateau. Relief within the landform pattern may be high (hilly) or low (planar). The upper margin is often marked by an included cliff or scarp. Typical elements: hillcrest, hill slope, cliff-foot slope. Common elements: cliff, scarp, scarp-foot slope, talus, foot slope, alcove. Occasional element: stream bed." ;
+    skos:hiddenLabel "13" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "ESC" ;
+    skos:prefLabel "Escarpment" .
+
+cv-corveg:landform-pattern-flo a skos:Concept,
+        sosa:Result ;
+    skos:definition "Alluvial plain characterised by frequently active erosion and aggradation by channelled or over-bank stream flow. Unless otherwise specified, `frequently active¿ is to mean that flow has average recurrence interval of 50 years or less. Typical elements: stream channel (stream bed and bank), plain (dominant). Common elements: bar, scroll, levee, back plain, swamp. Occasional elements: oxbow, flood-out, scroll. Included types of landform pattern: bar plain, meander plain, covered plain, anastomotic plain. Related direct landform patterns: stagnant alluvial plain, terrace, terraced land (partly relict)." ;
+    skos:hiddenLabel "14" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "FLO" ;
+    skos:prefLabel "Flood plain" .
+
+cv-corveg:landform-pattern-hil a skos:Concept,
+        sosa:Result ;
+    skos:definition "Landform pattern of high relief (90¿300 m) with gently inclined to precipitous slopes. Fixed, shallow erosional stream channels, closely to very widely spaced, form a non-directional or convergent integrated tributary network. There is continuously active erosion by wash and creep, in some cases, rarely active erosion by landslides. Typical elements: hillcrest, hill slope (dominant), drainage depression, stream bed. Common elements: foot slopes, alcove, valley flat, gully. Occasional elements: tor, summit surface, scarp, landslide, talus, bench, terrace, doline. Compare with mountains, low hills, rises, plain." ;
+    skos:hiddenLabel "15" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "HIL" ;
+    skos:prefLabel "Hills" .
+
+cv-corveg:landform-pattern-kar a skos:Concept,
+        sosa:Result ;
+    skos:definition "Landform pattern of unspecified relief and slope (for specification use the terms in Table 26, for example `karst rolling hills¿) typically with fixed deep erosional stream channels forming a non-directional disintegrated tributary pattern and many closed depressions without stream channels. It is eroded by continuously active solution and rarely active collapse, the products being through underground channels. Typical elements: hillcrest, hill slope (dominant), doline, Common elements: summit surface, valley flat, plain, alcove, drainage depression, stream channel, scarp, foot slope, landslide. Occasional element: talus." ;
+    skos:hiddenLabel "16" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "KAR" ;
+    skos:prefLabel "Karst" .
+
+cv-corveg:landform-pattern-lac a skos:Concept,
+        sosa:Result ;
+    skos:definition "Level landform pattern with extremely low relief formerly occupied by a lake but now partly or completely dry. It is relict after aggradation by waves, and by deposition of material from suspension and solution in standing water. The pattern is usually bounded by wave-formed features such as cliffs, rock platforms, beaches, berms and lunettes. These may be included or excluded. Typical element: plain. Common elements: beach, cliff. Occasional elements: rock platform, berm. Compare with playa plain." ;
+    skos:hiddenLabel "17" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "LAC" ;
+    skos:prefLabel "Lacustrine plain" .
+
+cv-corveg:landform-pattern-lav a skos:Concept,
+        sosa:Result ;
+    skos:definition "Level to undulating landform pattern of very low to extremely low relief with widely space fixed erosional stream channels that form a non-directional integrated or interrupted tributary pattern. The landform pattern is aggraded by volcanism (lava flow) that is generally relict; it is subject to erosion by continuously active sheet flow, creep, and channelled stream flow. Typical elements: plain, hill slope, stream bed. Occasional element: tumulus." ;
+    skos:hiddenLabel "18" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "LAV" ;
+    skos:prefLabel "Lava plain" .
+
+cv-corveg:landform-pattern-lon a skos:Concept,
+        sosa:Result ;
+    skos:definition "Dune field characterised by long narrow sand dunes and wide flat swales. The dunes are oriented parallel with the direction of the prevailing wind, and in cross-section one slope is typically steeper than the other. Typical elements: dune or dune crest, dune slope, swale, blow-out. Compare with parabolic dune field." ;
+    skos:hiddenLabel "19" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "LON" ;
+    skos:prefLabel "Longitudinal dune field" .
+
+cv-corveg:landform-pattern-low a skos:Concept,
+        sosa:Result ;
+    skos:definition "Landform pattern of low relief (30¿90 m) and gentle to very steep slopes, typically with fixed erosional stream channels, closely to very widely spaced, which form a non-directional or convergent integrated tributary pattern. There is continuously active sheet flow, creep and channelled stream flow. Typical elements: hill crest, hill slope (dominant), drainage depression, stream bed. Common elements: foot slope, alcove, valley flat, gully. Occasional elements: tor, summit surface, landslide, doline. Compare with mountains, hills, rises, plain." ;
+    skos:hiddenLabel "20" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "LOW" ;
+    skos:prefLabel "Low hills" .
+
+cv-corveg:landform-pattern-mad a skos:Concept,
+        sosa:Result ;
+    skos:definition "Landform typically of very low or extremely low relief and with slopes in the classes level and very steep. Sparse, fixed deep artificial stream channels form a non-directional interrupted tributary pattern. The landform pattern is eroded and aggraded, and locally built up or excavated, by rarely active human agency. Typical elements: fill-top (dominant), cut-over surface, cut face, embankment, berm, trench. Common elements: mound, pit, dam." ;
+    skos:hiddenLabel "21" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "MAD" ;
+    skos:prefLabel "Made land" .
+
+cv-corveg:landform-pattern-mar a skos:Concept,
+        sosa:Result ;
+    skos:definition "Plain eroded or aggraded by waves, tides, or submarine currents, and aggraded by deposition of material from suspension and solution in sea water, elevated above sea level by earth movements or eustasy, and little modified by sub-aerial agents such as stream flow or wind. Typical element: plain. Occasional elements: dune, stream channel." ;
+    skos:hiddenLabel "22" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "MAR" ;
+    skos:prefLabel "Marine plain" .
+
+cv-corveg:landform-pattern-mea a skos:Concept,
+        sosa:Result ;
+    skos:definition "Flood plain with widely spaced, rapidly migrating, moderately deep alluvial stream channels, which form a unidirectional integrated non-tributary network. There is frequently active aggradation and erosion by channelled stream flow with subordinate aggradation by over-bank stream flow. Typical elements: stream channel (stream bed, bank and bar), scroll, scroll plain (dominant). Common element: oxbow. Compare with other types under alluvial plain and flood plain." ;
+    skos:hiddenLabel "23" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "MEA" ;
+    skos:prefLabel "Meander plain" .
+
+cv-corveg:landform-pattern-met a skos:Concept,
+        sosa:Result ;
+    skos:definition "Rare landform pattern comprising a circular closed depression (see crater landform element) with raised margin; it is typically of low to high relief and has a large range of slope values, without stream channels, or with a peripheral integrated pattern of centrifugal tributary streams. The pattern is excavated, heaved up and built up by a meteor impact and now relict. Typical elements: crater (scarp, talus, foot slope, and plain), hillcrest, hill slope." ;
+    skos:hiddenLabel "24" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "MET" ;
+    skos:prefLabel "Meteor crater" .
+
+cv-corveg:landform-pattern-mou a skos:Concept,
+        sosa:Result ;
+    skos:definition "Landform pattern of very high relief (greater than 300 m) with moderate to precipitous slopes and fixed erosional stream channels that are closely to very widely spread and form a non-directional or diverging integrated tributary network. There is continuously active erosion by collapse, landslide, sheet flow, creep, and channelled stream flow. Typical elements: hillcrest, hill slope (dominant), stream bed. Common elements: talus, landslide, alcove, valley flat, scarp. Occasional elements: cirque, foot slope. Compare with hills, low hills, rises, plain." ;
+    skos:hiddenLabel "25" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "MOU" ;
+    skos:prefLabel "Mountains" .
+
+cv-corveg:landform-pattern-par a skos:Concept,
+        sosa:Result ;
+    skos:definition "Dune field characterised by sand dunes with a long scoop-shaped form, convex in the downwind direction so that its trailing arms point upwind; the ground plan when perfectly developed approximates the form of a parabola. Typical elements: dune or dune crest, dune slope, swale, blow-out. Compare with longitudinal dune field." ;
+    skos:hiddenLabel "26" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "PAR" ;
+    skos:prefLabel "Parabolic dune field" .
+
+cv-corveg:landform-pattern-ped a skos:Concept,
+        sosa:Result ;
+    skos:definition "Gently inclined to level (less than 1%) landform pattern of extremely low relief, typically with numerous rapidly migrating, very shallow incipient stream channels, which form a centrifugal to diverging integrated reticulated pattern. It is underlain by bedrock, eroded, and locally aggraded, by frequently active channelled stream flow or sheet flow, with subordinate wind erosion. Pediments characteristically lie down-slope from adjacent hills with markedly steeper slopes. Typical elements: pediment, plain and stream bed. Compare with sheet flood fan and alluvial plain." ;
+    skos:hiddenLabel "27" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "PED" ;
+    skos:prefLabel "Pediment" .
+
+cv-corveg:landform-pattern-pep a skos:Concept,
+        sosa:Result ;
+    skos:definition "Level to very gently inclined landform pattern with extremely low relief and no stream channels, eroded by barely active sheet flow and wind. Largely relict from more effective erosion by stream flow incipient stream channels as on a pediment. Typical element: plain." ;
+    skos:hiddenLabel "28" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "PEP" ;
+    skos:prefLabel "Pediplain" .
+
+cv-corveg:landform-pattern-pla a skos:Concept,
+        sosa:Result ;
+    skos:definition "Level to undulating or rarely, rolling landform pattern of extremely low relief (less than 9 m). Compare with mountains, hills, low hills, rises." ;
+    skos:hiddenLabel "30" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "PLA" ;
+    skos:prefLabel "Plain" .
+
+cv-corveg:landform-pattern-plt a skos:Concept,
+        sosa:Result ;
+    skos:definition "Level to rolling landform pattern of plains, rises or low hills standing above a cliff, scarp or escarpment that extends around a large part of its perimeter. A bounding scarp or cliff landform element may be included or excluded; a bounding escarpment would be an adjacent landform pattern. Typical elements: plain, summit surface, cliff. Common elements: hillcrest, hill slope, drainage depression, rock flat, scarp. Occasional element: stream channel." ;
+    skos:hiddenLabel "31" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "PLT" ;
+    skos:prefLabel "Plateau" .
+
+cv-corveg:landform-pattern-ply a skos:Concept,
+        sosa:Result ;
+    skos:definition "Level landform pattern with extremely low relief, typically without stream channels, aggraded by rarely active sheet flow and modified by wind, waves and soil phenomena. Typical elements: playa, lunette, plain. Compare with lacustrine plain." ;
+    skos:hiddenLabel "32" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "PLY" ;
+    skos:prefLabel "Playa plain" .
+
+cv-corveg:landform-pattern-pnp a skos:Concept,
+        sosa:Result ;
+    skos:definition "Level to gently undulating landform pattern with extremely low relief and sparse slowly migrating alluvial stream channels, which form a non-directional, integrated tributary pattern. It is eroded by barely active sheet flow, creep, and channelled and over-bank stream flow. Typical elements: plain (dominant), stream channel." ;
+    skos:hiddenLabel "29" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "PNP" ;
+    skos:prefLabel "Peneplain" .
+
+cv-corveg:landform-pattern-ris a skos:Concept,
+        sosa:Result ;
+    skos:definition "Landform pattern of very low relief (9¿30 m), and very gentle to steep slopes. The fixed erosional stream channels are closely to very widely spaced and form a non-directional to convergent, integrated or interrupted tributary pattern. The pattern is eroded by continuously active to barely active creep and sheet flow. Typical elements: hillcrest, hill slope (dominant), foot slope, drainage depression. Common element: valley flat. Occasional elements: gully, fan, tor. Compare with mountains, hills, low hills, plain." ;
+    skos:hiddenLabel "33" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "RIS" ;
+    skos:prefLabel "Rises" .
+
+cv-corveg:landform-pattern-san a skos:Concept,
+        sosa:Result ;
+    skos:definition "Level to gently undulating landform pattern of extremely low relief and without channels; formed possibly by sheet flow or stream flow, but now relict and modified by wind action. Typical element: plain. Occasional elements: dune, playa, lunette." ;
+    skos:hiddenLabel "34" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "SAN" ;
+    skos:prefLabel "Sand plain" .
+
+cv-corveg:landform-pattern-shf a skos:Concept,
+        sosa:Result ;
+    skos:definition "Level (less than 1% plain slope) to very gently inclined landform pattern of extremely low relief with numerous rapidly migrating very shallow incipient stream channels forming a divergent to unidirectional, integrated or interrupted reticulated pattern. This pattern is aggraded by frequently active sheet flow and channelled stream flow, with subordinate wind erosion. Typical elements: plain, stream bed. Compare with alluvial fan and pediment." ;
+    skos:hiddenLabel "35" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "SHF" ;
+    skos:prefLabel "Sheet flood fan" .
+
+cv-corveg:landform-pattern-sta a skos:Concept,
+        sosa:Result ;
+    skos:definition "Alluvial plain on which erosion and aggradation by channelled and over-bank stream flow is barely active or inactive because of reduced water supply, without apparent incision or channel enlargement that would lower the level of stream action. Typical elements: stream channel (stream bed and bank), plain (dominant). Common elements: bar, scroll, levee, back plain, swamp. Occasional elements: oxbow, flood-out, lake. Compare with flood plain, terrace." ;
+    skos:hiddenLabel "36" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "STA" ;
+    skos:prefLabel "Stagnant alluvial plain" .
+
+cv-corveg:landform-pattern-tel a skos:Concept,
+        sosa:Result ;
+    skos:definition "Landform pattern including one or more terraces; often a flood plain. Relief is low or very low (9¿90 m). Terrace plains or terrace flats occur at stated heights above the top of the stream bank. Typical elements: terrace plains, terrace flats, scarp, scroll plain, stream channel. Occasional elements: stream channel, scroll, levee." ;
+    skos:hiddenLabel "38" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "TEL" ;
+    skos:prefLabel "Terraced land (alluvial)" .
+
+cv-corveg:landform-pattern-ter a skos:Concept,
+        sosa:Result ;
+    skos:definition "Former flood plain on which erosion and aggradation by channelled and over-bank stream flow is barely active or inactive because deepening or enlargement of the stream channel has lowered the level of flooding. A pattern that has a former flood plain and a significant active flood plain, or that has former flood plains at more than one level, becomes terraced land (q.v). Typical elements: terrace plain (dominant), scarp, channel beach. Occasional elements: stream channel, scroll, levee." ;
+    skos:hiddenLabel "37" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "TER" ;
+    skos:prefLabel "Terrace" .
+
+cv-corveg:landform-pattern-tid a skos:Concept,
+        sosa:Result ;
+    skos:definition "Level landform with extremely low relief and slow migrating deep alluvial stream channels, which form non-directional integrated tributary patterns: it is aggraded by frequently active tides. Typical elements: plain (dominant), internal flat, supratidal flat, stream channel. Occasional elements: lagoon, dune, dune beach, ridge, beach." ;
+    skos:hiddenLabel "39" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "TID" ;
+    skos:prefLabel "Tidal flat" .
+
+cv-corveg:landform-pattern-unrecorded a skos:Concept,
+        sosa:Result ;
+    skos:definition "Unrecorded." ;
+    skos:hiddenLabel "999" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "null" ;
+    skos:prefLabel "Unrecorded" .
+
+cv-corveg:landform-pattern-vol a skos:Concept,
+        sosa:Result ;
+    skos:definition "Typically very high and very steep landform pattern without stream channels, forming a centrifugal interrupted tributary pattern. The landform is built up by volcanism, and modified by erosional agents. Typical elements: cone, crater. Common elements: scarp, hillcrest, hill slope, stream bed, lake, maar. Occasional element: tumulus." ;
+    skos:hiddenLabel "40" ;
+    skos:inScheme cv-corveg:landform-patterns ;
+    skos:notation "VOL" ;
+    skos:prefLabel "Volcano" .
+
+cv-corveg:landform-patterns a skos:ConceptScheme ;
+    skos:hasTopConcept cv-corveg:landform-pattern-alf,
+        cv-corveg:landform-pattern-alp,
+        cv-corveg:landform-pattern-ana,
+        cv-corveg:landform-pattern-bad,
+        cv-corveg:landform-pattern-bar,
+        cv-corveg:landform-pattern-bea,
+        cv-corveg:landform-pattern-cal,
+        cv-corveg:landform-pattern-che,
+        cv-corveg:landform-pattern-cor,
+        cv-corveg:landform-pattern-cov,
+        cv-corveg:landform-pattern-del,
+        cv-corveg:landform-pattern-dun,
+        cv-corveg:landform-pattern-esc,
+        cv-corveg:landform-pattern-flo,
+        cv-corveg:landform-pattern-hil,
+        cv-corveg:landform-pattern-kar,
+        cv-corveg:landform-pattern-lac,
+        cv-corveg:landform-pattern-lav,
+        cv-corveg:landform-pattern-lon,
+        cv-corveg:landform-pattern-low,
+        cv-corveg:landform-pattern-mad,
+        cv-corveg:landform-pattern-mar,
+        cv-corveg:landform-pattern-mea,
+        cv-corveg:landform-pattern-met,
+        cv-corveg:landform-pattern-mou,
+        cv-corveg:landform-pattern-par,
+        cv-corveg:landform-pattern-ped,
+        cv-corveg:landform-pattern-pep,
+        cv-corveg:landform-pattern-pla,
+        cv-corveg:landform-pattern-plt,
+        cv-corveg:landform-pattern-ply,
+        cv-corveg:landform-pattern-pnp,
+        cv-corveg:landform-pattern-ris,
+        cv-corveg:landform-pattern-san,
+        cv-corveg:landform-pattern-shf,
+        cv-corveg:landform-pattern-sta,
+        cv-corveg:landform-pattern-tel,
+        cv-corveg:landform-pattern-ter,
+        cv-corveg:landform-pattern-tid,
+        cv-corveg:landform-pattern-unrecorded,
+        cv-corveg:landform-pattern-vol ;
+    skos:prefLabel "Landform pattern concepts" .
+
