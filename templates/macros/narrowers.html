@@ -6,7 +6,7 @@
         <ul>
             {% for narrower in narrowers %}
 
-                    <li><a href="/object?uri={{ narrower[0] }}">{{ narrower[1] }}</a></li>
+                    <li>{{ render_instance_uri(narrower[0], narrower[1]) }}</li>
 
             {% endfor %}
         </ul>

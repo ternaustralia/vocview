@@ -36,7 +36,7 @@ def init():
 
 @app.context_processor
 def context_processor():
-    return dict(h=helper)
+    return dict(h=helper, config=Config)
 
 
 if __name__ == '__main__':

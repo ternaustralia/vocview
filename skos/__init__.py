@@ -182,7 +182,7 @@ def _add_narrower(uri, hierarchy, indent):
     for concept in Config.g.objects(URIRef(uri), SKOS.narrower):
         label = get_label(concept)
         tab = indent * '\t'
-        hierarchy += tab + '- [{} ({})](/object?uri={})\n'.format(label, indent + 1, parse.quote_plus(concept))
+        hierarchy += tab + '- [{} ({})]({}/instance?uri={})\n'.format(label, indent + 1, Config.SUB_URL, parse.quote_plus(concept))
         hierarchy = _add_narrower(concept, hierarchy, indent + 1)
 
     return hierarchy
@@ -192,7 +192,7 @@ def get_concept_hierarchy(uri):
     hierarchy = ''
     for top_concept in Config.g.objects(URIRef(uri), SKOS.hasTopConcept):
         label = get_label(top_concept)
-        hierarchy += '- [{} ({})](/object?uri={})\n'.format(label, 1, parse.quote_plus(top_concept))
+        hierarchy += '- [{} ({})]({}/instance?uri={})\n'.format(label, 1, Config.SUB_URL, parse.quote_plus(top_concept))
         hierarchy = _add_narrower(top_concept, hierarchy, 1)
     return markdown.markdown(hierarchy)
 

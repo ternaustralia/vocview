@@ -6,7 +6,7 @@
         <ul>
             {% for tco in tcos%}
 
-                    <li><a href="/object?uri={{ tco[0] }}">{{ tco[1] }}</a></li>
+                    <li>{{ render_instance_uri(tco[0], tco[1]) }}</li>
 
             {% endfor %}
         </ul>
