@@ -21,54 +21,52 @@
 {% block content %}
 
 
-    <div class="card">
+    <div class="">
 
         {{ render_header(c.class_types, skos_class) }}
 
-        <div class="card-body">
 
-            {{ render_label(c.uri, c.label) }}
+        {{ render_label(c.uri, c.label) }}
 
-            {{ render_alt_labels(c.alt_labels) }}
+        {{ render_alt_labels(c.alt_labels) }}
 
-            <p>
-                {{ date_created(c.created) }}<br>
+        <p>
+            {{ date_created(c.created) }}<br>
 
-                {{ date_modified(c.modified) }}
-            </p>
+            {{ date_modified(c.modified) }}
+        </p>
 
-            {{ render_in_scheme(c.in_scheme) }}
+        {{ render_in_scheme(c.in_scheme) }}
 
-            {{ render_description(c.description) }}
+        {{ render_description(c.description) }}
 
-            {{ render_definition(c.definition) }}
+        {{ render_definition(c.definition) }}
 
-            {{ render_is_defined_by(c.is_defined_by) }}
+        {{ render_is_defined_by(c.is_defined_by) }}
 
-            {{ render_top_concept_of(c.top_concept_of) }}
+        {{ render_top_concept_of(c.top_concept_of) }}
 
-            {{ render_broaders(c.broaders) }}
+        {{ render_broaders(c.broaders) }}
 
-            {{ render_narrowers(c.narrowers) }}
+        {{ render_narrowers(c.narrowers) }}
 
-            {% if c.top_concepts %}
-                {{ popover_uri('Top concepts', 'URI', 'http://www.w3.org/2004/02/skos/core#hasTopConcept', 'h5') }}
-                <ul>
-                    {% for tc in c.top_concepts %}
-                        <li><a href="/object?uri={{ tc[0] }}">{{ tc[1] }}</a></li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
+        {% if c.top_concepts %}
+            {{ popover_uri('Top concepts', 'URI', 'http://www.w3.org/2004/02/skos/core#hasTopConcept', 'h5') }}
+            <ul>
+                {% for tc in c.top_concepts %}
+                    <li><a href="/object?uri={{ tc[0] }}">{{ tc[1] }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
 
-            {{ render_concept_hierarchy(c.concept_hierarchy) }}
+        {{ render_concept_hierarchy(c.concept_hierarchy) }}
 
-            {{ render_change_note(c.change_note) }}
+        {{ render_change_note(c.change_note) }}
 
-            {{ render_properties(c.properties) }}
+        {{ render_properties(c.properties) }}
 
-            {{ render_bib_citation(c.bibliographic_citation) }}
+        {{ render_bib_citation(c.bibliographic_citation) }}
 
-        </div>
     </div>
 
 {% endblock %}
