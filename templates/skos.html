@@ -17,6 +17,8 @@
 {% from "macros/bibliographic_citation.html" import render_bib_citation with context %}
 {% from "macros/concept_hierarchy.html" import render_concept_hierarchy with context %}
 {% from "macros/rdfs_is_defined_by.html" import render_is_defined_by with context %}
+{% from "macros/close_match.html" import render_close_match with context %}
+{% from "macros/exact_match.html" import render_exact_match with context %}
 
 {% block content %}
 
@@ -49,6 +51,10 @@
         {{ render_broaders(c.broaders) }}
 
         {{ render_narrowers(c.narrowers) }}
+
+        {{ render_exact_match(c.exact_match) }}
+
+        {{ render_close_match(c.close_match) }}
 
         {% if c.top_concepts %}
             {{ popover_uri('Top concepts', 'URI', 'http://www.w3.org/2004/02/skos/core#hasTopConcept', 'h5') }}

@@ -45,6 +45,7 @@ cv-corveg:cover-method-i a skos:Concept,
     skos:inScheme cv-corveg:cover-methods ;
     dcterms:bibliographicCitation "Neldner, V.J., Wilson, B.A., Dillewaard, H.A., Ryan, T.S. and Butler, D.W. (2017) Methodology for Survey and Mapping of Regional Ecosystems and Vegetation Communities in Queensland. Version 4.0. Updated May 2017. Queensland Herbarium, Queensland Department of Science, Information Technology and Innovation, Brisbane. 124 pp." ;
     skos:topConceptOf cv-corveg:cover-methods ;
+    skos:exactMatch <http://www.example.com/of/skos/exactMatch> ;
 .
 
 cv-corveg:cover-method-l a skos:Concept,

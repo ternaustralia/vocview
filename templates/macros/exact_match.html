@@ -1,0 +1,13 @@
+{% macro render_exact_match(exact_match) %}
+
+    {% if exact_match %}
+        {{ popover_uri('Exact match', 'URI', 'http://www.w3.org/2004/02/skos/core#exactMatch', 'h5') }}
+
+        <ul>
+            {% for em in exact_match %}
+                <li>{{ render(em) }}</li>
+            {% endfor %}
+        </ul>
+
+    {% endif %}
+{% endmacro %}

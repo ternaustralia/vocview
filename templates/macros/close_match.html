@@ -1,0 +1,12 @@
+{% macro render_close_match(close_match) %}
+    {% if close_match %}
+        {{ popover_uri('Close match', 'URI', 'http://www.w3.org/2004/02/skos/core#closeMatch', 'h5') }}
+
+        <ul>
+            {% for cm in close_match %}
+                <li>{{ render(cm) }}</li>
+            {% endfor %}
+        </ul>
+
+    {% endif %}
+{% endmacro %}
