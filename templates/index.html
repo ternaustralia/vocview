@@ -4,9 +4,15 @@
 {% from "macros/render.html" import render_instance_uri with context %}
 
 {% block content %}
-    <h1>SKOS Viewer</h1>
+    <h1>Queensland Herbarium</h1>
 
-    <p>Number of triples: {{ length }}</p>
+    <p>The Queensland Herbarium is the centre for science, research and information on Queensland’s ecosystems and species of plants, fungi, algae and animals.</p>
+
+    <p>The Queensland Herbarium building at Toowong houses the state’s <a href="https://www.qld.gov.au/environment/plants-animals/plants/herbarium/specimens">plant specimen collection</a> of more than 850,000 specimens, representing Queensland’s <a href="https://www.qld.gov.au/environment/plants-animals/plants/native-plants">native and naturalised&nbsp;plant species</a> and 150 years of <a href="https://www.qld.gov.au/environment/plants-animals/plants/new-plants">species discovery</a>. Botanists and members of the public continue to contribute thousands of specimens to the Herbarium collection each year, identifying new species and adding new distribution records.</p>
+
+    <p>Queensland’s ecosystems have been surveyed, mapped and classified into 1386 <a href="https://www.qld.gov.au/environment/plants-animals/plants/ecosystems">regional ecosystems</a> across the state, and are the subject of <a href="https://www.qld.gov.au/environment/plants-animals/plants/herbarium/conservation-research">ecological research</a>, condition assessment and monitoring.</p>
+
+    <p>The Herbarium’s research provides the essential information needed for the conservation assessment and management of Queensland’s species and ecosystems and helps us to better understand ecological processes and the services provided by ecosystems and wildlife.</p>
 
     {{ popover_uri('Vocabularies', 'URI', 'http://www.w3.org/2004/02/skos/core#ConceptScheme', 'h2') }}
     <ul>
