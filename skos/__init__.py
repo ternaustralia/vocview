@@ -209,6 +209,13 @@ def get_close_match(uri):
     return close_match
 
 
+def get_exact_match(uri):
+    exact_match = []
+    for em in Config.g.objects(URIRef(uri), SKOS.exactMatch):
+        exact_match.append(em)
+    return exact_match
+
+
 def get_bibliographic_citation(uri):
     for bg in Config.g.objects(URIRef(uri), DCTERMS.bibliographicCitation):
         return bg

@@ -13,7 +13,6 @@ def render(text):
     email_pattern = r"[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*" \
                     r"[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
     if re.match(email_pattern, text):
-        print(text)
         return '<p><a href="mailto:{0}">{0}</a></p>'.format(text)
 
     return markdown(text)
