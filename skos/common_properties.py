@@ -6,6 +6,7 @@ class CommonPropertiesMixin:
         self.uri = uri
         self.label = skos.get_label(uri)
         self.description = skos.get_description(uri)
+        self.definition = skos.get_definition(uri)
         self.class_types = skos.get_class_types(uri)
         self.change_note = skos.get_change_note(uri)
         self.alt_labels = skos.get_alt_labels(uri)

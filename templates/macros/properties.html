@@ -6,7 +6,7 @@
             {% else %}
                 {{ popover_uri(h.uri_label(property[0][0]), 'URI', property[0][0], 'h5') }}
             {% endif %}
-            {{ property[1] }}
+            <p>{{ property[1] }}</p>
         {% endfor %}
     {% endif %}
 {% endmacro %}

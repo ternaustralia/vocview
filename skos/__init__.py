@@ -1,4 +1,4 @@
-from rdflib.namespace import RDF, SKOS, DCTERMS, RDFS
+from rdflib.namespace import RDF, SKOS, DCTERMS, RDFS, OWL
 from rdflib import URIRef
 import markdown
 
@@ -123,7 +123,17 @@ def get_uri_skos_type(uri):
 
 
 def get_properties(uri):
-    ignore = [RDF.type]
+    ignore = [
+        # Common
+        RDF.type, SKOS.prefLabel, DCTERMS.title, RDFS.label, DCTERMS.description, SKOS.definition, SKOS.changeNote,
+        DCTERMS.created, DCTERMS.modified, OWL.sameAs,
+
+          # Concept
+          SKOS.narrowers, SKOS.broaders, SKOS.topConceptOf,
+
+        # Concept Scheme
+        SKOS.hasTopConcept
+    ]
 
     properties = []
     for _, property, value in Config.g.triples((URIRef(uri), None, None)):
