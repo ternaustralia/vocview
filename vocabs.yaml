@@ -8,6 +8,9 @@ download:
   alteration_type:
     source: https://vocabs.ands.org.au/registry/api/resource/downloads/175/ga_alteration-type_v0-1.ttl
     format: turtle
+  material_types:
+    source: https://vocabs.ands.org.au/registry/api/resource/downloads/524/ga_material-type_v1-0.ttl
+    format: turtle
 local:
   skos:
     source: skos.ttl

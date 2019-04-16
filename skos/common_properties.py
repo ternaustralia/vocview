@@ -13,3 +13,4 @@ class CommonPropertiesMixin:
         self.created = skos.get_created_date(uri)
         self.modified = skos.get_modified_date(uri)
         self.properties = skos.get_properties(uri)
+        self.bibliographic_citation = skos.get_bibliographic_citation(uri)

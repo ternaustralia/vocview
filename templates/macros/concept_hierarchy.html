@@ -1,0 +1,6 @@
+{% macro render_concept_hierarchy(hierarchy) %}
+    {% if hierarchy %}
+        <h5>Concept Hierarchy</h5>
+        {{ hierarchy|safe }}
+    {% endif %}
+{% endmacro %}

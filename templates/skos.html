@@ -12,6 +12,9 @@
 {% from "macros/narrowers.html" import render_narrowers with context %}
 {% from "macros/alt_labels.html" import render_alt_labels with context %}
 {% from "macros/properties.html" import render_properties with context %}
+{% from "macros/in_scheme.html" import render_in_scheme with context %}
+{% from "macros/bibliographic_citation.html" import render_bib_citation with context %}
+{% from "macros/concept_hierarchy.html" import render_concept_hierarchy with context %}
 
 {% block content %}
 
@@ -32,6 +35,7 @@
                 {{ date_modified(c.modified) }}
             </p>
 
+            {{ render_in_scheme(c.in_scheme) }}
 
             {{ render_description(c.description) }}
 
@@ -52,9 +56,13 @@
                 </ul>
             {% endif %}
 
+            {{ render_concept_hierarchy(c.concept_hierarchy) }}
+
             {{ render_change_note(c.change_note) }}
 
             {{ render_properties(c.properties) }}
+
+            {{ render_bib_citation(c.bibliographic_citation) }}
 
         </div>
     </div>

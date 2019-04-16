@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 
+{% from "macros/popover.html" import popover_uri with context %}
+
 {% block content %}
     <h1>SKOS Viewer</h1>
 
     <p>Number of triples: {{ length }}</p>
 
-    <h2>Concept Schemes</h2>
+    {{ popover_uri('Vocabularies', 'URI', 'http://www.w3.org/2004/02/skos/core#ConceptScheme', 'h2') }}
     <ul>
         {% for cc in concept_schemes %}
             <li>
