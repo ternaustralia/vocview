@@ -21,9 +21,9 @@ def ob():
 
     if skos_type == skos.CONCEPTSCHEME:
         cc = skos.ConceptScheme(uri)
-        return render_template('concept-scheme.html', title=cc.label, c=cc, skos_class='SKOS Concept Scheme')
+        return render_template('skos.html', title=cc.label, c=cc, skos_class=('http://www.w3.org/2004/02/skos/core#ConceptScheme', 'Concept Scheme'))
     elif skos_type == skos.CONCEPT:
         c = skos.Concept(uri)
-        return render_template('concept-scheme.html', title=c.label, c=c, skos_class='SKOS Concept')
+        return render_template('skos.html', title=c.label, c=c, skos_class=('http://www.w3.org/2004/02/skos/core#Concept', 'Concept'))
 
     return 'URI supplied does not exist or is not of type SKOS.'

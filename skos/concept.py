@@ -8,3 +8,4 @@ class Concept(CommonPropertiesMixin):
         self.narrowers = skos.get_narrowers(uri)
         self.broaders = skos.get_broaders(uri)
         self.top_concept_of = skos.get_top_concept_of(uri)
+        self.in_scheme = skos.get_in_scheme(uri)

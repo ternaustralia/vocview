@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+{% from "macros/render.html" import render with context %}
 {% from "macros/popover.html" import popover_uri with context %}
 {% from "macros/date-metadata.html" import date_created, date_modified with context %}
 {% from "macros/header.html" import render_header with context %}
@@ -12,6 +13,10 @@
 {% from "macros/narrowers.html" import render_narrowers with context %}
 {% from "macros/alt_labels.html" import render_alt_labels with context %}
 {% from "macros/properties.html" import render_properties with context %}
+{% from "macros/in_scheme.html" import render_in_scheme with context %}
+{% from "macros/bibliographic_citation.html" import render_bib_citation with context %}
+{% from "macros/concept_hierarchy.html" import render_concept_hierarchy with context %}
+{% from "macros/rdfs_is_defined_by.html" import render_is_defined_by with context %}
 
 {% block content %}
 
@@ -32,10 +37,13 @@
                 {{ date_modified(c.modified) }}
             </p>
 
+            {{ render_in_scheme(c.in_scheme) }}
 
             {{ render_description(c.description) }}
 
             {{ render_definition(c.definition) }}
+
+            {{ render_is_defined_by(c.is_defined_by) }}
 
             {{ render_top_concept_of(c.top_concept_of) }}
 
@@ -52,9 +60,13 @@
                 </ul>
             {% endif %}
 
+            {{ render_concept_hierarchy(c.concept_hierarchy) }}
+
             {{ render_change_note(c.change_note) }}
 
             {{ render_properties(c.properties) }}
+
+            {{ render_bib_citation(c.bibliographic_citation) }}
 
         </div>
     </div>

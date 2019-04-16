@@ -1,0 +1,11 @@
+{% macro render_in_scheme(schemes) %}
+    {% if schemes %}
+        {{ popover_uri('In concept scheme', 'URI', 'http://www.w3.org/2004/02/skos/core#inScheme', 'h5') }}
+
+        <p>
+            {% for scheme in schemes %}
+                <a href="/object?uri={{ scheme[0] }}">{{ scheme[1] }}</a>
+            {% endfor %}
+        </p>
+    {% endif %}
+{% endmacro %}

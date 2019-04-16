@@ -4,7 +4,7 @@
         {{ popover_uri('Definition', 'URI', 'http://www.w3.org/2004/02/skos/core#definition', 'h5') }}
 
         <p class="card-text">
-            {{ definition|safe }}
+            {{ render(definition) }}
         </p>
     {% endif %}
 

@@ -1,0 +1,7 @@
+{% macro render_is_defined_by(is_def) %}
+    {% if is_def %}
+        {{ popover_uri('Defined by', 'URI', 'http://www.w3.org/2000/01/rdf-schema#isDefinedBy', 'h5') }}
+
+        {{ render(is_def) }}
+    {% endif %}
+{% endmacro %}

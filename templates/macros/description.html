@@ -7,9 +7,7 @@ Input:
     {% if description %}
         {{ popover_uri('Description', 'URI', 'http://purl.org/dc/terms/description', 'h5') }}
 
-        <p class="card-text">
-            {{ description[1]|safe }}
-        </p>
+        {{ render(description[1]) }}
     {% endif %}
 
 {% endmacro %}
