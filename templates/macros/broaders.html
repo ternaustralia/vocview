@@ -6,7 +6,7 @@
         <ul>
             {% for broader in broaders%}
 
-                    <li><a href="/object?uri={{ broader[0] }}">{{ broader[1] }}</a></li>
+                    <li>{{ render_instance_uri(broader[0], broader[1]) }}</li>
 
             {% endfor %}
         </ul>

@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% from "macros/popover.html" import popover_uri with context %}
+{% from "macros/render.html" import render_instance_uri with context %}
 
 {% block content %}
     <h1>SKOS Viewer</h1>
@@ -11,7 +12,7 @@
     <ul>
         {% for cc in concept_schemes %}
             <li>
-                <a href="/object?uri={{ cc.uri }}">{{ cc.label }}</a>
+                {{ render_instance_uri(cc.uri, cc.label) }}
             </li>
         {% endfor %}
     </ul>

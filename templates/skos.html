@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% from "macros/render.html" import render with context %}
+{% from "macros/render.html" import render, render_instance_uri with context %}
 {% from "macros/popover.html" import popover_uri with context %}
 {% from "macros/date-metadata.html" import date_created, date_modified with context %}
 {% from "macros/header.html" import render_header with context %}
@@ -61,7 +61,7 @@
                 {{ popover_uri('Top concepts', 'URI', 'http://www.w3.org/2004/02/skos/core#hasTopConcept', 'h5') }}
                 <ul>
                     {% for tc in c.top_concepts %}
-                        <li><a href="/object?uri={{ tc[0] }}">{{ tc[1] }}</a></li>
+                        <li>{{ render_instance_uri(tc[0], tc[1]) }}</li>
                     {% endfor %}
                 </ul>
             {% endif %}

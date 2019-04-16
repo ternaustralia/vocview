@@ -13,7 +13,7 @@ def index():
     return render_template('index.html', title='Home', length=len(Config.g), concept_schemes=concept_schemes)
 
 
-@routes.route('/object', methods=['GET'])
+@routes.route('/instance', methods=['GET'])
 def ob():
     uri = request.args.get('uri')
 

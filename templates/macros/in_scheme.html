@@ -4,7 +4,7 @@
 
         <p>
             {% for scheme in schemes %}
-                <a href="/object?uri={{ scheme[0] }}">{{ scheme[1] }}</a>
+                {{ render_instance_uri(scheme[0], scheme[1]) }}
             {% endfor %}
         </p>
     {% endif %}
