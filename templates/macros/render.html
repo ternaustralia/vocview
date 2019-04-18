@@ -3,5 +3,5 @@
 {% endmacro %}
 
 {% macro render_instance_uri(uri, label) %}
-    <a href="{{ config.SUB_URL }}/instance?uri={{ uri }}">{{ label }}</a>
+    {{ h.render_instance_uri(uri, label)|safe }}
 {% endmacro %}

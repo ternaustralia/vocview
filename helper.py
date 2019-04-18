@@ -1,5 +1,10 @@
-import re
 from markdown import markdown
+
+import skos
+from config import Config
+
+import re
+from urllib.parse import quote_plus, unquote_plus
 
 
 def uri_label(uri):
@@ -16,3 +21,15 @@ def render(text):
         return '<p><a href="mailto:{0}">{0}</a></p>'.format(text)
 
     return markdown(text)
+
+
+def url_encode(url):
+    return quote_plus(url)
+
+
+def url_decode(url):
+    return unquote_plus(url)
+
+
+def render_instance_uri(uri, label):
+    return '<a href="{}id/{}">{}</a>'.format(Config.url_root, url_encode(uri), label)

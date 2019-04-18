@@ -4,16 +4,13 @@
 {% from "macros/render.html" import render_instance_uri with context %}
 
 {% block content %}
-    <h1>SKOS Viewer</h1>
 
-    <p>Number of triples: {{ length }}</p>
+    <h1>Vocabulary Viewer</h1>
+    <em>A Linked Data API for vocabularies encoded in Simple Knowledge Organization System (SKOS).</em>
 
-    {{ popover_uri('Vocabularies', 'URI', 'http://www.w3.org/2004/02/skos/core#ConceptScheme', 'h2') }}
+    <h2>Registers</h2>
     <ul>
-        {% for cc in concept_schemes %}
-            <li>
-                {{ render_instance_uri(cc.uri, cc.label) }}
-            </li>
-        {% endfor %}
+        <li><a href="/vocabulary/">Vocabulary register</a></li>
+        <li><a href="/concept/">Concept register</a></li>
     </ul>
 {% endblock %}

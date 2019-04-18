@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 import yaml
 from rdflib import Graph
 from owlrl import DeductiveClosure, OWLRL_Semantics
@@ -15,6 +15,9 @@ app.register_blueprint(routes)
 
 @app.before_first_request
 def init():
+    # Set the URL root of this web application
+    Config.url_root = request.url_root
+
     # Create an RDFLib Graph and store it in Config class. Assume it is persistent until application server restarts.
     Config.g = Graph()
 
@@ -31,7 +34,7 @@ def init():
             Config.g.parse(os.path.join(Config.APP_DIR, 'local_vocabs', vocab['source']), format=vocab['format'])
 
     # Expand graph using a rule-based inferencer.
-    DeductiveClosure(OWLRL_Semantics).expand(Config.g)
+    # DeductiveClosure(OWLRL_Semantics).expand(Config.g)
 
 
 @app.context_processor
