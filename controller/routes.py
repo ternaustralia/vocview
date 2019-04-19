@@ -19,7 +19,8 @@ def render_vocabulary_register():
                       'This register contains a listing of SKOS vocabularies as concept schemes or collections.',
                       concept_schemes, ['http://www.w3.org/2004/02/skos/core#ConceptScheme'],
                       register_template='register.html',
-                      description='Register of all vocabularies in this system. Vocabularies are encoded using the SKOS model.')
+                      title='Vocabularies',
+                      description='Register of all vocabularies in this system.')
     return r.render()
 
 
@@ -31,7 +32,8 @@ def render_concept_register():
                       'This register contains a listing of all SKOS concepts within this system.',
                       concepts, ['http://www.w3.org/2004/02/skos/core#Concept'],
                       register_template='register.html',
-                      description='Register of all SKOS concepts in this system.')
+                      title='Concepts',
+                      description='Register of all vocabulary concepts in this system.')
     return r.render()
 
 
