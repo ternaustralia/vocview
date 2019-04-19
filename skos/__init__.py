@@ -1,6 +1,7 @@
 from rdflib.namespace import RDF, SKOS, DCTERMS, RDFS, OWL
 from rdflib import URIRef
 import markdown
+from flask import url_for
 
 from config import Config
 from skos.concept_scheme import ConceptScheme, ConceptSchemeRenderer
@@ -192,7 +193,7 @@ def _add_narrower(uri, hierarchy, indent):
     for concept in Config.g.objects(URIRef(uri), SKOS.narrower):
         label = get_label(concept)
         tab = indent * '\t'
-        hierarchy += tab + '- [{} ({})]({}id/{})\n'.format(label, indent + 1, Config.url_root, parse.quote_plus(concept))
+        hierarchy += tab + '- [{} ({})]({})\n'.format(label, indent + 1, url_for('routes.ob', uri=concept))
         hierarchy = _add_narrower(concept, hierarchy, indent + 1)
 
     return hierarchy
@@ -202,7 +203,7 @@ def get_concept_hierarchy(uri):
     hierarchy = ''
     for top_concept in Config.g.objects(URIRef(uri), SKOS.hasTopConcept):
         label = get_label(top_concept)
-        hierarchy += '- [{} ({})]({}id/{})\n'.format(label, 1, Config.url_root, top_concept)
+        hierarchy += '- [{} ({})]({})\n'.format(label, 1, url_for('routes.ob', uri=top_concept))
         hierarchy = _add_narrower(top_concept, hierarchy, 1)
     return markdown.markdown(hierarchy)
 

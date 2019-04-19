@@ -1,4 +1,5 @@
 from markdown import markdown
+from flask import url_for
 
 from config import Config
 
@@ -27,4 +28,4 @@ def url_encode(url):
 
 
 def render_instance_uri(uri, label):
-    return '<a href="{}id/{}">{}</a>'.format(Config.url_root, url_encode(uri), label)
+    return '<a href="{}">{}</a>'.format(url_for('routes.ob', uri=uri), label)
