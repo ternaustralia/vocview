@@ -67,7 +67,8 @@ class ConceptSchemeRenderer(Renderer):
             if self.format == 'text/html':
                 cc = skos.ConceptScheme(self.uri)
                 return render_template('skos.html', title=cc.label, c=cc,
-                                       skos_class=('http://www.w3.org/2004/02/skos/core#ConceptScheme', 'Concept Scheme'))
+                                       skos_class=('http://www.w3.org/2004/02/skos/core#ConceptScheme', 'Concept Scheme'),
+                                       formats=[(format, format.split('/')[-1]) for format in self.views.get('skos').formats])
             elif self.format in Renderer.RDF_MIMETYPES:
                 return self._render_skos_rdf()
             else:
