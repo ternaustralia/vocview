@@ -13,13 +13,13 @@
         <div class="container">
             <ul class="nav justify-content-center">
                 <li class="nav-item">
-                    <a href="/" class="nav-link">Home</a>
+                    <a href="{{ url_for('routes.index') }}" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/vocabulary/" class="nav-link">Vocabularies</a>
+                    <a href="{{ url_for('routes.render_vocabulary_register') }}" class="nav-link">Vocabularies</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/concept/" class="nav-link">Concepts</a>
+                    <a href="{{ url_for('routes.render_concept_register') }}" class="nav-link">Concepts</a>
                 </li>
             </ul>
             <hr>

@@ -34,7 +34,7 @@ def init():
             Config.g.parse(os.path.join(Config.APP_DIR, 'local_vocabs', vocab['source']), format=vocab['format'])
 
     # Expand graph using a rule-based inferencer.
-    DeductiveClosure(OWLRL_Semantics).expand(Config.g)
+    # DeductiveClosure(OWLRL_Semantics).expand(Config.g)
 
 
 @app.context_processor
