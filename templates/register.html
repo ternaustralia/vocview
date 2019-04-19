@@ -4,7 +4,7 @@
 {% from "macros/render.html" import render_instance_uri with context %}
 
 {% block content %}
-    {{ popover_uri('Vocabularies', 'URI', 'http://www.w3.org/2004/02/skos/core#ConceptScheme', 'h2') }}
+    {{ popover_uri(title, 'URI', class_type, 'h2') }}
 
     {% if description %}
         <p>{{ description }}</p>
