@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 import yaml
 from rdflib import Graph
 from owlrl import DeductiveClosure, OWLRL_Semantics
@@ -15,6 +15,9 @@ app.register_blueprint(routes)
 
 @app.before_first_request
 def init():
+    # Set the URL root of this web application
+    Config.url_root = request.url_root
+
     # Create an RDFLib Graph and store it in Config class. Assume it is persistent until application server restarts.
     Config.g = Graph()
 

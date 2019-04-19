@@ -75,7 +75,7 @@ skos:prefLabel
   rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
   skos:definition "The preferred lexical label for a resource, in a given language."@en ;
   a owl:AnnotationProperty, rdf:Property ;
-  rdfs:subPropertyOf rdfs:label ;
+#  rdfs:subPropertyOf rdfs:label ;
   rdfs:comment "A resource has no more than one value of skos:prefLabel per language tag, and no more than one value of skos:prefLabel without language tag."@en, "The range of skos:prefLabel is the class of RDF plain literals."@en, """skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise
       disjoint properties."""@en .
 
@@ -85,7 +85,7 @@ skos:altLabel
   skos:definition "An alternative lexical label for a resource."@en ;
   skos:example "Acronyms, abbreviations, spelling variants, and irregular plural/singular forms may be included among the alternative labels for a concept. Mis-spelled terms are normally included as hidden labels (see skos:hiddenLabel)."@en ;
   a owl:AnnotationProperty, rdf:Property ;
-  rdfs:subPropertyOf rdfs:label ;
+#  rdfs:subPropertyOf rdfs:label ;
   rdfs:comment "The range of skos:altLabel is the class of RDF plain literals."@en, "skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties."@en .
 
 skos:hiddenLabel
@@ -93,7 +93,7 @@ skos:hiddenLabel
   rdfs:isDefinedBy <http://www.w3.org/2004/02/skos/core> ;
   skos:definition "A lexical label for a resource that should be hidden when generating visual displays of the resource, but should still be accessible to free text search operations."@en ;
   a owl:AnnotationProperty, rdf:Property ;
-  rdfs:subPropertyOf rdfs:label ;
+#  rdfs:subPropertyOf rdfs:label ;
   rdfs:comment "The range of skos:hiddenLabel is the class of RDF plain literals."@en, "skos:prefLabel, skos:altLabel and skos:hiddenLabel are pairwise disjoint properties."@en .
 
 skos:notation
@@ -174,7 +174,7 @@ skos:broader
   rdfs:comment "Broader concepts are typically rendered as parents in a concept hierarchy (tree)."@en ;
   skos:scopeNote "By convention, skos:broader is only used to assert an immediate (i.e. direct) hierarchical link between two conceptual resources."@en ;
   a owl:ObjectProperty, rdf:Property ;
-  rdfs:subPropertyOf skos:broaderTransitive ;
+#  rdfs:subPropertyOf skos:broaderTransitive ;
   owl:inverseOf skos:narrower .
 
 skos:narrower
@@ -184,7 +184,7 @@ skos:narrower
   skos:scopeNote "By convention, skos:broader is only used to assert an immediate (i.e. direct) hierarchical link between two conceptual resources."@en ;
   rdfs:comment "Narrower concepts are typically rendered as children in a concept hierarchy (tree)."@en ;
   a owl:ObjectProperty, rdf:Property ;
-  rdfs:subPropertyOf skos:narrowerTransitive ;
+#  rdfs:subPropertyOf skos:narrowerTransitive ;
   owl:inverseOf skos:broader .
 
 skos:related

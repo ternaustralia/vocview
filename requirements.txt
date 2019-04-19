@@ -4,3 +4,4 @@ rdflib
 munch
 owlrl
 markdown
+pyldapi

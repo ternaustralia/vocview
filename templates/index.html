@@ -20,12 +20,9 @@
 
     <p>This website presents the <strong>controlled vocabularies</strong> of the <a href="https://data.qld.gov.au/dataset/queensland-corveg-database">Queensland CORVEG database</a> in human-readable form (HTML) as well as <a href="https://en.wikipedia.org/wiki/Linked_data">Linked Data</a>.</p>
 
-    {{ popover_uri('Vocabularies', 'URI', 'http://www.w3.org/2004/02/skos/core#ConceptScheme', 'h2') }}
+    <h2>Registers</h2>
     <ul>
-        {% for cc in concept_schemes %}
-            <li>
-                {{ render_instance_uri(cc.uri, cc.label) }}
-            </li>
-        {% endfor %}
+        <li><a href="/vocabulary/">Vocabulary register</a></li>
+        <li><a href="/concept/">Concept register</a></li>
     </ul>
 {% endblock %}

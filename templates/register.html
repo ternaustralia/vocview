@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% from "macros/popover.html" import popover_uri with context %}
+{% from "macros/render.html" import render_instance_uri with context %}
+
+{% block content %}
+    {{ popover_uri('Vocabularies', 'URI', 'http://www.w3.org/2004/02/skos/core#ConceptScheme', 'h2') }}
+
+    {% if description %}
+        <p>{{ description }}</p>
+    {% endif %}
+
+    <p>Alternate views of this register are available <a href="?_view=alternates">here</a></p>
+
+    <ul>
+        {% for cc in concept_schemes %}
+            <li>
+                {{ render_instance_uri(cc[0], cc[1]) }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -3,8 +3,9 @@ from rdflib import URIRef
 import markdown
 
 from config import Config
-from skos.concept_scheme import ConceptScheme
-from skos.concept import Concept
+from skos.concept_scheme import ConceptScheme, ConceptSchemeRenderer
+from skos.concept import Concept, ConceptRenderer
+from skos.register import Register
 import helper
 
 from datetime import date
@@ -17,14 +18,22 @@ CONCEPTSCHEME = 1
 COLLECTION = 2
 
 
+def list_concepts():
+    concepts = []
+    for c in Config.g.subjects(RDF.type, SKOS.Concept):
+        label = get_label(c)
+        concepts.append((c, label))
+    return sorted(concepts, key=lambda i: i[1])
+
+
 def list_concept_schemes():
     concept_schemes = []
 
     for cc in Config.g.subjects(RDF.type, SKOS.ConceptScheme):
         label = get_label(cc)
-        concept_schemes.append({'uri': cc, 'label': label})
+        concept_schemes.append((cc, label))
 
-    return sorted(concept_schemes, key=lambda i: i['label'])
+    return sorted(concept_schemes, key=lambda i: i[1])
 
 
 def _split_camel_case_label(label):
@@ -83,7 +92,7 @@ def get_narrowers(uri):
     narrowers = []
     for narrower in Config.g.objects(URIRef(uri), SKOS.narrower):
         label = get_label(narrower)
-        narrowers.append((parse.quote_plus(narrower), label))
+        narrowers.append((narrower, label))
     return sorted(narrowers, key=lambda i: i[1])
 
 
@@ -91,7 +100,7 @@ def get_broaders(uri):
     broaders = []
     for broader in Config.g.objects(URIRef(uri), SKOS.broader):
         label = get_label(broader)
-        broaders.append((parse.quote_plus(broader), label))
+        broaders.append((broader, label))
     return sorted(broaders, key=lambda i: i[1])
 
 
@@ -99,7 +108,7 @@ def get_top_concept_of(uri):
     top_concept_ofs = []
     for tco in Config.g.objects(URIRef(uri), SKOS.topConceptOf):
         label = get_label(tco)
-        top_concept_ofs.append((parse.quote_plus(tco), label))
+        top_concept_ofs.append((tco, label))
     return sorted(top_concept_ofs, key=lambda i: i[1])
 
 
@@ -107,7 +116,7 @@ def get_top_concepts(uri):
     top_concepts = []
     for tc in Config.g.objects(URIRef(uri), SKOS.hasTopConcept):
         label = get_label(tc)
-        top_concepts.append((parse.quote_plus(tc), label))
+        top_concepts.append((tc, label))
     return top_concepts
 
 
@@ -138,6 +147,7 @@ def get_modified_date(uri):
 
 
 def get_uri_skos_type(uri):
+    uri = parse.unquote_plus(uri)
     for _ in Config.g.triples((URIRef(uri), RDF.type, SKOS.ConceptScheme)):
         return CONCEPTSCHEME
     for _ in Config.g.triples((URIRef(uri), RDF.type, SKOS.Concept)):
@@ -170,7 +180,7 @@ def get_properties(uri):
 
 
 def get_in_scheme(uri):
-    """A concept scheme in which the concept is included. A concept may be a member of more than one concept scheme"""
+    """A concept scheme in which the concept is a part of. A concept may be a member of more than one concept scheme"""
     schemes = []
     for scheme in Config.g.objects(URIRef(uri), SKOS.inScheme):
         label = get_label(scheme)
@@ -182,7 +192,7 @@ def _add_narrower(uri, hierarchy, indent):
     for concept in Config.g.objects(URIRef(uri), SKOS.narrower):
         label = get_label(concept)
         tab = indent * '\t'
-        hierarchy += tab + '- [{} ({})]({}/instance?uri={})\n'.format(label, indent + 1, Config.SUB_URL, parse.quote_plus(concept))
+        hierarchy += tab + '- [{} ({})]({}id/{})\n'.format(label, indent + 1, Config.url_root, parse.quote_plus(concept))
         hierarchy = _add_narrower(concept, hierarchy, indent + 1)
 
     return hierarchy
@@ -192,7 +202,7 @@ def get_concept_hierarchy(uri):
     hierarchy = ''
     for top_concept in Config.g.objects(URIRef(uri), SKOS.hasTopConcept):
         label = get_label(top_concept)
-        hierarchy += '- [{} ({})]({}/instance?uri={})\n'.format(label, 1, Config.SUB_URL, parse.quote_plus(top_concept))
+        hierarchy += '- [{} ({})]({}id/{})\n'.format(label, 1, Config.url_root, top_concept)
         hierarchy = _add_narrower(top_concept, hierarchy, 1)
     return markdown.markdown(hierarchy)
 
