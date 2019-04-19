@@ -46,7 +46,6 @@ def ob(uri):
     #       - http://librelist.com/browser/flask/2012/8/24/not-able-to-pass-a-url-parameter-with-in-it/
 
     # Ugly fix for Apache multiple slash issue.
-    uri = 'http:/linked.data.gov.au/cv/corveg/cover-methods'
     if uri[6] != '/':
         uri = 'http://' + uri[6:]
 
