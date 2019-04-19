@@ -37,6 +37,19 @@ def render_concept_register():
 
 @routes.route('/id/<path:uri>', methods=['GET'])
 def ob(uri):
+    # TODO: Issue with Apache, Flask, and WSGI interaction where multiple slashes are dropped to 1 (19/04/2019).
+    #       E.g. The URI http://linked.data.gov.au/cv/corveg/cover-methods when received at this endpoint becomes
+    #       http:/linked.data.gov.au/cv/corveg/cover-methods. Missing slash after the http protocol. This only happens
+    #       using the Flask URL variable. It worked fine with query string arguments.
+    #       .
+    #       Reference issue online which describes the exact same issue here:
+    #       - http://librelist.com/browser/flask/2012/8/24/not-able-to-pass-a-url-parameter-with-in-it/
+
+    # Ugly fix for Apache multiple slash issue.
+    uri = 'http:/linked.data.gov.au/cv/corveg/cover-methods'
+    if uri[6] != '/':
+        uri = 'http://' + uri[6:]
+
     skos_type = skos.get_uri_skos_type(uri)
 
     if skos_type == skos.CONCEPTSCHEME:
