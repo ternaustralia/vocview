@@ -3,8 +3,8 @@ from rdflib import URIRef
 import markdown
 
 from config import Config
-from skos.concept_scheme import ConceptScheme
-from skos.concept import Concept
+from skos.concept_scheme import ConceptScheme, ConceptSchemeRenderer
+from skos.concept import Concept, ConceptRenderer
 from skos.register import Register
 import helper
 
@@ -180,7 +180,7 @@ def get_properties(uri):
 
 
 def get_in_scheme(uri):
-    """A concept scheme in which the concept is included. A concept may be a member of more than one concept scheme"""
+    """A concept scheme in which the concept is a part of. A concept may be a member of more than one concept scheme"""
     schemes = []
     for scheme in Config.g.objects(URIRef(uri), SKOS.inScheme):
         label = get_label(scheme)

@@ -1,7 +1,6 @@
 from flask import render_template
 
 from pyldapi.register_renderer import RegisterRenderer
-from config import Config
 
 
 class Register(RegisterRenderer):

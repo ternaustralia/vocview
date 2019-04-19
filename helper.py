@@ -1,10 +1,9 @@
 from markdown import markdown
 
-import skos
 from config import Config
 
 import re
-from urllib.parse import quote_plus, unquote_plus
+from urllib.parse import quote_plus
 
 
 def uri_label(uri):
@@ -25,10 +24,6 @@ def render(text):
 
 def url_encode(url):
     return quote_plus(url)
-
-
-def url_decode(url):
-    return unquote_plus(url)
 
 
 def render_instance_uri(uri, label):
