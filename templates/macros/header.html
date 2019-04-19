@@ -4,6 +4,13 @@
             {{ popover_uri(type, 'URI', type) }}|
         {% endfor %}
 
-        <div class="float-right"><a href="?_view=alternates">Alternates view</a></div>
+        <div class="float-right">
+            {% if formats %}
+                {% for format in formats %}
+                    <a href="?_view=skos&_format={{ format[0] }}">{{ format[1] }}</a>
+                {% endfor %}|
+            {% endif %}
+            <a href="?_view=alternates">Alternates view</a>
+        </div>
     </div>
 {% endmacro %}
