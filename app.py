@@ -1,40 +1,33 @@
 from flask import Flask, request
-import yaml
-from rdflib import Graph
-from owlrl import DeductiveClosure, OWLRL_Semantics
 
 from config import Config
 from controller.routes import routes
 import helper
-
-import os
+from triplestore import Triplestore
 
 app = Flask(__name__)
 app.register_blueprint(routes)
+
+
+@app.before_request
+def before():
+    Config.g = Triplestore.get_db(Config.triplestore_type)
+
+
+@app.after_request
+def after(response):
+    import os
+    import psutil
+    process = psutil.Process(os.getpid())
+    print(process.memory_info().rss)  # in bytes
+    # Config.g.close()
+    return response
 
 
 @app.before_first_request
 def init():
     # Set the URL root of this web application
     Config.url_root = request.url_root
-
-    # Create an RDFLib Graph and store it in Config class. Assume it is persistent until application server restarts.
-    Config.g = Graph()
-
-    # Read in RDF from online sources to the Graph.
-    with open(os.path.join(Config.APP_DIR, Config.VOCAB_SOURCES)) as f:
-        vocabs = yaml.safe_load(f)
-
-        # Online resources
-        for vocab in vocabs['download'].values():
-            Config.g.parse(vocab['source'], format=vocab['format'])
-
-        # Local resources
-        for vocab in vocabs['local'].values():
-            Config.g.parse(os.path.join(Config.APP_DIR, 'local_vocabs', vocab['source']), format=vocab['format'])
-
-    # Expand graph using a rule-based inferencer.
-    DeductiveClosure(OWLRL_Semantics).expand(Config.g)
 
 
 @app.context_processor

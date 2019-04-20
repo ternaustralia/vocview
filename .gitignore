@@ -213,3 +213,7 @@ dmypy.json
 
 # Mac
 .DS_Store
+
+# Persistent stores
+triplestore.p
+triplestore/*
