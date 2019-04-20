@@ -19,18 +19,22 @@ class Config:
     # Options:
     #
     # - memory
-    #   - No persistence, load in triples on instance start-up. Graph is required to be kept in memory during
-    #     application's lifetime.
-    #   - Difficulty: basic
+    #   - No persistence, load in triples on instance start-up (slow start-up time). Graph is required to be kept in
+    #     memory during application's lifetime. Not recommended due to slow start-up.
+    #   - Difficulty: easy
     #
     # - pickle
     #   - Persistent store by saving a binary (pickle) copy of the Python rdflib.Graph object to disk. Graph is
-    #     required to be in memory during application's lifetime.
-    #   - Difficulty: basic
+    #     required to be in memory during application's lifetime. Fast start-up time and fast performance, uses
+    #     significantly more memory than Sleepycat. Exact same as the memory method except it persists between
+    #     application restarts.
+    #   - Difficulty: easy
     #
-    # - sleepcat
-    #   - Persistence through storing the data in the now defunct Sleepycat's Berkeley DB store. Requires external
-    #     libraries to be installed on the system before using. Does not require to have
+    # - sleepycat
+    #   - Persistent store by storing the triples in the now defunct Sleepycat's Berkeley DB store. Requires external
+    #     libraries to be installed on the system before using. Does not require to have the whole triplestore in
+    #     memory. Performance is slightly slower than the pickle method (maybe around 10-20%) but uses much less memory.
+    #     For each request, only the required triples are loaded into the application's memory.
     #   - Difficulty: intermediate
     triplestore_type = 'pickle'
 
