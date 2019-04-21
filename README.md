@@ -73,6 +73,7 @@ There are three options to choose from in `config.py`'s `Config` class.
 - memory
 - pickle
 - sleepycat
+- sqlite (not implemented)
 
 #### Memory
 There is no *persistence* when using `memory` as this mode requires loading all the RDF files into the graph on start-up each time. 
