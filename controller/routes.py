@@ -6,6 +6,33 @@ import skos
 routes = Blueprint('routes', __name__)
 
 
+def match(vocabs, query):
+    """
+    Generate a generator of vocabulary items that match the search query
+    :param vocabs: The vocabulary list of items.
+    :param query: The search query string.
+    :return: A generator of words that match the search query.
+    :rtype: generator
+    """
+    for word in vocabs:
+        if query.lower() in word[1].lower():
+            yield word
+
+
+def process_search(request, items):
+    query = request.values.get('search')
+    results = []
+
+    if query:
+        for m in match(items, query):
+            results.append(m)
+        results.sort(key=lambda v: v[1])
+
+        return results
+
+    return items
+
+
 @routes.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
@@ -13,11 +40,16 @@ def index():
 
 @routes.route('/vocabulary/', methods=['GET'])
 def render_vocabulary_register():
-    concept_schemes = munchify(skos.list_concept_schemes())
+
+    items = skos.list_concept_schemes()
+
+    items = process_search(request, items)
+
+    items = munchify(items)
 
     r = skos.Register(request, 'Register of SKOS vocabularies',
                       'This register contains a listing of SKOS vocabularies as concept schemes or collections.',
-                      concept_schemes, ['http://www.w3.org/2004/02/skos/core#ConceptScheme'],
+                      items, ['http://www.w3.org/2004/02/skos/core#ConceptScheme'],
                       register_template='register.html',
                       title='Vocabularies',
                       description='Register of all vocabularies in this system.')
@@ -26,11 +58,17 @@ def render_vocabulary_register():
 
 @routes.route('/concept/', methods=['GET'])
 def render_concept_register():
-    concepts = munchify(skos.list_concepts())
+
+    items = skos.list_concepts()
+
+    items = process_search(request, items)
+
+    items = munchify(items)
+
     r = skos.Register(request,
                       'Register of SKOS concepts',
                       'This register contains a listing of all SKOS concepts within this system.',
-                      concepts, ['http://www.w3.org/2004/02/skos/core#Concept'],
+                      items, ['http://www.w3.org/2004/02/skos/core#Concept'],
                       register_template='register.html',
                       title='Concepts',
                       description='Register of all vocabulary concepts in this system.')
