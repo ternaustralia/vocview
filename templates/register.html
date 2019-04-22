@@ -15,7 +15,7 @@
     <form style="max-width: 255px;" action="{{ request.base_url }}" method="get">
         <div class="form-group">
             <label for="search"><strong>Search for {{ title }}:</strong></label>
-            <input type="text" name="search" class="form-control" id="search" aria-describedby="search-help" placeholder="Search register" autofocus>
+            <input type="text" name="search" class="form-control" id="search" aria-describedby="search-help" placeholder="Search register">
             <small id="search-help" class="form-text text-muted" hidden>Search for items in this register.</small>
         </div>
     </form>
@@ -28,11 +28,29 @@
         <strong>No results found.</strong>
     {% endif %}
 
-    <ul>
-        {% for cc in items %}
-            <li>
-                {{ render_instance_uri(cc[0], cc[1]) }}
-            </li>
-        {% endfor %}
-    </ul>
+    {% for cc in items %}
+        <div class="card card-register col-lg-9">
+            <div class="card-body">
+                <div class="card-title">{{ render_instance_uri(cc[0], cc[1]) }}</div>
+                <hr>
+                {% for prop in cc[2] %}
+                    {% if prop[0] %}
+                        <div class="card-text">{{ popover_uri(h.uri_label(prop[0]), 'URI', prop[0]) }}:
+                            {% if prop[1] %}
+                                {% if h.is_list(prop[1]) %}
+                                    {{ render_instance_uri(prop[1][0][0], prop[1][0][1]) }}
+                                {% else %}
+                                    {{ h.render_property_restricted(prop[1]) }}
+                                {% endif %}
+                            {% else %}
+                                <em>not supplied</em>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+        </div>
+    {% endfor %}
+
 {% endblock %}
