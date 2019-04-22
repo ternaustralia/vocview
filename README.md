@@ -71,6 +71,32 @@ The downside of using a rule-based inferencer like owlrl is the expensive calcul
 An alternative to rule-based inferencing is the Python [skosify](https://skosify.readthedocs.io/en/latest/index.html) library. This library contains a collection of inferencing functions specifically for SKOS properties. Since this library only focuses on SKOS things, it may be much faster than the owlrl library, thus reducing start-up time.   
  
 
+## Search within registers
+VocView contains registers for vocabularies and concepts.
+
+### Naive search
+The current search implementation is a naive, string-based text-match on the register items' labels. For simple searches on the label, this works well (and fast) enough. Time complexity is Θ(n) where *n* is the number of items in the register. 
+
+This naive search matches not only full-text in labels, but also partial text. It is also case-insensitive. 
+
+E.g. a search query "*form*" will match: 
+ - *Landform type concepts* .
+ - *Structural formation classification system concepts*
+
+### Whoosh (full text search)
+*To be implemented in VocView...*
+ 
+Whoosh is a pure Python library text indexer for full text search. It is suitable for light-weight Python applications like VocView, to provide full text search, without requiring external dependencies (outside of Python).
+
+A description of Whoosh from the official [documentation](https://whoosh.readthedocs.io/en/latest/index.html):
+
+- *Like one of its ancestors, Lucene, Whoosh is not really a search engine, it’s a programmer library for creating a search engine.*
+
+Creating a full text search engine using Whoosh would greatly improve the capabilities of searching items within registers. Whoosh would allow users to search for not only key words to match register items' labels, but also their *definition*, *date*, or any other interesting properties.
+
+Whoosh has been used in related projects already, and it will only take *probably* a full weekend to implement.
+
+
 ## Persistent store
 On start-up, the first request performs the loading of all the RDF files into an in-memory graph. It then performs a deductive closure to expand the graph with additional triples outlined in the `skos.ttl`. This process makes the initial start-up time very slow.
 

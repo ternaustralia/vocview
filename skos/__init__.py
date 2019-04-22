@@ -23,7 +23,16 @@ def list_concepts():
     concepts = []
     for c in Config.g.subjects(RDF.type, SKOS.Concept):
         label = get_label(c)
-        concepts.append((c, label))
+        date_created = get_created_date(c)
+        date_modified = get_modified_date(c)
+        definition = get_definition(c)
+        scheme = get_in_scheme(c)
+        concepts.append((c, label, [
+            ('http://purl.org/dc/terms/created', date_created),
+            ('http://purl.org/dc/terms/modified', date_modified),
+            ('http://www.w3.org/2004/02/skos/core#definition', definition),
+            ('http://www.w3.org/2004/02/skos/core#inScheme', scheme)
+        ]))
     return sorted(concepts, key=lambda i: i[1])
 
 
@@ -32,7 +41,14 @@ def list_concept_schemes():
 
     for cc in Config.g.subjects(RDF.type, SKOS.ConceptScheme):
         label = get_label(cc)
-        concept_schemes.append((cc, label))
+        date_created = get_created_date(cc)
+        date_modified = get_modified_date(cc)
+        description = get_description(cc)
+        concept_schemes.append((cc, label, [
+            ('http://purl.org/dc/terms/created', date_created),
+            ('http://purl.org/dc/terms/modified', date_modified),
+            description
+        ]))
 
     return sorted(concept_schemes, key=lambda i: i[1])
 

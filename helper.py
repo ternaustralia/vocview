@@ -11,6 +11,20 @@ def uri_label(uri):
     return uri.split('#')[-1].split('/')[-1]
 
 
+def render_property_restricted(text):
+    if isinstance(text, str):
+        length = 175
+        if len(text) > length:
+            return text[:length] + '...'
+    return text
+
+
+def is_list(property):
+    if isinstance(property, list):
+        return True
+    return False
+
+
 def render(text):
     if text[:4] == 'http':
         return '<p><a href="{0}">{0}</a></p>'.format(text)
