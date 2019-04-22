@@ -56,7 +56,8 @@ The example snippet above shows how to enable two types of vocabulary files, an 
 The `material_types` is an online file (hence the `download` node), where the `source` node lists the absolute URL of the file. The `format` node tells the RDFLib parser what format the file is in. See the list of available parsers for RDFLib [here](https://rdflib.readthedocs.io/en/stable/plugin_parsers.html).
 
 The `local` node lists RDF files on the local filesystem. By default, the path of the `source` node is relative to the `local_vocabs` directory in this repository. 
-Note: there is significance of loading in this `skos.ttl` file, which is a modified version of the SKOS definition. The modifications consist of removing a few `rdfs:subPropertyOf`statements used by the rule-based inference engine (discussed later). Loading this file in to the graph allows the inferencer to form new triples.
+
+> Note: there is significance of loading in this `skos.ttl` file, which is a modified version of the SKOS definition. The modifications consist of removing a few `rdfs:subPropertyOf`statements used by the rule-based inference engine (discussed later). Loading this file in to the graph allows the inferencer to create new triples.
 
 
 ## Rule-based inferencing
@@ -108,6 +109,8 @@ There are three options to choose from in `config.py`'s `Config` class.
 - pickle
 - sleepycat
 - sqlite (not implemented)
+
+> Note: to re-index, simply delete the `triplestore.p` file if using the **pickle** method or delete the `triplestore` directory if using the **sleepycat** method. 
 
 ### Memory
 There is no *persistence* when using `memory` as this mode requires loading all the RDF files into the graph on start-up each time. 
