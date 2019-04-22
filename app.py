@@ -16,11 +16,6 @@ def before():
 
 @app.after_request
 def after(response):
-    import os
-    import psutil
-    process = psutil.Process(os.getpid())
-    print(process.memory_info().rss)  # in bytes
-    # Config.g.close()
     return response
 
 
