@@ -59,13 +59,19 @@ The `local` node lists RDF files on the local filesystem. By default, the path o
 Note: there is significance of loading in this `skos.ttl` file, which is a modified version of the SKOS definition. The modifications consist of removing a few `rdfs:subPropertyOf`statements used by the rule-based inference engine (discussed later). Loading this file in to the graph allows the inferencer to form new triples.
 
 
-### Rule-based inferencing
+## Rule-based inferencing
+### OWLRL
 VocView utilises the Python rule-based inferencer for RDF known as [owlrl](https://owl-rl.readthedocs.io/en/latest/). The inferencer is used in VocView to expand the graph on SKOS-specific properties. To expand the graph on SKOS properties, ensure that the `skos.ttl` is declared in `vocabs.yaml`. Additional ontologies can also be loaded in to expand the graph further. 
 
-A good example of why an inferencing engine is used in VocView is to expand properties that have inverse properties of itself. For example, declaring top concepts with `skos:topConceptOf` need only be declared within concepts of a concept scheme. The inferencing engine is capable of performing a deductive closure and add the inverse statements of `skos:topConceptOf` to the concept scheme as `skos:hasTopConcept`. The HTML view of the concept scheme will now display a listing of the top concepts. Without the additional triples added by the inferencing engine, the listing will not be displayed (as the information is missing). 
+A good example of why an inferencing engine is used in VocView is to expand properties that have inverse properties of itself. For example, declaring top concepts with `skos:topConceptOf` need only be declared within concepts of a concept scheme. The inferencing engine is capable of performing a deductive closure and add the inverse statements of `skos:topConceptOf` to the concept scheme as `skos:hasTopConcept`. The HTML view of the concept scheme will now display a listing of the top concepts. Without the additional triples added by the inferencing engine, the listing will not be displayed (as the information is missing).
+
+The downside of using a rule-based inferencer like owlrl is the expensive calculations. This causes a slow start-up time for VocView.
+
+### Skosify
+An alternative to rule-based inferencing is the Python [skosify](https://skosify.readthedocs.io/en/latest/index.html) library. This library contains a collection of inferencing functions specifically for SKOS properties. Since this library only focuses on SKOS things, it may be much faster than the owlrl library, thus reducing start-up time.   
  
 
-### Persistent store
+## Persistent store
 On start-up, the first request performs the loading of all the RDF files into an in-memory graph. It then performs a deductive closure to expand the graph with additional triples outlined in the `skos.ttl`. This process makes the initial start-up time very slow.
 
 One way to solve this is to have persistence of the graph between server restarts. 
@@ -77,37 +83,37 @@ There are three options to choose from in `config.py`'s `Config` class.
 - sleepycat
 - sqlite (not implemented)
 
-#### Memory
+### Memory
 There is no *persistence* when using `memory` as this mode requires loading all the RDF files into the graph on start-up each time. 
 
-##### Pros
+#### Pros
 Start-up time is very slow but performance is fast as the queries are performed on the graph, which is in memory (RAM). 
 
-##### Cons
+#### Cons
 Memory use is high as it requires the whole graph to be stored in the application's memory.
 
-#### Pickle
+### Pickle
 VocView supports saving the graph object to disk as a binary file. In Python, this is known as [pickling](https://docs.python.org/3/library/pickle.html). On start-up, VocView loads in the graph and saves it to disk. Each subsequent restart, VocView will automatically load in the pickled graph object from disk if it exists. 
 
-##### Pros
+#### Pros
 Performance is very fast compared to other persistent store methods. Queries made by each web request are performed on the in-memory graph, which is very fast.
 
-##### Cons
+#### Cons
 Memory use is high as it requires the whole graph to be stored in the application's memory. 
 
-#### Sleepycat
+### Sleepycat
 (The defunct) Sleepycat was the company that maintained the freely-licensed Berkeley DB, a data store written in C for embedded systems. 
 
 RDFLib currently ships Sleepycat by default. See RDFLib's documentation on persistence [here](https://rdflib.readthedocs.io/en/stable/persistence.html).
 
-##### Pros
+#### Pros
 Extremely low memory usage compared to a method using in-memory graph. Good for instances of VocView with a large collection of vocabularies.  
 
-##### Cons
+#### Cons
 Roughly 10-20% slower than in-memory graph (due to filesystem read/write speeds). Requires installing Berkeley DB to the host system as well as downloading the Python **bsddb3** package source and installing it manually.
 
-##### Installing Sleepycat (Berkeley DB)
-###### Ubuntu 18.04 and above
+#### Installing Sleepycat (Berkeley DB)
+##### Ubuntu 18.04 and above
 Install the Berkeley DB
 ```bash
 sudo apt install python3-bsddb3
@@ -118,7 +124,7 @@ pip install bsddb3
 ```
 You now can use the Sleepycat as a persistent store.
 
-###### macOS Mojave and above
+##### macOS Mojave and above
 First, ensure that [brew](https://brew.sh/) is installed on macOS, then run
 ```bash
 brew install berkeley-db
@@ -131,7 +137,7 @@ python setup.py install --berkeley-db=$(brew --prefix)/berkeley-db/5.3.21/
 ```
 You now can use the Sleepycat as a persistent store.
 
-#### SQLite (not implemented)
+### SQLite (not implemented)
 According to the textbook *Programming the Semantic Web* [1], it is possible to use [SQLite](https://www.sqlite.org/index.html) as the persistent data store for an RDFLib graph. 
 
 It will be a good experiment to investigate on the ease of using this, since most systems come with SQLite pre-installed (unlike Sleepycat's Berkeley DB).
