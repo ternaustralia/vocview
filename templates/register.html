@@ -14,7 +14,7 @@
 
     <form style="max-width: 255px;" action="{{ request.base_url }}" method="get">
         <div class="form-group">
-            <label for="search" hidden>Search</label>
+            <label for="search">Search for {{ title }}</label>
             <input type="text" name="search" class="form-control" id="search" aria-describedby="search-help" placeholder="Search register" autofocus>
             <small id="search-help" class="form-text text-muted" hidden>Search for items in this register.</small>
         </div>
