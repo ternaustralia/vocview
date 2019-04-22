@@ -19,8 +19,7 @@ def match(vocabs, query):
             yield word
 
 
-def process_search(request, items):
-    query = request.values.get('search')
+def process_search(query, items):
     results = []
 
     if query:
@@ -43,7 +42,8 @@ def render_vocabulary_register():
 
     items = skos.list_concept_schemes()
 
-    items = process_search(request, items)
+    query = request.values.get('search')
+    items = process_search(query, items)
 
     items = munchify(items)
 
@@ -52,7 +52,8 @@ def render_vocabulary_register():
                       items, ['http://www.w3.org/2004/02/skos/core#ConceptScheme'],
                       register_template='register.html',
                       title='Vocabularies',
-                      description='Register of all vocabularies in this system.')
+                      description='Register of all vocabularies in this system.',
+                      search_query=query)
     return r.render()
 
 
@@ -61,7 +62,8 @@ def render_concept_register():
 
     items = skos.list_concepts()
 
-    items = process_search(request, items)
+    query = request.values.get('search')
+    items = process_search(query, items)
 
     items = munchify(items)
 
@@ -71,7 +73,8 @@ def render_concept_register():
                       items, ['http://www.w3.org/2004/02/skos/core#Concept'],
                       register_template='register.html',
                       title='Concepts',
-                      description='Register of all vocabulary concepts in this system.')
+                      description='Register of all vocabulary concepts in this system.',
+                      search_query=query)
     return r.render()
 
 
