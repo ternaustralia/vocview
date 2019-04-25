@@ -1,14 +1,15 @@
-from rdflib import ConjunctiveGraph, Graph
+from rdflib import ConjunctiveGraph, Graph, URIRef, Literal
+from rdflib.namespace import DCTERMS, XSD
 from rdflib.store import NO_STORE, VALID_STORE
 import yaml
 from owlrl import DeductiveClosure, OWLRL_Semantics
-from SPARQLWrapper import SPARQLWrapper, N3
 import requests
 
 from config import Config
 
 import os
 import pickle
+from datetime import datetime, timedelta
 
 
 class InvalidTriplestoreType(Exception):
@@ -16,19 +17,39 @@ class InvalidTriplestoreType(Exception):
 
 
 class Triplestore:
+    THIS_GRAPH = URIRef('http://www.this-graph.com/123456789/')
+
+    @staticmethod
+    def _create_pickle_disk():
+        print('creating new pickle disk')
+        g = Triplestore._create_db()
+
+        # Add time of creation of new Graph
+        g.add((Triplestore.THIS_GRAPH, DCTERMS.created, Literal(datetime.now(), datatype=XSD.dateTime)))
+
+        with open(Config.triplestore_path_pickle, 'wb') as f:
+            pickle.dump(g, f)
+        return g
+
     @staticmethod
     def get_db(triplestore_type):
         if triplestore_type == 'memory':
             g = Triplestore._create_db()
         elif triplestore_type == 'pickle':
+            # Load pickled Graph object from disk. Check the time. If time has passed specified duration, then
+            # re-harvest data.
             if os.path.isfile(Config.triplestore_path_pickle):
                 with open(Config.triplestore_path_pickle, 'rb') as f:
                     g = pickle.load(f)
+                    for date in g.objects(Triplestore.THIS_GRAPH, DCTERMS.created):
+                        now = datetime.now()
+                        now -= timedelta(hours=Config.store_hours, minutes=Config.store_minutes)
+                        if now > date.toPython():
+                            g = Triplestore._create_pickle_disk()
             else:
-                g = Triplestore._create_db()
-                with open(Config.triplestore_path_pickle, 'wb') as f:
-                    pickle.dump(g, f)
+                g = Triplestore._create_pickle_disk()
         elif triplestore_type == 'sleepycat':
+            # TODO: Re-harvest like 'pickle'.
             if hasattr(Config, 'g'):
                 # Config has a Graph object, reuse it and open the persistent store.
                 g = Config.g
