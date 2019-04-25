@@ -3,6 +3,7 @@ from rdflib.store import NO_STORE, VALID_STORE
 import yaml
 from owlrl import DeductiveClosure, OWLRL_Semantics
 from SPARQLWrapper import SPARQLWrapper, N3
+import requests
 
 from config import Config
 
@@ -42,20 +43,20 @@ class Triplestore:
                 Triplestore._add_triples(g)
             else:
                 assert rt == VALID_STORE, 'The underlying store is corrupt'
-        elif triplestore_type == 'sparql':
-            if os.path.isfile(Config.triplestore_path_pickle):
-                with open(Config.triplestore_path_pickle, 'rb') as f:
-                    g = pickle.load(f)
-            else:
-                sparql = SPARQLWrapper(Config.sparql_endpoint)
-                sparql.setQuery("""DESCRIBE * WHERE {
-                    ?s ?p ?o .
-                }""")
-                sparql.setReturnFormat(N3)
-                results = sparql.query().convert()
-                g = Graph().parse(data=results, format='n3')
-                with open(Config.triplestore_path_pickle, 'wb') as f:
-                    pickle.dump(g, f)
+        # elif triplestore_type == 'sparql':
+        #     if os.path.isfile(Config.triplestore_path_pickle):
+        #         with open(Config.triplestore_path_pickle, 'rb') as f:
+        #             g = pickle.load(f)
+        #     else:
+        #         sparql = SPARQLWrapper(Config.sparql_endpoint)
+        #         sparql.setQuery("""DESCRIBE * WHERE {
+        #             ?s ?p ?o .
+        #         }""")
+        #         sparql.setReturnFormat(N3)
+        #         results = sparql.query().convert()
+        #         g = Graph().parse(data=results, format='n3')
+        #         with open(Config.triplestore_path_pickle, 'wb') as f:
+        #             pickle.dump(g, f)
         else:
             raise InvalidTriplestoreType(
                 'Expected one of: [memory, pickle, sleepycat]. Instead got {}'.format(triplestore_type))
@@ -76,12 +77,38 @@ class Triplestore:
             vocabs = yaml.safe_load(f)
 
             # Online resources
-            for vocab in vocabs['download'].values():
-                g.parse(vocab['source'], format=vocab['format'])
+            if vocabs.get('download'):
+                for vocab in vocabs['download'].values():
+                    g.parse(vocab['source'], format=vocab['format'])
 
             # Local resources
-            for vocab in vocabs['local'].values():
-                g.parse(os.path.join(Config.APP_DIR, 'local_vocabs', vocab['source']), format=vocab['format'])
+            if vocabs.get('local'):
+                for vocab in vocabs['local'].values():
+                    g.parse(os.path.join(Config.APP_DIR, 'local_vocabs', vocab['source']), format=vocab['format'])
+
+            # SPARQL resources
+            pass
+
+            # RVA
+            resource_endpoint = vocabs['rva']['resource_endpoint']
+            download_endpoint = vocabs['rva']['download_endpoint']
+            extension = vocabs['rva']['extension']
+            format = vocabs['rva']['format']
+            for id in vocabs['rva']['ids']:
+                r = requests.get(resource_endpoint.format(id), headers={'accept': 'application/json'})
+                response = r.json()
+                versions = response['version']
+                download_id = None
+                for version in versions:
+                    if version['status'] == 'current':
+                        access_points = version['access-point']
+                        for access_point in access_points:
+                            if access_point.get('ap-sesame-download'):
+                                download_id = access_point['id']
+                if download_id:
+                    r = requests.get(download_endpoint.format(download_id), params={'format': extension})
+                    g.parse(data=r.content.decode('utf-8'), format=format)
+
 
             # Expand graph using a rule-based inferencer.
             if Config.reasoner:
