@@ -1,146 +1,37 @@
-download:
-  corveg:
-    source: https://demo.ands.org.au/vocabs-registry/api/resource/downloads/764/ands-nc_corveg_v-1.ttl
-    format: turtle
-  address_types:
-    source: https://vocabs.ands.org.au/registry/api/resource/downloads/671/psma_address-types_1-0.ttl
-    format: turtle
-  alteration_type:
-    source: https://vocabs.ands.org.au/registry/api/resource/downloads/175/ga_alteration-type_v0-1.ttl
-    format: turtle
-  material_types:
-    source: https://vocabs.ands.org.au/registry/api/resource/downloads/524/ga_material-type_v1-0.ttl
-    format: turtle
-local:
-  skos:
-    source: skos.ttl
-    format: turtle
-  cover_methods:
-    source: cover-methods.ttl
-    format: turtle
-  disturbance_assessment:
-    source: disturbance-assessment.ttl
-    format: turtle
-  crown-class:
-    source: corveg/crown-class.ttl
-    format: turtle
-  community-area:
-    source: corveg/community-area.ttl
-    format: turtle
-  community-extent:
-    source: corveg/community-extent.ttl
-    format: turtle
-  cover-meth-proj:
-    source: corveg/cover-method-projection.ttl
-    format: turtle
-  disturb-age:
-    source: corveg/disturbance-age.ttl
-    format: turtle
-  disturb-height:
-    source: corveg/disturbance-height.ttl
-    format: turtle
-  disturb-proportion:
-    source: corveg/disturbance-proportion.ttl
-    format: turtle
-  disturb-type:
-    source: corveg/disturbance-type.ttl
-    format: turtle
-  erosion-pattern:
-    source: corveg/erosion-pattern.ttl
-    format: turtle
-  erosion-severity:
-    source: corveg/erosion-severity.ttl
-    format: turtle
-  erosion-type:
-    source: corveg/erosion-type.ttl
-    format: turtle
-  geology-reliability:
-    source: corveg/geology-reliability.ttl
-    format: turtle
-  geology-source:
-    source: corveg/geology-source.ttl
-    format: turtle
-  geology-type:
-    source: corveg/geology-type.ttl
-    format: turtle
-  grazing-severity:
-    source: corveg/grazing-severity.ttl
-    format: turtle
-  isbell-soil-type:
-    source: corveg/isbell-soil-type.ttl
-    format: turtle
-  landform-element:
-    source: corveg/landform-element.ttl
-    format: turtle
-  landform-pattern:
-    source: corveg/landform-pattern.ttl
-    format: turtle
-  landform-type:
-    source: corveg/landform-type.ttl
-    format: turtle
-  location-derivation:
-    source: corveg/location-derivation.ttl
-    format: turtle
-  mapscale:
-    source: corveg/mapscale.ttl
-    format: turtle
-  qld:
-    source: corveg/qld.ttl
-    format: turtle
-  rainforest-deciduousness:
-    source: corveg/rainforest-deciduousness.ttl
-    format: turtle
-  rainforest-floristics-structure:
-    source: corveg/rainforest-floristics-structure.ttl
-    format: turtle
-  rainforest-igf:
-    source: corveg/rainforest-igf.ttl
-    format: turtle
-  rainforest-leafsize:
-    source: corveg/rainforest-leafsize.ttl
-    format: turtle
-  rainforest-structure-complexity:
-    source: corveg/rainforest-structure-complexity.ttl
-    format: turtle
-  site-sample-floristics:
-    source: corveg/site-sample-floristics.ttl
-    format: turtle
-  site-sample-level:
-    source: corveg/site-sample-level.ttl
-    format: turtle
-  site-sample-type:
-    source: corveg/site-sample-type.ttl
-    format: turtle
-  slope-type:
-    source: corveg/slope-type.ttl
-    format: turtle
-  soil-colour:
-    source: corveg/soil-colour.ttl
-    format: turtle
-  soil-reliability:
-    source: corveg/soil-reliability.ttl
-    format: turtle
-  soil-source:
-    source: corveg/soil-source.ttl
-    format: turtle
-  soil-texture:
-    source: corveg/soil-texture.ttl
-    format: turtle
-  soil-type:
-    source: corveg/soil-type.ttl
-    format: turtle
-  strata:
-    source: corveg/strata.ttl
-    format: turtle
-  structural-formation-classification-system:
-    source: corveg/structural-formation-classification-system.ttl
-    format: turtle
-  structure-basal-factor:
-    source: corveg/structure-basal-factor.ttl
-    format: turtle
-  taxa-identification:
-    source: corveg/taxa-identification.ttl
-    format: turtle
-  taxon-rank:
-    source: corveg/taxon-rank.ttl
-    format: turtle
+#download:
+#  corveg:
+#    source: https://demo.ands.org.au/vocabs-registry/api/resource/downloads/764/ands-nc_corveg_v-1.ttl
+#    format: turtle
+#  address_types:
+#    source: https://vocabs.ands.org.au/registry/api/resource/downloads/671/psma_address-types_1-0.ttl
+#    format: turtle
+#  alteration_type:
+#    source: https://vocabs.ands.org.au/registry/api/resource/downloads/175/ga_alteration-type_v0-1.ttl
+#    format: turtle
+#  material_types:
+#    source: https://vocabs.ands.org.au/registry/api/resource/downloads/524/ga_material-type_v1-0.ttl
+#    format: turtle
+#  aodn_geo_extents:
+#    source: https://vocabs.ands.org.au/registry/api/resource/downloads/232/aodn_aodn-geographic-extents-vocabulary_version-2-0.ttl
+#    format: turtle
+#local:
+#  skos:
+#    source: skos.ttl
+#    format: turtle
+#  cover_methods:
+#    source: cover-methods.ttl
+#    format: turtle
+#  disturbance_assessment:
+#    source: disturbance-assessment.ttl
+#    format: turtle
+#  test:
+#    source: test.ttl
+#    format: turtle
+rva:
+  resource_endpoint: 'https://demo.ands.org.au/vocabs-registry/api/resource/vocabularies/{}?includeVersions=true&includeAccessPoints=true&includeRelatedEntitiesAndVocabularies=false'
+  download_endpoint: 'https://demo.ands.org.au/vocabs-registry/api/resource/downloads/{}'
+  extension: ttl # Use Turtle as it has excellent compression compared to other RDF serialisations
+  format: turtle
+  ids: [
+    241, # CORVEG
+  ]

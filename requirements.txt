@@ -5,3 +5,5 @@ munch
 owlrl
 markdown
 pyldapi
+sparqlwrapper
+requests

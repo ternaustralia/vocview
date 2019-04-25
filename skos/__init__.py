@@ -1,4 +1,4 @@
-from rdflib.namespace import RDF, SKOS, DCTERMS, RDFS, OWL
+from rdflib.namespace import RDF, SKOS, DCTERMS, RDFS, OWL, DC
 from rdflib import URIRef
 import markdown
 from flask import url_for
@@ -84,6 +84,8 @@ def get_label(uri):
 def get_description(uri):
     for description in Config.g.objects(URIRef(uri), DCTERMS.description):
         return (DCTERMS.description, description)
+    for description in Config.g.objects(URIRef(uri), DC.description):
+        return (DC.description, description)
     for description in Config.g.objects(URIRef(uri), RDFS.comment):
         return (RDFS.comment, description)
 
@@ -179,7 +181,7 @@ def get_properties(uri):
         # Common
         RDF.type, SKOS.prefLabel, DCTERMS.title, RDFS.label, DCTERMS.description, SKOS.definition, SKOS.changeNote,
         DCTERMS.created, DCTERMS.modified, OWL.sameAs, RDFS.comment, SKOS.altLabel, DCTERMS.bibliographicCitation,
-        RDFS.isDefinedBy,
+        RDFS.isDefinedBy, DC.description,
 
           # Concept
           SKOS.narrower, SKOS.broader, SKOS.topConceptOf, SKOS.inScheme, SKOS.closeMatch, SKOS.exactMatch,

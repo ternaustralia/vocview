@@ -14,6 +14,9 @@ class Config:
     # Vocabulary sources config. file.
     VOCAB_SOURCES = 'vocabs.yaml'
 
+    # Rule-based reasoner
+    reasoner = False
+
     # -- Triplestore ---------------------------------------------------------------------------------------------------
     #
     # Options:
@@ -37,6 +40,10 @@ class Config:
     #     For each request, only the required triples are loaded into the application's memory.
     #   - Difficulty: intermediate
     triplestore_type = 'pickle'
+
+    # The time which the persistent store is valid before re-harvesting from its sources
+    store_hours = 0
+    store_minutes = 10
 
     # Triplestore disk path
     _triplestore_name_pickle = 'triplestore.p'
