@@ -42,7 +42,7 @@ class Config:
     #     memory. Performance is slightly slower than the pickle method (maybe around 10-20%) but uses much less memory.
     #     For each request, only the required triples are loaded into the application's memory.
     #   - Difficulty: intermediate
-    triplestore_type = 'sparql'
+    triplestore_type = 'pickle'
 
     # Triplestore disk path
     _triplestore_name_pickle = 'triplestore.p'

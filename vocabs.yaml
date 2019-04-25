@@ -11,6 +11,9 @@ download:
   material_types:
     source: https://vocabs.ands.org.au/registry/api/resource/downloads/524/ga_material-type_v1-0.ttl
     format: turtle
+  aodn_geo_extents:
+    source: https://vocabs.ands.org.au/registry/api/resource/downloads/232/aodn_aodn-geographic-extents-vocabulary_version-2-0.ttl
+    format: turtle
 local:
   skos:
     source: skos.ttl
