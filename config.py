@@ -14,6 +14,12 @@ class Config:
     # Vocabulary sources config. file.
     VOCAB_SOURCES = 'vocabs.yaml'
 
+    # Or provide a SPARQL endpoint
+    sparql_endpoint = 'http://demo.ands.org.au/repository/api/sparql/tern-rva_tern-corveg-vocabularies_v0-212'
+
+    # Rule-based reasoner
+    reasoner = False
+
     # -- Triplestore ---------------------------------------------------------------------------------------------------
     #
     # Options:
@@ -36,7 +42,7 @@ class Config:
     #     memory. Performance is slightly slower than the pickle method (maybe around 10-20%) but uses much less memory.
     #     For each request, only the required triples are loaded into the application's memory.
     #   - Difficulty: intermediate
-    triplestore_type = 'pickle'
+    triplestore_type = 'sparql'
 
     # Triplestore disk path
     _triplestore_name_pickle = 'triplestore.p'

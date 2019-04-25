@@ -21,3 +21,8 @@ local:
   disturbance_assessment:
     source: disturbance-assessment.ttl
     format: turtle
+  test:
+    source: test.ttl
+    format: turtle
+sparql:
+  geographic_extents: http://vocabs.ands.org.au/repository/api/sparql/aodn_aodn-geographic-extents-vocabulary_version-2-0

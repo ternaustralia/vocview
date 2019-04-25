@@ -1,7 +1,8 @@
-from rdflib import ConjunctiveGraph
+from rdflib import ConjunctiveGraph, Graph
 from rdflib.store import NO_STORE, VALID_STORE
 import yaml
 from owlrl import DeductiveClosure, OWLRL_Semantics
+from SPARQLWrapper import SPARQLWrapper, N3
 
 from config import Config
 
@@ -41,6 +42,20 @@ class Triplestore:
                 Triplestore._add_triples(g)
             else:
                 assert rt == VALID_STORE, 'The underlying store is corrupt'
+        elif triplestore_type == 'sparql':
+            if os.path.isfile(Config.triplestore_path_pickle):
+                with open(Config.triplestore_path_pickle, 'rb') as f:
+                    g = pickle.load(f)
+            else:
+                sparql = SPARQLWrapper(Config.sparql_endpoint)
+                sparql.setQuery("""DESCRIBE * WHERE {
+                    ?s ?p ?o .
+                }""")
+                sparql.setReturnFormat(N3)
+                results = sparql.query().convert()
+                g = Graph().parse(data=results, format='n3')
+                with open(Config.triplestore_path_pickle, 'wb') as f:
+                    pickle.dump(g, f)
         else:
             raise InvalidTriplestoreType(
                 'Expected one of: [memory, pickle, sleepycat]. Instead got {}'.format(triplestore_type))
@@ -69,4 +84,5 @@ class Triplestore:
                 g.parse(os.path.join(Config.APP_DIR, 'local_vocabs', vocab['source']), format=vocab['format'])
 
             # Expand graph using a rule-based inferencer.
-            DeductiveClosure(OWLRL_Semantics).expand(g)
+            if Config.reasoner:
+                DeductiveClosure(OWLRL_Semantics).expand(g)
