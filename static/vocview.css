@@ -12,3 +12,18 @@
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     /*background-color: #a5d1e0;*/
 }
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  color: #c6c6c6;
+  height: 25px;
+  text-align: center;
+}
+
+body {
+    padding-bottom: 25px;
+}
