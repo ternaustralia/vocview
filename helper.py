@@ -1,10 +1,32 @@
 from markdown import markdown
 from flask import url_for
+from rdflib.namespace import DCTERMS
 
 from config import Config
+from triplestore import Triplestore
 
 import re
 from urllib.parse import quote_plus
+from datetime import datetime, timedelta
+
+
+def get_triplestore_created_time():
+    """Get the string message of the last time the local graph cache was created."""
+
+    MSG = 'Last updated {}.'
+    for created_time in Config.g.objects(Triplestore.THIS_GRAPH, DCTERMS.created):
+        created_time = created_time.toPython()
+        now = datetime.now()
+        now -= timedelta(minutes=1)
+        print(created_time)
+
+        last_updated = (datetime.now() - created_time).seconds // 60
+        if not last_updated:
+            LAST_UPDATE_VALUE = 'just now'
+        else:
+            LAST_UPDATE_VALUE = f'{last_updated} minutes ago'
+
+        return MSG.format(LAST_UPDATE_VALUE)
 
 
 def uri_label(uri):

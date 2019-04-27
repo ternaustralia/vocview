@@ -147,6 +147,17 @@
 
         </div>
     </body>
+    <footer>
+        <div class="container">
+            <a href="https://github.com/edmondchuc/vocview">VocView</a> version 1.0
+        </div>
+    </footer>
+    <footer class="footer">
+        <div class="container">
+            <p>{{ h.get_triplestore_created_time() }}</p>
+        </div>
+    </footer>
+
 
     <!--<link rel="stylesheet" href="static/js/jquery-3.4.0.min.js">-->
     <script
@@ -181,6 +192,7 @@
 
 <!--Bootstrap 4 popover-->
 <script>
+// Bootstrap 4 popover
 $(document).ready(function(){
   $('[data-toggle="popover"]').popover({html: true});
 });
