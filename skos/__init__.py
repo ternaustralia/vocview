@@ -136,7 +136,7 @@ def get_top_concepts(uri):
     for tc in Config.g.objects(URIRef(uri), SKOS.hasTopConcept):
         label = get_label(tc)
         top_concepts.append((tc, label))
-    return top_concepts
+    return sorted(top_concepts, key=lambda i: i[1])
 
 
 def get_change_note(uri):
