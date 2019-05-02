@@ -117,18 +117,21 @@ class Triplestore:
             format = vocabs['rva']['format']
             for id in vocabs['rva']['ids']:
                 r = requests.get(resource_endpoint.format(id), headers={'accept': 'application/json'})
-                response = r.json()
-                versions = response['version']
-                download_id = None
-                for version in versions:
-                    if version['status'] == 'current':
-                        access_points = version['access-point']
-                        for access_point in access_points:
-                            if access_point.get('ap-sesame-download'):
-                                download_id = access_point['id']
-                if download_id:
-                    r = requests.get(download_endpoint.format(download_id), params={'format': extension})
-                    g.parse(data=r.content.decode('utf-8'), format=format)
+                try:
+                    response = r.json()
+                    versions = response['version']
+                    download_id = None
+                    for version in versions:
+                        if version['status'] == 'current':
+                            access_points = version['access-point']
+                            for access_point in access_points:
+                                if access_point.get('ap-sesame-download'):
+                                    download_id = access_point['id']
+                    if download_id:
+                        r = requests.get(download_endpoint.format(download_id), params={'format': extension})
+                        g.parse(data=r.content.decode('utf-8'), format=format)
+                except Exception as e:
+                    raise Exception('Something wrong with the response of RVA ID {}. Error: {}'.format(id, e))
 
 
             # Expand graph using a rule-based inferencer.
