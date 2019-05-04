@@ -208,21 +208,35 @@ def get_in_scheme(uri):
 
 
 def _add_narrower(uri, hierarchy, indent):
+    concepts = []
+
     for concept in Config.g.objects(URIRef(uri), SKOS.narrower):
         label = get_label(concept)
+        concepts.append((concept, label))
+
+    concepts.sort(key=lambda i: i[1])
+
+    for concept in concepts:
         tab = indent * '\t'
-        hierarchy += tab + '- [{} ({})]({})\n'.format(label, indent + 1, url_for('routes.ob', uri=concept))
-        hierarchy = _add_narrower(concept, hierarchy, indent + 1)
+        hierarchy += tab + '- [{} ({})]({})\n'.format(concept[1], indent + 1, url_for('routes.ob', uri=concept[0]))
+        hierarchy = _add_narrower(concept[0], hierarchy, indent + 1)
 
     return hierarchy
 
 
 def get_concept_hierarchy(uri):
     hierarchy = ''
+    top_concepts = []
+
     for top_concept in Config.g.objects(URIRef(uri), SKOS.hasTopConcept):
         label = get_label(top_concept)
-        hierarchy += '- [{} ({})]({})\n'.format(label, 1, url_for('routes.ob', uri=top_concept))
-        hierarchy = _add_narrower(top_concept, hierarchy, 1)
+        top_concepts.append((top_concept, label))
+
+    top_concepts.sort(key=lambda i: i[1])
+
+    for top_concept in top_concepts:
+        hierarchy += '- [{} ({})]({})\n'.format(top_concept[1], 1, url_for('routes.ob', uri=top_concept[0]))
+        hierarchy = _add_narrower(top_concept[0], hierarchy, 1)
     return markdown.markdown(hierarchy)
 
 
