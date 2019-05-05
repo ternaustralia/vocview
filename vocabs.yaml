@@ -1,4 +1,4 @@
-#download:
+download:
 #  corveg:
 #    source: https://demo.ands.org.au/vocabs-registry/api/resource/downloads/764/ands-nc_corveg_v-1.ttl
 #    format: turtle
@@ -8,9 +8,9 @@
 #  alteration_type:
 #    source: https://vocabs.ands.org.au/registry/api/resource/downloads/175/ga_alteration-type_v0-1.ttl
 #    format: turtle
-#  material_types:
-#    source: https://vocabs.ands.org.au/registry/api/resource/downloads/524/ga_material-type_v1-0.ttl
-#    format: turtle
+  material_types:
+    source: https://vocabs.ands.org.au/registry/api/resource/downloads/524/ga_material-type_v1-0.ttl
+    format: turtle
 #  aodn_geo_extents:
 #    source: https://vocabs.ands.org.au/registry/api/resource/downloads/232/aodn_aodn-geographic-extents-vocabulary_version-2-0.ttl
 #    format: turtle

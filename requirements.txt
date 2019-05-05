@@ -7,3 +7,4 @@ markdown
 pyldapi
 sparqlwrapper
 requests
+bs4
