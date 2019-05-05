@@ -41,7 +41,7 @@ ul, #myUL {
 </style>
 
     {% if hierarchy %}
-        <h5>Concept Hierarchy</h5>
+    <h5 style="display: inline;">Concept Hierarchy</h5> <span style="font-size: 12px; cursor: pointer;">expand all</span>
 
         {{ h.render_concept_tree(hierarchy)|safe }}
     {% endif %}
