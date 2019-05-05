@@ -1,6 +1,7 @@
 from markdown import markdown
 from flask import url_for
 from rdflib.namespace import DCTERMS
+from bs4 import BeautifulSoup
 
 from config import Config
 from triplestore import Triplestore
@@ -8,6 +9,24 @@ from triplestore import Triplestore
 import re
 from urllib.parse import quote_plus
 from datetime import datetime, timedelta
+
+
+def render_concept_tree(html_doc):
+    soup = BeautifulSoup(html_doc, 'html.parser')
+
+    concept_hierarchy = soup.find(id='concept-hierarchy')
+
+    uls = concept_hierarchy.find_all('ul')
+
+    for i, ul in enumerate(uls):
+        # Don't add HTML class nested to the first 'ul' found.
+        if not i == 0:
+            ul['class'] = 'nested'
+            if ul.parent.name == 'li':
+                temp = BeautifulSoup(str(ul.parent.a.extract()), 'html.parser')
+                ul.parent.insert(0, BeautifulSoup('<span class="caret">', 'html.parser'))
+                ul.parent.span.insert(0, temp)
+    return soup
 
 
 def get_triplestore_created_time():

@@ -218,7 +218,7 @@ def _add_narrower(uri, hierarchy, indent):
 
     for concept in concepts:
         tab = indent * '\t'
-        hierarchy += tab + '- [{} ({})]({})\n'.format(concept[1], indent + 1, url_for('routes.ob', uri=concept[0]))
+        hierarchy += tab + '- [{}]({})\n'.format(concept[1], url_for('routes.ob', uri=concept[0]))
         hierarchy = _add_narrower(concept[0], hierarchy, indent + 1)
 
     return hierarchy
@@ -235,9 +235,9 @@ def get_concept_hierarchy(uri):
     top_concepts.sort(key=lambda i: i[1])
 
     for top_concept in top_concepts:
-        hierarchy += '- [{} ({})]({})\n'.format(top_concept[1], 1, url_for('routes.ob', uri=top_concept[0]))
+        hierarchy += '- [{}]({})\n'.format(top_concept[1], url_for('routes.ob', uri=top_concept[0]))
         hierarchy = _add_narrower(top_concept[0], hierarchy, 1)
-    return markdown.markdown(hierarchy)
+    return '<div id="concept-hierarchy">' + markdown.markdown(hierarchy) + '</div>'
 
 
 def get_is_defined_by(uri):
