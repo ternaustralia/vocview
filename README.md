@@ -2,6 +2,7 @@
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://opensource.org/licenses/MIT)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/edmondchuc/vocview/graphs/commit-activity)
+[![Website](https://img.shields.io/website/https/www.edmondchuc.com.svg?down_color=red&down_message=Edmond%20Chuc&label=Author&style=social&up_color=blue&up_message=Edmond%20Chuc)](https://www.edmondchuc.com)
 
 *A Python web application to serve SKOS-encoded vocabularies as Linked Data.*
 
