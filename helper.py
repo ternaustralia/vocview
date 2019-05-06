@@ -37,7 +37,6 @@ def get_triplestore_created_time():
         created_time = created_time.toPython()
         now = datetime.now()
         now -= timedelta(minutes=1)
-        print(created_time)
 
         last_updated = (datetime.now() - created_time).seconds // 60
         if not last_updated:

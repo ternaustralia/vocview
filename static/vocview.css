@@ -27,3 +27,16 @@
 body {
     padding-bottom: 25px;
 }
+
+.display-inline {
+    display: inline;
+}
+
+.tree-action {
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.tree-action:hover {
+    text-decoration: underline;
+}
