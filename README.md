@@ -1,7 +1,14 @@
-# VocView
+# VocView 
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://opensource.org/licenses/MIT)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
+
 *A Python web application to serve SKOS-encoded vocabularies as Linked Data.*
 
-See a live instance of VocView at http://vocabs.tern.org.au/corveg.
+### VocView instances
+Click on a badge to see a live instance of VocView.
+
+[![corveg](https://img.shields.io/website/http/vocabs.tern.org.au/corveg.svg?down_color=red&down_message=offline&label=CORVEG&up_color=green&up_message=online)](http://vocabs.tern.org.au/corveg)
 
 
 ## SKOS
@@ -195,6 +202,10 @@ It will also be interesting to see the speed differences between SQLite and Slee
 
 ## References
 [1] Segaran, Evans, & Taylor. (2009). Programming the Semantic Web (1st ed.). Beijing ; Sebastopol, CA: O'Reilly.
+
+
+## License
+See [LICENSE](LICENSE).
 
 
 ## Contact
