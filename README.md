@@ -1,7 +1,15 @@
-# VocView
+# VocView 
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://opensource.org/licenses/MIT)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/edmondchuc/vocview/graphs/commit-activity)
+[![Website](https://img.shields.io/website/https/www.edmondchuc.com.svg?down_color=red&down_message=Edmond%20Chuc&label=Author&style=social&up_color=blue&up_message=Edmond%20Chuc)](https://www.edmondchuc.com)
+
 *A Python web application to serve SKOS-encoded vocabularies as Linked Data.*
 
-See a live instance of VocView at http://vocabs.tern.org.au/corveg.
+### VocView instances
+Click on a badge to see a live instance of VocView.
+
+[![corveg](https://img.shields.io/website/http/vocabs.tern.org.au/corveg.svg?down_color=red&down_message=offline&label=CORVEG&up_color=green&up_message=online)](http://vocabs.tern.org.au/corveg)
 
 
 ## SKOS
@@ -15,7 +23,7 @@ VocView uses the [pyLDAPI](https://pyldapi.readthedocs.io/en/latest/) library to
 
 VocView also provides different *formats* for things, such as text/html, text/turtle, application/rdf+xml, etc.
 
-Specifying views and formats can be done by using the query string arguments `_view` and `_format`.
+Specifying views and formats can be done by using the query string arguments `_view` and `_format` or content negotiation with an *Accept* header.
 
 ##### Example usage
 ```bash
@@ -31,13 +39,15 @@ The above request will show the HTML page of the alternates view, and display al
 ### Installation
 Clone this repository's master branch
 ```bash
-git clone https://github.com/edmondchuc/voc-view.git
+git clone https://github.com/edmondchuc/vocview.git
 ```
 
-Change directory into voc-view and install the Python dependencies
+Change directory into vocview and install the Python dependencies
 ```bash
 pip install -r requirements.txt
 ```
+
+Note: Python *virtualenv* is highly recommended. See [this](https://docs.python-guide.org/dev/virtualenvs/) article on Python virtual environments.
 
 ### Configuration
 Add some vocabulary sources in the `vocabs.yaml` file
@@ -50,14 +60,24 @@ local:
   skos:
     source: skos.ttl
     format: turtle
+rva:
+  resource_endpoint: 'https://demo.ands.org.au/vocabs-registry/api/resource/vocabularies/{}?includeVersions=true&includeAccessPoints=true&includeRelatedEntitiesAndVocabularies=false'
+  download_endpoint: 'https://demo.ands.org.au/vocabs-registry/api/resource/downloads/{}'
+  extension: ttl # Use Turtle as it has excellent compression compared to other RDF serialisations
+  format: turtle
+  ids: [
+    245, # CORVEG
+  ]
 ```
-The example snippet above shows how to enable two types of vocabulary files, an online file and a local file. 
+The example snippet above shows how to enable three types of vocabulary files, an online file, a local file, and a file accessed via [Research Vocabularies Australia](https://vocabs.ands.org.au/)'s (RVA) API. 
 
 The `material_types` is an online file (hence the `download` node), where the `source` node lists the absolute URL of the file. The `format` node tells the RDFLib parser what format the file is in. See the list of available parsers for RDFLib [here](https://rdflib.readthedocs.io/en/stable/plugin_parsers.html).
 
 The `local` node lists RDF files on the local filesystem. By default, the path of the `source` node is relative to the `local_vocabs` directory in this repository. 
 
-> Note: there is significance of loading in this `skos.ttl` file, which is a modified version of the SKOS definition. The modifications consist of removing a few `rdfs:subPropertyOf`statements used by the rule-based inference engine (discussed later). Loading this file in to the graph allows the inferencer to create new triples.
+The RVA resource finds the latest API endpoint for a given project referenced by the ID `245`. The extension informs the API what format we want to download and the format informs the VocView system what file type to expect. The `resource_endpoint` is used to determine the RVA project's latest version's *download ID*. The *download ID* is then used with the `download_endpoint` to download the latest RDF resource. 
+
+> Note: there is significance with loading in the `skos.ttl` file, which is a modified version of the SKOS definition. The modifications consist of removing a few `rdfs:subPropertyOf`statements used by the rule-based inference engine (discussed later). Loading this file in to the graph allows the inferencer to create new triples.
 
 
 ## Rule-based inferencing
@@ -68,8 +88,15 @@ A good example of why an inferencing engine is used in VocView is to expand prop
 
 The downside of using a rule-based inferencer like owlrl is the expensive calculations. This causes a slow start-up time for VocView.
 
+It is recommended to have inferencing performed on the source repository before loading the data into VocView.
+
+Therefore, inferencing is an optional feature.
+
+
 ### Skosify
 An alternative to rule-based inferencing is the Python [skosify](https://skosify.readthedocs.io/en/latest/index.html) library. This library contains a collection of inferencing functions specifically for SKOS properties. Since this library only focuses on SKOS things, it may be much faster than the owlrl library, thus reducing start-up time.   
+
+*This is a potential feature for a future VocView version*. 
  
 
 ## Search within registers
@@ -176,6 +203,10 @@ It will also be interesting to see the speed differences between SQLite and Slee
 
 ## References
 [1] Segaran, Evans, & Taylor. (2009). Programming the Semantic Web (1st ed.). Beijing ; Sebastopol, CA: O'Reilly.
+
+
+## License
+See [LICENSE](LICENSE).
 
 
 ## Contact
