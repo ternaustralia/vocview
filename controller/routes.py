@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request
 from munch import munchify
+from pyldapi import Renderer
 
 import skos
 
@@ -101,13 +102,28 @@ def ob(uri):
         if uri[7] != '/':
             uri = 'https://' + uri[7:]
 
+    # Check if the URI has a file extension-like suffix
+    rdf_suffix = uri.split('.')[-1]
+    rdf_format = None
+    file_extensions = ['rdf', 'ttl', 'xml', 'nt', 'jsonld', 'n3']
+    rdf_formats = ['application/rdf+xml', 'text/turtle', 'application/rdf+xml', 'application/n-triples', 'application/ld+json', 'text/n3']
+    for i in range(len(file_extensions)):
+        if file_extensions[i] == rdf_suffix:
+            rdf_format = rdf_formats[i]
+            uri = uri.replace('.' + rdf_suffix, '')
+            break
+
     skos_type = skos.get_uri_skos_type(uri)
 
     if skos_type == skos.CONCEPTSCHEME:
         r = skos.ConceptSchemeRenderer(uri, request)
+        if rdf_format:
+            r.format = rdf_format
         return r.render()
     elif skos_type == skos.CONCEPT:
         r = skos.ConceptRenderer(uri, request)
+        if rdf_format:
+            r.format = rdf_format
         return r.render()
 
     return 'URI supplied does not exist or is not a SKOS class.'
