@@ -1,5 +1,5 @@
 from rdflib.namespace import RDF, SKOS, DCTERMS, RDFS, OWL, DC
-from rdflib import URIRef
+from rdflib import URIRef, Namespace
 import markdown
 from flask import url_for
 
@@ -17,6 +17,8 @@ from urllib import parse
 CONCEPT = 0
 CONCEPTSCHEME = 1
 COLLECTION = 2
+
+SCHEMAORG = Namespace('http://schema.org/')
 
 
 def list_concepts():
@@ -67,17 +69,19 @@ def _split_camel_case_label(label):
 
 
 def get_label(uri):
+    # TODO: title() capitalises all words, we need a post-process function to lower case words that are of types
+    #       such as preposition and conjunction.
     for label in Config.g.objects(URIRef(uri), SKOS.prefLabel):
-        return label.capitalize()
+        return label.title()
     for label in Config.g.objects(URIRef(uri), DCTERMS.title):
-        return label.capitalize()
+        return label.title()
     for label in Config.g.objects(URIRef(uri), RDFS.label):
-        return label.capitalize()
+        return label.title()
 
     # Create a label from the URI.
     label = helper.uri_label(uri)
     label = _split_camel_case_label(label)
-    label = label.capitalize()
+    label = label.title()
     return label
 
 
@@ -181,7 +185,10 @@ def get_properties(uri):
         # Common
         RDF.type, SKOS.prefLabel, DCTERMS.title, RDFS.label, DCTERMS.description, SKOS.definition, SKOS.changeNote,
         DCTERMS.created, DCTERMS.modified, OWL.sameAs, RDFS.comment, SKOS.altLabel, DCTERMS.bibliographicCitation,
-        RDFS.isDefinedBy, DC.description,
+        RDFS.isDefinedBy, DC.description, DCTERMS.creator, DCTERMS.contributor, SCHEMAORG.parentOrganization,
+        SCHEMAORG.contactPoint, SCHEMAORG.member, SCHEMAORG.subOrganization, SCHEMAORG.familyName,
+        URIRef('http://schema.semantic-web.at/ppt/propagateType'), SCHEMAORG.givenName, SCHEMAORG.honorificPrefix,
+        SCHEMAORG.jobTitle, SCHEMAORG.memberOf, URIRef('http://schema.semantic-web.at/ppt/appliedType'),
 
           # Concept
           SKOS.narrower, SKOS.broader, SKOS.topConceptOf, SKOS.inScheme, SKOS.closeMatch, SKOS.exactMatch,
@@ -262,3 +269,57 @@ def get_exact_match(uri):
 def get_bibliographic_citation(uri):
     for bg in Config.g.objects(URIRef(uri), DCTERMS.bibliographicCitation):
         return bg
+
+
+def get_schema_org_parent_org(uri):
+    for parent_org in Config.g.objects(URIRef(uri), SCHEMAORG.parentOrganization):
+        label = get_label(parent_org)
+        return (parent_org, label)
+
+
+def get_schema_org_contact_point(uri):
+    for cp in Config.g.objects(URIRef(uri), SCHEMAORG.contactPoint):
+        label = get_label(cp)
+        return (cp, label)
+
+
+def get_schema_org_members(uri):
+    members = []
+    for m in Config.g.objects(URIRef(uri), SCHEMAORG.member):
+        label = get_label(m)
+        members.append((m, label))
+    return members
+
+
+def get_schema_org_sub_orgs(uri):
+    orgs = []
+    for org in Config.g.objects(URIRef(uri), SCHEMAORG.subOrganization):
+        label = get_label(org)
+        orgs.append((org, label))
+    return orgs
+
+
+def get_schema_org_family_name(uri):
+    for fn in Config.g.objects(URIRef(uri), SCHEMAORG.familyName):
+        return fn
+
+
+def get_schema_org_given_name(uri):
+    for gn in Config.g.objects(URIRef(uri), SCHEMAORG.givenName):
+        return gn
+
+
+def get_schema_org_honorific_prefix(uri):
+    for hp in Config.g.objects(URIRef(uri), SCHEMAORG.honorificPrefix):
+        return hp
+
+
+def get_schema_org_job_title(uri):
+    for jt in Config.g.objects(URIRef(uri), SCHEMAORG.jobTitle):
+        return jt
+
+
+def get_schema_org_member_of(uri):
+    for org in Config.g.objects(URIRef(uri), SCHEMAORG.memberOf):
+        label = get_label(org)
+        return (org, label)

@@ -1,0 +1,13 @@
+{% macro render_org_members(members) %}
+    {% if members %}
+        {{ popover_uri('Organization members', 'URI', 'https://schema.org/member', 'h5') }}
+
+        <ul>
+            {% for member in members %}
+
+                    <li>{{ render_instance_uri(member[0], member[1]) }}</li>
+
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endmacro %}

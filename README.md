@@ -208,6 +208,9 @@ It will also be interesting to see the speed differences between SQLite and Slee
 ## License
 See [LICENSE](LICENSE).
 
+## Developer's guide
+See [DEVELOPER.md](DEVELOPER.md).
+
 
 ## Contact
 **Edmond Chuc**  

@@ -5,12 +5,15 @@ from rdflib import Graph, URIRef
 
 import skos
 from skos.common_properties import CommonPropertiesMixin
+from skos.schema_org import SchemaOrgMixin, SchemaPersonMixin
 from config import Config
 
 
-class Concept(CommonPropertiesMixin):
+class Concept(CommonPropertiesMixin, SchemaOrgMixin, SchemaPersonMixin):
     def __init__(self, uri):
-        super().__init__(uri)
+        CommonPropertiesMixin.__init__(self, uri)
+        SchemaOrgMixin.__init__(self, uri)
+        SchemaPersonMixin.__init__(self, uri)
         self.narrowers = skos.get_narrowers(uri)
         self.broaders = skos.get_broaders(uri)
         self.top_concept_of = skos.get_top_concept_of(uri)

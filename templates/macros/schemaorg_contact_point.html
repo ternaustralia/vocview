@@ -1,0 +1,9 @@
+{% macro render_contact_point(cp) %}
+    {% if cp %}
+        {{ popover_uri('Contact point', 'URI', 'https://schema.org/ContactPoint', 'h5') }}
+
+        <p>
+            {{ render_instance_uri(cp[0], cp[1]) }}
+        </p>
+    {% endif %}
+{% endmacro %}

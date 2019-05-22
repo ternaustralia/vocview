@@ -1,0 +1,9 @@
+{% macro render_given_name(gn) %}
+    {% if gn %}
+        {{ popover_uri('Given name', 'URI', 'https://schema.org/givenName', 'h5') }}
+
+        <p>
+            {{ render(gn) }}
+        </p>
+    {% endif %}
+{% endmacro %}

@@ -1,0 +1,13 @@
+{% macro render_sub_orgs(orgs) %}
+    {% if orgs %}
+        {{ popover_uri('Sub organizations', 'URI', 'https://schema.org/subOrganization', 'h5') }}
+
+        <ul>
+            {% for org in orgs %}
+
+                    <li>{{ render_instance_uri(org[0], org[1]) }}</li>
+
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endmacro %}

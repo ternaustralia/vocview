@@ -1,0 +1,9 @@
+{% macro render_parent_org(org) %}
+    {% if org %}
+        {{ popover_uri('Parent Organization', 'URI', 'https://schema.org/parentOrganization', 'h5') }}
+
+        <p>
+            {{ render_instance_uri(org[0], org[1]) }}
+        </p>
+    {% endif %}
+{% endmacro %}

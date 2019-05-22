@@ -33,5 +33,6 @@ rva:
   extension: ttl # Use Turtle as it has excellent compression compared to other RDF serialisations
   format: turtle
   ids: [
-    245, # CORVEG
+#    245, # CORVEG
+    255, # TERN Orgs and People list
   ]
