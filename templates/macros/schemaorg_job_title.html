@@ -1,0 +1,9 @@
+{% macro render_job_title(jt) %}
+    {% if jt %}
+        {{ popover_uri('Job title', 'URI', 'https://schema.org/jobTitle', 'h5') }}
+
+        <p>
+            {{ render(jt) }}
+        </p>
+    {% endif %}
+{% endmacro %}

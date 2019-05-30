@@ -4,7 +4,7 @@
         {{ popover_uri('Broaders', 'URI', 'http://www.w3.org/2004/02/skos/core#broader', 'h5') }}
 
         <ul>
-            {% for broader in broaders%}
+            {% for broader in broaders %}
 
                     <li>{{ render_instance_uri(broader[0], broader[1]) }}</li>
 

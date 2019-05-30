@@ -1,0 +1,9 @@
+{% macro render_honorific_prefix(hp) %}
+    {% if hp %}
+        {{ popover_uri('Honorific prefix', 'URI', 'https://schema.org/honorificPrefix', 'h5') }}
+
+        <p>
+            {{ render(hp) }}
+        </p>
+    {% endif %}
+{% endmacro %}

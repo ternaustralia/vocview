@@ -1,7 +1,8 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, Response
 from munch import munchify
 from pyldapi import Renderer
 
+from config import Config
 import skos
 
 routes = Blueprint('routes', __name__)
@@ -31,6 +32,33 @@ def process_search(query, items):
         return results
 
     return items
+
+
+@routes.route('/download', methods=['GET'])
+def download():
+    format = request.args.get('format')
+
+    if format is None:
+        format = 'turtle'
+
+    # Check if format is one of the supported formats
+    if format not in Renderer.RDF_SERIALIZER_MAP.values():
+        return '<h2>Invalid download format type</h2>\nPlease set the format type to be one of the following values: {}'\
+            .format(set(Renderer.RDF_SERIALIZER_MAP.values()))
+
+    mimetype=None
+    for key, val in Renderer.RDF_SERIALIZER_MAP.items():
+        if val == format:
+            mimetype = key
+
+    file_extension = {'turtle': '.ttl', 'n3': '.n3', 'json-ld': '.jsonld', 'nt': '.nt', 'xml': '.rdf'}.get(format)
+
+    rdf_content = Config.g.serialize(format=format)
+
+    return Response(
+        response=rdf_content, mimetype=mimetype,
+        headers={'Content-Disposition': 'attachment; filename={}'.format(Config.title + file_extension)}
+    )
 
 
 @routes.route('/', methods=['GET'])
