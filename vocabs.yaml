@@ -8,9 +8,9 @@ download:
 #  alteration_type:
 #    source: https://vocabs.ands.org.au/registry/api/resource/downloads/175/ga_alteration-type_v0-1.ttl
 #    format: turtle
-  material_types:
-    source: https://vocabs.ands.org.au/registry/api/resource/downloads/524/ga_material-type_v1-0.ttl
-    format: turtle
+#  material_types:
+#    source: https://vocabs.ands.org.au/registry/api/resource/downloads/524/ga_material-type_v1-0.ttl
+#    format: turtle
 #  aodn_geo_extents:
 #    source: https://vocabs.ands.org.au/registry/api/resource/downloads/232/aodn_aodn-geographic-extents-vocabulary_version-2-0.ttl
 #    format: turtle
@@ -33,6 +33,5 @@ rva:
   extension: ttl # Use Turtle as it has excellent compression compared to other RDF serialisations
   format: turtle
   ids: [
-#    245, # CORVEG
-    255, # TERN Orgs and People list
+    245, # CORVEG
   ]
