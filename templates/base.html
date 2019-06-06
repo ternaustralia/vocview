@@ -51,6 +51,7 @@
                             <a style="padding-right:20px;" href="{{ url_for('routes.render_vocabulary_register') }}"><button type="button" class="btn btn-secondary">Vocabularies</button></a>
                             <a style="padding-right:20px;" href="{{ url_for('routes.render_concept_register') }}"><button type="button" class="btn btn-secondary">Concepts</button></a>
                             <a style="padding-right:20px;" href="{{ request.url_root }}id/http://linked.data.gov.au/def/corveg-cv/op"><button type="button" class="btn btn-secondary">Observable Properties</button></a>
+                            <a style="padding-right:20px;" href="{{ request.url_root }}id/http://linked.data.gov.au/def/corveg-cv/ogroup"><button type="button" class="btn btn-secondary">Observation Groups</button></a>
 <!--                            <a style="padding-right:20px;" href="{{ request.url_root }}id/http://linked.data.gov.au/def/corveg-cv/common-method">Common methods</a>-->
                             <div class="dropdown" style="display:inline;">
                               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -64,6 +65,7 @@
                                 <a style="background: #007eb1;" class="dropdown-item" href="{{ request.url_root }}id/http://linked.data.gov.au/def/corveg-cv/landform-description"><button type="button" class="btn btn-secondary">Landform Description Methods</button></a>
                                 <a style="background: #007eb1;" class="dropdown-item" href="{{ request.url_root }}id/http://linked.data.gov.au/def/corveg-cv/location-derivation"><button type="button" class="btn btn-secondary">Location Methods</button></a>
                                 <a style="background: #007eb1;" class="dropdown-item" href="{{ request.url_root }}id/http://linked.data.gov.au/def/corveg-cv/soil-source"><button type="button" class="btn btn-secondary">Soil Identification Methods</button></a>
+                                <a style="background: #007eb1;" class="dropdown-item" href="{{ request.url_root }}id/http://linked.data.gov.au/def/corveg-cv/structure-basal-factor"><button type="button" class="btn btn-secondary">Structural Basal Area Factors</button></a>
                                 <a style="background: #007eb1;" class="dropdown-item" href="{{ request.url_root }}id/http://linked.data.gov.au/def/corveg-cv/taxa-identification"><button type="button" class="btn btn-secondary">Taxa Identification Methods</button></a>
                               </div>
                             </div>
