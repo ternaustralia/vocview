@@ -9,7 +9,7 @@
 ### VocView instances
 Click on a badge to see a live instance of VocView.
 
-[![corveg](https://img.shields.io/website/http/vocabs.tern.org.au/corveg.svg?down_color=red&down_message=offline&label=CORVEG&up_color=green&up_message=online)](http://vocabs.tern.org.au/corveg)
+[![corveg](https://img.shields.io/website/http/vocabs.tern.org.au/corveg.svg?down_color=red&down_message=offline&label=CORVEG&up_color=green&up_message=online)](http://linkeddata.tern.org.au/def/corveg)
 
 
 ## SKOS
