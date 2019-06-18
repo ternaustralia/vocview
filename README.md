@@ -9,11 +9,11 @@
 ### VocView instances
 Click on a badge to see a live instance of VocView.
 
-[![corveg](https://img.shields.io/website/http/linkeddata.tern.org.au/def/corveg.svg?down_color=red&down_message=offline&label=CORVEG&up_color=green&up_message=online)](http://linkeddata.tern.org.au/def/corveg)
+[![corveg](https://img.shields.io/website/http/linkeddata.tern.org.au/viewer/corveg.svg?down_color=red&down_message=offline&label=CORVEG&up_color=green&up_message=online)](http://linkeddata.tern.org.au/viewer/corveg)
 
-[![tern](https://img.shields.io/website/http/linkeddata.tern.org.au/def/tern.svg?down_color=red&down_message=offline&label=TERN&up_color=green&up_message=online)](http://linkeddata.tern.org.au/def/tern)
+[![tern](https://img.shields.io/website/http/linkeddata.tern.org.au/viewer/tern.svg?down_color=red&down_message=offline&label=TERN&up_color=green&up_message=online)](http://linkeddata.tern.org.au/viewer/tern)
 
-[![ausplots](https://img.shields.io/website/http/linkeddata.tern.org.au/def/ausplots.svg?down_color=red&down_message=offline&label=AUSPLOTS&up_color=green&up_message=online)](http://linkeddata.tern.org.au/def/ausplots)
+[![ausplots](https://img.shields.io/website/http/linkeddata.tern.org.au/viewer/ausplots.svg?down_color=red&down_message=offline&label=AUSPLOTS&up_color=green&up_message=online)](http://linkeddata.tern.org.au/viewer/ausplots)
 
 
 ## SKOS
