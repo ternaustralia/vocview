@@ -77,12 +77,6 @@ def render_vocabulary_register():
 
     query = request.values.get('search')
     items = process_search(query, items)
-    
-    total_items_count = len(items)
-    page_from = int(page)
-    page_size = 20
-
-    items = items[(page_from - 1) * page_size:page_size * page_from]
 
     total_items_count = len(items)
     page_from = int(page)
@@ -113,12 +107,6 @@ def render_concept_register():
 
     query = request.values.get('search')
     items = process_search(query, items)
-    
-    total_items_count = len(items)
-    page_from = int(page)
-    page_size = 20
-
-    items = items[(page_from - 1) * page_size:page_size * page_from]
 
     total_items_count = len(items)
     page_from = int(page)
