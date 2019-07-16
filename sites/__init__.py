@@ -10,6 +10,7 @@ import skos
 import pickle
 import os
 from datetime import date
+import datetime
 
 
 SPARQL_ENDPOINT = 'http://graphdb-dev.tern.org.au/repositories/CORVEG-1'
@@ -21,13 +22,24 @@ def _load_from_disk():
 
     :return:
     """
-    # TODO: Check if cache is invalidated, and don't load if it is invalid.
-    try:
-        with open(os.path.join(Config.APP_DIR, 'sites.p'), 'rb') as f:
-            return pickle.load(f)
-    except Exception as e:
-        print(e)
-        return None
+
+    cache_path = os.path.join(Config.APP_DIR, 'sites.p')
+    t = os.path.getmtime(cache_path)
+    cache_time = datetime.datetime.fromtimestamp(t)
+    print(cache_time)
+
+    today = datetime.datetime.now()
+    new_time = datetime.datetime(today.year, today.month, today.day - 1)
+
+    # Check if the cache is longer than a day old. If it is, return None.
+    if not new_time > cache_time:
+        try:
+            with open(cache_path, 'rb') as f:
+                return pickle.load(f)
+        except Exception as e:
+            print(e)
+            return None
+    return None
 
 
 def get_all():
