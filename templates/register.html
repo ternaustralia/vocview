@@ -33,11 +33,11 @@
 
         <ul class="pagination">
             <li class="page-item {% if page <= 1 %}disabled{% endif %}">
-                <a class="page-link" href="{{ request.base_url }}?page={{ prev_page }}" aria-label="Previous">Previous</a>
+                <a class="page-link" href="{{ request.base_url }}?page={{ prev_page }}{% if search_query %}&search={{ search_query }}{% endif %}" aria-label="Previous">Previous</a>
             </li>
             <li class="page-item disabled"><a class="page-link">{{ page }}</a></li>
             <li class="page-item {% if page * per_page > total_items %}disabled{% endif %}">
-              <a class="page-link" href="{{ request.base_url }}?page={{ next_page }}" aria-label="Next">Next</a>
+              <a class="page-link" href="{{ request.base_url }}?page={{ next_page }}{% if search_query %}&search={{ search_query }}{% endif %}" aria-label="Next">Next</a>
             </li>
         </ul>
 
@@ -68,11 +68,11 @@
 
         <ul class="pagination">
             <li class="page-item {% if page <= 1 %}disabled{% endif %}">
-                <a class="page-link" href="{{ request.base_url }}?page={{ prev_page }}" aria-label="Previous">Previous</a>
+                <a class="page-link" href="{{ request.base_url }}?page={{ prev_page }}{% if search_query %}&search={{ search_query }}{% endif %}" aria-label="Previous">Previous</a>
             </li>
             <li class="page-item disabled"><a class="page-link">{{ page }}</a></li>
             <li class="page-item {% if page * per_page > total_items %}disabled{% endif %}">
-              <a class="page-link" href="{{ request.base_url }}?page={{ next_page }}" aria-label="Next">Next</a>
+              <a class="page-link" href="{{ request.base_url }}?page={{ next_page }}{% if search_query %}&search={{ search_query }}{% endif %}" aria-label="Next">Next</a>
             </li>
         </ul>
 
