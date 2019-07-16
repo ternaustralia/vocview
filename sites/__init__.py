@@ -59,7 +59,7 @@ def get_all():
             select * where {
                 ?site_uri a plot:Site .
                 ?site_uri rdfs:label ?label .
-                ?site_uri dct:description ?description .
+                optional {?site_uri dct:description ?description .}
             }
         """)
 
@@ -67,16 +67,15 @@ def get_all():
         results = sparql.query().convert()
 
         for result in results['results']['bindings']:
+            d = result.get('description')
+            if d is not None:
+                d = d.get('value')
+            description = [('http://purl.org/dc/terms/description', d)]
             sites.append((
                 result['site_uri']['value'],
                 result['label']['value'],
-                [('http://purl.org/dc/terms/description', result['description']['value'])]
+                description if description is not None else None
             ))
-            # sites.append({
-            #         'site_uri': result['site_uri']['value'],
-            #         'label': result['label']['value'],
-            #         'description': result['description']['value']
-            #     })
 
         with open(os.path.join(Config.APP_DIR, 'sites.p'), 'wb') as f:
             pickle.dump(sites, f)
