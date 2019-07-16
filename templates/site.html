@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% from "macros/render.html" import render, render_instance_uri with context %}
+{% from "macros/popover.html" import popover_uri with context %}
+{% from "macros/label.html" import render_label with context %}
+{% from "macros/date-metadata.html" import date_created, date_modified with context %}
+{% from "macros/description.html" import render_description with context %}
+
+{% block content %}
+    <br>
+    {{ popover_uri('Site', 'URI', 'http://linked.data.gov.au/def/plot/Site') }} |
+
+    <div class="float-right">
+        {% if formats %}
+            {% for format in formats %}
+                <a href="?_view=plot&_format={{ format[0] }}">{{ format[1] }}</a>
+            {% endfor %}|
+        {% endif %}
+        <a href="?_view=alternates">Alternates view</a>
+    </div>
+
+    {{ render_label(s.uri, s.label) }}
+
+    {% if s.modified %}
+        <p>{{ date_modified(s.modified) }}</p>
+    {% endif %}
+
+    {% if s.description %}
+        {{ render_description(('', s.description)) }}
+    {% endif %}
+
+    {% if s.site_number or s.site_id %}
+        {{ popover_uri('Identifier', 'URI', 'http://purl.org/dc/terms/identifier', 'h5') }}
+        <ul>
+            <li>{{ s.site_number }} (site number)</li>
+            <li>{{ s.site_id }} (site id)</li>
+        </ul>
+    {% endif %}
+
+    {% if s.floristics %}
+        {{ popover_uri('Floristics Type', 'URI', 'http://linked.data.gov.au/def/plot/x/floristics', 'h5') }}
+        <p><a href="{{ s.floristics[0] }}">{{ s.floristics[1] }}</a></p>
+    {% endif %}
+
+    {% if s.sample_type %}
+        {{ popover_uri('Sample Type', 'URI', 'http://linked.data.gov.au/def/plot/x/sampleType', 'h5') }}
+        <p><a href="{{ s.sample_type[0] }}">{{ s.sample_type[1] }}</a></p>
+    {% endif %}
+
+    {% if s.sample_level %}
+        {{ popover_uri('Sample Level', 'URI', 'http://linked.data.gov.au/def/plot/x/sampleLevel', 'h5') }}
+        <p><a href="{{ s.sample_level[0] }}">{{ s.sample_level[1] }}</a></p>
+    {% endif %}
+
+    <hr>
+
+    <br>
+    {{ popover_uri('Location', 'URI', 'http://linked.data.gov.au/def/plot/Location') }} |
+
+    <h1>{{ s.location_label }}</h1>
+
+    {% if s.location_modified %}
+        <p>{{ date_modified(s.location_modified) }}</p>
+    {% endif %}
+
+    {% if s.location_id %}
+        {{ popover_uri('Identifier', 'URI', 'http://purl.org/dc/terms/identifier', 'h5') }}
+        <p>{{ s.location_id }}</p>
+    {% endif %}
+
+    {% if s.location_geographic_name %}
+        {{ popover_uri('Geographic Name', 'URI', 'http://www.w3.org/ns/locn#geographicName', 'h5') }}
+        <p>{{ s.location_geographic_name }}</p>
+    {% endif %}
+
+    {% if s.location_description %}
+        {{ render_description(('', s.location_description)) }}
+    {% endif %}
+
+    {% if s.lat %}
+        {{ popover_uri('Latitude', 'URI', 'http://www.w3.org/2003/01/geo/wgs84_pos#lat', 'h5') }}
+        <p>{{ s.lat }}</p>
+    {% endif %}
+
+    {% if s.long %}
+        {{ popover_uri('Longitude', 'URI', 'http://www.w3.org/2003/01/geo/wgs84_pos#long', 'h5') }}
+        <p>{{ s.long }}</p>
+    {% endif %}
+
+    {% if s.bioregion %}
+        {{ popover_uri('Bioregion', 'URI', 'http://www.w3.org/ns/ssn/ext/hasUltimateFeatureOfInterest', 'h5') }}
+        <p><a href="{{ s.bioregion[0] }}">{{ s.bioregion[1] }}</a></p>
+    {% endif %}
+
+    {% if s.location_method %}
+        {{ popover_uri('Location Method', 'URI', 'http://linked.data.gov.au/def/plot/locationMethod', 'h5') }}
+        <p><a href="{{ s.location_method[0] }}">{{ s.location_method[1] }}</a></p>
+    {% endif %}
+
+    {% if s.mapsheet_name %}
+        {{ popover_uri('Mapsheet Name', 'URI', 'http://linked.data.gov.au/def/plot/mapsheetName', 'h5') }}
+        <p>{{ s.mapsheet_name }}</p>
+    {% endif %}
+
+    {% if s.mapsheet_number %}
+        {{ popover_uri('Mapsheet Number', 'URI', 'http://linked.data.gov.au/def/plot/mapsheetNumber', 'h5') }}
+        <p>{{ s.mapsheet_number }}</p>
+    {% endif %}
+
+    {% if s.map_scale %}
+        {{ popover_uri('Map Scale', 'URI', 'http://linked.data.gov.au/def/plot/mapScale', 'h5') }}
+        <p><a href="{{ s.map_scale[0] }}">{{ s.map_scale[1] }}</a></p>
+    {% endif %}
+
+{% endblock %}
