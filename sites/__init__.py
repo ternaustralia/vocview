@@ -22,24 +22,22 @@ def _load_from_disk():
 
     :return:
     """
+    try:
+        cache_path = os.path.join(Config.APP_DIR, 'sites.p')
+        t = os.path.getmtime(cache_path)
+        cache_time = datetime.datetime.fromtimestamp(t)
+        print(cache_time)
 
-    cache_path = os.path.join(Config.APP_DIR, 'sites.p')
-    t = os.path.getmtime(cache_path)
-    cache_time = datetime.datetime.fromtimestamp(t)
-    print(cache_time)
+        today = datetime.datetime.now()
+        new_time = datetime.datetime(today.year, today.month, today.day - 1)
 
-    today = datetime.datetime.now()
-    new_time = datetime.datetime(today.year, today.month, today.day - 1)
-
-    # Check if the cache is longer than a day old. If it is, return None.
-    if not new_time > cache_time:
-        try:
+        # Check if the cache is longer than a day old. If it is, return None.
+        if not new_time > cache_time:
             with open(cache_path, 'rb') as f:
                 return pickle.load(f)
-        except Exception as e:
-            print(e)
-            return None
-    return None
+    except Exception as e:
+        print(e)
+        return None
 
 
 def get_all():
