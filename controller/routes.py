@@ -22,13 +22,24 @@ def match(vocabs, query):
             yield word
 
 
-def process_search(query, items):
+def match_desc(vocabs, query):
+    for word in vocabs:
+        if query.lower() in word[2][0][1].lower():
+            yield word
+
+
+def process_search(query, items, description=False):
     results = []
 
     if query:
         for m in match(items, query):
             results.append(m)
         results.sort(key=lambda v: v[1])
+
+        if description:
+            for m in match_desc(items, query):
+                results.append(m)
+            results.sort(key=lambda v: v[1])
 
         return results
 
@@ -134,7 +145,10 @@ def render_site_register():
     if page is None:
         page = 1
 
-    items = sites.get()
+    items = sites.get_all()
+
+    query = request.values.get('search')
+    items = process_search(query, items, description=True)
 
     total_items_count = len(items)
     page_from = int(page)
@@ -152,7 +166,7 @@ def render_site_register():
                       register_template='register.html',
                       title='Study Location Sites',
                       description='Register of all Study Location Sites of the CORVEG database.',
-                      search_query=None)
+                      search_query=query)
     return r.render()
 
 
@@ -202,5 +216,10 @@ def ob(uri):
         if rdf_format:
             r.format = rdf_format
         return r.render()
+    else:
+        # Assume it is a plot:Site URI - get information from the triple-store.
+        sites_html = sites.get(uri, request, rdf_format)
+        if sites_html is not None:
+            return sites_html
 
     return 'URI supplied does not exist or is not a SKOS class.'
