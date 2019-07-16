@@ -8,3 +8,4 @@ pyldapi
 sparqlwrapper
 requests
 bs4
+git+https://bitbucket.org/terndatateam/tern_rdf.git@master
