@@ -301,7 +301,7 @@ def get(uri: str, request, rdf_format):
     sparql.setReturnFormat(TURTLE)
     results = sparql.query().convert()
 
-    print(results.decode('utf-8'))
+    # print(results.decode('utf-8'))
 
     g = TernRdf.Graph().parse(data=results, format='turtle')
 
