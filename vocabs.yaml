@@ -28,10 +28,10 @@ download:
 #    source: test.ttl
 #    format: turtle
 rva:
-  resource_endpoint: 'https://demo.ands.org.au/vocabs-registry/api/resource/vocabularies/{}?includeVersions=true&includeAccessPoints=true&includeRelatedEntitiesAndVocabularies=false'
-  download_endpoint: 'https://demo.ands.org.au/vocabs-registry/api/resource/downloads/{}'
+  resource_endpoint: 'https://vocabs.ands.org.au/registry/api/resource/vocabularies/{}?includeVersions=true&includeAccessPoints=true&includeRelatedEntitiesAndVocabularies=false'
+  download_endpoint: 'https://vocabs.ands.org.au/registry/api/resource/downloads/{}'
   extension: ttl # Use Turtle as it has excellent compression compared to other RDF serialisations
   format: turtle
   ids: [
-    245, # CORVEG
+    261, # CORVEG
   ]
