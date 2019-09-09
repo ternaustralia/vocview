@@ -1,7 +1,7 @@
 from pyldapi.renderer import Renderer
 from pyldapi.view import View
 from flask import render_template, Response
-from rdflib import Graph, URIRef
+from rdflib import Graph, URIRef, BNode
 
 import skos
 from skos.common_properties import CommonPropertiesMixin
@@ -43,6 +43,9 @@ class ConceptRenderer(Renderer):
 
         for subj, pred, obj in Config.g.triples((URIRef(self.uri), None, None)):
             g.add((subj, pred, obj))
+            if type(obj) == BNode:
+                for s, p, o in Config.g.triples((obj, None, None)):
+                    g.add((s, p, o))
 
         return Response(g.serialize(format=self.format), mimetype=self.format)
 

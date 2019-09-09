@@ -127,6 +127,13 @@ class Triplestore:
                             for access_point in access_points:
                                 if access_point.get('ap-sesame-download'):
                                     download_id = access_point['id']
+
+                            if download_id is None:
+                                # Sesame endpoing not found, go for the Turtle file
+                                for access_point in access_points:
+                                    if access_point.get('ap-file'):
+                                        g.parse(access_point['ap-file']['url'], format='turtle')
+
                     if download_id:
                         r = requests.get(download_endpoint.format(download_id), params={'format': extension})
                         g.parse(data=r.content.decode('utf-8'), format=format)
