@@ -40,6 +40,13 @@
 
             {{ render_label(c.uri, c.label) }}
 
+            <p>
+                URI: <code>{{ c.uri }}</code>
+                <button type="button" class="btn btn-light" data-clipboard-text="{{ c.uri }}">
+                    <img src="{{ request.url_root}}static/clippy.svg" alt="Copy to clipboard" height="15">
+                </button>
+            </p>
+
             {{ render_alt_labels(c.alt_labels) }}
 
             <p>
