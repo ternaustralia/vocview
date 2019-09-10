@@ -1,6 +1,7 @@
 from markdown import markdown
 from flask import url_for
 from rdflib.namespace import DCTERMS
+from rdflib import BNode, URIRef
 from bs4 import BeautifulSoup
 
 from config import Config
@@ -65,7 +66,21 @@ def is_list(property):
     return False
 
 
+def render_popover(label, uri):
+    return '<span class="card-title"><a tabindex="0" class role="button" data-toggle="popover" data-trigger="focus" title data-content="<a href=\'{0}\'>{1}</a>" data-original-title="URI">{0}</a></span>'.format(label, uri)
+
+
 def render(text):
+    if type(text) == BNode:
+        bnode = text
+        text = '<ul class="list-group pb-3">'
+        for s, p, o in Config.g.triples((bnode, None, None)):
+            # text +=  '<li>' + '<a href="{}">{}</a>'.format(p, uri_label(p)) + ' ' + render(o) + '</li>'
+            text += '<li class="list-group-item">{}: {}</li>'.format(render_popover(uri_label(p), p), render_popover(uri_label(o), o) if type(o) == URIRef else o)
+
+        text += '</ul>'
+        return text
+
     if text[:4] == 'http':
         return '<p><a href="{0}">{0}</a></p>'.format(text)
 
