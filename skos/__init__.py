@@ -72,16 +72,16 @@ def get_label(uri):
     # TODO: title() capitalises all words, we need a post-process function to lower case words that are of types
     #       such as preposition and conjunction.
     for label in Config.g.objects(URIRef(uri), SKOS.prefLabel):
-        return label.title()
+        return label
     for label in Config.g.objects(URIRef(uri), DCTERMS.title):
-        return label.title()
+        return label
     for label in Config.g.objects(URIRef(uri), RDFS.label):
-        return label.title()
+        return label
 
     # Create a label from the URI.
     label = helper.uri_label(uri)
     label = _split_camel_case_label(label)
-    label = label.title()
+    label = label
     return label
 
 
