@@ -5,8 +5,8 @@
 
 {% block content %}
 
-    <h1>Vocabulary Viewer</h1>
-    <em>A Linked Data API for vocabularies encoded in <a href="https://www.w3.org/TR/skos-reference/">SKOS</a>.</em>
+    <h1>AusPlots Rangelands Vocabularies</h1>
+    <p><em>A Linked Data API for vocabularies encoded in <a href="https://www.w3.org/TR/skos-reference/">SKOS</a>.</em></p>
 
     <h2>Registers</h2>
     <ul>
@@ -23,5 +23,7 @@
         <li><a href="{{ url_for('routes.download', format='nt') }}">Download in N-Triples</a></li>
         <li><a href="{{ url_for('routes.download', format='n3') }}">Download in Notation3</a></li>
     </ul>
-    <p>The data can also be viewed at vocabulary or concept level as RDF.</p>
+
+    <p>Supported by: <a href="https://www.education.gov.au/national-collaborative-research-infrastructure-strategy-ncris"><img style="padding-bottom: 50px; padding-top: 20px; padding-left: 20px;" src="https://www.tern.org.au/rs/7/sites/998/custom_files/tpl_images/NCRIS-PROVIDER-2.png"></a></p>
+
 {% endblock %}

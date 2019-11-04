@@ -7,22 +7,85 @@
         <!--<link rel="stylesheet" href="static/css/bootstrap.min.css">-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="{{ request.url_root}}static/vocview.css">
+
+<!--        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:800|PT+Serif:400i"/>-->
+<!--        <link rel="stylesheet" type="text/css" href="//static1.squarespace.com/static/sitecss/54c18c59e4b04884b35c7843/27/503ba86de4b04953d0f49846/54c18c59e4b04884b35c784d/1662-05142015/1568168052476/site.css?&filterFeatures=false"/>-->
+
+        <link rel='stylesheet' id='bxslider-css-css'  href='http://www.auscover.org.au/wp-content/plugins/kiwi-logo-carousel/third-party/jquery.bxslider/jquery.bxslider.css' type='text/css' media='' />
+<link rel='stylesheet' id='kiwi-logo-carousel-styles-css'  href='http://www.auscover.org.au/wp-content/plugins/kiwi-logo-carousel/custom-styles.css' type='text/css' media='' />
+<link rel='stylesheet' id='layerslider-css'  href='http://www.auscover.org.au/wp-content/plugins/LayerSlider/static/layerslider/css/layerslider.css' type='text/css' media='all' />
+<link rel='stylesheet' id='ls-google-fonts-css'  href='http://fonts.googleapis.com/css?family=Lato:100,300,regular,700,900%7COpen+Sans:300%7CIndie+Flower:regular%7COswald:300,regular,700&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='la-icon-maneger-style-css'  href='http://www.auscover.org.au/wp-content/uploads/la_icon_sets/style.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='http://www.auscover.org.au/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='em-global-styles-css'  href='http://www.auscover.org.au/wp-content/plugins/em-utilites/library/css/em-global-styles.css' type='text/css' media='all' />
+<link rel='stylesheet' id='eeb-css-frontend-css'  href='http://www.auscover.org.au/wp-content/plugins/email-encoder-bundle/core/includes/assets/css/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='fts-feeds-css'  href='http://www.auscover.org.au/wp-content/plugins/feed-them-social/feeds/css/styles.css' type='text/css' media='' />
+<link rel='stylesheet' id='sf_styles-css'  href='http://www.auscover.org.au/wp-content/plugins/superfly-menu/css/public.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-pagenavi-css'  href='http://www.auscover.org.au/wp-content/plugins/wp-pagenavi/pagenavi-css.css' type='text/css' media='all' />
+<link rel='stylesheet' id='dry_awp_theme_style-css'  href='http://www.auscover.org.au/wp-content/plugins/advanced-wp-columns/assets/css/awp-columns.css' type='text/css' media='all' />
+<style id='dry_awp_theme_style-inline-css' type='text/css'>
+@media screen and (max-width: 1024px) {	.csColumn {		clear: both !important;		float: none !important;		text-align: center !important;		margin-left:  10% !important;		margin-right: 10% !important;		width: 80% !important;	}	.csColumnGap {		display: none !important;	}}
+</style>
+<link rel='stylesheet' id='fancybox-css'  href='http://www.auscover.org.au/wp-content/plugins/easy-fancybox/css/jquery.fancybox.min.css' type='text/css' media='screen' />
+<link rel='stylesheet' id='bfa-font-awesome-css'  href='//cdn.jsdelivr.net/fontawesome/4.7.0/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='foundation-stylesheet-css'  href='http://www.auscover.org.au/wp-content/themes/auscover/library/css/foundation.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='general-stylesheet-css'  href='http://www.auscover.org.au/wp-content/themes/auscover/library/css/general.css' type='text/css' media='all' />
+<link rel='stylesheet' id='jqutransform-stylesheet-css'  href='http://www.auscover.org.au/wp-content/themes/auscover/library/jqtransformplugin/jqtransform.css' type='text/css' media='all' />
+<link rel='stylesheet' id='animate-stylesheet-css'  href='http://www.auscover.org.au/wp-content/themes/auscover/library/scroll-effects/animate.css' type='text/css' media='all' />
+<link rel='stylesheet' id='flexslider-stylesheet-css'  href='http://www.auscover.org.au/wp-content/themes/auscover/library/flexslider/flexslider.css' type='text/css' media='all' />
+<link rel='stylesheet' id='scroller-stylesheet-css'  href='http://www.auscover.org.au/wp-content/themes/auscover/library/scroller/jquery.mThumbnailScroller.css' type='text/css' media='all' />
+<link rel='stylesheet' id='typography-stylesheet-css'  href='http://www.auscover.org.au/wp-content/themes/auscover/library/css/typography.css' type='text/css' media='all' />
+<link rel='stylesheet' id='typography-responsive-stylesheet-css'  href='http://www.auscover.org.au/wp-content/themes/auscover/library/css/typography-responsive.css' type='text/css' media='all' />
+<link rel='stylesheet' id='excitemedia-stylesheet-css'  href='http://www.auscover.org.au/wp-content/themes/auscover/style.css' type='text/css' media='all' />
+
         <title>{{ title }}</title>
     </head>
 
     <body>
         <div class="container">
-            <ul class="nav justify-content-center">
-                <li class="nav-item">
-                    <a href="{{ url_for('routes.index') }}" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url_for('routes.render_vocabulary_register') }}" class="nav-link">Vocabularies</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ url_for('routes.render_concept_register') }}" class="nav-link">Concepts</a>
-                </li>
-            </ul>
+            <div class="row">
+                <div class="col-sm">
+                    <a href="https://www.tern.org.au/"><img src="https://www.tern.org.au/rs/7/sites/998/custom_files/tpl_images/assets/images/logo.png" style="padding-top: 15px;"></a>
+                </div>
+                <div class="col">
+                    <nav class="navbar navbar-expand-md navbar-light">
+                        <a class="navbar-brand" href="#"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a href="{{ url_for('routes.index') }}" class="nav-link">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url_for('routes.render_vocabulary_register') }}" class="nav-link">Vocabularies</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url_for('routes.render_concept_register') }}" class="nav-link">Concepts</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+
+<!--                <div class="col">-->
+<!--                    <ul class="nav justify-content-center">-->
+<!--                        <li class="nav-item">-->
+<!--                            <a href="{{ url_for('routes.index') }}" class="nav-link">Home</a>-->
+<!--                        </li>-->
+<!--                        <li class="nav-item">-->
+<!--                            <a href="{{ url_for('routes.render_vocabulary_register') }}" class="nav-link">Vocabularies</a>-->
+<!--                        </li>-->
+<!--                        <li class="nav-item">-->
+<!--                            <a href="{{ url_for('routes.render_concept_register') }}" class="nav-link">Concepts</a>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+<!--                <div class="col-sm"></div>-->
+            </div>
+
+
             <hr>
 
             {% block content %}{% endblock %}
@@ -33,9 +96,9 @@
             <a href="https://github.com/edmondchuc/vocview">VocView</a> version 1.0
         </div>
     </footer>
-    <footer class="footer">
+    <footer class="footer" style="padding-bottom: 50px;">
         <div class="container">
-            <p>{{ h.get_triplestore_created_time() }}</p>
+            <p style="color: lightgray">{{ h.get_triplestore_created_time() }}</p>
         </div>
     </footer>
 
