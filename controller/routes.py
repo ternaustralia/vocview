@@ -84,7 +84,7 @@ def render_vocabulary_register():
     if page is None:
         page = 1
 
-    items = skos.list_concept_schemes()
+    items = skos.list_concept_schemes_and_collections()
 
     query = request.values.get('search')
     items = process_search(query, items)
@@ -99,7 +99,7 @@ def render_vocabulary_register():
 
     r = skos.Register(request, 'Register of SKOS vocabularies',
                       'This register contains a listing of SKOS vocabularies as concept schemes or collections.',
-                      items, ['http://www.w3.org/2004/02/skos/core#ConceptScheme'],
+                      items, ['http://www.w3.org/2004/02/skos/core#ConceptScheme', 'http://www.w3.org/2004/02/skos/core#Collection'],
                       total_items_count=total_items_count,
                       register_template='register.html',
                       title='Vocabularies',
@@ -208,6 +208,11 @@ def ob(uri):
 
     if skos_type == skos.CONCEPTSCHEME:
         r = skos.ConceptSchemeRenderer(uri, request)
+        if rdf_format:
+            r.format = rdf_format
+        return r.render()
+    elif skos_type == skos.COLLECTION:
+        r = skos.CollectionRenderer(uri, request)
         if rdf_format:
             r.format = rdf_format
         return r.render()
