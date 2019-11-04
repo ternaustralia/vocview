@@ -17,7 +17,7 @@ class Config:
     VOCAB_SOURCES = 'vocabs.yaml'
 
     # Rule-based reasoner
-    reasoner = False
+    reasoner = True
 
     # -- Triplestore ---------------------------------------------------------------------------------------------------
     #
@@ -45,7 +45,7 @@ class Config:
 
     # The time which the persistent store is valid before re-harvesting from its sources
     store_hours = 0
-    store_minutes = 10
+    store_minutes = 60
 
     # Triplestore disk path
     _triplestore_name_pickle = 'triplestore.p'
