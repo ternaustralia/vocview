@@ -44,8 +44,8 @@
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-sm">
-                    <a href="https://www.tern.org.au/"><img src="https://www.tern.org.au/rs/7/sites/998/custom_files/tpl_images/assets/images/logo.png" style="padding-top: 15px;"></a>
+                <div class="col">
+                    <a href="https://www.tern.org.au/"><img src="https://www.tern.org.au/rs/7/sites/998/custom_files/tpl_images/assets/images/logo.png" style="padding-top: 15px; min-width: 100px;"></a>
                 </div>
                 <div class="col">
                     <nav class="navbar navbar-expand-md navbar-light">
@@ -64,25 +64,19 @@
                                 <li class="nav-item">
                                     <a href="{{ url_for('routes.render_concept_register') }}" class="nav-link">Concepts</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{ request.url_root }}id/http://linked.data.gov.au/def/ausplots-cv/540cda9e-0131-4d9c-a034-40d1d2d3b5ec" class="nav-link">Observable properties</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ request.url_root }}id/http://linked.data.gov.au/def/ausplots-cv/34074ab7-9e37-4f54-bce2-1a5052a8adbb" class="nav-link">Observation groups</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ request.url_root }}id/http://linked.data.gov.au/def/ausplots-cv/09d697de-3178-4094-985d-bdca7e393f2a" class="nav-link">Methods</a>
+                                </li>
                             </ul>
                         </div>
                     </nav>
                 </div>
-
-<!--                <div class="col">-->
-<!--                    <ul class="nav justify-content-center">-->
-<!--                        <li class="nav-item">-->
-<!--                            <a href="{{ url_for('routes.index') }}" class="nav-link">Home</a>-->
-<!--                        </li>-->
-<!--                        <li class="nav-item">-->
-<!--                            <a href="{{ url_for('routes.render_vocabulary_register') }}" class="nav-link">Vocabularies</a>-->
-<!--                        </li>-->
-<!--                        <li class="nav-item">-->
-<!--                            <a href="{{ url_for('routes.render_concept_register') }}" class="nav-link">Concepts</a>-->
-<!--                        </li>-->
-<!--                    </ul>-->
-<!--                </div>-->
-<!--                <div class="col-sm"></div>-->
             </div>
 
 
