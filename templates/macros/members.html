@@ -1,0 +1,30 @@
+{% macro render_members(members) %}
+    {% if members %}
+
+        {{ popover_uri('Members', 'URI', 'http://www.w3.org/2004/02/skos/core#member', 'h5') }}
+
+        <ul>
+            {% for member in members %}
+
+                    <li>{{ render_instance_uri(member[0], member[1]) }}</li>
+
+            {% endfor %}
+        </ul>
+
+    {% endif %}
+
+{% endmacro %}
+
+
+{% macro render_member_of(collections) %}
+    {% if collections %}
+        {{ popover_uri('Member of', 'URI', 'http://www.w3.org/2004/02/skos/core#memberOf', 'h5') }}
+        <ul>
+            {% for collection in collections %}
+
+                    <li>{{ render_instance_uri(collection[0], collection[1]) }}</li>
+
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endmacro %}

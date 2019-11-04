@@ -6,6 +6,7 @@ from flask import url_for
 from config import Config
 from skos.concept_scheme import ConceptScheme, ConceptSchemeRenderer
 from skos.concept import Concept, ConceptRenderer
+from skos.collection import CollectionRenderer, Collection
 from skos.register import Register
 import helper
 
@@ -53,6 +54,34 @@ def list_concept_schemes():
         ]))
 
     return sorted(concept_schemes, key=lambda i: i[1])
+
+
+def list_concept_schemes_and_collections():
+    items = []
+
+    for cc in Config.g.subjects(RDF.type, SKOS.ConceptScheme):
+        label = get_label(cc)
+        date_created = get_created_date(cc)
+        date_modified = get_modified_date(cc)
+        description = get_description(cc)
+        items.append((cc, label, [
+            ('http://purl.org/dc/terms/created', date_created),
+            ('http://purl.org/dc/terms/modified', date_modified),
+            description
+        ]))
+
+    for cc in Config.g.subjects(RDF.type, SKOS.Collection):
+        label = get_label(cc)
+        date_created = get_created_date(cc)
+        date_modified = get_modified_date(cc)
+        description = get_description(cc)
+        items.append((cc, label, [
+            ('http://purl.org/dc/terms/created', date_created),
+            ('http://purl.org/dc/terms/modified', date_modified),
+            description
+        ]))
+
+    return sorted(items, key=lambda i: i[1])
 
 
 def _split_camel_case_label(label):
@@ -127,6 +156,14 @@ def get_broaders(uri):
     return sorted(broaders, key=lambda i: i[1])
 
 
+def get_members(uri):
+    members = []
+    for member in Config.g.objects(URIRef(uri), SKOS.member):
+        label = get_label(member)
+        members.append((member, label))
+    return sorted(members, key=lambda i: i[1])
+
+
 def get_top_concept_of(uri):
     top_concept_ofs = []
     for tco in Config.g.objects(URIRef(uri), SKOS.topConceptOf):
@@ -188,10 +225,10 @@ def get_properties(uri):
         RDFS.isDefinedBy, DC.description, DCTERMS.creator, DCTERMS.contributor, SCHEMAORG.parentOrganization,
         SCHEMAORG.contactPoint, SCHEMAORG.member, SCHEMAORG.subOrganization, SCHEMAORG.familyName,
         URIRef('http://schema.semantic-web.at/ppt/propagateType'), SCHEMAORG.givenName, SCHEMAORG.honorificPrefix,
-        SCHEMAORG.jobTitle, SCHEMAORG.memberOf, URIRef('http://schema.semantic-web.at/ppt/appliedType'),
+        SCHEMAORG.jobTitle, SCHEMAORG.memberOf, URIRef('http://schema.semantic-web.at/ppt/appliedType'), SKOS.member,
 
-          # Concept
-          SKOS.narrower, SKOS.broader, SKOS.topConceptOf, SKOS.inScheme, SKOS.closeMatch, SKOS.exactMatch,
+        # Concept
+        SKOS.narrower, SKOS.broader, SKOS.topConceptOf, SKOS.inScheme, SKOS.closeMatch, SKOS.exactMatch,
 
         # Concept Scheme
         SKOS.hasTopConcept
@@ -323,3 +360,14 @@ def get_schema_org_member_of(uri):
     for org in Config.g.objects(URIRef(uri), SCHEMAORG.memberOf):
         label = get_label(org)
         return (org, label)
+
+
+def member_of(uri):
+    """
+    The inverse of skos:member - used for better UI navigation.
+    """
+    collections = []
+    for collection in Config.g.subjects(SKOS.member, URIRef(uri)):
+        label = get_label(collection)
+        collections.append((collection, label))
+    return collections

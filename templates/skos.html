@@ -28,6 +28,7 @@
 {% from "macros/schemaorg_honorific_prefix.html" import render_honorific_prefix with context %}
 {% from "macros/schemaorg_job_title.html" import render_job_title with context %}
 {% from "macros/schemaorg_member_of.html" import render_member_of with context %}
+{% from "macros/members.html" import render_members, render_member_of with context %}
 
 {% block content %}
 
@@ -55,6 +56,8 @@
                 {{ date_modified(c.modified) }}
             </p>
 
+            {{ render_member_of(c.collections) }}
+
             {# Schema.org Person #}
             {{ render_family_name(c.family_name) }}
             {{ render_given_name(c.given_name) }}
@@ -78,6 +81,8 @@
             {{ render_description(c.description) }}
 
             {{ render_definition(c.definition) }}
+
+            {{ render_members(c.skos_members) }}
 
             {{ render_is_defined_by(c.is_defined_by) }}
 

@@ -4,7 +4,10 @@
 {% from "macros/render.html" import render_instance_uri with context %}
 
 {% block content %}
+{#
     {{ popover_uri(title, 'URI', class_type, 'h2') }}
+#}
+    <h2>{{ title }}</h2>
 
     {% if description %}
         <p>{{ description }}</p>
