@@ -47,7 +47,7 @@ class CollectionRenderer(Renderer):
             if self.format == 'text/html':
                 cc = skos.Collection(self.uri)
                 return render_template('skos.html', title=cc.label, c=cc,
-                                       skos_class=('http://www.w3.org/2004/02/skos/core#ConceptScheme', 'Collection'),
+                                       skos_class=('http://www.w3.org/2004/02/skos/core#Collection', 'Collection'),
                                        formats=[(format, format.split('/')[-1]) for format in self.views.get('skos').formats])
             elif self.format in Renderer.RDF_MIMETYPES:
                 return self._render_skos_rdf()
