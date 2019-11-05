@@ -28,6 +28,7 @@ class Register(RegisterRenderer):
                                    prev_page=self.prev_page,
                                    page=self.page,
                                    per_page=self.per_page,
-                                   total_items=self.register_total_count)
+                                   total_items=self.register_total_count,
+                                   additional_html='')
         if self.view == 'reg' or self.view == 'alternates':
             return super(Register, self).render()
