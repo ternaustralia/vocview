@@ -3,6 +3,7 @@ import os
 
 class Config:
     title = 'VocView'
+    description = 'SKOS controlled vocabulary viewer'
 
     # URL root of this web application. This gets set in the before_first_request function.
     url_root = None
