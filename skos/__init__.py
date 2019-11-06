@@ -31,10 +31,10 @@ def list_concepts():
         definition = get_definition(c)
         scheme = get_in_scheme(c)
         concepts.append((c, label, [
-            ('http://purl.org/dc/terms/created', date_created),
-            ('http://purl.org/dc/terms/modified', date_modified),
-            ('http://www.w3.org/2004/02/skos/core#definition', definition),
-            ('http://www.w3.org/2004/02/skos/core#inScheme', scheme)
+            (URIRef('http://purl.org/dc/terms/created'), date_created),
+            (URIRef('http://purl.org/dc/terms/modified'), date_modified),
+            (URIRef('http://www.w3.org/2004/02/skos/core#definition'), definition),
+            (URIRef('http://www.w3.org/2004/02/skos/core#inScheme'), scheme)
         ]))
     return sorted(concepts, key=lambda i: i[1])
 
@@ -48,8 +48,8 @@ def list_concept_schemes():
         date_modified = get_modified_date(cc)
         description = get_description(cc)
         concept_schemes.append((cc, label, [
-            ('http://purl.org/dc/terms/created', date_created),
-            ('http://purl.org/dc/terms/modified', date_modified),
+            (URIRef('http://purl.org/dc/terms/created'), date_created),
+            (URIRef('http://purl.org/dc/terms/modified'), date_modified),
             description
         ]))
 
@@ -65,8 +65,8 @@ def list_concept_schemes_and_collections():
         date_modified = get_modified_date(cc)
         description = get_description(cc)
         items.append((cc, label, [
-            ('http://purl.org/dc/terms/created', date_created),
-            ('http://purl.org/dc/terms/modified', date_modified),
+            (URIRef('http://purl.org/dc/terms/created'), date_created),
+            (URIRef('http://purl.org/dc/terms/modified'), date_modified),
             description
         ]))
 
@@ -76,8 +76,8 @@ def list_concept_schemes_and_collections():
         date_modified = get_modified_date(cc)
         description = get_description(cc)
         items.append((cc, label, [
-            ('http://purl.org/dc/terms/created', date_created),
-            ('http://purl.org/dc/terms/modified', date_modified),
+            (URIRef('http://purl.org/dc/terms/created'), date_created),
+            (URIRef('http://purl.org/dc/terms/modified'), date_modified),
             description
         ]))
 
