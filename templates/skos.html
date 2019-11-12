@@ -89,7 +89,9 @@
 
             {{ render_top_concept_of(c.top_concept_of) }}
 
+            {% if c.mapping %}
             {{ render_mapping_statement(c.mapping) }}
+            {% endif %}
 
             {{ render_broaders(c.broaders) }}
 
