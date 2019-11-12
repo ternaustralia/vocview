@@ -1,0 +1,13 @@
+{% macro render_mapping_statement(statement) %}
+
+<h5>Mapping to upper vocabulary</h5>
+<ul>
+    <li>relationship: <a href="{{ statement[1] }}">{{ statement[1] }}</a></li>
+    <li>mapped vocabulary term: <a href="{{ statement[2] }}">{{ statement[2] }}</a></li>
+    <li>date created: {{ statement[3] }}</li>
+    <li>creator: <a href="{{ statement[4] }}">{{ statement[4] }}</a></li>
+    <li>description: {{ statement[5] }}</li>
+</ul>
+
+
+{% endmacro %}
