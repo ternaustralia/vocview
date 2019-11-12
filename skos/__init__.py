@@ -371,3 +371,33 @@ def member_of(uri):
         label = get_label(collection)
         collections.append((collection, label))
     return collections
+
+
+def get_creator(uri):
+    for creator in Config.g.objects(URIRef(uri), DCTERMS.creator):
+        return creator
+
+
+def get_rdf_predicate(uri):
+    for predicate in Config.g.objects(URIRef(uri), RDF.predicate):
+        return predicate
+
+
+def get_rdf_object(uri):
+    for o in Config.g.objects(URIRef(uri), RDF.object):
+        return o
+
+
+def get_mapping_statement(uri):
+    uri = URIRef(uri)
+    for statement in Config.g.subjects(RDF.type, RDF.Statement):
+        for _, p, o in Config.g.triples((statement, None, None)):
+            if p == RDF.subject and o == uri:
+                return [
+                    statement,
+                    get_rdf_predicate(statement),
+                    get_rdf_object(statement),
+                    get_created_date(statement),
+                    get_creator(statement),
+                    get_description(statement)[1],
+                ]

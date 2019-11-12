@@ -29,6 +29,7 @@
 {% from "macros/schemaorg_job_title.html" import render_job_title with context %}
 {% from "macros/schemaorg_member_of.html" import render_member_of with context %}
 {% from "macros/members.html" import render_members, render_member_of with context %}
+{% from "macros/mapping_statement.html" import render_mapping_statement with context %}
 
 {% block content %}
 
@@ -87,6 +88,8 @@
             {{ render_is_defined_by(c.is_defined_by) }}
 
             {{ render_top_concept_of(c.top_concept_of) }}
+
+            {{ render_mapping_statement(c.mapping) }}
 
             {{ render_broaders(c.broaders) }}
 
