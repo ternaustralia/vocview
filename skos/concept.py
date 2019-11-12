@@ -20,6 +20,7 @@ class Concept(CommonPropertiesMixin, SchemaOrgMixin, SchemaPersonMixin):
         self.in_scheme = skos.get_in_scheme(uri)
         self.close_match = skos.get_close_match(uri)
         self.exact_match = skos.get_exact_match(uri)
+        self.mapping = skos.get_mapping_statement(uri)
 
 
 class ConceptRenderer(Renderer):
