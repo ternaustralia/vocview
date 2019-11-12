@@ -2,7 +2,7 @@ import os
 
 
 class Config:
-    title = 'VocView'
+    title = 'Queensland CORVEG Database Vocabularies'
     description = 'CORVEG controlled vocabularies consisting of observable properties, methods, and categorical values.'
 
     # URL root of this web application. This gets set in the before_first_request function.
