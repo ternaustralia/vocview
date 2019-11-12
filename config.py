@@ -3,7 +3,7 @@ import os
 
 class Config:
     title = 'VocView'
-    description = 'SKOS controlled vocabulary viewer'
+    description = 'CORVEG controlled vocabularies consisting of observable properties, methods, and categorical values.'
 
     # URL root of this web application. This gets set in the before_first_request function.
     url_root = None
