@@ -222,9 +222,10 @@ def ob(uri):
             r.format = rdf_format
         return r.render()
     else:
+        pass
         # Assume it is a plot:Site URI - get information from the triple-store.
-        sites_html = sites.get(uri, request, rdf_format)
-        if sites_html is not None:
-            return sites_html
+        # sites_html = sites.get(uri, request, rdf_format)
+        # if sites_html is not None:
+        #     return sites_html
 
     return 'URI supplied does not exist or is not a SKOS class.'
