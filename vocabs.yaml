@@ -1,7 +1,10 @@
-#download:
-#  skos_rules:
-#    source: https://bitbucket.org/terndatateam/knowledge-graph-data/raw/HEAD/onto_rules/skos_rules.ttl
-#    format: turtle
+download:
+  skos_rules:
+    source: https://bitbucket.org/terndatateam/knowledge-graph-data/raw/HEAD/onto_rules/skos_rules.ttl
+    format: turtle
+  corveg:
+    source: https://bitbucket.org/terndatateam/corveg-cv/raw/HEAD/data.ttl
+    format: turtle
 #  ausplots:
 #    source: https://bitbucket.org/terndatateam/ausplots-rangelands-cv/raw/HEAD/data.ttl
 #    format: turtle
@@ -39,5 +42,5 @@ rva:
   extension: ttl # Use Turtle as it has excellent compression compared to other RDF serialisations
   format: turtle
   ids: [
-    261, # CORVEG
+#    261, # CORVEG
   ]
