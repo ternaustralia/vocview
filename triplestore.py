@@ -100,7 +100,9 @@ class Triplestore:
             # Online resources
             if vocabs.get('download'):
                 for vocab in vocabs['download'].values():
-                    g.parse(vocab['source'], format=vocab['format'])
+                    r = requests.get(vocab['source'])
+                    data = r.content.decode('utf-8')
+                    g.parse(format=vocab['format'], data=data)
 
             # Local resources
             if vocabs.get('local'):

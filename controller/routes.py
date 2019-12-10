@@ -83,7 +83,8 @@ def render_vocabulary_register():
 
     items = items[(page_from - 1) * page_size:page_size * page_from]
 
-    items = munchify(items)
+    # TODO: Check why munchify is duplicating the dct:created and dct:modified data in an element of item.
+    # items = munchify(items)
 
     r = skos.Register(request, 'Register of SKOS vocabularies',
                       'This register contains a listing of SKOS vocabularies as concept schemes or collections.',
