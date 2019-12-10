@@ -1,5 +1,5 @@
 from rdflib.namespace import RDF, SKOS, DCTERMS, RDFS, OWL, DC
-from rdflib import URIRef, Namespace
+from rdflib import URIRef, Namespace, Literal
 import markdown
 from flask import url_for
 
@@ -110,8 +110,7 @@ def get_label(uri):
     # Create a label from the URI.
     label = helper.uri_label(uri)
     label = _split_camel_case_label(label)
-    label = label
-    return label
+    return Literal(label)
 
 
 def get_description(uri):
