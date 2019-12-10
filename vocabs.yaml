@@ -4,8 +4,8 @@ download:
 #    source: https://bitbucket.org/terndatateam/knowledge-graph-data/raw/HEAD/onto_rules/skos_rules.ttl
 #    format: turtle
   corveg:
-    source: https://graphdb-850.tern.org.au/repositories/corveg_vocabs_core/statements?context=<http://linked.data.gov.au/def/corveg-cv>
-    format: xml
+    source: https://graphdb-850.tern.org.au/repositories/corveg_vocabs_core/statements?context=<http://linked.data.gov.au/def/corveg-cv/>
+    format: turtle
 #  ausplots:
 #    source: https://bitbucket.org/terndatateam/ausplots-rangelands-cv/raw/HEAD/data.ttl
 #    format: turtle
