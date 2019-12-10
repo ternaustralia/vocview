@@ -1,10 +1,11 @@
 download:
-  skos_rules:
-    source: https://bitbucket.org/terndatateam/knowledge-graph-data/raw/HEAD/onto_rules/skos_rules.ttl
-    format: turtle
+#  skos_rules:
+    # Provide some inferencing for skos:hasTopConcept and skos:narrower with owl:inverseOf.
+#    source: https://bitbucket.org/terndatateam/knowledge-graph-data/raw/HEAD/onto_rules/skos_rules.ttl
+#    format: turtle
   corveg:
-    source: https://bitbucket.org/terndatateam/corveg-cv/raw/HEAD/data.ttl
-    format: turtle
+    source: https://graphdb-850.tern.org.au/repositories/corveg_vocabs_core/statements?context=<http://linked.data.gov.au/def/corveg-cv>
+    format: xml
 #  ausplots:
 #    source: https://bitbucket.org/terndatateam/ausplots-rangelands-cv/raw/HEAD/data.ttl
 #    format: turtle
