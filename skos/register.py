@@ -106,6 +106,8 @@ class Register(RegisterRenderer):
         return additional_html
 
     def render(self):
+        if not hasattr(self, 'format'):
+            self.format = 'text/html'
         if self.view == 'reg' and self.format == 'text/html':
             return render_template(self.register_template,
                                    title=self.title,

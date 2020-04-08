@@ -51,6 +51,8 @@ class ConceptRenderer(Renderer):
         return Response(g.serialize(format=self.format), mimetype=self.format)
 
     def render(self):
+        if not hasattr(self, 'format'):
+            self.format = 'text/html'
         if self.view == 'skos':
             if self.format == 'text/html':
                 cc = skos.Concept(self.uri)
