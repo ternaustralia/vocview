@@ -1,4 +1,6 @@
 from flask import Flask, request
+from werkzeug.middleware.dispatcher import DispatcherMiddleware
+from werkzeug.serving import run_simple
 
 from config import Config
 from controller.routes import routes
@@ -7,6 +9,12 @@ from triplestore import Triplestore
 
 app = Flask(__name__)
 app.register_blueprint(routes)
+
+application = DispatcherMiddleware(
+    None, {
+        Config.SUB_URL: app
+    }
+)
 
 
 @app.before_request
@@ -31,4 +39,4 @@ def context_processor():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    run_simple('0.0.0.0', port=5000, application=application)
