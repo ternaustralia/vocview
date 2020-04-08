@@ -60,4 +60,4 @@ class CollectionRenderer(Renderer):
                 raise RuntimeError('Invalid format error')
         else:
             # Let pyldapi handle the rendering of the 'alternates' view.
-            return super(Collection, self).render()
+            return super(CollectionRenderer, self).render()
