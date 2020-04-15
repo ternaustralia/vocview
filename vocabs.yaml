@@ -2,8 +2,8 @@ download:
   skos_rules:
     source: https://bitbucket.org/terndatateam/knowledge-graph-data/raw/HEAD/onto_rules/skos_rules.ttl
     format: turtle
-  ausplots:
-    source: https://bitbucket.org/terndatateam/ausplots-rangelands-cv/raw/HEAD/data.ttl
+  corveg:
+    source: https://graphdb-850.tern.org.au/repositories/corveg_vocabs_core/statements?context=<http://linked.data.gov.au/def/corveg-cv/>
     format: turtle
 #  corveg:
 #    source: https://demo.ands.org.au/vocabs-registry/api/resource/downloads/764/ands-nc_corveg_v-1.ttl
@@ -40,5 +40,5 @@ rva:
   format: turtle
   ids: [
 #    245, # CORVEG
-#    266, # IBRA
+    266, # IBRA
   ]
