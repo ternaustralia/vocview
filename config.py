@@ -2,14 +2,16 @@ import os
 
 
 class Config:
-    title = 'VocView'
-    description = 'SKOS controlled vocabulary viewer'
+    title = os.environ.get('VOCVIEW_TITLE', 'VocView')
+
+    # Used in the DCAT metadata.
+    description = os.environ.get('VOCVIEW_DESCRIPTION', 'SKOS controlled vocabulary viewer')
 
     # URL root of this web application. This gets set in the before_first_request function.
-    url_root = None
+    url_root = None  # No need to set.
 
     # Subdirectory of base URL. Example, the '/corveg' part of 'vocabs.tern.org.au/corveg'
-    SUB_URL = ''
+    SUB_URL = os.environ.get('VOCVIEW_SUB_URL', '')
 
     # Path of the application's directory.
     APP_DIR = os.path.dirname(os.path.realpath(__file__))
@@ -45,8 +47,8 @@ class Config:
     triplestore_type = 'pickle'
 
     # The time which the persistent store is valid before re-harvesting from its sources
-    store_hours = 0
-    store_minutes = 60
+    store_hours = int(os.environ.get('VOCVIEW_STORE_HOURS', '0'))
+    store_minutes = int(os.environ.get('VOCVIEW_STORE_MINUTES', '60'))
 
     # Triplestore disk path
     _triplestore_name_pickle = 'triplestore.p'
