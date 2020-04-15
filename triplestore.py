@@ -10,6 +10,8 @@ from config import Config
 import os
 import pickle
 from datetime import datetime, timedelta
+import logging
+import time
 
 
 class InvalidTriplestoreType(Exception):
@@ -21,7 +23,8 @@ class Triplestore:
 
     @staticmethod
     def _create_pickle_disk():
-        print('creating new pickle disk')
+        logging.info('creating new pickle disk')
+        start_time = time.time()
         g = Triplestore._create_db()
 
         # Add time of creation of new Graph
@@ -29,6 +32,8 @@ class Triplestore:
 
         with open(Config.triplestore_path_pickle, 'wb') as f:
             pickle.dump(g, f)
+
+        logging.info(f'time taken: {(time.time() - start_time):.2f} seconds')
         return g
 
     @staticmethod
