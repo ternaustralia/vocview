@@ -257,6 +257,10 @@ def _add_narrower(uri, hierarchy, indent):
         label = get_label(concept)
         concepts.append((concept, label))
 
+    for concept in Config.g.objects(URIRef(uri), SKOS.member):
+        label = get_label(concept)
+        concepts.append((concept, label))
+
     concepts.sort(key=lambda i: i[1])
 
     for concept in concepts:
@@ -265,6 +269,23 @@ def _add_narrower(uri, hierarchy, indent):
         hierarchy = _add_narrower(concept[0], hierarchy, indent + 1)
 
     return hierarchy
+
+
+def get_concept_hierarchy_collection(uri):
+    hierarchy = ''
+    members = []
+
+    for concept_or_collection in Config.g.objects(URIRef(uri), SKOS.member):
+        label = get_label(concept_or_collection)
+        members.append((concept_or_collection, label))
+
+    members.sort(key=lambda i: i[1])
+
+    for member in members:
+        hierarchy += '- [{}]({})\n'.format(member[1], url_for('routes.ob', uri=member[0]))
+        hierarchy = _add_narrower(member[0], hierarchy, 1)
+
+    return '<div id="concept-hierarchy">' + markdown.markdown(hierarchy) + '</div>'
 
 
 def get_concept_hierarchy(uri):

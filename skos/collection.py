@@ -14,8 +14,7 @@ class Collection(CommonPropertiesMixin):
     def __init__(self, uri):
         CommonPropertiesMixin.__init__(self, uri)
         super().__init__(uri)
-        self.skos_members = skos.get_members(uri)
-        # self.concept_hierarchy = skos.get_concept_hierarchy(uri) TODO: skos:member is enough.
+        self.concept_hierarchy = skos.get_concept_hierarchy_collection(uri)
 
 
 class CollectionRenderer(Renderer):
