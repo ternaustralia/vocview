@@ -2,10 +2,14 @@ from flask import Flask, request
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
 from werkzeug.serving import run_simple
 
+import logging
+
 from config import Config
 from controller.routes import routes
 import helper
 from triplestore import Triplestore
+
+logging.basicConfig(level=logging.INFO)
 
 app = Flask(__name__)
 app.register_blueprint(routes)
@@ -31,6 +35,8 @@ def after(response):
 def init():
     # Set the URL root of this web application
     Config.url_root = request.url_root
+    logging.info('Loaded config:')
+    logging.info(Config.__dict__)
 
 
 @app.context_processor
@@ -39,4 +45,10 @@ def context_processor():
 
 
 if __name__ == '__main__':
-    run_simple('0.0.0.0', port=5000, application=application)
+    # Run this only for development. Production version should use a dedicated WSGI server.
+    if Config.SUB_URL:
+        print('Starting simple server')
+        run_simple('0.0.0.0', port=5000, application=application, use_reloader=True)
+    else:
+        print('Starting Flask server')
+        app.run(host='0.0.0.0', port='5000', debug=True)
