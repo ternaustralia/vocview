@@ -97,4 +97,4 @@ def url_encode(url):
 
 
 def render_instance_uri(uri, label):
-    return '<a href="{}">{}</a>'.format(url_for('routes.ob', uri=uri), label)
+    return '<p><a href="{}">{}</a></p>'.format(url_for('routes.ob', uri=uri), label)

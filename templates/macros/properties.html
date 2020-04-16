@@ -8,7 +8,11 @@
                 {{ popover_uri(h.uri_label(property[0][0]), 'URI', property[0][0], 'h5') }}
             {% endif %}
 
-            {{ render(property[1]) }}
+            {% if property[2] %}
+                {{ render_instance_uri(property[1], property[2]) }}
+            {% else %}
+                {{ render(property[1]) }}
+            {% endif %}
 
         {% endfor %}
     {% endif %}

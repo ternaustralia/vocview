@@ -97,7 +97,7 @@ def _split_camel_case_label(label):
     return new_label
 
 
-def get_label(uri):
+def get_label(uri, create=True):
     # TODO: title() capitalises all words, we need a post-process function to lower case words that are of types
     #       such as preposition and conjunction.
     for label in Config.g.objects(URIRef(uri), SKOS.prefLabel):
@@ -108,9 +108,10 @@ def get_label(uri):
         return label
 
     # Create a label from the URI.
-    label = helper.uri_label(uri)
-    label = _split_camel_case_label(label)
-    return Literal(label)
+    if create:
+        label = helper.uri_label(uri)
+        label = _split_camel_case_label(label)
+        return Literal(label)
 
 
 def get_description(uri):
@@ -237,7 +238,9 @@ def get_properties(uri):
     for _, property, value in Config.g.triples((URIRef(uri), None, None)):
         if property in ignore:
             continue
-        properties.append(((property, get_label(property)), value))
+
+        label = get_label(value, create=False) if type(value) == URIRef else None
+        properties.append(((property, get_label(property)), value, label))
     return properties
 
 
