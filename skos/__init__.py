@@ -241,6 +241,8 @@ def get_properties(uri):
 
         label = get_label(value, create=False) if type(value) == URIRef else None
         properties.append(((property, get_label(property)), value, label))
+
+    properties.sort(key=lambda x: x[0])
     return properties
 
 
