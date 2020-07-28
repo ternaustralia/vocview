@@ -181,4 +181,4 @@ def ob(uri):
             r.format = rdf_format
         return r.render()
 
-    return 'URI supplied does not exist or is not a SKOS class.'
+    return '<h1>404 :(</h1><p>URI supplied does not exist or is not a recognised class type.</p>', 404
