@@ -1,0 +1,21 @@
+{% from "macros/popover.html" import popover_uri with context %}
+
+<p>
+    <span class="card-title">{{ popover_uri('Date created:', 'URI', 'http://purl.org/dc/terms/created') }}
+        {% if c.created %}
+            {{ c.created }}
+        {% else %}
+            <em>not supplied</em>
+        {% endif %}
+    </span>
+
+    <br>
+    
+    <span class="card-title">{{ popover_uri('Date modified:', 'URI', 'http://purl.org/dc/terms/modified') }}
+        {% if c.modified %}
+            {{ c.modified }}
+        {% else %}
+            <em>not supplied</em>
+        {% endif %}
+    </span>
+</p>

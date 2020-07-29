@@ -165,6 +165,13 @@ def ob(uri):
 
     skos_type = skos.get_uri_skos_type(uri)
 
+    if skos_type == skos.METHOD:
+        from skos.method import MethodRenderer
+        r = MethodRenderer(uri, request)
+        if rdf_format:
+            r.format = rdf_format
+        return r.render()
+
     if skos_type == skos.CONCEPTSCHEME:
         r = skos.ConceptSchemeRenderer(uri, request)
         if rdf_format:

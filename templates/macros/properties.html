@@ -1,3 +1,5 @@
+{% from "macros/render.html" import render, render_instance_uri with context %}
+
 {% macro render_properties(properties) %}
     {% if properties %}
         {% for property in properties %}

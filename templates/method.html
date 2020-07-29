@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% from "macros/popover.html" import popover_uri with context %}
+{% from "macros/header.html" import render_header with context %}
+{% from "macros/label.html" import render_label with context %}
+{% from "macros/alt_labels.html" import render_alt_labels with context %}
+{% from "macros/members.html" import render_members, render_member_of with context %}
+{% from "macros/render.html" import render_property with context %}
+{% from "macros/properties.html" import render_properties with context %}
+
+{% block content %}
+
+    {{ render_header(c.class_types, skos_class) }}
+
+    {{ render_label(c.uri, c.label) }}
+
+    {% include "elements/uri.html" %}
+
+    {% include "elements/alt_label.html" %}
+
+    {% include "elements/date.html" %}
+
+    {{ render_member_of(c.collections) }}
+
+    {% if c.purpose %}
+        {{ render_property(c.purpose, 'Purpose', 'https://w3id.org/tern/ontologies/skos/purpose', 'h5') }}
+    {% else %}
+        {{ render_property('<em>not supplied</em>', 'Purpose', 'https://w3id.org/tern/ontologies/skos/purpose', 'h5') }}
+    {% endif %}
+
+    {% if c.scope %}
+        {{ render_property(c.scope, 'Scope', 'https://w3id.org/tern/ontologies/skos/scope', 'h5') }}
+    {% else %}
+        {{ render_property('<em>not supplied</em>', 'Scope', 'https://w3id.org/tern/ontologies/skos/scope', 'h5') }}
+    {% endif %}
+
+    {% if c.definition %}
+        {{ render_property(c.definition, 'Definition', 'http://www.w3.org/2004/02/skos/core#definition', 'h5') }}
+    {% else %}
+        {{ render_property('<em>not supplied</em>', 'Definition', 'http://www.w3.org/2004/02/skos/core#definition', 'h5') }}
+    {% endif %}
+
+    {% if c.equipment %}
+        {{ render_property(c.equipment, 'Equipment', 'https://w3id.org/tern/ontologies/skos/equipment', 'h5') }}
+    {% else %}
+        {{ render_property('<em>not supplied</em>', 'Equipment', 'https://w3id.org/tern/ontologies/skos/equipment', 'h5') }}
+    {% endif %}
+
+    {% if c.instructions %}
+        {{ render_property(c.instructions, 'Instructions', 'https://w3id.org/tern/ontologies/skos/instructions', 'h5') }}
+    {% else %}
+        {{ render_property('<em>not supplied</em>', 'Instructions', 'https://w3id.org/tern/ontologies/skos/instructions', 'h5') }}
+    {% endif %}
+
+    {% if c.source %}
+        {{ render_property(c.source, 'Source', 'http://purl.org/dc/terms/source', 'h5') }}
+    {% else %}
+        {{ render_property('<em>not supplied</em>', 'Source', 'http://purl.org/dc/terms/source', 'h5') }}
+    {% endif %}
+
+{% endblock %}

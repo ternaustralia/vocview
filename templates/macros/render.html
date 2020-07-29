@@ -5,3 +5,13 @@
 {% macro render_instance_uri(uri, label) %}
     {{ h.render_instance_uri(uri, label)|safe }}
 {% endmacro %}
+
+{% macro render_property(value, popover_label, popover_uri_value, popover_heading_type=None) %}
+    {% if value %}
+        {{ popover_uri(popover_label, 'URI', popover_uri_value, 'h5') }}
+
+        <p>
+            {{ render(value) }}
+        </p>
+    {% endif %}
+{% endmacro %}

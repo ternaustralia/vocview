@@ -1,4 +1,13 @@
 import os
+import re
+
+
+def get_version():
+    with open('CHANGELOG.md', 'r') as f:
+        while True:
+            line = f.readline()
+            if re.search('## \[[0-9].[0-9].[0-9]\]', line):
+                return line.split('[')[1].split(']')[0]
 
 
 class Config:
@@ -55,3 +64,5 @@ class Config:
     triplestore_path_pickle = os.path.join(APP_DIR, _triplestore_name_pickle)
     _triplestore_name_sleepy_cat = 'triplestore'
     triplestore_path_sleepy_cat = os.path.join(APP_DIR, _triplestore_name_sleepy_cat)
+
+    _version = get_version()

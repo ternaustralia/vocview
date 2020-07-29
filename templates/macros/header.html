@@ -7,7 +7,7 @@
         <div class="float-right">
             {% if formats %}
                 {% for format in formats %}
-                    <a href="?_view=skos&_format={{ format[0] }}">{{ format[1] }}</a>
+                    <a href="?_format={{ format[0] }}">{{ format[1] }}</a>
                 {% endfor %}|
             {% endif %}
             <a href="?_view=alternates">Alternates view</a>

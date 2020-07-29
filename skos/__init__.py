@@ -18,6 +18,7 @@ from urllib import parse
 CONCEPT = 0
 CONCEPTSCHEME = 1
 COLLECTION = 2
+METHOD = 3
 
 SCHEMAORG = Namespace('http://schema.org/')
 
@@ -208,6 +209,8 @@ def get_modified_date(uri):
 
 def get_uri_skos_type(uri):
     uri = parse.unquote_plus(uri)
+    for _ in Config.g.triples((URIRef(uri), RDF.type, URIRef('https://w3id.org/tern/ontologies/ssn/Method'))):
+        return METHOD
     for _ in Config.g.triples((URIRef(uri), RDF.type, SKOS.ConceptScheme)):
         return CONCEPTSCHEME
     for _ in Config.g.triples((URIRef(uri), RDF.type, SKOS.Concept)):
@@ -333,6 +336,11 @@ def get_bibliographic_citation(uri):
         return bg
 
 
+def get_dcterms_source(uri):
+    for _, _, source in Config.g.triples((URIRef(uri), DCTERMS.source, None)):
+        return source
+
+
 def get_schema_org_parent_org(uri):
     for parent_org in Config.g.objects(URIRef(uri), SCHEMAORG.parentOrganization):
         label = get_label(parent_org)
@@ -426,3 +434,27 @@ def get_mapping_statement(uri):
                     get_creator(statement),
                     get_description(statement)[1],
                 ]
+
+
+def get_method_purpose(uri):
+    uri = URIRef(uri)
+    for _, _, purpose in Config.g.triples((uri, URIRef('https://w3id.org/tern/ontologies/skos/purpose'), None)):
+        return purpose
+
+
+def get_method_scope(uri):
+    uri = URIRef(uri)
+    for _, _, scope in Config.g.triples((uri, URIRef('https://w3id.org/tern/ontologies/skos/scope'), None)):
+        return scope
+
+
+def get_method_equipment(uri):
+    uri = URIRef(uri)
+    for _, _, equipment in Config.g.triples((uri, URIRef('https://w3id.org/tern/ontologies/skos/equipment'), None)):
+        return equipment
+
+
+def get_method_instructions(uri):
+    uri = URIRef(uri)
+    for _, _, instructions in Config.g.triples((uri, URIRef('https://w3id.org/tern/ontologies/skos/instructions'), None)):
+        return instructions

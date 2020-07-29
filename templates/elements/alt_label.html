@@ -1,0 +1,9 @@
+{% if c.alt_labels %}
+    {{ popover_uri('Also known as', 'URI', 'http://www.w3.org/2004/02/skos/core#altLabel') }}
+
+
+    {% for lab in c.alt_labels %}
+        <em>{{ lab }}{% if loop.index != c.alt_labels|length %},{% endif %}</em>
+    {% endfor %}
+
+{% endif %}

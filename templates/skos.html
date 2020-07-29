@@ -42,20 +42,11 @@
 
             {{ render_label(c.uri, c.label) }}
 
-            <p>
-                URI: <code>{{ c.uri }}</code>
-                <button type="button" class="btn btn-light" data-clipboard-text="{{ c.uri }}">
-                    <img src="{{ request.url_root}}static/clippy.svg" alt="Copy to clipboard" height="15" width="15">
-                </button>
-            </p>
+            {% include "elements/uri.html" %}
 
-            {{ render_alt_labels(c.alt_labels) }}
+            {% include "elements/alt_label.html" %}
 
-            <p>
-                {{ date_created(c.created) }}<br>
-
-                {{ date_modified(c.modified) }}
-            </p>
+            {% include "elements/date.html" %}
 
             {{ render_member_of(c.collections) }}
 
