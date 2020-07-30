@@ -5,8 +5,7 @@
 {% from "macros/label.html" import render_label with context %}
 {% from "macros/alt_labels.html" import render_alt_labels with context %}
 {% from "macros/members.html" import render_members, render_member_of with context %}
-{% from "macros/render.html" import render_property with context %}
-{% from "macros/properties.html" import render_properties with context %}
+{% from "macros/render.html" import render_property, render_property_no_value, render_instance_uri with context %}
 
 {% block content %}
 
@@ -56,6 +55,26 @@
         {{ render_property(c.source, 'Source', 'http://purl.org/dc/terms/source', 'h5') }}
     {% else %}
         {{ render_property('<em>not supplied</em>', 'Source', 'http://purl.org/dc/terms/source', 'h5') }}
+    {% endif %}
+
+    {% if c.parameters %}
+        {{ render_property_no_value('Parameter', 'https://w3id.org/tern/ontologies/skos/hasParameter', 'h5') }}
+
+        <ul>
+            {% for parameter in c.parameters %}
+                <li>{{ render_instance_uri(parameter[0], parameter[1]) }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if c.categorical_variables %}
+        {{ render_property_no_value('Categorical variable collection', 'https://w3id.org/tern/ontologies/skos/hasCategoricalVariableCollection', 'h5') }}
+
+        <ul>
+            {% for cv in c.categorical_variables %}
+                <li>{{ render_instance_uri(cv[0], cv[1]) }}</li>
+            {% endfor %}
+        </ul>
     {% endif %}
 
 {% endblock %}

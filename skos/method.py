@@ -16,6 +16,8 @@ class Method(CommonPropertiesMixin):
         self.scope = skos.get_method_scope(uri)
         self.equipment = skos.get_method_equipment(uri)
         self.instructions = skos.get_method_instructions(uri)
+        self.parameters = skos.get_parameter_relations(uri)
+        self.categorical_variables = skos.get_categorical_variables_relations(uri)
 
 
 class MethodRenderer(Renderer):

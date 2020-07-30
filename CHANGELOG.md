@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Improved the views for different SKOS types (Concept, ConceptScheme, Collection). No requirement for use with OrderedCollection, so will be ignored for now. This improvement will allow us to manage and add different views more cleanly in the future.
 
 
+## [1.0.2] - 2020-07-30
+### Added
+- Methods now show hasParameter and hasCategoricalVariableCollection properties in the html view.
+
+
 ## [1.0.1] - 2020-07-28
 ### Added
 - 404 status code for URIs not found or does not have a recognised class type. 

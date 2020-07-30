@@ -15,3 +15,7 @@
         </p>
     {% endif %}
 {% endmacro %}
+
+{% macro render_property_no_value(popover_label, popover_uri_value, popover_heading_type=None) %}
+    {{ popover_uri(popover_label, 'URI', popover_uri_value, 'h5') }}
+{% endmacro %}

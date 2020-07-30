@@ -458,3 +458,23 @@ def get_method_instructions(uri):
     uri = URIRef(uri)
     for _, _, instructions in Config.g.triples((uri, URIRef('https://w3id.org/tern/ontologies/skos/instructions'), None)):
         return instructions
+
+
+def get_parameter_relations(uri):
+    uri = URIRef(uri)
+    parameters = []
+    for _, _, parameter in Config.g.triples((uri, URIRef('https://w3id.org/tern/ontologies/skos/hasParameter'), None)):
+        label = get_label(parameter)
+        parameters.append((parameter, label))
+
+    return parameters
+
+
+def get_categorical_variables_relations(uri):
+    uri = URIRef(uri)
+    cvs = []
+    for _, _, cv in Config.g.triples((uri, URIRef('https://w3id.org/tern/ontologies/skos/hasCategoricalVariableCollection'), None)):
+        label = get_label(cv)
+        cvs.append((cv, label))
+
+    return cvs

@@ -20,6 +20,8 @@ COPY requirements.txt /app
 COPY triplestore.py /app
 COPY vocabs.yaml /app
 
+COPY CHANGELOG.md /app
+
 RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install --no-cache-dir gunicorn
 
