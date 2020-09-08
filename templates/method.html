@@ -22,15 +22,15 @@
     {{ render_member_of(c.collections) }}
 
     {% if c.purpose %}
-        {{ render_property(c.purpose, 'Purpose', 'https://w3id.org/tern/ontologies/skos/purpose', 'h5') }}
+        {{ render_property(c.purpose, 'Purpose', 'https://w3id.org/tern/ontologies/tern/purpose', 'h5') }}
     {% else %}
-        {{ render_property('<em>not supplied</em>', 'Purpose', 'https://w3id.org/tern/ontologies/skos/purpose', 'h5') }}
+        {{ render_property('<em>not supplied</em>', 'Purpose', 'https://w3id.org/tern/ontologies/tern/purpose', 'h5') }}
     {% endif %}
 
     {% if c.scope %}
-        {{ render_property(c.scope, 'Scope', 'https://w3id.org/tern/ontologies/skos/scope', 'h5') }}
+        {{ render_property(c.scope, 'Scope', 'https://w3id.org/tern/ontologies/tern/scope', 'h5') }}
     {% else %}
-        {{ render_property('<em>not supplied</em>', 'Scope', 'https://w3id.org/tern/ontologies/skos/scope', 'h5') }}
+        {{ render_property('<em>not supplied</em>', 'Scope', 'https://w3id.org/tern/ontologies/tern/scope', 'h5') }}
     {% endif %}
 
     {% if c.definition %}
@@ -40,15 +40,15 @@
     {% endif %}
 
     {% if c.equipment %}
-        {{ render_property(c.equipment, 'Equipment', 'https://w3id.org/tern/ontologies/skos/equipment', 'h5') }}
+        {{ render_property(c.equipment, 'Equipment', 'https://w3id.org/tern/ontologies/tern/equipment', 'h5') }}
     {% else %}
-        {{ render_property('<em>not supplied</em>', 'Equipment', 'https://w3id.org/tern/ontologies/skos/equipment', 'h5') }}
+        {{ render_property('<em>not supplied</em>', 'Equipment', 'https://w3id.org/tern/ontologies/tern/equipment', 'h5') }}
     {% endif %}
 
     {% if c.instructions %}
-        {{ render_property(c.instructions, 'Instructions', 'https://w3id.org/tern/ontologies/skos/instructions', 'h5') }}
+        {{ render_property(c.instructions, 'Instructions', 'https://w3id.org/tern/ontologies/tern/instructions', 'h5') }}
     {% else %}
-        {{ render_property('<em>not supplied</em>', 'Instructions', 'https://w3id.org/tern/ontologies/skos/instructions', 'h5') }}
+        {{ render_property('<em>not supplied</em>', 'Instructions', 'https://w3id.org/tern/ontologies/tern/instructions', 'h5') }}
     {% endif %}
 
     {% if c.source %}
@@ -58,7 +58,7 @@
     {% endif %}
 
     {% if c.parameters %}
-        {{ render_property_no_value('Parameter', 'https://w3id.org/tern/ontologies/skos/hasParameter', 'h5') }}
+        {{ render_property_no_value('Parameter', 'https://w3id.org/tern/ontologies/tern/hasParameter', 'h5') }}
 
         <ul>
             {% for parameter in c.parameters %}
@@ -68,7 +68,7 @@
     {% endif %}
 
     {% if c.categorical_variables %}
-        {{ render_property_no_value('Categorical variable collection', 'https://w3id.org/tern/ontologies/skos/hasCategoricalVariableCollection', 'h5') }}
+        {{ render_property_no_value('Categorical variable collection', 'https://w3id.org/tern/ontologies/tern/hasCategoricalVariableCollection', 'h5') }}
 
         <ul>
             {% for cv in c.categorical_variables %}

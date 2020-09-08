@@ -30,7 +30,7 @@ class MethodRenderer(Renderer):
                 'A TERN method.',
                 ['text/html'] + Renderer.RDF_MIMETYPES,
                 'text/html',
-                namespace='https://w3id.org/tern/ontologies/skos/'
+                namespace='https://w3id.org/tern/ontologies/tern/'
             )
         }
 
@@ -55,7 +55,7 @@ class MethodRenderer(Renderer):
             if self.format == 'text/html':
                 cc = Method(self.uri)
                 return render_template('method.html', title=cc.label, c=cc,
-                                       skos_class=('https://w3id.org/tern/ontologies/ssn/Method', 'Method'),
+                                       skos_class=('https://w3id.org/tern/ontologies/tern/Method', 'Method'),
                                        formats=[(format, format.split('/')[-1]) for format in self.views.get('method').formats])
             elif self.format in Renderer.RDF_MIMETYPES:
                 return self.render_rdf()

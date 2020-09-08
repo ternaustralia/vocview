@@ -209,7 +209,7 @@ def get_modified_date(uri):
 
 def get_uri_skos_type(uri):
     uri = parse.unquote_plus(uri)
-    for _ in Config.g.triples((URIRef(uri), RDF.type, URIRef('https://w3id.org/tern/ontologies/ssn/Method'))):
+    for _ in Config.g.triples((URIRef(uri), RDF.type, URIRef('https://w3id.org/tern/ontologies/tern/Method'))):
         return METHOD
     for _ in Config.g.triples((URIRef(uri), RDF.type, SKOS.ConceptScheme)):
         return CONCEPTSCHEME
@@ -438,32 +438,32 @@ def get_mapping_statement(uri):
 
 def get_method_purpose(uri):
     uri = URIRef(uri)
-    for _, _, purpose in Config.g.triples((uri, URIRef('https://w3id.org/tern/ontologies/skos/purpose'), None)):
+    for _, _, purpose in Config.g.triples((uri, URIRef('https://w3id.org/tern/ontologies/tern/purpose'), None)):
         return purpose
 
 
 def get_method_scope(uri):
     uri = URIRef(uri)
-    for _, _, scope in Config.g.triples((uri, URIRef('https://w3id.org/tern/ontologies/skos/scope'), None)):
+    for _, _, scope in Config.g.triples((uri, URIRef('https://w3id.org/tern/ontologies/tern/scope'), None)):
         return scope
 
 
 def get_method_equipment(uri):
     uri = URIRef(uri)
-    for _, _, equipment in Config.g.triples((uri, URIRef('https://w3id.org/tern/ontologies/skos/equipment'), None)):
+    for _, _, equipment in Config.g.triples((uri, URIRef('https://w3id.org/tern/ontologies/tern/equipment'), None)):
         return equipment
 
 
 def get_method_instructions(uri):
     uri = URIRef(uri)
-    for _, _, instructions in Config.g.triples((uri, URIRef('https://w3id.org/tern/ontologies/skos/instructions'), None)):
+    for _, _, instructions in Config.g.triples((uri, URIRef('https://w3id.org/tern/ontologies/tern/instructions'), None)):
         return instructions
 
 
 def get_parameter_relations(uri):
     uri = URIRef(uri)
     parameters = []
-    for _, _, parameter in Config.g.triples((uri, URIRef('https://w3id.org/tern/ontologies/skos/hasParameter'), None)):
+    for _, _, parameter in Config.g.triples((uri, URIRef('https://w3id.org/tern/ontologies/tern/hasParameter'), None)):
         label = get_label(parameter)
         parameters.append((parameter, label))
 
@@ -473,7 +473,7 @@ def get_parameter_relations(uri):
 def get_categorical_variables_relations(uri):
     uri = URIRef(uri)
     cvs = []
-    for _, _, cv in Config.g.triples((uri, URIRef('https://w3id.org/tern/ontologies/skos/hasCategoricalVariableCollection'), None)):
+    for _, _, cv in Config.g.triples((uri, URIRef('https://w3id.org/tern/ontologies/tern/hasCategoricalVariableCollection'), None)):
         label = get_label(cv)
         cvs.append((cv, label))
 
