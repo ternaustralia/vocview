@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/skos-viewer.iml" filepath="$PROJECT_DIR$/.idea/skos-viewer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/vocview.iml" filepath="$PROJECT_DIR$/.idea/vocview.iml" />
     </modules>
   </component>
 </project>
