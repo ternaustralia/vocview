@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, Response
+from flask import Blueprint, render_template, request, Response, redirect
 from munch import munchify
 from pyldapi import Renderer
 
@@ -187,5 +187,7 @@ def ob(uri):
         if rdf_format:
             r.format = rdf_format
         return r.render()
+
+    return redirect(uri, code=302)
 
     return '<h1>404 :(</h1><p>URI supplied does not exist or is not a recognised class type.</p>', 404

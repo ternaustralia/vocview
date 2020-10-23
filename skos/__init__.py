@@ -1,7 +1,8 @@
 from rdflib.namespace import RDF, SKOS, DCTERMS, RDFS, OWL, DC
-from rdflib import URIRef, Namespace, Literal
+from rdflib import URIRef, Namespace, Literal, Graph
 import markdown
 from flask import url_for
+import requests
 
 from config import Config
 from skos.concept_scheme import ConceptScheme, ConceptSchemeRenderer
@@ -110,9 +111,26 @@ def get_label(uri, create=True):
 
     # Create a label from the URI.
     if create:
-        label = helper.uri_label(uri)
-        label = _split_camel_case_label(label)
-        return Literal(label)
+        # Fetch label by dereferencing URI.
+        headers = {'accept': 'text/turtle'}
+        response_g = Graph()
+        try:
+            r = requests.get(uri, headers=headers)
+            assert 200 <= r.status_code < 300
+            response_g.parse(data=r.content.decode('utf-8'), format='turtle')
+            for _, _, label in response_g.triples((uri, SKOS.prefLabel, None)):
+                return label
+            for _, _, label in response_g.triples((uri, RDFS.label, None)):
+                return label
+        except Exception as e:
+            print('Error dereferencing external URI:', str(e))
+            print(r.content.decode('utf-8'))
+            print('Create label from the local name of the URI instead.')
+
+            # Create label out of the local segment of the URI.
+            label = helper.uri_label(uri)
+            label = _split_camel_case_label(label)
+            return Literal(label)
 
 
 def get_description(uri):
