@@ -10,6 +10,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Improved the views for different SKOS types (Concept, ConceptScheme, Collection). No requirement for use with OrderedCollection, so will be ignored for now. This improvement will allow us to manage and add different views more cleanly in the future.
 
 
+## [1.0.4] - 2020-11-03
+### Changed
+- Triplestore type in config.py changed to 'memory' as default. Better for deployments by removing the overhead of loading from disk a pickle file on each request.
+- Only call the get_db function in @app.before_request if the RDF triples are not yet loaded in memory.
+- get_properties function calls get_label function with the parameter 'create' as False. Significantly improving the speed of loading concepts since properties don't need to make a HTTP call the dereference the URI of properties without labels loaded in memory.  
+
+
 ## [1.0.3] - 2020-10-23
 ### Added
 - Functionality to show and redirect externally linked concepts.
