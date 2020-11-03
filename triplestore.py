@@ -99,6 +99,7 @@ class Triplestore:
     @staticmethod
     def _add_triples(g):
         # Read in RDF from online sources to the Graph.
+        logging.info('Pulling RDF triples from remote resources.')
         with open(os.path.join(Config.APP_DIR, Config.VOCAB_SOURCES)) as f:
             vocabs = yaml.safe_load(f)
 
@@ -146,7 +147,6 @@ class Triplestore:
                         g.parse(data=r.content.decode('utf-8'), format=format)
                 except Exception as e:
                     raise Exception('Something wrong with the response of RVA ID {}. Error: {}'.format(id, e))
-
 
             # Expand graph using a rule-based inferencer.
             if Config.reasoner:
