@@ -23,17 +23,13 @@ class Triplestore:
 
     @staticmethod
     def _create_pickle_disk():
-        logging.info('creating new pickle disk')
-        start_time = time.time()
         g = Triplestore._create_db()
 
-        # Add time of creation of new Graph
-        g.add((Triplestore.THIS_GRAPH, DCTERMS.created, Literal(datetime.now(), datatype=XSD.dateTime)))
-
+        logging.info('Pickling graph to disk')
         with open(Config.triplestore_path_pickle, 'wb') as f:
             pickle.dump(g, f)
+        logging.info('Pickling done')
 
-        logging.info(f'time taken: {(time.time() - start_time):.2f} seconds')
         return g
 
     @staticmethod
@@ -90,9 +86,17 @@ class Triplestore:
 
     @staticmethod
     def _create_db():
+        logging.info('Creating new graph')
+        start_time = time.time()
+
         g = ConjunctiveGraph()
 
         Triplestore._add_triples(g)
+
+        # Add time of creation of new Graph
+        g.add((Triplestore.THIS_GRAPH, DCTERMS.created, Literal(datetime.now(), datatype=XSD.dateTime)))
+
+        logging.info(f'time taken: {(time.time() - start_time):.2f} seconds')
 
         return g
 

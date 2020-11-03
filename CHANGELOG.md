@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Improved the views for different SKOS types (Concept, ConceptScheme, Collection). No requirement for use with OrderedCollection, so will be ignored for now. This improvement will allow us to manage and add different views more cleanly in the future.
 
 
+## [1.0.5] - 2020-11-03
+### Fixed
+- Time since last pull of remote data showing 'None' in the jinja template. Now it shows the time since last pull as expected (regardless of triplestore config type).
+
+
 ## [1.0.4] - 2020-11-03
 ### Changed
 - Triplestore type in config.py changed to 'memory' as default. Better for deployments by removing the overhead of loading from disk a pickle file on each request.
