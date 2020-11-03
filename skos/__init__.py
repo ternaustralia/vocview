@@ -109,9 +109,8 @@ def get_label(uri, create=True):
     for label in Config.g.objects(URIRef(uri), RDFS.label):
         return label
 
-    # Create a label from the URI.
+    # Fetch label by dereferencing URI.
     if create:
-        # Fetch label by dereferencing URI.
         headers = {'accept': 'text/turtle'}
         response_g = Graph()
         try:
@@ -123,14 +122,17 @@ def get_label(uri, create=True):
             for _, _, label in response_g.triples((uri, RDFS.label, None)):
                 return label
         except Exception as e:
+            print(uri)
             print('Error dereferencing external URI:', str(e))
-            print(r.content.decode('utf-8'))
+            # print(r.content.decode('utf-8'))
             print('Create label from the local name of the URI instead.')
 
             # Create label out of the local segment of the URI.
             label = helper.uri_label(uri)
             label = _split_camel_case_label(label)
             return Literal(label)
+    else:
+        return Literal(str(uri).split('#')[-1].split('/')[-1])
 
 
 def get_description(uri):
@@ -261,7 +263,7 @@ def get_properties(uri):
             continue
 
         label = get_label(value, create=False) if type(value) == URIRef else None
-        properties.append(((property, get_label(property)), value, label))
+        properties.append(((property, get_label(property, create=False)), value, label))
 
     properties.sort(key=lambda x: x[0])
     return properties
