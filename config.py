@@ -1,6 +1,11 @@
 import os
 import re
 
+from dotenv import load_dotenv
+
+
+load_dotenv()
+
 
 def get_version():
     with open('CHANGELOG.md', 'r') as f:
@@ -31,6 +36,8 @@ class Config:
     # Rule-based reasoner
     reasoner = True
 
+    FLASK_ENV = os.environ.get('FLASK_ENV', 'production')
+
     # -- Triplestore ---------------------------------------------------------------------------------------------------
     #
     # Options:
@@ -53,7 +60,7 @@ class Config:
     #     memory. Performance is slightly slower than the pickle method (maybe around 10-20%) but uses much less memory.
     #     For each request, only the required triples are loaded into the application's memory.
     #   - Difficulty: intermediate
-    triplestore_type = 'memory'
+    triplestore_type = 'memory' if FLASK_ENV == 'production' else 'pickle'
 
     # The time which the persistent store is valid before re-harvesting from its sources
     store_hours = int(os.environ.get('VOCVIEW_STORE_HOURS', '0'))
