@@ -62,26 +62,28 @@ def list_concept_schemes_and_collections():
     items = []
 
     for cc in Config.g.subjects(RDF.type, SKOS.ConceptScheme):
-        label = get_label(cc)
-        date_created = get_created_date(cc)
-        date_modified = get_modified_date(cc)
-        description = get_description(cc)
-        items.append((cc, label, [
-            (URIRef('http://purl.org/dc/terms/created'), date_created),
-            (URIRef('http://purl.org/dc/terms/modified'), date_modified),
-            description
-        ]))
+        if not is_deprecated(cc):
+            label = get_label(cc)
+            date_created = get_created_date(cc)
+            date_modified = get_modified_date(cc)
+            description = get_description(cc)
+            items.append((cc, label, [
+                (URIRef('http://purl.org/dc/terms/created'), date_created),
+                (URIRef('http://purl.org/dc/terms/modified'), date_modified),
+                description
+            ]))
 
     for cc in Config.g.subjects(RDF.type, SKOS.Collection):
-        label = get_label(cc)
-        date_created = get_created_date(cc)
-        date_modified = get_modified_date(cc)
-        description = get_description(cc)
-        items.append((cc, label, [
-            (URIRef('http://purl.org/dc/terms/created'), date_created),
-            (URIRef('http://purl.org/dc/terms/modified'), date_modified),
-            description
-        ]))
+        if not is_deprecated(cc):
+            label = get_label(cc)
+            date_created = get_created_date(cc)
+            date_modified = get_modified_date(cc)
+            description = get_description(cc)
+            items.append((cc, label, [
+                (URIRef('http://purl.org/dc/terms/created'), date_created),
+                (URIRef('http://purl.org/dc/terms/modified'), date_modified),
+                description
+            ]))
 
     return sorted(items, key=lambda i: i[1])
 
@@ -161,19 +163,27 @@ def get_class_types(uri):
     return types
 
 
+def is_deprecated(uri):
+    for value in Config.g.objects(URIRef(uri), OWL.deprecated):
+        return bool(value)
+    return False
+
+
 def get_narrowers(uri):
     narrowers = []
     for narrower in Config.g.objects(URIRef(uri), SKOS.narrower):
-        label = get_label(narrower)
-        narrowers.append((narrower, label))
+        if not is_deprecated(narrower):
+            label = get_label(narrower)
+            narrowers.append((narrower, label))
     return sorted(narrowers, key=lambda i: i[1])
 
 
 def get_broaders(uri):
     broaders = []
     for broader in Config.g.objects(URIRef(uri), SKOS.broader):
-        label = get_label(broader)
-        broaders.append((broader, label))
+        if not is_deprecated(broader):
+            label = get_label(broader)
+            broaders.append((broader, label))
     return sorted(broaders, key=lambda i: i[1])
 
 
@@ -304,8 +314,9 @@ def get_concept_hierarchy_collection(uri):
     members = []
 
     for concept_or_collection in Config.g.objects(URIRef(uri), SKOS.member):
-        label = get_label(concept_or_collection)
-        members.append((concept_or_collection, label))
+        if not is_deprecated(concept_or_collection):
+            label = get_label(concept_or_collection)
+            members.append((concept_or_collection, label))
 
     members.sort(key=lambda i: i[1])
 
@@ -321,8 +332,9 @@ def get_concept_hierarchy(uri):
     top_concepts = []
 
     for top_concept in Config.g.objects(URIRef(uri), SKOS.hasTopConcept):
-        label = get_label(top_concept)
-        top_concepts.append((top_concept, label))
+        if not is_deprecated(top_concept):
+            label = get_label(top_concept)
+            top_concepts.append((top_concept, label))
 
     top_concepts.sort(key=lambda i: i[1])
 
