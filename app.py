@@ -23,8 +23,7 @@ application = DispatcherMiddleware(
 
 @app.before_request
 def before():
-    if not hasattr(Config, 'g'):
-        Config.g = Triplestore.get_db(Config.triplestore_type)
+    Config.g = Triplestore.get_db(Config.triplestore_type)
 
 
 @app.after_request

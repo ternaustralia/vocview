@@ -35,7 +35,16 @@ class Triplestore:
     @staticmethod
     def get_db(triplestore_type):
         if triplestore_type == 'memory':
-            g = Triplestore._create_db()
+            if not hasattr(Config, 'g'):
+                g = Triplestore._create_db()
+            else:
+                g = Config.g
+                for date in g.objects(Triplestore.THIS_GRAPH, DCTERMS.created):
+                    now = datetime.now()
+                    now -= timedelta(hours=Config.store_hours, minutes=Config.store_minutes)
+                    if now > date.toPython():
+                        g = Triplestore._create_db()
+
         elif triplestore_type == 'pickle':
             # Load pickled Graph object from disk. Check the time. If time has passed specified duration, then
             # re-harvest data.
