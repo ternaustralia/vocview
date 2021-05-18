@@ -40,13 +40,18 @@
     {% endif %}
 
     {% if c.equipment %}
+        {% if h.is_list(c.equipment) %}
         {{ render_property_no_value('Equipment', 'https://w3id.org/tern/ontologies/tern/equipment', 'h5') }}
-
         <ul>
             {% for equipment in c.equipment %}
                 <li>{{ render_instance_uri(equipment[0], equipment[1]) }}</li>
             {% endfor %}
         </ul>
+        {% else %}
+            {{ render_property(c.equipment, 'Equipment', 'https://w3id.org/tern/ontologies/tern/equipment', 'h5') }}
+        {% endif %}
+    {% else %}
+        {{ render_property('<em>not supplied</em>', 'Equipment', 'https://w3id.org/tern/ontologies/tern/equipment', 'h5') }}
     {% endif %}
 
     {% if c.time_required %}

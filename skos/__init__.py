@@ -484,8 +484,11 @@ def get_method_equipment(uri):
     uri = URIRef(uri)
     equipments = []
     for _, _, equipment in Config.g.triples((uri, URIRef('https://w3id.org/tern/ontologies/tern/equipment'), None)):
-        label = get_label(equipment)
-        equipments.append((equipment, label))
+        if isinstance(equipment, URIRef):
+            label = get_label(equipment)
+            equipments.append((equipment, label))
+        else:
+            return equipment
     return equipments
 
 
