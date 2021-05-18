@@ -28,4 +28,4 @@ RUN pip install --no-cache-dir gunicorn
 RUN chown -R 1000:1000 /app
 USER 1000
 
-CMD gunicorn --workers=2 --threads=2 --forwarded-allow-ips=* --bind=0.0.0.0:8000 --limit-request-line=8190 --log-level=info app:application
+CMD gunicorn --workers=1 --threads=2 --forwarded-allow-ips=* --bind=0.0.0.0:8000 --limit-request-line=8190 --log-level=info app:application

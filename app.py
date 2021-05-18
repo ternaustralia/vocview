@@ -1,4 +1,5 @@
 from flask import Flask, request
+from flask_cors import CORS
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
 from werkzeug.serving import run_simple
 
@@ -12,6 +13,8 @@ from triplestore import Triplestore
 logging.basicConfig(level=logging.INFO)
 
 app = Flask(__name__)
+cors = CORS(app)
+
 app.register_blueprint(routes)
 
 application = DispatcherMiddleware(

@@ -5,6 +5,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [1.1.2] - 2021-05-18
+### Added
+- Methods template now renders additional properties.
+- Accessing the viewer still works when viewer re-pulls new triples from sources.
+
+
+## [1.1.1] - 2021-05-11
+### Added
+- CORS support.
+
+
 ## [1.1.0] - 2020-02-22
 ### Added
 - Re-pull triples for 'memory' store mode.

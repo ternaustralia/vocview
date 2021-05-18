@@ -20,6 +20,7 @@ class InvalidTriplestoreType(Exception):
 
 class Triplestore:
     THIS_GRAPH = URIRef('http://www.this-graph.com/123456789/')
+    loading = False
 
     @staticmethod
     def _create_pickle_disk():
@@ -43,7 +44,7 @@ class Triplestore:
                     now = datetime.now()
                     now -= timedelta(hours=Config.store_hours, minutes=Config.store_minutes)
                     if now > date.toPython():
-                        g = Triplestore._create_db()
+                        g = Triplestore._create_db(g)
 
         elif triplestore_type == 'pickle':
             # Load pickled Graph object from disk. Check the time. If time has passed specified duration, then
@@ -94,18 +95,24 @@ class Triplestore:
         return g
 
     @staticmethod
-    def _create_db():
-        logging.info('Creating new graph')
+    def _create_db(old_g: Graph = None):
         start_time = time.time()
 
         g = ConjunctiveGraph()
 
-        Triplestore._add_triples(g)
+        if not Triplestore.loading:
+            logging.info('Creating new graph')
+            Triplestore.loading = True
+            Triplestore._add_triples(g)
 
-        # Add time of creation of new Graph
-        g.add((Triplestore.THIS_GRAPH, DCTERMS.created, Literal(datetime.now(), datatype=XSD.dateTime)))
+            # Add time of creation of new Graph
+            g.add((Triplestore.THIS_GRAPH, DCTERMS.created, Literal(datetime.now(), datatype=XSD.dateTime)))
 
-        logging.info(f'time taken: {(time.time() - start_time):.2f} seconds')
+            logging.info(f'time taken: {(time.time() - start_time):.2f} seconds')
+            Triplestore.loading = False
+        else:
+            if old_g:
+                return old_g
 
         return g
 

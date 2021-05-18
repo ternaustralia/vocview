@@ -1,44 +1,31 @@
 download:
-  skos_rules:
-    source: https://bitbucket.org/terndatateam/knowledge-graph-data/raw/HEAD/onto_rules/skos_rules.ttl
-    format: turtle
-  corveg:
-    source: https://graphdb-850.tern.org.au/repositories/ausplots_vocabs_core/statements?context=<http://linked.data.gov.au/def/ausplots-cv/>
-    format: turtle
-#  corveg:
-#    source: https://demo.ands.org.au/vocabs-registry/api/resource/downloads/764/ands-nc_corveg_v-1.ttl
-#    format: turtle
-#  address_types:
-#    source: https://vocabs.ands.org.au/registry/api/resource/downloads/671/psma_address-types_1-0.ttl
-#    format: turtle
-#  alteration_type:
-#    source: https://vocabs.ands.org.au/registry/api/resource/downloads/175/ga_alteration-type_v0-1.ttl
-#    format: turtle
-#  material_types:
-#    source: https://vocabs.ands.org.au/registry/api/resource/downloads/524/ga_material-type_v1-0.ttl
-#    format: turtle
-#  aodn_geo_extents:
-#    source: https://vocabs.ands.org.au/registry/api/resource/downloads/232/aodn_aodn-geographic-extents-vocabulary_version-2-0.ttl
-#    format: turtle
-#local:
-#  skos:
-#    source: skos.ttl
-#    format: turtle
-#  cover_methods:
-#    source: cover-methods.ttl
-#    format: turtle
-#  disturbance_assessment:
-#    source: disturbance-assessment.ttl
-#    format: turtle
-#  test:
-#    source: test.ttl
-#    format: turtle
+    skos_rules:
+        source: https://bitbucket.org/terndatateam/knowledge-graph-data/raw/HEAD/onto_rules/skos_rules.ttl
+        format: turtle
+#    dawe:
+#        source: https://graphdb.tern.org.au/repositories/dawe_vocabs_core/statements?context=<http://linked.data.gov.au/def/tern-cv/>
+#        format: turtle
+    # tern:
+    #     source: https://bitbucket.org/terndatateam/tern-cv/raw/HEAD/data.ttl
+    #     format: turtle
+    tern_vocabs:
+        source: https://graphdb.tern.org.au/repositories/tern_vocabs_core/statements?context=<http://linked.data.gov.au/def/tern-cv/>
+        format: turtle
+#    tern_vocabs_ozflux:
+#        source: https://graphdb.tern.org.au/repositories/tern_vocabs_core/statements?context=<http://linked.data.gov.au/def/tern-cv/ozflux/>
+#        format: turtle
+#    bioimages_vocabs:
+#        source: https://graphdb.tern.org.au/repositories/bioimages_vocabs_core/statements?context=<http://linked.data.gov.au/def/tern-cv/>
+#        format: turtle
 rva:
-  resource_endpoint: 'https://vocabs.ands.org.au/registry/api/resource/vocabularies/{}?includeVersions=true&includeAccessPoints=true&includeRelatedEntitiesAndVocabularies=false'
-  download_endpoint: 'https://vocabs.ands.org.au/registry/api/resource/downloads/{}'
-  extension: ttl # Use Turtle as it has excellent compression compared to other RDF serialisations
-  format: turtle
-  ids: [
-#    245, # CORVEG
-    266, # IBRA
-  ]
+    resource_endpoint: 'https://vocabs.ands.org.au/registry/api/resource/vocabularies/{}?includeVersions=true&includeAccessPoints=true&includeRelatedEntitiesAndVocabularies=false'
+    download_endpoint: 'https://vocabs.ands.org.au/registry/api/resource/downloads/{}'
+    extension: ttl # Use Turtle as it has excellent compression compared to other RDF serialisations
+    format: turtle
+    ids: [
+        #264, # TERN Orgs and People list
+        #265, # TERN Ecological Data Vocabularies
+        #266, # IBRA7
+        #263, # TERN Platform List
+        #286, # TERN Instruments List
+    ]

@@ -510,3 +510,15 @@ def get_categorical_variables_relations(uri):
         cvs.append((cv, label))
 
     return cvs
+
+
+def get_method_time_required(uri):
+    uri = URIRef(uri)
+    for _, _, time_required in Config.g.triples((uri, URIRef('http://schema.org/timeRequired'), None)):
+        return time_required
+
+
+def get_method_additional_note(uri):
+    uri = URIRef(uri)
+    for _, _, note in Config.g.triples((uri, SKOS.note, None)):
+        return note

@@ -45,10 +45,22 @@
         {{ render_property('<em>not supplied</em>', 'Equipment', 'https://w3id.org/tern/ontologies/tern/equipment', 'h5') }}
     {% endif %}
 
+    {% if c.time_required %}
+        {{ render_property(c.time_required, 'Time required', 'http://schema.org/timeRequired', 'h5') }}
+    {% else %}
+        {{ render_property('<em>not supplied</em>', 'Time required', 'http://schema.org/timeRequired', 'h5') }}
+    {% endif %}
+
     {% if c.instructions %}
         {{ render_property(c.instructions, 'Instructions', 'https://w3id.org/tern/ontologies/tern/instructions', 'h5') }}
     {% else %}
         {{ render_property('<em>not supplied</em>', 'Instructions', 'https://w3id.org/tern/ontologies/tern/instructions', 'h5') }}
+    {% endif %}
+
+    {% if c.additional_note %}
+        {{ render_property(c.additional_note, 'Additional notes', 'http://www.w3.org/2004/02/skos/core#note', 'h5') }}
+    {% else %}
+        {{ render_property('<em>not supplied</em>', 'Additional notes', 'http://www.w3.org/2004/02/skos/core#note', 'h5') }}
     {% endif %}
 
     {% if c.source %}

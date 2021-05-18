@@ -15,7 +15,9 @@ class Method(CommonPropertiesMixin):
         self.purpose = skos.get_method_purpose(uri)
         self.scope = skos.get_method_scope(uri)
         self.equipment = skos.get_method_equipment(uri)
+        self.time_required = skos.get_method_time_required(uri)
         self.instructions = skos.get_method_instructions(uri)
+        self.additional_note = skos.get_method_additional_note(uri)
         self.parameters = skos.get_parameter_relations(uri)
         self.categorical_variables = skos.get_categorical_variables_relations(uri)
 
