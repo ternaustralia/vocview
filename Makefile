@@ -1,4 +1,4 @@
-version = 1.1.2
+version = 1.1.3
 
 build:
 	docker build -t ternau/vocview:$(version) .

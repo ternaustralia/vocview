@@ -2,15 +2,15 @@ download:
     skos_rules:
         source: https://bitbucket.org/terndatateam/knowledge-graph-data/raw/HEAD/onto_rules/skos_rules.ttl
         format: turtle
-#    dawe:
-#        source: https://graphdb.tern.org.au/repositories/dawe_vocabs_core/statements?context=<http://linked.data.gov.au/def/tern-cv/>
-#        format: turtle
+    dawe:
+        source: https://graphdb.tern.org.au/repositories/dawe_vocabs_core/statements?context=<http://linked.data.gov.au/def/tern-cv/>
+        format: turtle
     # tern:
     #     source: https://bitbucket.org/terndatateam/tern-cv/raw/HEAD/data.ttl
     #     format: turtle
-    tern_vocabs:
-        source: https://graphdb.tern.org.au/repositories/tern_vocabs_core/statements?context=<http://linked.data.gov.au/def/tern-cv/>
-        format: turtle
+#    tern_vocabs:
+#        source: https://graphdb.tern.org.au/repositories/tern_vocabs_core/statements?context=<http://linked.data.gov.au/def/tern-cv/>
+#        format: turtle
 #    tern_vocabs_ozflux:
 #        source: https://graphdb.tern.org.au/repositories/tern_vocabs_core/statements?context=<http://linked.data.gov.au/def/tern-cv/ozflux/>
 #        format: turtle

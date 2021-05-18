@@ -482,8 +482,11 @@ def get_method_scope(uri):
 
 def get_method_equipment(uri):
     uri = URIRef(uri)
+    equipments = []
     for _, _, equipment in Config.g.triples((uri, URIRef('https://w3id.org/tern/ontologies/tern/equipment'), None)):
-        return equipment
+        label = get_label(equipment)
+        equipments.append((equipment, label))
+    return equipments
 
 
 def get_method_instructions(uri):
