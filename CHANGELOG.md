@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [1.1.5] - 2021-05-21
+### Added
+- MathJax JavaScript dependency to render Math symbols in LateX.
+
+
 ## [1.1.4] - 2021-05-18
 ### Fixed
 - Conditionally renders the Method's equipments list correctly now for both HTML values as well as for individuals.

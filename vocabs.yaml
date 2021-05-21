@@ -2,6 +2,9 @@ download:
     skos_rules:
         source: https://bitbucket.org/terndatateam/knowledge-graph-data/raw/HEAD/onto_rules/skos_rules.ttl
         format: turtle
+#    ausplots:
+#        source: https://graphdb.tern.org.au/repositories/ausplots_vocabs_core/statements?context=<http://linked.data.gov.au/def/ausplots-cv/>
+#        format: turtle
     dawe:
         source: https://graphdb.tern.org.au/repositories/dawe_vocabs_core/statements?context=<http://linked.data.gov.au/def/tern-cv/>
         format: turtle
