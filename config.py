@@ -2,7 +2,7 @@ import os
 import re
 
 from dotenv import load_dotenv
-
+from rdflib import Graph
 
 load_dotenv()
 
@@ -62,9 +62,10 @@ class Config:
     #   - Difficulty: intermediate
     triplestore_type = 'memory' if FLASK_ENV == 'production' else 'pickle'
 
-    # The time which the persistent store is valid before re-harvesting from its sources
-    store_hours = int(os.environ.get('VOCVIEW_STORE_HOURS', '0'))
-    store_minutes = int(os.environ.get('VOCVIEW_STORE_MINUTES', '60'))
+    # The time which the store is valid before re-harvesting in the background.
+    # store_hours = int(os.environ.get('VOCVIEW_STORE_HOURS', '0'))
+    # store_minutes = int(os.environ.get('VOCVIEW_STORE_MINUTES', '60'))
+    store_seconds = int(os.environ.get('VOCVIEW_STORE_SECONDS', '3600'))
 
     # Triplestore disk path
     _triplestore_name_pickle = 'triplestore.p'
@@ -73,3 +74,5 @@ class Config:
     triplestore_path_sleepy_cat = os.path.join(APP_DIR, _triplestore_name_sleepy_cat)
 
     _version = get_version()
+
+    g: Graph

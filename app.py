@@ -1,15 +1,18 @@
+import atexit
+import logging
+
 from flask import Flask, request
 from flask_cors import CORS
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
 from werkzeug.serving import run_simple
-
-import logging
+from watchdog.observers import Observer
 
 from config import Config
 from controller.routes import routes
 import helper
-from triplestore import Triplestore
+from graph_management import get_graph, VocviewFileSystemEventHandler
 
+logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
 
 app = Flask(__name__)
@@ -24,9 +27,17 @@ application = DispatcherMiddleware(
 )
 
 
+# Set up python-watchdog
+path = 'data'
+observer = Observer()
+observer.schedule(VocviewFileSystemEventHandler(), path)
+observer.start()
+
+
 @app.before_request
 def before():
-    Config.g = Triplestore.get_db(Config.triplestore_type)
+    # Config.g = Triplestore.get_db(Config.triplestore_type)
+    Config.g = get_graph(Config)
 
 
 @app.after_request
@@ -45,6 +56,12 @@ def init():
 @app.context_processor
 def context_processor():
     return dict(h=helper, config=Config)
+
+
+@atexit.register
+def shutdown():
+    logger.info('Performing cleanup')
+    observer.stop()
 
 
 if __name__ == '__main__':

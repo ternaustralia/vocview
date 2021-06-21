@@ -16,8 +16,8 @@ owlrl==5.2.1
 pyldapi==2.1.4
 pyparsing==2.4.7
 PyYAML==5.4
-rdflib==4.2.2
-rdflib-jsonld==0.4.0
+rdflib==5.0.0
+rdflib-jsonld==0.5.0
 requests==2.23.0
 six==1.14.0
 soupsieve==2.0
@@ -26,3 +26,6 @@ urllib3==1.25.8
 Werkzeug==0.16.0
 python-dotenv==0.15.0
 Flask-Cors==3.0.10
+watchdog==2.1.2
+celery==5.1.1
+https://bitbucket.org/terndatateam/tern_rdf/get/0.0.33.zip

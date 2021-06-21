@@ -1,3 +1,6 @@
+.DS_Store
+data.ttl
+local_vocabs
 
 # Created by https://www.gitignore.io/api/venv,flask,python,pycharm+all
 # Edit at https://www.gitignore.io/?templates=venv,flask,python,pycharm+all

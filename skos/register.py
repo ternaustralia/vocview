@@ -36,7 +36,7 @@ class Register(RegisterRenderer):
             g.add((catalog, DCTERMS.title, Literal(Config.title)))
             g.add((catalog, RDFS.label, Literal(Config.title)))
             g.add((catalog, DCTERMS.description, Literal(Config.description)))
-            g.add((catalog, FOAF.landingPage, catalog))
+            # g.add((catalog, FOAF.landingPage, catalog))
             g.add((catalog, FOAF.homepage, URIRef(self.request.url_root)))
 
             for item in self.register_items:

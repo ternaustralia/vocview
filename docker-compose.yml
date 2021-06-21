@@ -1,0 +1,36 @@
+services:
+  app:
+    build: .
+    command: gunicorn --workers=1 --threads=2 --forwarded-allow-ips=* --bind=0.0.0.0:5000 --limit-request-line=8190 --log-level=info app:application
+    ports:
+      - 5000:5000
+    volumes:
+      - broker:/app/broker
+      - data:/app/data
+      - VOCVIEW_STORE_SECONDS=10
+
+  worker:
+    build: .
+    command: ["celery", "-A", "worker.app", "worker", "--concurrency", "1", "--hostname", "worker@%h", "--loglevel", "INFO"]
+    volumes:
+      - broker:/app/broker
+      - data:/app/data
+    environment:
+    - CELERY_BROKER_URL=filesystem://
+    - CELERY_BROKER_FOLDER=/app/broker
+    - VOCVIEW_STORE_SECONDS=30
+
+  scheduler:
+    build: .
+    command: ["celery", "-A", "tasks.app", "beat", "--loglevel", "INFO"]
+    volumes:
+      - broker:/app/broker
+      - data:/app/data
+    environment:
+      - CELERY_BROKER_URL=filesystem://
+      - CELERY_BROKER_FOLDER=/app/broker
+      - VOCVIEW_STORE_SECONDS=10
+
+volumes:
+  broker:
+  data:

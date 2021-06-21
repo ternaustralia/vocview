@@ -5,6 +5,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [1.2.0] - 2021-06-22
+### Added
+- Background tasks with Celery + filesystem broker.
+- Watchdog to reload data in memory when background task pulls down new data.
+### Changed
+- RDFLib 4.2.2 -> 5.0.0
+
+
 ## [1.1.5] - 2021-05-21
 ### Added
 - MathJax JavaScript dependency to render Math symbols in LateX.
