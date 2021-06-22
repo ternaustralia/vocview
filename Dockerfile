@@ -11,6 +11,7 @@ COPY controller /app/controller
 COPY skos /app/skos
 COPY static /app/static
 COPY templates /app/templates
+COPY data /app/data
 
 COPY app.py /app
 COPY config.py /app
