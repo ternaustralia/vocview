@@ -1,6 +1,7 @@
 import os
 
 from rdflib import Graph
+from owlrl import DeductiveClosure, OWLRL_Semantics
 import yaml
 from celery import Celery
 from celery.utils.log import get_task_logger
@@ -35,6 +36,9 @@ def fetch_data():
                 data = r.text
                 g.parse(data=data, format=vocab['format'])
                 logger.info(f'Success with code {r.status_code}')
+
+        if Config.reasoner:
+            DeductiveClosure(OWLRL_Semantics).expand(g)
 
         path = 'data/data.ttl'
         logger.info(f'Serializing to disk at path {path}')

@@ -1,4 +1,4 @@
-version = 1.2.1-postfix1
+version = 1.2.2
 
 build:
 	docker build -t ternau/vocview:$(version) .
