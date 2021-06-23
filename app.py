@@ -52,6 +52,11 @@ def init():
     logging.info('Loaded config:')
     logging.info(Config.__dict__)
 
+    logging.info('Triggering background task from vocview app.')
+    import worker  # Import to create directories if missing.
+    from tasks import fetch_data
+    fetch_data.s().apply_async()
+
 
 @app.context_processor
 def context_processor():

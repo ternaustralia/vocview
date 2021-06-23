@@ -7,29 +7,29 @@ services:
     volumes:
       - broker:/app/broker
       - data:/app/data
-      - VOCVIEW_STORE_SECONDS=10
+      - VOCVIEW_STORE_SECONDS=60
 
   worker:
     build: .
-    command: ["celery", "-A", "worker.app", "worker", "--concurrency", "1", "--hostname", "worker@%h", "--loglevel", "INFO"]
+    command: ["celery", "-A", "worker.app", "worker", "--concurrency=1", "--hostname=worker@%h", "--loglevel=INFO"]
     volumes:
       - broker:/app/broker
       - data:/app/data
     environment:
     - CELERY_BROKER_URL=filesystem://
     - CELERY_BROKER_FOLDER=/app/broker
-    - VOCVIEW_STORE_SECONDS=10
+    - VOCVIEW_STORE_SECONDS=60
 
   scheduler:
     build: .
-    command: ["celery", "-A", "tasks.app", "beat", "--loglevel", "INFO"]
+    command: ["celery", "-A", "tasks.app", "beat", "--loglevel=INFO"]
     volumes:
       - broker:/app/broker
       - data:/app/data
     environment:
       - CELERY_BROKER_URL=filesystem://
       - CELERY_BROKER_FOLDER=/app/broker
-      - VOCVIEW_STORE_SECONDS=10
+      - VOCVIEW_STORE_SECONDS=60
 
 volumes:
   broker:
