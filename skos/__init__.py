@@ -124,10 +124,10 @@ def get_label(uri, create=True):
             for _, _, label in response_g.triples((uri, RDFS.label, None)):
                 return label
         except Exception as e:
-            print(uri)
-            print('Error dereferencing external URI:', str(e))
+            # print(uri)
+            # print('Error dereferencing external URI:', str(e))
             # print(r.content.decode('utf-8'))
-            print('Create label from the local name of the URI instead.')
+            # print('Create label from the local name of the URI instead.')
 
             # Create label out of the local segment of the URI.
             label = helper.uri_label(uri)

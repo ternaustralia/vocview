@@ -1,6 +1,7 @@
 import logging
 import os
 import time
+import traceback
 from typing import Type
 
 from rdflib import Graph
@@ -17,7 +18,13 @@ def load_graph(set_on_config: bool = False):
     path = 'data/data.ttl'
     logger.info(f'Loading data from path {path}')
     if os.path.isfile(path):
-        g.parse(path, format='turtle')
+        try:
+            g.parse(path, format='turtle')
+            logger.info(f'Loading completed.')
+        except Exception:
+            traceback.print_exc()
+            # This block is only possible if load_graph() is triggered by watchdog.
+            return None
     if set_on_config:
         Config.g = g
     return g

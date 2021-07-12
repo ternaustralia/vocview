@@ -7,6 +7,7 @@ services:
     volumes:
       - broker:/app/broker
       - data:/app/data
+    environment:
       - VOCVIEW_STORE_SECONDS=60
 
   worker:
