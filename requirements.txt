@@ -27,5 +27,5 @@ Werkzeug==0.16.0
 python-dotenv==0.15.0
 Flask-Cors==3.0.10
 watchdog==2.1.2
-celery==5.1.1
+celery==5.2.2
 https://bitbucket.org/terndatateam/tern_rdf/get/0.0.33.zip
