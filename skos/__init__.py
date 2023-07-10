@@ -292,12 +292,14 @@ def _add_narrower(uri, hierarchy, indent):
     concepts = []
 
     for concept in Config.g.objects(URIRef(uri), SKOS.narrower):
-        label = get_label(concept)
-        concepts.append((concept, label))
+        if not is_deprecated(concept):
+            label = get_label(concept)
+            concepts.append((concept, label))
 
     for concept in Config.g.objects(URIRef(uri), SKOS.member):
-        label = get_label(concept)
-        concepts.append((concept, label))
+        if not is_deprecated(concept):
+            label = get_label(concept)
+            concepts.append((concept, label))
 
     concepts.sort(key=lambda i: i[1])
 
