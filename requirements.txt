@@ -15,9 +15,9 @@ munch==2.5.0
 owlrl==5.2.1
 pyldapi==2.1.4
 pyparsing==2.4.7
-PyYAML==5.4
+PyYAML
 rdflib==5.0.0
-rdflib-jsonld==0.5.0
+rdflib-jsonld==0.6.1
 requests==2.25.1
 six==1.14.0
 soupsieve==2.0
