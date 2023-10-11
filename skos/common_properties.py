@@ -16,4 +16,5 @@ class CommonPropertiesMixin:
         self.bibliographic_citation = skos.get_bibliographic_citation(uri)
         self.is_defined_by = skos.get_is_defined_by(uri)
         self.collections = skos.member_of(uri)
+        self.subjects = skos.subjects(uri)
         self.source = skos.get_dcterms_source(uri)
