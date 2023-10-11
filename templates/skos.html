@@ -74,7 +74,7 @@
 
             {{ render_definition(c.definition) }}
 
-            {{ render_members(c.skos_members) }}
+            {{ render_members(c.skos_members or c.subjects) }}
 
             {{ render_is_defined_by(c.is_defined_by) }}
 

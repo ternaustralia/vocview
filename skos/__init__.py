@@ -332,7 +332,6 @@ def get_concept_hierarchy_collection(uri):
 def get_concept_hierarchy(uri):
     hierarchy = ''
     top_concepts = []
-
     for top_concept in Config.g.objects(URIRef(uri), SKOS.hasTopConcept):
         if not is_deprecated(top_concept):
             label = get_label(top_concept)
@@ -438,6 +437,16 @@ def member_of(uri):
         label = get_label(collection)
         collections.append((collection, label))
     return collections
+
+def subjects(uri):
+    """
+    which subjects are in scheme?
+    """
+    subjects = []
+    for sj in Config.g.subjects(SKOS.inScheme, URIRef(uri)):
+        label = get_label(sj)
+        subjects.append((sj, label))
+    return subjects
 
 
 def get_creator(uri):
